@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Constructeur de kit — Fred T. Lizer | Votre trousse de nutriments sur mesure</title>
+<meta name="description" content="Constructeur de kit Fred T. Lizer : répondez à 4 questions et obtenez une trousse de nutriments horticoles sur mesure — produits, formats, dosages et prix total avec économie vs achat séparé.">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          ink: '#0A0A0A',
+          punch: '#16C46A',
+          punchdark: '#0E9E54',
+          acid: '#D6FF2E',
+          smoke: '#F4F5F2',
+          line: '#E5E7E2',
+        },
+        fontFamily: {
+          display: ['Anton', 'sans-serif'],
+          archivo: ['Archivo', 'sans-serif'],
+          sans: ['Inter', 'sans-serif'],
+        },
+      }
+    }
+  }
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; }
+  .font-display { letter-spacing: -0.01em; }
+  .grain {
+    background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,.08) 1px, transparent 0);
+    background-size: 22px 22px;
+  }
+  .marquee-track { animation: marquee 28s linear infinite; }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce) { .marquee-track { animation: none; } html { scroll-behavior: auto; } .stepFade { animation: none !important; } }
+  .focusable:focus-visible { outline: 3px solid #16C46A; outline-offset: 2px; }
+  select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%230A0A0A' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 0.75rem center; -webkit-appearance: none; appearance: none; }
+  .stepFade { animation: fadeUp .35s ease both; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+  /* carte choix sélectionnée */
+  .choice-card[aria-pressed="true"] { border-color: #0A0A0A; box-shadow: 0 0 0 3px rgba(22,196,106,.35); }
+  .choice-card[aria-pressed="true"] .choice-check { opacity: 1; transform: scale(1); }
+  .choice-check { opacity: 0; transform: scale(.5); transition: .2s; }
+</style>
+
+<style id="ftl-header-css">
+/* ===== HEADER FRED T. LIZER — barre utilitaire + nav + MÉGA-MENU pleine largeur ===== */
+.ftl-header-wrap{position:sticky;top:0;z-index:60;font-family:'Inter',sans-serif;}
+.ftl-header-wrap *{box-sizing:border-box;}
+.ftl-utility{background:#0c1a10;color:#e7efe7;font-size:12px;}
+.ftl-utility-inner{max-width:1280px;margin:0 auto;padding:0 16px;height:36px;display:flex;align-items:center;justify-content:space-between;gap:12px;}
+.ftl-util-left{display:flex;align-items:center;gap:8px;min-width:0;overflow:hidden;white-space:nowrap;}
+.ftl-util-left span{flex:0 0 auto;}
+.ftl-util-dot{color:#3FB44A;}
+.ftl-util-right{display:flex;align-items:center;gap:10px;flex:0 0 auto;}
+.ftl-lang{display:flex;align-items:center;gap:5px;font-weight:700;letter-spacing:.02em;color:#9fb3a0;}
+.ftl-lang button{background:none;border:0;color:#9fb3a0;font:inherit;font-weight:700;cursor:pointer;padding:0;}
+.ftl-lang button:hover{color:#fff;}
+.ftl-lang .ftl-lang-on{color:#3FB44A;}
+.ftl-util-ico{color:#cdd9cd;display:inline-flex;padding:2px;border-radius:6px;}
+.ftl-util-ico:hover{color:#fff;}
+.ftl-util-cart{position:relative;display:inline-flex;align-items:center;justify-content:center;padding:2px;border-radius:6px;}
+.ftl-util-cart-badge{position:absolute;top:-5px;right:-6px;min-width:15px;height:15px;padding:0 3px;display:grid;place-items:center;background:#3FB44A;color:#0c1a10;font-size:10px;font-weight:900;border-radius:999px;line-height:1;}
+
+.ftl-nav-bar{position:relative;background:#14401F;color:#f5f1e8;border-bottom:2px solid rgba(255,255,255,.08);}
+.ftl-nav-inner{max-width:1280px;margin:0 auto;padding:0 16px;height:68px;display:flex;align-items:center;gap:18px;}
+.ftl-logo{flex:0 0 auto;min-width:0;display:inline-flex;align-items:center;border-radius:6px;overflow:hidden;}
+.ftl-logo img{height:30px;width:auto;max-width:100%;display:block;}
+.ftl-nav-center{flex:1 1 auto;min-width:0;display:flex;align-items:center;justify-content:center;}
+.ftl-nav-list{list-style:none;display:flex;align-items:center;gap:6px;margin:0;padding:0;}
+.ftl-nav-item{position:static;}
+.ftl-nav-link,.ftl-nav-trigger{position:relative;display:inline-flex;align-items:center;gap:5px;font:inherit;font-size:15px;font-weight:600;color:#f5f1e8;background:none;border:0;cursor:pointer;padding:10px 18px;border-radius:8px;text-decoration:none;line-height:1;white-space:nowrap;}
+.ftl-nav-link:hover,.ftl-nav-trigger:hover{background:rgba(255,255,255,.08);color:#fff;}
+.ftl-nav-link-active,.ftl-nav-trigger.nav-link-active{color:#fff;}
+.ftl-nav-link-active::after,.ftl-nav-trigger.nav-link-active::after{content:"";position:absolute;left:14px;right:14px;bottom:3px;height:2px;background:#3FB44A;border-radius:2px;}
+.ftl-nav-trigger[aria-expanded="true"]{background:rgba(255,255,255,.08);color:#fff;}
+
+/* ===== MÉGA-MENU PLEINE LARGEUR ===== */
+.ftl-mega{position:absolute;top:100%;left:0;right:0;z-index:55;background:#0c1a10;color:#e7efe7;border-top:1px solid rgba(63,180,74,.18);border-bottom-left-radius:18px;border-bottom-right-radius:18px;box-shadow:0 26px 60px -16px rgba(4,12,6,.65);opacity:0;visibility:hidden;transform:translateY(-10px);transition:opacity .22s ease,transform .22s ease,visibility .22s;pointer-events:none;}
+.ftl-mega[data-open="true"]{opacity:1;visibility:visible;transform:translateY(0);pointer-events:auto;}
+.ftl-mega-inner{max-width:1280px;margin:0 auto;padding:30px 16px 26px;}
+.ftl-mega-cols{display:grid;grid-template-columns:repeat(5,1fr);gap:26px;align-items:start;}
+.ftl-mega.ftl-mega-sm .ftl-mega-cols{grid-template-columns:1fr 1fr 1.35fr;gap:36px;}
+.ftl-mega-col-head{display:flex;align-items:center;gap:8px;margin:0 0 14px;padding:0 0 11px;border-bottom:1px solid rgba(255,255,255,.08);}
+.ftl-mega-col-head svg{flex:0 0 auto;color:#3FB44A;}
+.ftl-mega-col-head span{font-size:11.5px;font-weight:800;letter-spacing:.11em;text-transform:uppercase;color:#3FB44A;}
+.ftl-mega-list{display:flex;flex-direction:column;gap:1px;}
+.ftl-mega-link{display:flex;flex-direction:column;gap:2px;padding:8px 10px;margin:0 -10px;border-radius:9px;text-decoration:none;transition:background .15s ease;}
+.ftl-mega-link:hover{background:rgba(63,180,74,.12);}
+.ftl-mega-t{font-size:14px;font-weight:700;color:#f5f1e8;line-height:1.25;transition:color .15s ease;}
+.ftl-mega-link:hover .ftl-mega-t{color:#3FB44A;}
+.ftl-mega-d{font-size:12px;color:#9fb3a4;line-height:1.3;}
+.ftl-mega-intro{font-size:13px;color:#9fb3a4;line-height:1.5;margin:0 0 14px;}
+.ftl-mega-feature{display:block;border-radius:12px;overflow:hidden;text-decoration:none;border:1px solid rgba(255,255,255,.08);background:#14401F;}
+.ftl-mega-feature img{display:block;width:100%;height:120px;object-fit:cover;}
+.ftl-mega-feature-body{padding:12px 14px;}
+.ftl-mega-feature-k{font-size:10.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#3FB44A;}
+.ftl-mega-feature-t{display:block;margin-top:3px;font-size:14px;font-weight:700;color:#f5f1e8;}
+/* Bandeau bas */
+.ftl-mega-foot{background:#14401F;border-top:1px solid rgba(255,255,255,.07);border-bottom-left-radius:18px;border-bottom-right-radius:18px;}
+.ftl-mega-foot-inner{max-width:1280px;margin:0 auto;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;}
+.ftl-mega-perks{display:flex;align-items:center;gap:18px;flex-wrap:wrap;min-width:0;}
+.ftl-mega-perk{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:600;color:#cdd9cd;white-space:nowrap;}
+.ftl-mega-perk svg{flex:0 0 auto;color:#3FB44A;}
+.ftl-mega-shop{display:inline-flex;align-items:center;gap:7px;background:#3FB44A;color:#0c1a10;font-weight:800;font-size:14px;padding:10px 18px;border-radius:10px;text-decoration:none;white-space:nowrap;transition:background .15s ease,color .15s ease;}
+.ftl-mega-shop:hover{background:#2E9239;color:#fff;}
+
+.ftl-actions{flex:0 0 auto;display:flex;align-items:center;gap:8px;margin-left:auto;}
+.ftl-search{display:none;align-items:center;gap:7px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.16);border-radius:10px;padding:7px 11px;color:#d8e2d8;}
+.ftl-search svg{flex:0 0 auto;}
+.ftl-search input{background:none;border:0;outline:none;color:#f5f1e8;font:inherit;font-size:14px;width:170px;}
+.ftl-search input::placeholder{color:#9fb3a0;}
+.ftl-search:focus-within{border-color:#3FB44A;}
+.ftl-icon-btn{position:relative;display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;color:#f5f1e8;}
+.ftl-icon-btn:hover{background:rgba(255,255,255,.10);}
+.ftl-cart-badge{position:absolute;top:3px;right:3px;min-width:17px;height:17px;padding:0 4px;display:grid;place-items:center;background:#3FB44A;color:#0c1a10;font-size:11px;font-weight:900;border-radius:999px;line-height:1;}
+.ftl-cta{display:none;align-items:center;background:#3FB44A;color:#0c1a10;font-weight:800;font-size:14px;padding:10px 16px;border-radius:10px;text-decoration:none;white-space:nowrap;}
+.ftl-cta:hover{background:#2E9239;color:#fff;}
+
+/* Mobile nav panel */
+.ftl-mobile-cart{display:inline-flex;}
+.ftl-burger{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:10px;background:none;border:0;color:#f5f1e8;cursor:pointer;}
+.ftl-burger:hover{background:rgba(255,255,255,.10);}
+.ftl-mobile-nav{background:#14401F;color:#f5f1e8;border-bottom:2px solid rgba(255,255,255,.08);padding:8px 16px 18px;}
+.ftl-mobile-nav nav{display:flex;flex-direction:column;}
+.ftl-m-group{border-bottom:1px solid rgba(255,255,255,.10);}
+.ftl-m-group summary{cursor:pointer;list-style:none;padding:13px 4px;font-weight:700;font-size:16px;display:flex;align-items:center;justify-content:space-between;}
+.ftl-m-group summary::-webkit-details-marker{display:none;}
+.ftl-m-group summary::after{content:"+";font-weight:400;font-size:20px;color:#3FB44A;}
+.ftl-m-group[open] summary::after{content:"–";}
+.ftl-m-sub{padding:2px 4px 8px;}
+.ftl-m-subhead{font-size:10.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#3FB44A;padding:8px 10px 4px;}
+.ftl-m-group a{display:block;padding:8px 14px;color:#cdd9cd;text-decoration:none;font-size:15px;}
+.ftl-m-group a:hover{color:#fff;}
+.ftl-m-link{padding:13px 4px;font-weight:700;font-size:16px;color:#f5f1e8;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.10);}
+.ftl-m-link.nav-link-active{color:#3FB44A;}
+.ftl-m-actions{margin-top:16px;display:flex;flex-direction:column;gap:10px;}
+.ftl-m-account{display:flex;justify-content:center;padding:11px;border:1px solid rgba(255,255,255,.20);border-radius:10px;color:#f5f1e8;text-decoration:none;font-weight:700;}
+
+/* Responsive */
+.ftl-util-hide-sm,.ftl-util-hide-md{display:inline;}
+@media (max-width:1100px){.ftl-util-hide-md{display:none;}}
+@media (max-width:640px){
+  .ftl-util-hide-sm{display:none;}
+  .ftl-utility-inner{padding:0 12px;}
+  .ftl-nav-inner{padding:0 12px;gap:10px;height:60px;}
+  .ftl-logo img{height:22px;}
+  .ftl-actions{gap:2px;}
+  .ftl-icon-btn,.ftl-burger{width:38px;height:38px;}
+}
+@media (max-width:380px){.ftl-logo img{height:20px;}}
+@media (min-width:1024px){.ftl-search{display:flex;}.ftl-cta{display:inline-flex;}}
+/* desktop : nav visible, burger caché ; mobile : inverse */
+@media (max-width:1023px){
+  .ftl-nav-center{display:none;}
+  .ftl-mega{display:none !important;}
+  .ftl-actions .ftl-search,.ftl-actions .ftl-icon-btn:not(.ftl-mobile-cart),.ftl-actions .ftl-cta{display:none;}
+}
+@media (min-width:1024px){
+  .ftl-mobile-cart,.ftl-burger{display:none;}
+  .ftl-mobile-nav{display:none !important;}
+}
+.ftl-header-wrap a:focus-visible,.ftl-header-wrap button:focus-visible,.ftl-header-wrap input:focus-visible{outline:3px solid #3FB44A;outline-offset:2px;}
+@media (prefers-reduced-motion:reduce){.ftl-mega{transition:none;}}
+</style>
+</head>
+<body class="bg-white text-ink antialiased">
+
+<!-- ============ SKIP LINK ============ -->
+<a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:top-3 focus:left-3 focus:bg-ink focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focusable">Aller au contenu principal</a>
+
+<!-- ============ HEADER FRED T. LIZER (méga-menu pleine largeur, style PPS) ============ -->
+<div class="ftl-header-wrap">
+  <!-- Barre utilitaire fine (STATIQUE) -->
+  <div class="ftl-utility">
+    <div class="ftl-utility-inner">
+      <div class="ftl-util-left">
+        <span>Livraison gratuite dès 89&nbsp;$ au Canada</span>
+        <span class="ftl-util-dot" aria-hidden="true">·</span>
+        <span class="ftl-util-hide-sm">Fabriqué au Québec</span>
+        <span class="ftl-util-dot ftl-util-hide-sm" aria-hidden="true">·</span>
+        <span class="ftl-util-hide-md">Enraciné dans la science depuis 2002</span>
+      </div>
+      <div class="ftl-util-right">
+        <div class="ftl-lang" role="group" aria-label="Choix de la langue">
+          <button type="button" class="ftl-lang-on" aria-current="true">FR</button>
+          <span aria-hidden="true">·</span>
+          <button type="button">EN</button>
+          <span aria-hidden="true">·</span>
+          <button type="button">ES</button>
+        </div>
+        <a href="compte.html" class="ftl-util-ico" aria-label="Mon compte">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
+        </a>
+        <a href="panier.html" class="ftl-util-cart" aria-label="Panier, 2 articles">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7h15l-1.5 11a2 2 0 0 1-2 1.75H8.5a2 2 0 0 1-2-1.75L5 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+          <span class="ftl-util-cart-badge" aria-hidden="true">2</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  <!-- Barre de navigation principale (sticky) -->
+  <header class="ftl-nav-bar">
+    <div class="ftl-nav-inner">
+      <a href="../home/06-bold-conversion.html" class="ftl-logo" aria-label="Fred T. Lizer — accueil">
+        <img src="../assets/logo-blanc-3.png" alt="Fred T. Lizer" width="361" height="35">
+      </a>
+      <nav class="ftl-nav-center" aria-label="Navigation principale">
+        <ul class="ftl-nav-list" role="menubar">
+          <li class="ftl-nav-item" role="none">
+            <button type="button" class="ftl-nav-trigger nav-link-active" aria-expanded="false" aria-haspopup="true" data-menu="boutique" aria-current="page">Boutique</button>
+            <div class="ftl-mega" data-panel="boutique" data-open="false" role="menu" aria-label="Boutique" hidden>
+              <div class="ftl-mega-inner">
+                <div class="ftl-mega-cols">
+        <div class="ftl-mega-col">
+          <p class="ftl-mega-col-head"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6"/><path d="M10 3v6.5L4.5 19a1.5 1.5 0 0 0 1.3 2.3h12.4a1.5 1.5 0 0 0 1.3-2.3L14 9.5V3"/><path d="M7.5 15h9"/></svg><span>Par gamme</span></p>
+          <div class="ftl-mega-list">
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Toute la boutique</span><span class="ftl-mega-d">Tous les produits Fred T. Lizer</span></a>
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Bases A / B</span><span class="ftl-mega-d">Terra &amp; Aqua, croissance &amp; floraison</span></a>
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Boosters de floraison</span><span class="ftl-mega-d">PK, sucres &amp; renforçateurs</span></a>
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Suppléments &amp; correctifs</span><span class="ftl-mega-d">CalMag, enzymes</span></a>
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Organiques</span><span class="ftl-mega-d">Algue, fumier de vers</span></a>
+            <a class="ftl-mega-link" href="kit.html" role="menuitem"><span class="ftl-mega-t">Kits &amp; combos</span><span class="ftl-mega-d">Prêts à cultiver</span></a>
+          </div>
+        </div>
+        <div class="ftl-mega-col">
+          <p class="ftl-mega-col-head"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20c8 1 16-4 16-14 0 0-9-1-13 3s-3 11-3 11Z"/><path d="M4 20c2-5 5-8 9-10"/></svg><span>Par plante</span></p>
+          <div class="ftl-mega-list">
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Légumes</span><span class="ftl-mega-d">Tomates, piments</span></a>
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Fleurs</span><span class="ftl-mega-d">Annuelles, vivaces</span></a>
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Plantes d'intérieur</span><span class="ftl-mega-d">Verdure de maison</span></a>
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Pelouses &amp; haies</span><span class="ftl-mega-d">Gazon, cèdres, arbustes</span></a>
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Fines herbes</span><span class="ftl-mega-d">Basilic, menthe &amp; cie</span></a>
+          </div>
+        </div>
+        <div class="ftl-mega-col">
+          <p class="ftl-mega-col-head"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11Z"/></svg><span>Par médium</span></p>
+          <div class="ftl-mega-list">
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Terre &amp; potager</span><span class="ftl-mega-d">Pleine terre &amp; pots</span></a>
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Coco</span><span class="ftl-mega-d">Substrat de coco</span></a>
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Hydroponie</span><span class="ftl-mega-d">Systèmes sans sol</span></a>
+          </div>
+        </div>
+        <div class="ftl-mega-col">
+          <p class="ftl-mega-col-head"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21v-7"/><path d="M12 14c0-3 2.5-5 6-5 0 3-2.5 5-6 5Z"/><path d="M12 14c0-3-2.5-5-6-5 0 3 2.5 5 6 5Z"/></svg><span>Par stade</span></p>
+          <div class="ftl-mega-list">
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Semis &amp; bouturage</span><span class="ftl-mega-d">Départ en douceur</span></a>
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Croissance</span><span class="ftl-mega-d">Développement végétatif</span></a>
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Floraison</span><span class="ftl-mega-d">Fleurs &amp; fruits</span></a>
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Rinçage</span><span class="ftl-mega-d">Avant la récolte</span></a>
+          </div>
+        </div>
+        <div class="ftl-mega-col">
+          <p class="ftl-mega-col-head"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.5-.6-.6-2.5 2.6-2.4Z"/></svg><span>Outils &amp; ressources</span></p>
+          <p class="ftl-mega-intro">Trouvez le bon produit et le bon dosage en quelques clics.</p>
+          <div class="ftl-mega-list">
+            <a class="ftl-mega-link" href="calculateur.html" role="menuitem"><span class="ftl-mega-t">Calculateur de dosage</span><span class="ftl-mega-d">ml/L et ml/gallon</span></a>
+            <a class="ftl-mega-link" href="../home/06-bold-conversion.html#feedcharts" role="menuitem"><span class="ftl-mega-t">Recettes &amp; feed charts</span><span class="ftl-mega-d">Programmes semaine par semaine</span></a>
+            <a class="ftl-mega-link" href="comparatif.html" role="menuitem"><span class="ftl-mega-t">Sélecteur de produits</span><span class="ftl-mega-d">Comparez et choisissez</span></a>
+            <a class="ftl-mega-link" href="../home/06-bold-conversion.html#guides" role="menuitem"><span class="ftl-mega-t">Guides de culture</span><span class="ftl-mega-d">Conseils &amp; fiches</span></a>
+          </div>
+        </div>
+                </div>
+              </div>
+      <div class="ftl-mega-foot">
+        <div class="ftl-mega-foot-inner">
+          <div class="ftl-mega-perks">
+            <span class="ftl-mega-perk"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l1.6 3.4 3.4-.9-1.3 3.3 3.3 1.3-2.7 2.2 1.9 3-3.5-.6-.2 3.5L12 18l-2.2 2.7-.2-3.5-3.5.6 1.9-3-2.7-2.2 3.3-1.3-1.3-3.3 3.4.9z"/><path d="M12 18v4"/></svg>Fabriqué au Québec</span>
+            <span class="ftl-mega-perk"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v9H3z"/><path d="M14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.6"/><circle cx="17.5" cy="18" r="1.6"/></svg>Livraison gratuite dès 89&nbsp;$</span>
+            <span class="ftl-mega-perk"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3h4"/><path d="M11 3v5L6 18a1.4 1.4 0 0 0 1.2 2.1h9.6A1.4 1.4 0 0 0 18 18L13 8V3"/></svg>Appuyé par la science</span>
+          </div>
+          <a class="ftl-mega-shop" href="boutique.html">Magasiner maintenant <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+            </div>
+          </li>
+          <li class="ftl-nav-item" role="none">
+            <button type="button" class="ftl-nav-trigger" aria-expanded="false" aria-haspopup="true" data-menu="apprendre">Apprendre</button>
+            <div class="ftl-mega ftl-mega-sm" data-panel="apprendre" data-open="false" role="menu" aria-label="Apprendre" hidden>
+              <div class="ftl-mega-inner">
+                <div class="ftl-mega-cols">
+        <div class="ftl-mega-col">
+          <p class="ftl-mega-col-head"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h7v16H6a2 2 0 0 0-2 2V5Z"/><path d="M20 3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1h-7"/></svg><span>Apprendre</span></p>
+          <div class="ftl-mega-list">
+            <a class="ftl-mega-link" href="calculateur.html" role="menuitem"><span class="ftl-mega-t">Calculateur de dosage</span><span class="ftl-mega-d">ml/L et ml/gallon</span></a>
+            <a class="ftl-mega-link" href="../home/06-bold-conversion.html#feedcharts" role="menuitem"><span class="ftl-mega-t">Recettes &amp; feed charts</span><span class="ftl-mega-d">Programmes semaine par semaine</span></a>
+            <a class="ftl-mega-link" href="../home/06-bold-conversion.html#guides" role="menuitem"><span class="ftl-mega-t">Guides de culture</span><span class="ftl-mega-d">Conseils &amp; fiches techniques</span></a>
+            <a class="ftl-mega-link" href="../home/06-bold-conversion.html#faq" role="menuitem"><span class="ftl-mega-t">FAQ</span><span class="ftl-mega-d">Questions fréquentes</span></a>
+          </div>
+        </div>
+        <div class="ftl-mega-col">
+          <p class="ftl-mega-col-head"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"/></svg><span>Ressources</span></p>
+          <div class="ftl-mega-list">
+            <a class="ftl-mega-link" href="comparatif.html" role="menuitem"><span class="ftl-mega-t">Sélecteur de produits</span><span class="ftl-mega-d">Trouvez la bonne formule</span></a>
+            <a class="ftl-mega-link" href="../home/06-bold-conversion.html#sds" role="menuitem"><span class="ftl-mega-t">Fiches techniques (SDS)</span><span class="ftl-mega-d">Sécurité &amp; composition</span></a>
+            <a class="ftl-mega-link" href="../home/06-bold-conversion.html#blogue" role="menuitem"><span class="ftl-mega-t">Blogue</span><span class="ftl-mega-d">Actualités &amp; culture</span></a>
+          </div>
+        </div>
+        <div class="ftl-mega-col">
+          <p class="ftl-mega-col-head"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20c8 1 16-4 16-14 0 0-9-1-13 3s-3 11-3 11Z"/><path d="M4 20c2-5 5-8 9-10"/></svg><span>En vedette</span></p>
+          <a class="ftl-mega-feature" href="../home/06-bold-conversion.html#guides" role="menuitem">
+            <img src="../assets/lifestyle/hero-serre.jpg" alt="Serre de culture luxuriante" loading="lazy">
+            <span class="ftl-mega-feature-body"><span class="ftl-mega-feature-k">Guide vedette</span><span class="ftl-mega-feature-t">Réussir sa floraison en serre</span></span>
+          </a>
+        </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="ftl-nav-item" role="none"><a href="b2b-revendeurs.html" class="ftl-nav-link nav-link">Revendeurs</a></li>
+          <li class="ftl-nav-item" role="none"><a href="../home/06-bold-conversion.html#fondateur" class="ftl-nav-link nav-link">À propos</a></li>
+          <li class="ftl-nav-item" role="none"><a href="../home/06-bold-conversion.html#contact" class="ftl-nav-link nav-link">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="ftl-actions">
+        <form class="ftl-search" role="search" onsubmit="return false">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <input type="search" placeholder="Rechercher un produit…" aria-label="Rechercher sur le site">
+        </form>
+        <a href="panier.html" class="ftl-icon-btn ftl-cart ftl-mobile-cart" aria-label="Panier, 2 articles">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7h15l-1.5 11a2 2 0 0 1-2 1.75H8.5a2 2 0 0 1-2-1.75L5 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+          <span class="ftl-cart-badge" aria-hidden="true">2</span>
+        </a>
+        <button type="button" class="ftl-burger" id="ftlBurger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="ftlMobileNav">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+  <div class="ftl-mobile-nav" id="ftlMobileNav" hidden>
+    <nav aria-label="Navigation mobile">
+      <details class="ftl-m-group">
+        <summary>Boutique</summary>
+        <div class="ftl-m-sub">
+          <p class="ftl-m-subhead">Par gamme</p>
+          <a href="boutique.html">Toute la boutique</a>
+          <a href="boutique.html">Bases A / B — Terra &amp; Aqua</a>
+          <a href="boutique.html">Boosters de floraison</a>
+          <a href="boutique.html">Suppléments &amp; correctifs</a>
+          <a href="boutique.html">Organiques</a>
+          <a href="kit.html">Kits &amp; combos</a>
+          <p class="ftl-m-subhead">Par plante</p>
+          <a href="boutique.html">Légumes</a>
+          <a href="boutique.html">Fleurs</a>
+          <a href="boutique.html">Plantes d'intérieur</a>
+          <a href="boutique.html">Pelouses &amp; haies</a>
+          <a href="boutique.html">Fines herbes</a>
+          <p class="ftl-m-subhead">Par médium &amp; stade</p>
+          <a href="boutique.html">Terre · Coco · Hydroponie</a>
+          <a href="boutique.html">Semis · Croissance · Floraison · Rinçage</a>
+        </div>
+      </details>
+      <details class="ftl-m-group">
+        <summary>Apprendre</summary>
+        <div class="ftl-m-sub">
+          <a href="calculateur.html">Calculateur de dosage</a>
+          <a href="../home/06-bold-conversion.html#feedcharts">Recettes &amp; feed charts</a>
+          <a href="../home/06-bold-conversion.html#guides">Guides de culture</a>
+          <a href="../home/06-bold-conversion.html#faq">FAQ</a>
+          <a href="comparatif.html">Sélecteur de produits</a>
+          <a href="../home/06-bold-conversion.html#sds">Fiches techniques (SDS)</a>
+          <a href="../home/06-bold-conversion.html#blogue">Blogue</a>
+        </div>
+      </details>
+      <a class="ftl-m-link" href="b2b-revendeurs.html">Revendeurs</a>
+      <a class="ftl-m-link" href="../home/06-bold-conversion.html#fondateur">À propos</a>
+      <a class="ftl-m-link" href="../home/06-bold-conversion.html#contact">Contact</a>
+    </nav>
+    <div class="ftl-m-actions">
+      <a href="compte.html" class="ftl-m-account">Mon compte</a>
+    </div>
+  </div>
+</div>
+<!-- ============ /HEADER FRED T. LIZER ============ -->
+
+<main id="main">
+
+<!-- ============ HERO CONSTRUCTEUR ============ -->
+<section class="relative bg-ink text-white overflow-hidden">
+  <img src="../assets/lifestyle/watering-jardin.jpg" alt="Arrosage d'un jardin potager" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover opacity-55" aria-hidden="true">
+  <div class="absolute inset-0 bg-gradient-to-r from-ink via-ink/85 to-ink/40" aria-hidden="true"></div>
+  <div class="absolute inset-0 grain" aria-hidden="true"></div>
+  <div class="absolute -top-32 -right-32 w-[34rem] h-[34rem] rounded-full bg-punch/20 blur-3xl" aria-hidden="true"></div>
+  <div class="absolute bottom-0 left-0 w-[26rem] h-[26rem] rounded-full bg-acid/10 blur-3xl" aria-hidden="true"></div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-10 lg:py-14">
+    <div class="max-w-2xl">
+      <span class="inline-flex items-center gap-2 bg-white/10 border border-white/15 rounded-full px-3 py-1.5 text-xs font-bold tracking-wide uppercase">
+        <span class="w-2 h-2 rounded-full bg-punch" aria-hidden="true"></span>
+        Assistant interactif · 4 étapes
+      </span>
+      <h1 class="mt-5 font-display text-[clamp(2.5rem,7vw,4.5rem)] leading-[0.92] uppercase">
+        Construisez votre<br><span class="text-punch">kit sur mesure.</span>
+      </h1>
+      <p class="mt-5 text-lg text-white/70 max-w-xl">
+        Répondez à quatre questions sur votre culture. On assemble la trousse Fred T. Lizer parfaite — bons produits, bons formats, bonnes quantités — avec le programme de dosage et le prix total, économie incluse.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BARRE DE PROGRESSION ============ -->
+<section class="sticky top-16 lg:top-20 z-40 bg-white/95 backdrop-blur border-b border-line">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4">
+    <ol id="progress" class="flex items-center gap-2 sm:gap-3" aria-label="Progression du constructeur de kit">
+      <li class="flex items-center gap-2 sm:gap-3 flex-1" data-prog="1">
+        <span class="prog-dot grid place-items-center w-8 h-8 rounded-full font-archivo font-900 text-sm shrink-0 transition" aria-hidden="true">1</span>
+        <span class="prog-label hidden sm:block text-xs font-bold uppercase tracking-wide leading-tight transition">Objectif</span>
+        <span class="prog-bar hidden sm:block flex-1 h-1 rounded-full bg-line transition"></span>
+      </li>
+      <li class="flex items-center gap-2 sm:gap-3 flex-1" data-prog="2">
+        <span class="prog-dot grid place-items-center w-8 h-8 rounded-full font-archivo font-900 text-sm shrink-0 transition" aria-hidden="true">2</span>
+        <span class="prog-label hidden sm:block text-xs font-bold uppercase tracking-wide leading-tight transition">Médium</span>
+        <span class="prog-bar hidden sm:block flex-1 h-1 rounded-full bg-line transition"></span>
+      </li>
+      <li class="flex items-center gap-2 sm:gap-3 flex-1" data-prog="3">
+        <span class="prog-dot grid place-items-center w-8 h-8 rounded-full font-archivo font-900 text-sm shrink-0 transition" aria-hidden="true">3</span>
+        <span class="prog-label hidden sm:block text-xs font-bold uppercase tracking-wide leading-tight transition">Cycle</span>
+        <span class="prog-bar hidden sm:block flex-1 h-1 rounded-full bg-line transition"></span>
+      </li>
+      <li class="flex items-center gap-2 sm:gap-3 flex-1" data-prog="4">
+        <span class="prog-dot grid place-items-center w-8 h-8 rounded-full font-archivo font-900 text-sm shrink-0 transition" aria-hidden="true">4</span>
+        <span class="prog-label hidden sm:block text-xs font-bold uppercase tracking-wide leading-tight transition">Niveau</span>
+        <span class="prog-bar hidden sm:block flex-1 h-1 rounded-full bg-line transition"></span>
+      </li>
+      <li class="flex items-center gap-2 sm:gap-3 shrink-0" data-prog="5">
+        <span class="prog-dot grid place-items-center w-8 h-8 rounded-full font-archivo font-900 text-sm shrink-0 transition" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 6"/></svg>
+        </span>
+        <span class="prog-label hidden sm:block text-xs font-bold uppercase tracking-wide leading-tight transition">Kit</span>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ CONSTRUCTEUR ============ -->
+<section class="max-w-7xl mx-auto px-4 sm:px-6 py-10 lg:py-14">
+
+  <!-- live region polie pour annoncer le changement d'étape -->
+  <p id="srStatus" class="sr-only" role="status" aria-live="polite"></p>
+
+  <!-- ÉTAPE 1 — OBJECTIF -->
+  <div class="builder-step" data-step="1">
+    <div class="max-w-3xl mx-auto text-center mb-8">
+      <p class="text-xs font-bold uppercase tracking-[0.2em] text-punchdark">Étape 1 sur 4</p>
+      <h2 class="mt-2 font-display text-4xl sm:text-5xl uppercase leading-none">Que cultivez-vous&nbsp;?</h2>
+      <p class="mt-3 text-ink/60">Choisissez l'objectif le plus proche. On ajustera les formules en conséquence.</p>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 max-w-5xl mx-auto" role="group" aria-label="Type de culture">
+      <!-- choix générés ; remplis statiquement pour autonomie -->
+      <button type="button" class="choice-card group relative text-left bg-white rounded-2xl border-2 border-line p-5 hover:border-punch transition focusable" data-group="objectif" data-value="potager" aria-pressed="false">
+        <span class="choice-check absolute top-4 right-4 grid place-items-center w-7 h-7 bg-punch rounded-full" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 6"/></svg></span>
+        <span class="grid place-items-center w-12 h-12 rounded-xl bg-gradient-to-br from-punch to-punchdark mb-4" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 20h10M12 20v-7M12 13c-3 0-5-2-5-5 3 0 5 2 5 5zM12 13c3 0 5-2 5-5-3 0-5 2-5 5z"/></svg></span>
+        <span class="block font-archivo font-900 text-xl">Potager &amp; légumes</span>
+        <span class="block text-sm text-ink/55 mt-1">Tomates, poivrons, fines herbes, petits fruits.</span>
+      </button>
+      <button type="button" class="choice-card group relative text-left bg-white rounded-2xl border-2 border-line p-5 hover:border-punch transition focusable" data-group="objectif" data-value="fleurs" aria-pressed="false">
+        <span class="choice-check absolute top-4 right-4 grid place-items-center w-7 h-7 bg-punch rounded-full" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 6"/></svg></span>
+        <span class="grid place-items-center w-12 h-12 rounded-xl bg-gradient-to-br from-[#c44a8e] to-[#9e2d6b] mb-4" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="3"/><path d="M12 9c0-4-3-6-3-6m3 6c0-4 3-6 3-6m-3 6c4 0 6-2 6-2m-6 2c-4 0-6-2-6-2M12 12v9"/></svg></span>
+        <span class="block font-archivo font-900 text-xl">Fleurs &amp; ornementales</span>
+        <span class="block text-sm text-ink/55 mt-1">Annuelles, vivaces, plates-bandes et bacs.</span>
+      </button>
+      <button type="button" class="choice-card group relative text-left bg-white rounded-2xl border-2 border-line p-5 hover:border-punch transition focusable" data-group="objectif" data-value="interieur" aria-pressed="false">
+        <span class="choice-check absolute top-4 right-4 grid place-items-center w-7 h-7 bg-punch rounded-full" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 6"/></svg></span>
+        <span class="grid place-items-center w-12 h-12 rounded-xl bg-gradient-to-br from-[#3fae9a] to-[#2c8475] mb-4" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21h6M12 21V11M12 11c-2 0-4-1-4-4 2 0 4 1 4 4zM12 11c2 0 4-1 4-4-2 0-4 1-4 4z"/><path d="M8 21l1-3h6l1 3"/></svg></span>
+        <span class="block font-archivo font-900 text-xl">Plantes d'intérieur</span>
+        <span class="block text-sm text-ink/55 mt-1">Vertes, tropicales et feuillage en pot.</span>
+      </button>
+      <button type="button" class="choice-card group relative text-left bg-white rounded-2xl border-2 border-line p-5 hover:border-punch transition focusable" data-group="objectif" data-value="cannabis" aria-pressed="false">
+        <span class="choice-check absolute top-4 right-4 grid place-items-center w-7 h-7 bg-punch rounded-full" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 6"/></svg></span>
+        <span class="grid place-items-center w-12 h-12 rounded-xl bg-gradient-to-br from-[#1f3d2b] to-ink mb-4" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#16C46A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22v-6M12 16c-2-1-4-4-4-7 2 0 4 2 4 4 0-3 1-6 0-9-1 3 0 6 0 9 0-2 2-4 4-4 0 3-2 6-4 7z"/></svg></span>
+        <span class="block font-archivo font-900 text-xl">Cannabis</span>
+        <span class="block text-sm text-ink/55 mt-1">Culture personnelle, demande élevée en floraison.</span>
+      </button>
+      <button type="button" class="choice-card group relative text-left bg-white rounded-2xl border-2 border-line p-5 hover:border-punch transition focusable" data-group="objectif" data-value="hydro" aria-pressed="false">
+        <span class="choice-check absolute top-4 right-4 grid place-items-center w-7 h-7 bg-punch rounded-full" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 6"/></svg></span>
+        <span class="grid place-items-center w-12 h-12 rounded-xl bg-gradient-to-br from-[#22a6c4] to-[#0d7d97] mb-4" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c4 5 6 8 6 11a6 6 0 0 1-12 0c0-3 2-6 6-11z"/></svg></span>
+        <span class="block font-archivo font-900 text-xl">Hydro avancé</span>
+        <span class="block text-sm text-ink/55 mt-1">DWC, NFT et systèmes recirculants exigeants.</span>
+      </button>
+      <button type="button" class="choice-card group relative text-left bg-white rounded-2xl border-2 border-line p-5 hover:border-punch transition focusable" data-group="objectif" data-value="demarrage" aria-pressed="false">
+        <span class="choice-check absolute top-4 right-4 grid place-items-center w-7 h-7 bg-punch rounded-full" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 6"/></svg></span>
+        <span class="grid place-items-center w-12 h-12 rounded-xl bg-gradient-to-br from-[#b58a4a] to-[#8a6630] mb-4" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V9M12 9c-2 0-3-1-3-3 2 0 3 1 3 3zM12 9c2 0 3-1 3-3-2 0-3 1-3 3z"/><path d="M5 20h14"/></svg></span>
+        <span class="block font-archivo font-900 text-xl">Semis &amp; boutures</span>
+        <span class="block text-sm text-ink/55 mt-1">Démarrage de plants et enracinement.</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ÉTAPE 2 — MÉDIUM -->
+  <div class="builder-step hidden" data-step="2">
+    <div class="max-w-3xl mx-auto text-center mb-8">
+      <p class="text-xs font-bold uppercase tracking-[0.2em] text-punchdark">Étape 2 sur 4</p>
+      <h2 class="mt-2 font-display text-4xl sm:text-5xl uppercase leading-none">Dans quel médium&nbsp;?</h2>
+      <p class="mt-3 text-ink/60">C'est ce qui détermine la base nutritive de votre kit.</p>
+    </div>
+    <div class="grid sm:grid-cols-3 gap-3 sm:gap-4 max-w-4xl mx-auto" role="group" aria-label="Médium de culture">
+      <button type="button" class="choice-card group relative text-left bg-white rounded-2xl border-2 border-line p-6 hover:border-punch transition focusable" data-group="medium" data-value="terre" aria-pressed="false">
+        <span class="choice-check absolute top-4 right-4 grid place-items-center w-7 h-7 bg-punch rounded-full" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 6"/></svg></span>
+        <span class="grid place-items-center w-14 h-14 rounded-xl bg-gradient-to-br from-[#6b5a2e] to-[#3a2e1d] mb-4" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17c2-1 4-1 6 0s4 1 6 0 4-1 6 0M3 13c2-1 4-1 6 0s4 1 6 0 4-1 6 0"/><circle cx="12" cy="6" r="2"/></svg></span>
+        <span class="block font-archivo font-900 text-xl">Terre</span>
+        <span class="block text-sm text-ink/55 mt-1">Terreau et pleine terre. Base&nbsp;: <strong class="text-ink">Terra A/B</strong>.</span>
+      </button>
+      <button type="button" class="choice-card group relative text-left bg-white rounded-2xl border-2 border-line p-6 hover:border-punch transition focusable" data-group="medium" data-value="coco" aria-pressed="false">
+        <span class="choice-check absolute top-4 right-4 grid place-items-center w-7 h-7 bg-punch rounded-full" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 6"/></svg></span>
+        <span class="grid place-items-center w-14 h-14 rounded-xl bg-gradient-to-br from-[#b58a4a] to-[#8a6630] mb-4" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M9 10h.01M15 10h.01M9 14c1 1.5 5 1.5 6 0"/></svg></span>
+        <span class="block font-archivo font-900 text-xl">Coco</span>
+        <span class="block text-sm text-ink/55 mt-1">Fibre de coco. Base&nbsp;: <strong class="text-ink">Aqua A/B</strong> + CalMag.</span>
+      </button>
+      <button type="button" class="choice-card group relative text-left bg-white rounded-2xl border-2 border-line p-6 hover:border-punch transition focusable" data-group="medium" data-value="hydro" aria-pressed="false">
+        <span class="choice-check absolute top-4 right-4 grid place-items-center w-7 h-7 bg-punch rounded-full" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 6"/></svg></span>
+        <span class="grid place-items-center w-14 h-14 rounded-xl bg-gradient-to-br from-[#22a6c4] to-[#0d7d97] mb-4" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c4 5 6 8 6 11a6 6 0 0 1-12 0c0-3 2-6 6-11z"/></svg></span>
+        <span class="block font-archivo font-900 text-xl">Hydroponie</span>
+        <span class="block text-sm text-ink/55 mt-1">Eau / billes d'argile. Base&nbsp;: <strong class="text-ink">Aqua A/B</strong>.</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ÉTAPE 3 — CYCLE / STADE -->
+  <div class="builder-step hidden" data-step="3">
+    <div class="max-w-3xl mx-auto text-center mb-8">
+      <p class="text-xs font-bold uppercase tracking-[0.2em] text-punchdark">Étape 3 sur 4</p>
+      <h2 class="mt-2 font-display text-4xl sm:text-5xl uppercase leading-none">Quel cycle visez-vous&nbsp;?</h2>
+      <p class="mt-3 text-ink/60">Un kit ciblé pour un stade, ou complet du semis au rinçage.</p>
+    </div>
+    <div class="grid sm:grid-cols-2 gap-3 sm:gap-4 max-w-3xl mx-auto" role="group" aria-label="Cycle visé">
+      <button type="button" class="choice-card group relative text-left bg-white rounded-2xl border-2 border-line p-5 hover:border-punch transition focusable" data-group="cycle" data-value="complet" aria-pressed="false">
+        <span class="choice-check absolute top-4 right-4 grid place-items-center w-7 h-7 bg-punch rounded-full" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 6"/></svg></span>
+        <span class="inline-flex items-center gap-2 text-[10px] font-900 uppercase tracking-wider bg-acid text-ink px-2 py-1 rounded mb-3">Recommandé</span>
+        <span class="block font-archivo font-900 text-xl">Cycle complet</span>
+        <span class="block text-sm text-ink/55 mt-1">Du semis à la récolte, rinçage inclus. Le meilleur rapport prix / économie.</span>
+      </button>
+      <button type="button" class="choice-card group relative text-left bg-white rounded-2xl border-2 border-line p-5 hover:border-punch transition focusable" data-group="cycle" data-value="croissance" aria-pressed="false">
+        <span class="choice-check absolute top-4 right-4 grid place-items-center w-7 h-7 bg-punch rounded-full" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 6"/></svg></span>
+        <span class="block font-archivo font-900 text-xl">Croissance végétative</span>
+        <span class="block text-sm text-ink/55 mt-1">Feuillage, masse racinaire et plants vigoureux avant la floraison.</span>
+      </button>
+      <button type="button" class="choice-card group relative text-left bg-white rounded-2xl border-2 border-line p-5 hover:border-punch transition focusable" data-group="cycle" data-value="floraison" aria-pressed="false">
+        <span class="choice-check absolute top-4 right-4 grid place-items-center w-7 h-7 bg-punch rounded-full" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 6"/></svg></span>
+        <span class="block font-archivo font-900 text-xl">Floraison &amp; fructification</span>
+        <span class="block text-sm text-ink/55 mt-1">Boost phosphore-potassium pour des fleurs et fruits denses.</span>
+      </button>
+      <button type="button" class="choice-card group relative text-left bg-white rounded-2xl border-2 border-line p-5 hover:border-punch transition focusable" data-group="cycle" data-value="demarrage" aria-pressed="false">
+        <span class="choice-check absolute top-4 right-4 grid place-items-center w-7 h-7 bg-punch rounded-full" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 6"/></svg></span>
+        <span class="block font-archivo font-900 text-xl">Démarrage / enracinement</span>
+        <span class="block text-sm text-ink/55 mt-1">Semis, boutures et reprise après rempotage.</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ÉTAPE 4 — NIVEAU -->
+  <div class="builder-step hidden" data-step="4">
+    <div class="max-w-3xl mx-auto text-center mb-8">
+      <p class="text-xs font-bold uppercase tracking-[0.2em] text-punchdark">Étape 4 sur 4</p>
+      <h2 class="mt-2 font-display text-4xl sm:text-5xl uppercase leading-none">Votre niveau&nbsp;?</h2>
+      <p class="mt-3 text-ink/60">On garde l'essentiel pour débuter, ou on ajoute les suppléments avancés.</p>
+    </div>
+    <div class="grid sm:grid-cols-2 gap-3 sm:gap-4 max-w-3xl mx-auto" role="group" aria-label="Niveau d'expérience">
+      <button type="button" class="choice-card group relative text-left bg-white rounded-2xl border-2 border-line p-6 hover:border-punch transition focusable" data-group="niveau" data-value="debutant" aria-pressed="false">
+        <span class="choice-check absolute top-4 right-4 grid place-items-center w-7 h-7 bg-punch rounded-full" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 6"/></svg></span>
+        <span class="grid place-items-center w-14 h-14 rounded-xl bg-gradient-to-br from-punch to-punchdark mb-4" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.5 5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-1z"/></svg></span>
+        <span class="block font-archivo font-900 text-xl">Débutant</span>
+        <span class="block text-sm text-ink/55 mt-1">Le strict nécessaire&nbsp;: base + correctif. Simple à doser, difficile à rater.</span>
+      </button>
+      <button type="button" class="choice-card group relative text-left bg-white rounded-2xl border-2 border-line p-6 hover:border-punch transition focusable" data-group="niveau" data-value="avance" aria-pressed="false">
+        <span class="choice-check absolute top-4 right-4 grid place-items-center w-7 h-7 bg-punch rounded-full" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 6"/></svg></span>
+        <span class="grid place-items-center w-14 h-14 rounded-xl bg-gradient-to-br from-ink to-[#1f3d2b] mb-4" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#16C46A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20v-5M4 11V4M12 20v-9M12 7V4M20 20v-3M20 13V4"/><circle cx="4" cy="13" r="2"/><circle cx="12" cy="9" r="2"/><circle cx="20" cy="15" r="2"/></svg></span>
+        <span class="block font-archivo font-900 text-xl">Avancé</span>
+        <span class="block text-sm text-ink/55 mt-1">Stimulants racinaires, organiques et boosters pour pousser le rendement.</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ÉTAPE 5 — RÉSULTAT : KIT RECOMMANDÉ -->
+  <div class="builder-step hidden" data-step="5">
+    <div class="max-w-3xl mx-auto text-center mb-8">
+      <p class="text-xs font-bold uppercase tracking-[0.2em] text-punchdark">Votre kit sur mesure</p>
+      <h2 id="kitTitle" class="mt-2 font-display text-4xl sm:text-5xl uppercase leading-none">Kit recommandé</h2>
+      <p id="kitSummary" class="mt-3 text-ink/60">Voici la trousse que nous assemblons pour votre culture.</p>
+    </div>
+
+    <!-- visuel d'ensemble du Kit Potager (1 L ou 4 L) -->
+    <div class="max-w-3xl mx-auto mb-10">
+      <div class="relative flex items-center gap-5 sm:gap-7 rounded-3xl bg-[#F8F7F2] border-2 border-line p-5 sm:p-6 overflow-hidden">
+        <div class="grid place-items-center shrink-0 rounded-2xl p-3">
+          <img id="kitHeroImg" src="../assets/products/kit-potager-1litre.png" alt="Kit Potager Fred T. Lizer" loading="lazy" decoding="async" class="h-28 sm:h-36 w-auto object-contain mix-blend-multiply">
+        </div>
+        <div class="min-w-0">
+          <span class="inline-flex items-center gap-2 text-[10px] font-900 uppercase tracking-wider bg-acid text-ink px-2 py-1 rounded mb-2">Visuel d'ensemble</span>
+          <h3 id="kitHeroName" class="font-archivo font-900 text-xl sm:text-2xl leading-tight">Kit Potager 1 L</h3>
+          <p class="text-sm text-ink/60 mt-1">L'ensemble complet, prêt à cultiver. Les produits ci-dessous composent votre trousse.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid lg:grid-cols-3 gap-6 items-start">
+
+      <!-- Liste produits -->
+      <div class="lg:col-span-2">
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="font-archivo font-800 text-lg">Produits inclus</h3>
+          <button type="button" id="addProductBtn" class="inline-flex items-center gap-1.5 text-sm font-archivo font-bold text-punchdark hover:text-ink transition focusable">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            Ajouter un produit
+          </button>
+        </div>
+        <ul id="kitList" class="space-y-3"></ul>
+
+        <!-- bloc ajout produit optionnel -->
+        <div id="addPanel" class="hidden mt-3 bg-smoke border-2 border-dashed border-line rounded-2xl p-4">
+          <p class="text-xs font-bold uppercase tracking-wide text-ink/60 mb-2">Ajouter au kit</p>
+          <div class="flex flex-col sm:flex-row gap-3">
+            <label for="addSelect" class="sr-only">Produit à ajouter</label>
+            <select id="addSelect" class="flex-1 bg-white border-2 border-line rounded-lg px-3 py-2.5 text-sm font-semibold focusable"></select>
+            <button type="button" id="addConfirm" class="bg-ink text-white font-archivo font-bold text-sm px-5 py-2.5 rounded-lg hover:bg-punchdark transition focusable">Ajouter</button>
+          </div>
+          <p id="addEmpty" class="hidden text-xs text-ink/55 mt-2">Tous nos produits sont déjà dans votre kit.</p>
+        </div>
+
+        <!-- programme de dosage -->
+        <div class="mt-6 bg-ink text-white rounded-2xl p-5 relative overflow-hidden">
+          <div class="absolute inset-0 grain" aria-hidden="true"></div>
+          <div class="absolute -top-16 -right-16 w-48 h-48 rounded-full bg-punch/20 blur-3xl" aria-hidden="true"></div>
+          <div class="relative flex items-start gap-4">
+            <span class="grid place-items-center w-12 h-12 bg-punch rounded-xl shrink-0" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="10" y2="10"/><line x1="14" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="10" y2="14"/><line x1="14" y1="14" x2="16" y2="14"/></svg>
+            </span>
+            <div class="flex-1">
+              <h3 class="font-archivo font-800 text-lg leading-tight">Programme de dosage inclus</h3>
+              <p class="text-sm text-white/65 mt-1">Chaque kit arrive avec son feed chart semaine par semaine en ml/L et ml/gallon. Affinez les quantités avec le calculateur.</p>
+              <a href="../home/06-bold-conversion.html#calculateur" class="mt-3 inline-flex items-center gap-2 bg-punch text-ink font-archivo font-800 text-sm px-5 py-3 rounded-xl hover:bg-acid transition focusable">
+                Voir le programme de dosage
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Récapitulatif prix (sticky) -->
+      <aside class="lg:sticky lg:top-40">
+        <div class="bg-white rounded-2xl border-2 border-ink overflow-hidden">
+          <div class="bg-ink text-white px-5 py-4">
+            <p class="font-archivo font-800 text-sm">Récapitulatif du kit</p>
+            <p class="text-xs text-white/55"><span id="itemCount">0</span> produits sélectionnés</p>
+          </div>
+          <div class="p-5 space-y-3">
+            <div class="flex items-center justify-between text-sm">
+              <span class="text-ink/60">Prix à l'unité (séparé)</span>
+              <span id="sumRegular" class="font-semibold line-through text-ink/45">0,00&nbsp;$</span>
+            </div>
+            <div class="flex items-center justify-between text-sm">
+              <span class="font-bold text-punchdark">Économie du kit</span>
+              <span id="sumSave" class="font-archivo font-800 text-punchdark">−0,00&nbsp;$</span>
+            </div>
+            <div class="border-t border-line pt-3 flex items-end justify-between">
+              <span class="font-archivo font-800">Total du kit</span>
+              <span id="sumTotal" class="font-display text-4xl leading-none">0,00&nbsp;$</span>
+            </div>
+            <p id="freeShip" class="text-xs text-punchdark font-bold flex items-center gap-1.5">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 6"/></svg>
+              Admissible à la livraison gratuite
+            </p>
+          </div>
+          <div class="px-5 pb-5 space-y-2.5">
+            <button type="button" id="addKitCart" class="w-full inline-flex items-center justify-center gap-2 bg-punch text-ink font-archivo font-800 text-base px-6 py-4 rounded-xl hover:bg-acid transition focusable">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7h15l-1.5 11a2 2 0 0 1-2 1.75H8.5a2 2 0 0 1-2-1.75L5 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+              Ajouter le kit au panier
+            </button>
+            <button type="button" id="restartBtn" class="w-full inline-flex items-center justify-center gap-2 bg-smoke hover:bg-line transition text-ink font-archivo font-bold text-sm px-6 py-3 rounded-xl focusable">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>
+              Recommencer le constructeur
+            </button>
+          </div>
+        </div>
+        <p class="mt-3 text-xs text-ink/50 text-center">Prix indicatifs en dollars canadiens, taxes en sus. Quantités suggérées pour un cycle.</p>
+      </aside>
+    </div>
+  </div>
+
+  <!-- NAVIGATION DES ÉTAPES -->
+  <div id="navBar" class="max-w-5xl mx-auto mt-10 flex items-center justify-between gap-4">
+    <button type="button" id="prevBtn" class="inline-flex items-center gap-2 bg-white border-2 border-line text-ink font-archivo font-bold text-sm px-5 py-3 rounded-xl hover:border-ink transition focusable disabled:opacity-40 disabled:cursor-not-allowed" disabled>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+      Précédent
+    </button>
+    <p class="hidden sm:block text-xs text-ink/45 font-semibold">Vos réponses ajustent automatiquement le kit.</p>
+    <button type="button" id="nextBtn" class="inline-flex items-center gap-2 bg-ink text-white font-archivo font-800 text-sm px-6 py-3 rounded-xl hover:bg-punchdark transition focusable disabled:opacity-40 disabled:cursor-not-allowed" disabled>
+      Suivant
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </button>
+  </div>
+</section>
+
+<!-- ============ RASSURANCE ============ -->
+<section class="bg-smoke border-y border-line">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-12 lg:py-14">
+    <div class="grid sm:grid-cols-3 gap-6">
+      <div class="flex items-start gap-4">
+        <span class="grid place-items-center w-12 h-12 bg-white border border-line rounded-xl shrink-0" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0E9E54" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M3 11h18M9 7V5a3 3 0 0 1 6 0v2"/></svg>
+        </span>
+        <div>
+          <h3 class="font-archivo font-800 text-lg">Kit prêt à cultiver</h3>
+          <p class="text-sm text-ink/60 mt-1">Tout ce qu'il faut pour un cycle complet, sans deviner les quantités.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4">
+        <span class="grid place-items-center w-12 h-12 bg-white border border-line rounded-xl shrink-0" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0E9E54" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg>
+        </span>
+        <div>
+          <h3 class="font-archivo font-800 text-lg">Économisez sur le kit</h3>
+          <p class="text-sm text-ink/60 mt-1">Assembler une trousse coûte moins cher que d'acheter chaque produit à l'unité.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4">
+        <span class="grid place-items-center w-12 h-12 bg-white border border-line rounded-xl shrink-0" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0E9E54" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.4-7-10a7 7 0 0 1 14 0c0 5.6-7 10-7 10z"/><circle cx="12" cy="11" r="2.5"/></svg>
+        </span>
+        <div>
+          <h3 class="font-archivo font-800 text-lg">Conçu au Québec</h3>
+          <p class="text-sm text-ink/60 mt-1">Des cultivateurs au bout du fil pour ajuster votre régie au besoin.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="bg-ink text-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-14">
+    <div class="grid md:grid-cols-12 gap-x-6 gap-y-10">
+      <div class="md:col-span-4">
+        <div class="flex items-center gap-2.5">
+          <span class="grid place-items-center w-10 h-10 bg-white/10 rounded-lg" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#16C46A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5-3 7-7 7-12V4l-7-2-7 2v6c0 5 2 9 7 12z"/><path d="M12 8v9M9 11l3-3 3 3"/></svg>
+          </span>
+          <span class="font-archivo font-900 text-lg">FRED&nbsp;T.&nbsp;LIZER</span>
+        </div>
+        <p class="mt-4 text-white/55 text-sm max-w-xs">Nutriments et suppléments horticoles fabriqués au Québec. Simple, propre et puissant.</p>
+        <div class="mt-5 flex gap-2.5">
+          <a href="#" class="grid place-items-center w-10 h-10 bg-white/10 rounded-lg hover:bg-punch hover:text-ink transition focusable" aria-label="Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="#" class="grid place-items-center w-10 h-10 bg-white/10 rounded-lg hover:bg-punch hover:text-ink transition focusable" aria-label="Facebook">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h-2a4 4 0 0 0-4 4v3H6v4h3v7h4v-7h3l1-4h-4V7a1 1 0 0 1 1-1h2z"/></svg>
+          </a>
+          <a href="#" class="grid place-items-center w-10 h-10 bg-white/10 rounded-lg hover:bg-punch hover:text-ink transition focusable" aria-label="YouTube">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="M10 9l5 3-5 3z" fill="currentColor" stroke="none"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <nav class="md:col-span-2" aria-label="Boutique">
+        <h3 class="font-archivo font-bold text-sm uppercase tracking-wide text-white/50 mb-3">Boutique</h3>
+        <ul class="space-y-2 text-sm text-white/75">
+          <li><a href="#" class="hover:text-punch transition focusable">Bases A/B</a></li>
+          <li><a href="#" class="hover:text-punch transition focusable">Boosters floraison</a></li>
+          <li><a href="#" class="hover:text-punch transition focusable">Suppléments &amp; correctifs</a></li>
+          <li><a href="#" class="hover:text-punch transition focusable">Organiques</a></li>
+          <li><a href="#main" class="hover:text-punch transition focusable">Constructeur de kit</a></li>
+        </ul>
+      </nav>
+
+      <nav class="md:col-span-2" aria-label="Apprendre">
+        <h3 class="font-archivo font-bold text-sm uppercase tracking-wide text-white/50 mb-3">Apprendre</h3>
+        <ul class="space-y-2 text-sm text-white/75">
+          <li><a href="../home/06-bold-conversion.html#calculateur" class="hover:text-punch transition focusable">Calculateur de dosage</a></li>
+          <li><a href="../home/06-bold-conversion.html#feedcharts" class="hover:text-punch transition focusable">Feed charts</a></li>
+          <li><a href="../home/06-bold-conversion.html#guides" class="hover:text-punch transition focusable">Guides</a></li>
+          <li><a href="#" class="hover:text-punch transition focusable">Foire aux questions</a></li>
+        </ul>
+      </nav>
+
+      <nav class="md:col-span-2" aria-label="Entreprise">
+        <h3 class="font-archivo font-bold text-sm uppercase tracking-wide text-white/50 mb-3">Entreprise</h3>
+        <ul class="space-y-2 text-sm text-white/75">
+          <li><a href="../home/06-bold-conversion.html#revendeurs" class="hover:text-punch transition focusable">Devenir revendeur</a></li>
+          <li><a href="#" class="hover:text-punch transition focusable">Notre histoire</a></li>
+          <li><a href="#" class="hover:text-punch transition focusable">Nous joindre</a></li>
+          <li><a href="#" class="hover:text-punch transition focusable">Carrières</a></li>
+        </ul>
+      </nav>
+
+      <div class="md:col-span-2">
+        <h3 class="font-archivo font-bold text-sm uppercase tracking-wide text-white/50 mb-3">Joindre</h3>
+        <ul class="space-y-2 text-sm text-white/75">
+          <li><a href="mailto:bonjour@fredtlizer.ca" class="hover:text-punch transition focusable">bonjour@fredtlizer.ca</a></li>
+          <li><a href="tel:+15140000000" class="hover:text-punch transition focusable">514 000-0000</a></li>
+          <li class="text-white/55">Lun–Ven · 9 h à 17 h (HE)</li>
+          <li class="text-white/55">Montréal, Québec, Canada</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/45">
+      <p>© 2026 Fred T. Lizer inc. Tous droits réservés.</p>
+      <div class="flex items-center gap-5">
+        <a href="#" class="hover:text-white transition focusable">Confidentialité</a>
+        <a href="#" class="hover:text-white transition focusable">Conditions</a>
+        <a href="#" class="hover:text-white transition focusable">Expédition &amp; retours</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- toast -->
+<div id="toast" class="fixed bottom-5 left-1/2 -translate-x-1/2 z-[80] bg-ink text-white px-5 py-3 rounded-xl shadow-2xl font-archivo font-bold text-sm opacity-0 pointer-events-none transition-opacity duration-300" role="status" aria-live="polite"></div>
+
+<!-- ============ JS — constructeur de kit ============ -->
+<script>
+(function () {
+  'use strict';
+
+  // ---------- Catalogue produits Fred T. Lizer ----------
+  // prix = prix régulier à l'unité (achat séparé)
+  // imgs = vraies photos studio fond blanc (1 ou 2 bidons selon le produit)
+  var CATALOG = {
+    terra:  { name: 'Terra A + B',            desc: 'Engrais de base 2 parts pour cultures en terre · NPK 5.7-0-0 +7Ca / 3-5-4', dose: '3,5 ml/L en floraison', color: '#16C46A', imgs: ['../assets/products/terra-a-30ml.png', '../assets/products/terra-b-30ml.png'] },
+    aqua:   { name: 'Aqua A + B',             desc: 'Engrais de base 2 parts pour cultures hydroponiques · NPK 4-0-5.7 +3Ca / 1.7-5-6.5 +2.5S', dose: '2,5 ml/L en floraison', color: '#22a6c4', imgs: ['../assets/products/aqua-a-30ml.png', '../assets/products/aqua-b-30ml.png'] },
+    pk:     { name: 'Boostlizer',             desc: 'Booster organique · augmente le poids et la saveur des fruits et des fleurs · NPK 0-0-0.1', dose: '1,5 ml/L en floraison', color: '#1fb8a6', imgs: ['../assets/products/boostlizer-250ml.png'] },
+    flush:  { name: 'Flush & Sweet',          desc: 'Rinçage organique · régénère les arômes des fleurs avant la récolte', dose: '2,0 ml/L en fin de cycle', color: '#d65aa0', imgs: ['../assets/products/flush-sweet-250ml.png'] },
+    roots:  { name: 'Roots & Rhizo',          desc: 'Stimulant racinaire microbien',       dose: '1,0 ml/L au démarrage', color: '#b58a4a' },
+    calmag: { name: 'CalMag',                 desc: 'Calcium + magnésium + fer',           dose: '1,0 ml/L en continu',   color: '#3fae9a' },
+    algue:  { name: 'Algue marine',           desc: 'Tonique de croissance & stress',      dose: '2,0 ml/L en croissance',color: '#2c8475' },
+    vers:   { name: 'Fumier de vers liquide', desc: 'Thé de lombricompost organique',      dose: '5,0 ml/L en continu',   color: '#6b5a2e' }
+  };
+
+  // formats disponibles par produit : { label, price (régulier $), ml }
+  var FORMATS = {
+    terra:  [ { id:'1L', label:'1 L', price:29.99 }, { id:'4L', label:'4 L', price:99.99 }, { id:'10L', label:'10 L', price:219.99 } ],
+    aqua:   [ { id:'1L', label:'1 L', price:32.99 }, { id:'4L', label:'4 L', price:109.99 }, { id:'10L', label:'10 L', price:239.99 } ],
+    pk:     [ { id:'250', label:'250 ml', price:24.99 }, { id:'1L', label:'1 L', price:42.99 } ],
+    flush:  [ { id:'250', label:'250 ml', price:22.99 }, { id:'1L', label:'1 L', price:39.99 } ],
+    roots:  [ { id:'500', label:'500 ml', price:27.99 }, { id:'1L', label:'1 L', price:47.99 } ],
+    calmag: [ { id:'1L', label:'1 L', price:21.99 }, { id:'4L', label:'4 L', price:69.99 } ],
+    algue:  [ { id:'1L', label:'1 L', price:23.99 }, { id:'4L', label:'4 L', price:74.99 } ],
+    vers:   [ { id:'1L', label:'1 L', price:19.99 }, { id:'4L', label:'4 L', price:59.99 }, { id:'10L', label:'10 L', price:129.99 } ]
+  };
+
+  var KIT_DISCOUNT = 0.15; // 15 % d'économie vs achat séparé
+  var FREE_SHIP = 89;
+
+  // ---------- État ----------
+  var answers = { objectif: null, medium: null, cycle: null, niveau: null };
+  var current = 1;            // 1..5
+  var TOTAL_Q = 4;
+  var kit = [];              // [{ key, formatId, qty }]
+
+  // ---------- Éléments ----------
+  var steps = Array.prototype.slice.call(document.querySelectorAll('.builder-step'));
+  var progItems = Array.prototype.slice.call(document.querySelectorAll('#progress li'));
+  var prevBtn = document.getElementById('prevBtn');
+  var nextBtn = document.getElementById('nextBtn');
+  var navBar = document.getElementById('navBar');
+  var srStatus = document.getElementById('srStatus');
+
+  function money(n) {
+    return n.toFixed(2).replace('.', ',') + ' $';
+  }
+
+  // ---------- Logique de recommandation ----------
+  function recommend() {
+    var k = [];
+    var m = answers.medium;
+    var cycle = answers.cycle;
+    var niveau = answers.niveau;
+    var obj = answers.objectif;
+
+    // Base selon médium
+    var base = (m === 'terre') ? 'terra' : 'aqua';
+    var baseFormat = (cycle === 'complet') ? '4L' : '1L';
+    k.push({ key: base, formatId: baseFormat, qty: 1 });
+
+    // CalMag : essentiel en coco/hydro, recommandé en floraison
+    if (m === 'coco' || m === 'hydro' || cycle === 'floraison' || cycle === 'complet') {
+      k.push({ key: 'calmag', formatId: '1L', qty: 1 });
+    }
+
+    // Boostlizer : floraison / cycle complet
+    if (cycle === 'floraison' || cycle === 'complet') {
+      var pkFmt = (obj === 'cannabis') ? '1L' : '250';
+      k.push({ key: 'pk', formatId: pkFmt, qty: 1 });
+    }
+
+    // Flush & Sweet : rinçage de fin de cycle (cycle complet)
+    if (cycle === 'complet') {
+      k.push({ key: 'flush', formatId: '250', qty: 1 });
+    }
+
+    // Racines : démarrage / cycle complet
+    if (cycle === 'demarrage' || cycle === 'complet' || obj === 'demarrage') {
+      k.push({ key: 'roots', formatId: '500', qty: 1 });
+    }
+
+    // Niveau avancé → suppléments
+    if (niveau === 'avance') {
+      if (!has(k, 'algue')) k.push({ key: 'algue', formatId: '1L', qty: 1 });
+      if (obj === 'potager' || obj === 'interieur') {
+        if (!has(k, 'vers')) k.push({ key: 'vers', formatId: '1L', qty: 1 });
+      }
+    }
+
+    // Cannabis avancé / hydro avancé → format plus gros sur la base
+    if ((obj === 'cannabis' || obj === 'hydro') && cycle === 'complet') {
+      var bi = indexOf(k, base);
+      if (bi >= 0 && hasFormat(base, '4L')) k[bi].formatId = '4L';
+    }
+
+    return k;
+  }
+  function has(arr, key){ return arr.some(function(x){ return x.key === key; }); }
+  function indexOf(arr, key){ for (var i=0;i<arr.length;i++){ if(arr[i].key===key) return i; } return -1; }
+  function hasFormat(key, fid){ return FORMATS[key].some(function(f){ return f.id===fid; }); }
+  function fmtOf(key, fid){
+    var list = FORMATS[key];
+    for (var i=0;i<list.length;i++){ if(list[i].id===fid) return list[i]; }
+    return list[0];
+  }
+
+  // ---------- Calcul prix ----------
+  function totals() {
+    var regular = 0;
+    kit.forEach(function (item) {
+      regular += fmtOf(item.key, item.formatId).price * item.qty;
+    });
+    var kitPrice = regular * (1 - KIT_DISCOUNT);
+    return { regular: regular, kit: kitPrice, save: regular - kitPrice };
+  }
+
+  // ---------- Rendu liste kit ----------
+  function renderKit() {
+    var list = document.getElementById('kitList');
+    list.innerHTML = '';
+
+    kit.forEach(function (item, i) {
+      var p = CATALOG[item.key];
+      var fmt = fmtOf(item.key, item.formatId);
+      var li = document.createElement('li');
+      li.className = 'bg-white rounded-2xl border border-line p-4 flex items-center gap-4';
+
+      // visuel : vraies photos produit (fond blanc) sur tuile crème arrondie, sinon bidon SVG
+      var visual;
+      if (p.imgs && p.imgs.length) {
+        var photos = p.imgs.map(function (src) {
+          return '<img src="' + src + '" alt="' + p.name + ' — Fred T. Lizer" loading="lazy" decoding="async" class="h-14 w-auto object-contain mix-blend-multiply">';
+        }).join('');
+        visual = '<span class="flex items-center justify-center gap-1 w-20 h-20 rounded-xl shrink-0 bg-white overflow-hidden p-1.5" aria-hidden="true">' + photos + '</span>';
+      } else {
+        visual = '<span class="grid place-items-center w-14 h-16 rounded-xl shrink-0" style="background:linear-gradient(135deg,' + p.color + ',#0A0A0A)" aria-hidden="true">' +
+          '<svg width="26" height="38" viewBox="0 0 60 90"><rect x="14" y="22" width="32" height="60" rx="5" fill="' + p.color + '"/><rect x="22" y="10" width="16" height="14" rx="2" fill="#0A0A0A" opacity=".55"/><rect x="18" y="40" width="24" height="26" rx="2" fill="#fff" opacity=".92"/></svg></span>';
+      }
+
+      // options de format
+      var fmtOptions = FORMATS[item.key].map(function (f) {
+        return '<option value="' + f.id + '"' + (f.id === item.formatId ? ' selected' : '') + '>' + f.label + ' · ' + money(f.price) + '</option>';
+      }).join('');
+
+      li.innerHTML =
+        visual +
+        '<div class="flex-1 min-w-0">' +
+          '<div class="flex items-start justify-between gap-2">' +
+            '<div>' +
+              '<h4 class="font-archivo font-800 text-base leading-tight">' + p.name + '</h4>' +
+              '<p class="text-xs text-ink/55 mt-0.5">' + p.desc + '</p>' +
+            '</div>' +
+            '<button type="button" class="remove-btn shrink-0 p-1.5 rounded-lg text-ink/40 hover:text-ink hover:bg-smoke transition focusable" data-i="' + i + '" aria-label="Retirer ' + p.name + ' du kit">' +
+              '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M6 6l1 14a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-14"/></svg>' +
+            '</button>' +
+          '</div>' +
+          '<p class="text-[11px] font-bold uppercase tracking-wide text-punchdark mt-1.5">Dosage suggéré · ' + p.dose + '</p>' +
+          '<div class="mt-3 flex flex-wrap items-center gap-2.5">' +
+            '<label class="sr-only" for="fmt' + i + '">Format de ' + p.name + '</label>' +
+            '<select id="fmt' + i + '" class="fmt-select bg-white border-2 border-line rounded-lg px-2.5 py-1.5 text-xs font-bold focusable" data-i="' + i + '">' + fmtOptions + '</select>' +
+            '<div class="inline-flex items-center border-2 border-line rounded-lg overflow-hidden" role="group" aria-label="Quantité de ' + p.name + '">' +
+              '<button type="button" class="qty-btn px-2.5 py-1.5 hover:bg-smoke transition focusable" data-i="' + i + '" data-d="-1" aria-label="Diminuer la quantité">' +
+                '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/></svg></button>' +
+              '<span class="px-2.5 text-sm font-archivo font-800 min-w-[2rem] text-center" aria-live="polite">' + item.qty + '</span>' +
+              '<button type="button" class="qty-btn px-2.5 py-1.5 hover:bg-smoke transition focusable" data-i="' + i + '" data-d="1" aria-label="Augmenter la quantité">' +
+                '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>' +
+            '</div>' +
+            '<span class="ml-auto font-display text-xl">' + money(fmt.price * item.qty) + '</span>' +
+          '</div>' +
+        '</div>';
+      list.appendChild(li);
+    });
+
+    // listeners
+    list.querySelectorAll('.remove-btn').forEach(function (b) {
+      b.addEventListener('click', function () { removeItem(+b.dataset.i); });
+    });
+    list.querySelectorAll('.fmt-select').forEach(function (s) {
+      s.addEventListener('change', function () { kit[+s.dataset.i].formatId = s.value; renderKit(); renderTotals(); });
+    });
+    list.querySelectorAll('.qty-btn').forEach(function (b) {
+      b.addEventListener('click', function () { changeQty(+b.dataset.i, +b.dataset.d); });
+    });
+
+    renderTotals();
+    renderAddSelect();
+  }
+
+  function removeItem(i) {
+    if (kit.length <= 1) { showToast('Le kit doit contenir au moins un produit'); return; }
+    kit.splice(i, 1);
+    renderKit();
+  }
+  function changeQty(i, d) {
+    kit[i].qty = Math.max(1, Math.min(9, kit[i].qty + d));
+    renderKit();
+  }
+
+  function renderTotals() {
+    var t = totals();
+    document.getElementById('sumRegular').textContent = money(t.regular);
+    document.getElementById('sumSave').textContent = '−' + money(t.save);
+    document.getElementById('sumTotal').textContent = money(t.kit);
+    document.getElementById('itemCount').textContent = kit.length;
+    var fs = document.getElementById('freeShip');
+    if (t.kit >= FREE_SHIP) {
+      fs.classList.remove('hidden');
+    } else {
+      fs.classList.add('hidden');
+    }
+  }
+
+  // panneau d'ajout
+  function renderAddSelect() {
+    var sel = document.getElementById('addSelect');
+    var empty = document.getElementById('addEmpty');
+    var confirm = document.getElementById('addConfirm');
+    sel.innerHTML = '';
+    var available = Object.keys(CATALOG).filter(function (k) { return !has(kit, k); });
+    if (available.length === 0) {
+      sel.classList.add('hidden'); confirm.classList.add('hidden'); empty.classList.remove('hidden');
+      return;
+    }
+    sel.classList.remove('hidden'); confirm.classList.remove('hidden'); empty.classList.add('hidden');
+    available.forEach(function (k) {
+      var o = document.createElement('option');
+      o.value = k; o.textContent = CATALOG[k].name + ' — à partir de ' + money(FORMATS[k][0].price);
+      sel.appendChild(o);
+    });
+  }
+
+  document.getElementById('addProductBtn').addEventListener('click', function () {
+    document.getElementById('addPanel').classList.toggle('hidden');
+  });
+  document.getElementById('addConfirm').addEventListener('click', function () {
+    var sel = document.getElementById('addSelect');
+    var key = sel.value;
+    if (!key || has(kit, key)) return;
+    kit.push({ key: key, formatId: FORMATS[key][0].id, qty: 1 });
+    renderKit();
+    showToast(CATALOG[key].name + ' ajouté au kit');
+  });
+
+  // ---------- Titre / résumé du résultat ----------
+  function buildSummary() {
+    var objLabel = { potager:'Potager & légumes', fleurs:'Fleurs & ornementales', interieur:'Plantes d\'intérieur', cannabis:'Cannabis', hydro:'Hydro avancé', demarrage:'Semis & boutures' };
+    var medLabel = { terre:'terre', coco:'coco', hydro:'hydroponie' };
+    var cycLabel = { complet:'cycle complet', croissance:'croissance', floraison:'floraison', demarrage:'démarrage' };
+    var nivLabel = { debutant:'débutant', avance:'avancé' };
+    document.getElementById('kitTitle').textContent = 'Kit ' + objLabel[answers.objectif];
+    document.getElementById('kitSummary').textContent =
+      'Pour une culture en ' + medLabel[answers.medium] + ', orientée ' + cycLabel[answers.cycle] +
+      ', niveau ' + nivLabel[answers.niveau] + '. Ajustez les formats et quantités si besoin.';
+
+    // visuel d'ensemble : grand format pour le cycle complet, sinon 1 L
+    var big = (answers.cycle === 'complet');
+    var heroImg = document.getElementById('kitHeroImg');
+    var heroName = document.getElementById('kitHeroName');
+    if (heroImg && heroName) {
+      heroImg.src = big ? '../assets/products/kit-potager-4litres.png' : '../assets/products/kit-potager-1litre.png';
+      heroName.textContent = big ? 'Kit Potager 4 L' : 'Kit Potager 1 L';
+    }
+  }
+
+  // ---------- Navigation entre étapes ----------
+  function showStep(n) {
+    current = n;
+    steps.forEach(function (s) { s.classList.add('hidden'); s.classList.remove('stepFade'); });
+    var el = steps[n - 1];
+    el.classList.remove('hidden');
+    // reflow pour relancer l'animation
+    void el.offsetWidth;
+    el.classList.add('stepFade');
+
+    updateProgress();
+    updateNav();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    if (n === 5) { srStatus.textContent = 'Votre kit recommandé est prêt.'; }
+    else { srStatus.textContent = 'Étape ' + n + ' sur ' + TOTAL_Q; }
+  }
+
+  function updateProgress() {
+    progItems.forEach(function (li) {
+      var idx = +li.dataset.prog;
+      var dot = li.querySelector('.prog-dot');
+      var label = li.querySelector('.prog-label');
+      var bar = li.querySelector('.prog-bar');
+      dot.className = 'prog-dot grid place-items-center w-8 h-8 rounded-full font-archivo font-900 text-sm shrink-0 transition';
+      if (idx < current) {
+        dot.classList.add('bg-punch', 'text-ink');
+        if (label) { label.classList.remove('text-ink/40'); label.classList.add('text-ink'); }
+        if (bar) { bar.classList.remove('bg-line'); bar.classList.add('bg-punch'); }
+      } else if (idx === current) {
+        dot.classList.add('bg-ink', 'text-white');
+        if (label) { label.classList.remove('text-ink/40'); label.classList.add('text-ink'); }
+        if (bar) { bar.classList.add('bg-line'); bar.classList.remove('bg-punch'); }
+      } else {
+        dot.classList.add('bg-smoke', 'text-ink/40', 'border-2', 'border-line');
+        if (label) { label.classList.add('text-ink/40'); label.classList.remove('text-ink'); }
+        if (bar) { bar.classList.add('bg-line'); bar.classList.remove('bg-punch'); }
+      }
+    });
+  }
+
+  function answerForStep(n) {
+    return [null, answers.objectif, answers.medium, answers.cycle, answers.niveau][n];
+  }
+
+  function updateNav() {
+    if (current === 5) { navBar.classList.add('hidden'); return; }
+    navBar.classList.remove('hidden');
+    prevBtn.disabled = (current === 1);
+    nextBtn.disabled = !answerForStep(current);
+    if (current === TOTAL_Q) {
+      nextBtn.innerHTML = 'Voir mon kit <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+    } else {
+      nextBtn.innerHTML = 'Suivant <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+    }
+  }
+
+  // ---------- Sélection de carte ----------
+  document.querySelectorAll('.choice-card').forEach(function (card) {
+    card.addEventListener('click', function () {
+      var group = card.dataset.group;
+      // déselectionner les autres du groupe
+      document.querySelectorAll('.choice-card[data-group="' + group + '"]').forEach(function (c) {
+        c.setAttribute('aria-pressed', 'false');
+      });
+      card.setAttribute('aria-pressed', 'true');
+      answers[group] = card.dataset.value;
+      updateNav();
+      // avance automatique douce sauf à la dernière question (laisser confirmer)
+      if (current < TOTAL_Q) {
+        setTimeout(function () { goNext(); }, 220);
+      }
+    });
+  });
+
+  function goNext() {
+    if (current === TOTAL_Q) {
+      if (!answers.niveau) return;
+      kit = recommend();
+      buildSummary();
+      renderKit();
+      showStep(5);
+      return;
+    }
+    if (!answerForStep(current)) return;
+    showStep(current + 1);
+  }
+  function goPrev() {
+    if (current === 5) { showStep(TOTAL_Q); return; }
+    if (current > 1) showStep(current - 1);
+  }
+
+  nextBtn.addEventListener('click', goNext);
+  prevBtn.addEventListener('click', goPrev);
+
+  // ---------- Recommencer ----------
+  document.getElementById('restartBtn').addEventListener('click', function () {
+    answers = { objectif: null, medium: null, cycle: null, niveau: null };
+    kit = [];
+    document.querySelectorAll('.choice-card').forEach(function (c) { c.setAttribute('aria-pressed', 'false'); });
+    document.getElementById('addPanel').classList.add('hidden');
+    showStep(1);
+  });
+
+  // ---------- Ajouter le kit au panier ----------
+  var cartCount = 0;
+  document.getElementById('addKitCart').addEventListener('click', function () {
+    cartCount += kit.length;
+    var badge = document.getElementById('cartCount');
+    badge.textContent = cartCount;
+    var t = totals();
+    showToast('Kit ajouté au panier · ' + kit.length + ' produits · ' + money(t.kit));
+  });
+
+  // ---------- Toast ----------
+  var toast = document.getElementById('toast');
+  var toastTimer;
+  function showToast(msg) {
+    toast.textContent = msg;
+    toast.style.opacity = '1';
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { toast.style.opacity = '0'; }, 2400);
+  }
+
+  // ---------- Init ----------
+  showStep(1);
+})();
+</script>
+
+<script id="ftl-header-js">
+(function(){
+  var wrap=document.querySelector('.ftl-header-wrap');if(!wrap)return;
+  var items=wrap.querySelectorAll('.ftl-nav-item');
+  var closeTimer=null;
+  function clearTimer(){if(closeTimer){clearTimeout(closeTimer);closeTimer=null;}}
+  function closeAll(except){
+    clearTimer();
+    items.forEach(function(it){
+      var t=it.querySelector('.ftl-nav-trigger'),p=it.querySelector('.ftl-mega');
+      if(!t||!p||it===except)return;
+      t.setAttribute('aria-expanded','false');p.setAttribute('data-open','false');p.setAttribute('hidden','');
+    });
+  }
+  items.forEach(function(it){
+    var t=it.querySelector('.ftl-nav-trigger'),p=it.querySelector('.ftl-mega');
+    if(!t||!p)return;
+    function open(){clearTimer();closeAll(it);t.setAttribute('aria-expanded','true');p.removeAttribute('hidden');p.setAttribute('data-open','true');}
+    function close(){t.setAttribute('aria-expanded','false');p.setAttribute('data-open','false');p.setAttribute('hidden','');}
+    function deferClose(){clearTimer();closeTimer=setTimeout(close,140);}
+    it.addEventListener('mouseenter',open);
+    it.addEventListener('mouseleave',deferClose);
+    p.addEventListener('mouseenter',clearTimer);
+    p.addEventListener('mouseleave',deferClose);
+    t.addEventListener('click',function(e){e.preventDefault();(t.getAttribute('aria-expanded')==='true')?close():open();});
+    t.addEventListener('keydown',function(e){if(e.key==='Escape'){close();t.focus();}});
+    p.addEventListener('keydown',function(e){if(e.key==='Escape'){close();t.focus();}});
+  });
+  document.addEventListener('click',function(e){if(!wrap.contains(e.target))closeAll(null);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll(null);});
+  // Hamburger mobile
+  var burger=document.getElementById('ftlBurger'),mnav=document.getElementById('ftlMobileNav');
+  if(burger&&mnav){
+    burger.addEventListener('click',function(){
+      var open=mnav.hasAttribute('hidden');
+      if(open){mnav.removeAttribute('hidden');burger.setAttribute('aria-expanded','true');}
+      else{mnav.setAttribute('hidden','');burger.setAttribute('aria-expanded','false');}
+    });
+  }
+})();
+</script>
+</body>
+</html>

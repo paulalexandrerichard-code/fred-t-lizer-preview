@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fred T. Lizer — Proposition de maquettes</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  body{font-family:'Inter',sans-serif}
+  .display{font-family:'Anton',sans-serif;letter-spacing:.01em}
+</style>
+</head>
+<body class="bg-[#0c0d0c] text-white">
+  <header class="border-b border-white/10">
+    <div class="max-w-6xl mx-auto px-6 py-12">
+      <p class="text-xs tracking-[0.3em] uppercase text-[#16C46A] font-bold">Fred T. Lizer · Phase 0 · Proposition de design</p>
+      <h1 class="display text-5xl md:text-7xl uppercase mt-4 leading-[0.95]">Maquettes du<br>nouveau site</h1>
+      <p class="mt-6 max-w-2xl text-white/70 leading-relaxed">Direction retenue : <span class="text-[#16C46A] font-semibold">Bold Conversion</span>. Chaque page est interactive et autonome (calculateur de dosage fonctionnel, panier, tarification B2C/B2B, programme d'affiliés). Conçue après analyse graphique des compétiteurs (Gaia Green, Advanced Nutrients, General Hydroponics, GreenPlanet).</p>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-6 py-14">
+    <div class="flex items-center gap-3 mb-6">
+      <span class="display text-2xl uppercase">Direction retenue · Bold Conversion</span>
+      <span class="h-px flex-1 bg-white/15"></span>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5" id="grid-main"></div>
+
+    <div class="flex items-center gap-3 mb-6 mt-16">
+      <span class="display text-2xl uppercase text-white/60">Explorations initiales · 6 concepts d'accueil</span>
+      <span class="h-px flex-1 bg-white/15"></span>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4" id="grid-concepts"></div>
+
+    
+  <section class="mt-12 rounded-2xl bg-white/5 border border-white/10 p-6">
+  <h2 class="display text-xl uppercase">Télécharger la présentation (PDF)</h2>
+  <div class="mt-3 flex flex-wrap gap-3 text-sm">
+    <a href="pdf/Presentation-Fred-T-Lizer-desktop.pdf" class="px-4 py-2 rounded-lg bg-[#16C46A] text-black font-semibold">Desktop</a>
+    <a href="pdf/Presentation-Fred-T-Lizer-tablette.pdf" class="px-4 py-2 rounded-lg border border-white/20">Tablette</a>
+    <a href="pdf/Presentation-Fred-T-Lizer-mobile.pdf" class="px-4 py-2 rounded-lg border border-white/20">Mobile</a>
+  </div></section>
+</main>
+
+  <footer class="max-w-6xl mx-auto px-6 py-10 text-sm text-white/40">
+    Fred T. Lizer — maquettes de présentation. Contenu, prix et paliers illustratifs à valider.
+  </footer>
+
+<script>
+const main = [
+  {f:'home/07-hybride-rooted-science.html', n:'Accueil — Hybride (fusion)', d:'Bold Conversion × ADN du client (Rooted in science, vert forêt, fondateur biologiste, depuis 2002).', t:'Fusion'},
+  {f:'home/06-bold-conversion.html', n:'Accueil — Bold Conversion', d:'Page d\'accueil — direction Bold Conversion pure.', t:'B2C'},
+  {f:'sections/boutique.html', n:'Boutique / catalogue', d:'Grille + filtres (plante, médium, stade, kit, niveau), format→prix.', t:'B2C'},
+  {f:'sections/produit.html', n:'Page produit', d:'Formats, double tarif B2C/B2B, feed chart par stade, EC/PPM.', t:'B2C'},
+  {f:'sections/calculateur.html', n:'Calculateur de dosage', d:'ml/L + ml/gal, EC/PPM, programme éditable, quantité→panier→prix.', t:'Différenciateur'},
+  {f:'sections/kit.html', n:'Constructeur de kit', d:'Assistant 4 étapes → kit recommandé + prix/économie.', t:'B2C'},
+  {f:'sections/panier.html', n:'Panier', d:'Quantités live, TPS/TVQ, promo, upsell.', t:'B2C'},
+  {f:'sections/checkout.html', n:'Checkout', d:'Coordonnées → livraison (province) → paiement carte/Interac.', t:'B2C'},
+  {f:'sections/compte.html', n:'Compte client', d:'Commandes, adresses, programmes sauvegardés, fidélité.', t:'B2C'},
+  {f:'sections/b2b-revendeurs.html', n:'Landing revendeurs (B2B)', d:'Pitch, paliers de prix, formulaire d\'ouverture de compte.', t:'B2B'},
+  {f:'sections/portail-revendeur.html', n:'Portail revendeur', d:'Prix par palier, progression de tier, réassort, catalogue PDF.', t:'B2B'},
+  {f:'sections/influenceurs-affilies.html', n:'Influenceurs / Affiliés', d:'Page de recrutement : commission, pitch, bannières, vidéo partageable.', t:'Plugin'},
+  {f:'sections/portail-affilie.html', n:'Portail affilié (connecté)', d:'Dashboard : lien/code, stats, commissions, demande de paiement, assets.', t:'Plugin'},
+  {f:'sections/comparatif.html', n:'Comparatif vs compétition', d:'Nos avantages (fonctionnalités + esthétique) vs Gaia, AN, GH, GreenPlanet.', t:'Vente'},
+];
+const concepts = [
+  {f:'home/01-nordique-organique.html', n:'01 · Nordique Organique'},
+  {f:'home/02-premium-tech-grower.html', n:'02 · Premium Tech Grower'},
+  {f:'home/03-editorial-botanique.html', n:'03 · Éditorial Botanique'},
+  {f:'home/04-labo-scientifique.html', n:'04 · Labo Scientifique'},
+  {f:'home/05-boutique-chaleureux-qc.html', n:'05 · Boutique Chaleureux QC'},
+  {f:'home/06-bold-conversion.html', n:'06 · Bold Conversion ✓'},
+];
+const tagColor = {'Fusion':'#3FB44A','B2C':'#16C46A','B2B':'#3FA3FF','Différenciateur':'#F6C544','Plugin':'#C56BFF'};
+document.getElementById('grid-main').innerHTML = main.map(x=>`
+  <a href="${x.f}" class="group block rounded-xl bg-white/5 border border-white/10 p-5 hover:border-[#16C46A]/60 hover:bg-white/[0.07] transition">
+    <div class="flex items-center justify-between">
+      <h3 class="display text-lg uppercase">${x.n}</h3>
+      <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded" style="color:${tagColor[x.t]};background:${tagColor[x.t]}1a">${x.t}</span>
+    </div>
+    <p class="mt-2 text-sm text-white/60 leading-relaxed">${x.d}</p>
+    <span class="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-[#16C46A] group-hover:gap-2 transition-all">Ouvrir
+      <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </span>
+  </a>`).join('');
+document.getElementById('grid-concepts').innerHTML = concepts.map(x=>`
+  <a href="${x.f}" class="block rounded-lg bg-white/[0.03] border border-white/10 px-4 py-3 text-sm text-white/70 hover:text-white hover:border-white/30 transition">${x.n}</a>`).join('');
+</script>
+</body>
+</html>

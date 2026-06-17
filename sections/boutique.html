@@ -1,0 +1,1321 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Boutique — Fred T. Lizer | Engrais & nutriments horticoles fabriqués au Québec</title>
+<meta name="description" content="Magasinez les engrais et nutriments Fred T. Lizer : Terra A/B, Aqua A/B, PK Bloom, Roots & Rhizo, CalMag, Algue marine et plus. Formats 1 L, 4 L et 10 L. Prix résidentiel et revendeur.">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          ink: '#0A0A0A',
+          punch: '#16C46A',
+          punchdark: '#0E9E54',
+          acid: '#D6FF2E',
+          smoke: '#F4F5F2',
+          line: '#E5E7E2',
+        },
+        fontFamily: {
+          display: ['Anton', 'sans-serif'],
+          archivo: ['Archivo', 'sans-serif'],
+          sans: ['Inter', 'sans-serif'],
+        },
+      }
+    }
+  }
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; }
+  .font-display { letter-spacing: -0.01em; }
+  .grain {
+    background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,.08) 1px, transparent 0);
+    background-size: 22px 22px;
+  }
+  .marquee-track { animation: marquee 28s linear infinite; }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce) { .marquee-track { animation: none; } html { scroll-behavior: auto; } }
+  .focusable:focus-visible { outline: 3px solid #16C46A; outline-offset: 2px; }
+  select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%230A0A0A' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 0.75rem center; -webkit-appearance: none; appearance: none; }
+  /* Boutons format produit */
+  .fmt-btn[aria-pressed="true"] { background:#0A0A0A; color:#fff; border-color:#0A0A0A; }
+  /* Filtres : chip actif */
+  .filter-chip input:checked + span { background:#16C46A; border-color:#0E9E54; color:#0A0A0A; }
+  /* Drawer mobile filtres */
+  #filterDrawer { transition: transform .3s ease; }
+  @media (prefers-reduced-motion: reduce){ #filterDrawer { transition:none; } }
+</style>
+
+<style id="ftl-header-css">
+/* ===== HEADER FRED T. LIZER — barre utilitaire + nav + MÉGA-MENU pleine largeur ===== */
+.ftl-header-wrap{position:sticky;top:0;z-index:60;font-family:'Inter',sans-serif;}
+.ftl-header-wrap *{box-sizing:border-box;}
+.ftl-utility{background:#0c1a10;color:#e7efe7;font-size:12px;}
+.ftl-utility-inner{max-width:1280px;margin:0 auto;padding:0 16px;height:36px;display:flex;align-items:center;justify-content:space-between;gap:12px;}
+.ftl-util-left{display:flex;align-items:center;gap:8px;min-width:0;overflow:hidden;white-space:nowrap;}
+.ftl-util-left span{flex:0 0 auto;}
+.ftl-util-dot{color:#3FB44A;}
+.ftl-util-right{display:flex;align-items:center;gap:10px;flex:0 0 auto;}
+.ftl-lang{display:flex;align-items:center;gap:5px;font-weight:700;letter-spacing:.02em;color:#9fb3a0;}
+.ftl-lang button{background:none;border:0;color:#9fb3a0;font:inherit;font-weight:700;cursor:pointer;padding:0;}
+.ftl-lang button:hover{color:#fff;}
+.ftl-lang .ftl-lang-on{color:#3FB44A;}
+.ftl-util-ico{color:#cdd9cd;display:inline-flex;padding:2px;border-radius:6px;}
+.ftl-util-ico:hover{color:#fff;}
+.ftl-util-cart{position:relative;display:inline-flex;align-items:center;justify-content:center;padding:2px;border-radius:6px;}
+.ftl-util-cart-badge{position:absolute;top:-5px;right:-6px;min-width:15px;height:15px;padding:0 3px;display:grid;place-items:center;background:#3FB44A;color:#0c1a10;font-size:10px;font-weight:900;border-radius:999px;line-height:1;}
+
+.ftl-nav-bar{position:relative;background:#14401F;color:#f5f1e8;border-bottom:2px solid rgba(255,255,255,.08);}
+.ftl-nav-inner{max-width:1280px;margin:0 auto;padding:0 16px;height:68px;display:flex;align-items:center;gap:18px;}
+.ftl-logo{flex:0 0 auto;min-width:0;display:inline-flex;align-items:center;border-radius:6px;overflow:hidden;}
+.ftl-logo img{height:30px;width:auto;max-width:100%;display:block;}
+.ftl-nav-center{flex:1 1 auto;min-width:0;display:flex;align-items:center;justify-content:center;}
+.ftl-nav-list{list-style:none;display:flex;align-items:center;gap:6px;margin:0;padding:0;}
+.ftl-nav-item{position:static;}
+.ftl-nav-link,.ftl-nav-trigger{position:relative;display:inline-flex;align-items:center;gap:5px;font:inherit;font-size:15px;font-weight:600;color:#f5f1e8;background:none;border:0;cursor:pointer;padding:10px 18px;border-radius:8px;text-decoration:none;line-height:1;white-space:nowrap;}
+.ftl-nav-link:hover,.ftl-nav-trigger:hover{background:rgba(255,255,255,.08);color:#fff;}
+.ftl-nav-link-active,.ftl-nav-trigger.nav-link-active{color:#fff;}
+.ftl-nav-link-active::after,.ftl-nav-trigger.nav-link-active::after{content:"";position:absolute;left:14px;right:14px;bottom:3px;height:2px;background:#3FB44A;border-radius:2px;}
+.ftl-nav-trigger[aria-expanded="true"]{background:rgba(255,255,255,.08);color:#fff;}
+
+/* ===== MÉGA-MENU PLEINE LARGEUR ===== */
+.ftl-mega{position:absolute;top:100%;left:0;right:0;z-index:55;background:#0c1a10;color:#e7efe7;border-top:1px solid rgba(63,180,74,.18);border-bottom-left-radius:18px;border-bottom-right-radius:18px;box-shadow:0 26px 60px -16px rgba(4,12,6,.65);opacity:0;visibility:hidden;transform:translateY(-10px);transition:opacity .22s ease,transform .22s ease,visibility .22s;pointer-events:none;}
+.ftl-mega[data-open="true"]{opacity:1;visibility:visible;transform:translateY(0);pointer-events:auto;}
+.ftl-mega-inner{max-width:1280px;margin:0 auto;padding:30px 16px 26px;}
+.ftl-mega-cols{display:grid;grid-template-columns:repeat(5,1fr);gap:26px;align-items:start;}
+.ftl-mega.ftl-mega-sm .ftl-mega-cols{grid-template-columns:1fr 1fr 1.35fr;gap:36px;}
+.ftl-mega-col-head{display:flex;align-items:center;gap:8px;margin:0 0 14px;padding:0 0 11px;border-bottom:1px solid rgba(255,255,255,.08);}
+.ftl-mega-col-head svg{flex:0 0 auto;color:#3FB44A;}
+.ftl-mega-col-head span{font-size:11.5px;font-weight:800;letter-spacing:.11em;text-transform:uppercase;color:#3FB44A;}
+.ftl-mega-list{display:flex;flex-direction:column;gap:1px;}
+.ftl-mega-link{display:flex;flex-direction:column;gap:2px;padding:8px 10px;margin:0 -10px;border-radius:9px;text-decoration:none;transition:background .15s ease;}
+.ftl-mega-link:hover{background:rgba(63,180,74,.12);}
+.ftl-mega-t{font-size:14px;font-weight:700;color:#f5f1e8;line-height:1.25;transition:color .15s ease;}
+.ftl-mega-link:hover .ftl-mega-t{color:#3FB44A;}
+.ftl-mega-d{font-size:12px;color:#9fb3a4;line-height:1.3;}
+.ftl-mega-intro{font-size:13px;color:#9fb3a4;line-height:1.5;margin:0 0 14px;}
+.ftl-mega-feature{display:block;border-radius:12px;overflow:hidden;text-decoration:none;border:1px solid rgba(255,255,255,.08);background:#14401F;}
+.ftl-mega-feature img{display:block;width:100%;height:120px;object-fit:cover;}
+.ftl-mega-feature-body{padding:12px 14px;}
+.ftl-mega-feature-k{font-size:10.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#3FB44A;}
+.ftl-mega-feature-t{display:block;margin-top:3px;font-size:14px;font-weight:700;color:#f5f1e8;}
+/* Bandeau bas */
+.ftl-mega-foot{background:#14401F;border-top:1px solid rgba(255,255,255,.07);border-bottom-left-radius:18px;border-bottom-right-radius:18px;}
+.ftl-mega-foot-inner{max-width:1280px;margin:0 auto;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;}
+.ftl-mega-perks{display:flex;align-items:center;gap:18px;flex-wrap:wrap;min-width:0;}
+.ftl-mega-perk{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:600;color:#cdd9cd;white-space:nowrap;}
+.ftl-mega-perk svg{flex:0 0 auto;color:#3FB44A;}
+.ftl-mega-shop{display:inline-flex;align-items:center;gap:7px;background:#3FB44A;color:#0c1a10;font-weight:800;font-size:14px;padding:10px 18px;border-radius:10px;text-decoration:none;white-space:nowrap;transition:background .15s ease,color .15s ease;}
+.ftl-mega-shop:hover{background:#2E9239;color:#fff;}
+
+.ftl-actions{flex:0 0 auto;display:flex;align-items:center;gap:8px;margin-left:auto;}
+.ftl-search{display:none;align-items:center;gap:7px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.16);border-radius:10px;padding:7px 11px;color:#d8e2d8;}
+.ftl-search svg{flex:0 0 auto;}
+.ftl-search input{background:none;border:0;outline:none;color:#f5f1e8;font:inherit;font-size:14px;width:170px;}
+.ftl-search input::placeholder{color:#9fb3a0;}
+.ftl-search:focus-within{border-color:#3FB44A;}
+.ftl-icon-btn{position:relative;display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;color:#f5f1e8;}
+.ftl-icon-btn:hover{background:rgba(255,255,255,.10);}
+.ftl-cart-badge{position:absolute;top:3px;right:3px;min-width:17px;height:17px;padding:0 4px;display:grid;place-items:center;background:#3FB44A;color:#0c1a10;font-size:11px;font-weight:900;border-radius:999px;line-height:1;}
+.ftl-cta{display:none;align-items:center;background:#3FB44A;color:#0c1a10;font-weight:800;font-size:14px;padding:10px 16px;border-radius:10px;text-decoration:none;white-space:nowrap;}
+.ftl-cta:hover{background:#2E9239;color:#fff;}
+
+/* Mobile nav panel */
+.ftl-mobile-cart{display:inline-flex;}
+.ftl-burger{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:10px;background:none;border:0;color:#f5f1e8;cursor:pointer;}
+.ftl-burger:hover{background:rgba(255,255,255,.10);}
+.ftl-mobile-nav{background:#14401F;color:#f5f1e8;border-bottom:2px solid rgba(255,255,255,.08);padding:8px 16px 18px;}
+.ftl-mobile-nav nav{display:flex;flex-direction:column;}
+.ftl-m-group{border-bottom:1px solid rgba(255,255,255,.10);}
+.ftl-m-group summary{cursor:pointer;list-style:none;padding:13px 4px;font-weight:700;font-size:16px;display:flex;align-items:center;justify-content:space-between;}
+.ftl-m-group summary::-webkit-details-marker{display:none;}
+.ftl-m-group summary::after{content:"+";font-weight:400;font-size:20px;color:#3FB44A;}
+.ftl-m-group[open] summary::after{content:"–";}
+.ftl-m-sub{padding:2px 4px 8px;}
+.ftl-m-subhead{font-size:10.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#3FB44A;padding:8px 10px 4px;}
+.ftl-m-group a{display:block;padding:8px 14px;color:#cdd9cd;text-decoration:none;font-size:15px;}
+.ftl-m-group a:hover{color:#fff;}
+.ftl-m-link{padding:13px 4px;font-weight:700;font-size:16px;color:#f5f1e8;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.10);}
+.ftl-m-link.nav-link-active{color:#3FB44A;}
+.ftl-m-actions{margin-top:16px;display:flex;flex-direction:column;gap:10px;}
+.ftl-m-account{display:flex;justify-content:center;padding:11px;border:1px solid rgba(255,255,255,.20);border-radius:10px;color:#f5f1e8;text-decoration:none;font-weight:700;}
+
+/* Responsive */
+.ftl-util-hide-sm,.ftl-util-hide-md{display:inline;}
+@media (max-width:1100px){.ftl-util-hide-md{display:none;}}
+@media (max-width:640px){
+  .ftl-util-hide-sm{display:none;}
+  .ftl-utility-inner{padding:0 12px;}
+  .ftl-nav-inner{padding:0 12px;gap:10px;height:60px;}
+  .ftl-logo img{height:22px;}
+  .ftl-actions{gap:2px;}
+  .ftl-icon-btn,.ftl-burger{width:38px;height:38px;}
+}
+@media (max-width:380px){.ftl-logo img{height:20px;}}
+@media (min-width:1024px){.ftl-search{display:flex;}.ftl-cta{display:inline-flex;}}
+/* desktop : nav visible, burger caché ; mobile : inverse */
+@media (max-width:1023px){
+  .ftl-nav-center{display:none;}
+  .ftl-mega{display:none !important;}
+  .ftl-actions .ftl-search,.ftl-actions .ftl-icon-btn:not(.ftl-mobile-cart),.ftl-actions .ftl-cta{display:none;}
+}
+@media (min-width:1024px){
+  .ftl-mobile-cart,.ftl-burger{display:none;}
+  .ftl-mobile-nav{display:none !important;}
+}
+.ftl-header-wrap a:focus-visible,.ftl-header-wrap button:focus-visible,.ftl-header-wrap input:focus-visible{outline:3px solid #3FB44A;outline-offset:2px;}
+@media (prefers-reduced-motion:reduce){.ftl-mega{transition:none;}}
+</style>
+</head>
+<body class="bg-white text-ink antialiased">
+
+<!-- ============ SKIP LINK ============ -->
+<a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:top-3 focus:left-3 focus:bg-ink focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focusable">Aller au contenu principal</a>
+
+<!-- ============ HEADER FRED T. LIZER (méga-menu pleine largeur, style PPS) ============ -->
+<div class="ftl-header-wrap">
+  <!-- Barre utilitaire fine (STATIQUE) -->
+  <div class="ftl-utility">
+    <div class="ftl-utility-inner">
+      <div class="ftl-util-left">
+        <span>Livraison gratuite dès 89&nbsp;$ au Canada</span>
+        <span class="ftl-util-dot" aria-hidden="true">·</span>
+        <span class="ftl-util-hide-sm">Fabriqué au Québec</span>
+        <span class="ftl-util-dot ftl-util-hide-sm" aria-hidden="true">·</span>
+        <span class="ftl-util-hide-md">Enraciné dans la science depuis 2002</span>
+      </div>
+      <div class="ftl-util-right">
+        <div class="ftl-lang" role="group" aria-label="Choix de la langue">
+          <button type="button" class="ftl-lang-on" aria-current="true">FR</button>
+          <span aria-hidden="true">·</span>
+          <button type="button">EN</button>
+          <span aria-hidden="true">·</span>
+          <button type="button">ES</button>
+        </div>
+        <a href="compte.html" class="ftl-util-ico" aria-label="Mon compte">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
+        </a>
+        <a href="panier.html" class="ftl-util-cart" aria-label="Panier, 2 articles">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7h15l-1.5 11a2 2 0 0 1-2 1.75H8.5a2 2 0 0 1-2-1.75L5 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+          <span class="ftl-util-cart-badge" aria-hidden="true">2</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  <!-- Barre de navigation principale (sticky) -->
+  <header class="ftl-nav-bar">
+    <div class="ftl-nav-inner">
+      <a href="../home/06-bold-conversion.html" class="ftl-logo" aria-label="Fred T. Lizer — accueil">
+        <img src="../assets/logo-blanc-3.png" alt="Fred T. Lizer" width="361" height="35">
+      </a>
+      <nav class="ftl-nav-center" aria-label="Navigation principale">
+        <ul class="ftl-nav-list" role="menubar">
+          <li class="ftl-nav-item" role="none">
+            <button type="button" class="ftl-nav-trigger nav-link-active" aria-expanded="false" aria-haspopup="true" data-menu="boutique" aria-current="page">Boutique</button>
+            <div class="ftl-mega" data-panel="boutique" data-open="false" role="menu" aria-label="Boutique" hidden>
+              <div class="ftl-mega-inner">
+                <div class="ftl-mega-cols">
+        <div class="ftl-mega-col">
+          <p class="ftl-mega-col-head"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6"/><path d="M10 3v6.5L4.5 19a1.5 1.5 0 0 0 1.3 2.3h12.4a1.5 1.5 0 0 0 1.3-2.3L14 9.5V3"/><path d="M7.5 15h9"/></svg><span>Par gamme</span></p>
+          <div class="ftl-mega-list">
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Toute la boutique</span><span class="ftl-mega-d">Tous les produits Fred T. Lizer</span></a>
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Bases A / B</span><span class="ftl-mega-d">Terra &amp; Aqua, croissance &amp; floraison</span></a>
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Boosters de floraison</span><span class="ftl-mega-d">PK, sucres &amp; renforçateurs</span></a>
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Suppléments &amp; correctifs</span><span class="ftl-mega-d">CalMag, enzymes</span></a>
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Organiques</span><span class="ftl-mega-d">Algue, fumier de vers</span></a>
+            <a class="ftl-mega-link" href="kit.html" role="menuitem"><span class="ftl-mega-t">Kits &amp; combos</span><span class="ftl-mega-d">Prêts à cultiver</span></a>
+          </div>
+        </div>
+        <div class="ftl-mega-col">
+          <p class="ftl-mega-col-head"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20c8 1 16-4 16-14 0 0-9-1-13 3s-3 11-3 11Z"/><path d="M4 20c2-5 5-8 9-10"/></svg><span>Par plante</span></p>
+          <div class="ftl-mega-list">
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Légumes</span><span class="ftl-mega-d">Tomates, piments</span></a>
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Fleurs</span><span class="ftl-mega-d">Annuelles, vivaces</span></a>
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Plantes d'intérieur</span><span class="ftl-mega-d">Verdure de maison</span></a>
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Pelouses &amp; haies</span><span class="ftl-mega-d">Gazon, cèdres, arbustes</span></a>
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Fines herbes</span><span class="ftl-mega-d">Basilic, menthe &amp; cie</span></a>
+          </div>
+        </div>
+        <div class="ftl-mega-col">
+          <p class="ftl-mega-col-head"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11Z"/></svg><span>Par médium</span></p>
+          <div class="ftl-mega-list">
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Terre &amp; potager</span><span class="ftl-mega-d">Pleine terre &amp; pots</span></a>
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Coco</span><span class="ftl-mega-d">Substrat de coco</span></a>
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Hydroponie</span><span class="ftl-mega-d">Systèmes sans sol</span></a>
+          </div>
+        </div>
+        <div class="ftl-mega-col">
+          <p class="ftl-mega-col-head"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21v-7"/><path d="M12 14c0-3 2.5-5 6-5 0 3-2.5 5-6 5Z"/><path d="M12 14c0-3-2.5-5-6-5 0 3 2.5 5 6 5Z"/></svg><span>Par stade</span></p>
+          <div class="ftl-mega-list">
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Semis &amp; bouturage</span><span class="ftl-mega-d">Départ en douceur</span></a>
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Croissance</span><span class="ftl-mega-d">Développement végétatif</span></a>
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Floraison</span><span class="ftl-mega-d">Fleurs &amp; fruits</span></a>
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Rinçage</span><span class="ftl-mega-d">Avant la récolte</span></a>
+          </div>
+        </div>
+        <div class="ftl-mega-col">
+          <p class="ftl-mega-col-head"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.5-.6-.6-2.5 2.6-2.4Z"/></svg><span>Outils &amp; ressources</span></p>
+          <p class="ftl-mega-intro">Trouvez le bon produit et le bon dosage en quelques clics.</p>
+          <div class="ftl-mega-list">
+            <a class="ftl-mega-link" href="calculateur.html" role="menuitem"><span class="ftl-mega-t">Calculateur de dosage</span><span class="ftl-mega-d">ml/L et ml/gallon</span></a>
+            <a class="ftl-mega-link" href="../home/06-bold-conversion.html#feedcharts" role="menuitem"><span class="ftl-mega-t">Recettes &amp; feed charts</span><span class="ftl-mega-d">Programmes semaine par semaine</span></a>
+            <a class="ftl-mega-link" href="comparatif.html" role="menuitem"><span class="ftl-mega-t">Sélecteur de produits</span><span class="ftl-mega-d">Comparez et choisissez</span></a>
+            <a class="ftl-mega-link" href="../home/06-bold-conversion.html#guides" role="menuitem"><span class="ftl-mega-t">Guides de culture</span><span class="ftl-mega-d">Conseils &amp; fiches</span></a>
+          </div>
+        </div>
+                </div>
+              </div>
+      <div class="ftl-mega-foot">
+        <div class="ftl-mega-foot-inner">
+          <div class="ftl-mega-perks">
+            <span class="ftl-mega-perk"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l1.6 3.4 3.4-.9-1.3 3.3 3.3 1.3-2.7 2.2 1.9 3-3.5-.6-.2 3.5L12 18l-2.2 2.7-.2-3.5-3.5.6 1.9-3-2.7-2.2 3.3-1.3-1.3-3.3 3.4.9z"/><path d="M12 18v4"/></svg>Fabriqué au Québec</span>
+            <span class="ftl-mega-perk"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v9H3z"/><path d="M14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.6"/><circle cx="17.5" cy="18" r="1.6"/></svg>Livraison gratuite dès 89&nbsp;$</span>
+            <span class="ftl-mega-perk"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3h4"/><path d="M11 3v5L6 18a1.4 1.4 0 0 0 1.2 2.1h9.6A1.4 1.4 0 0 0 18 18L13 8V3"/></svg>Appuyé par la science</span>
+          </div>
+          <a class="ftl-mega-shop" href="boutique.html">Magasiner maintenant <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+            </div>
+          </li>
+          <li class="ftl-nav-item" role="none">
+            <button type="button" class="ftl-nav-trigger" aria-expanded="false" aria-haspopup="true" data-menu="apprendre">Apprendre</button>
+            <div class="ftl-mega ftl-mega-sm" data-panel="apprendre" data-open="false" role="menu" aria-label="Apprendre" hidden>
+              <div class="ftl-mega-inner">
+                <div class="ftl-mega-cols">
+        <div class="ftl-mega-col">
+          <p class="ftl-mega-col-head"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h7v16H6a2 2 0 0 0-2 2V5Z"/><path d="M20 3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1h-7"/></svg><span>Apprendre</span></p>
+          <div class="ftl-mega-list">
+            <a class="ftl-mega-link" href="calculateur.html" role="menuitem"><span class="ftl-mega-t">Calculateur de dosage</span><span class="ftl-mega-d">ml/L et ml/gallon</span></a>
+            <a class="ftl-mega-link" href="../home/06-bold-conversion.html#feedcharts" role="menuitem"><span class="ftl-mega-t">Recettes &amp; feed charts</span><span class="ftl-mega-d">Programmes semaine par semaine</span></a>
+            <a class="ftl-mega-link" href="../home/06-bold-conversion.html#guides" role="menuitem"><span class="ftl-mega-t">Guides de culture</span><span class="ftl-mega-d">Conseils &amp; fiches techniques</span></a>
+            <a class="ftl-mega-link" href="../home/06-bold-conversion.html#faq" role="menuitem"><span class="ftl-mega-t">FAQ</span><span class="ftl-mega-d">Questions fréquentes</span></a>
+          </div>
+        </div>
+        <div class="ftl-mega-col">
+          <p class="ftl-mega-col-head"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"/></svg><span>Ressources</span></p>
+          <div class="ftl-mega-list">
+            <a class="ftl-mega-link" href="comparatif.html" role="menuitem"><span class="ftl-mega-t">Sélecteur de produits</span><span class="ftl-mega-d">Trouvez la bonne formule</span></a>
+            <a class="ftl-mega-link" href="../home/06-bold-conversion.html#sds" role="menuitem"><span class="ftl-mega-t">Fiches techniques (SDS)</span><span class="ftl-mega-d">Sécurité &amp; composition</span></a>
+            <a class="ftl-mega-link" href="../home/06-bold-conversion.html#blogue" role="menuitem"><span class="ftl-mega-t">Blogue</span><span class="ftl-mega-d">Actualités &amp; culture</span></a>
+          </div>
+        </div>
+        <div class="ftl-mega-col">
+          <p class="ftl-mega-col-head"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20c8 1 16-4 16-14 0 0-9-1-13 3s-3 11-3 11Z"/><path d="M4 20c2-5 5-8 9-10"/></svg><span>En vedette</span></p>
+          <a class="ftl-mega-feature" href="../home/06-bold-conversion.html#guides" role="menuitem">
+            <img src="../assets/lifestyle/hero-serre.jpg" alt="Serre de culture luxuriante" loading="lazy">
+            <span class="ftl-mega-feature-body"><span class="ftl-mega-feature-k">Guide vedette</span><span class="ftl-mega-feature-t">Réussir sa floraison en serre</span></span>
+          </a>
+        </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="ftl-nav-item" role="none"><a href="b2b-revendeurs.html" class="ftl-nav-link nav-link">Revendeurs</a></li>
+          <li class="ftl-nav-item" role="none"><a href="../home/06-bold-conversion.html#fondateur" class="ftl-nav-link nav-link">À propos</a></li>
+          <li class="ftl-nav-item" role="none"><a href="../home/06-bold-conversion.html#contact" class="ftl-nav-link nav-link">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="ftl-actions">
+        <form class="ftl-search" role="search" onsubmit="return false">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <input type="search" placeholder="Rechercher un produit…" aria-label="Rechercher sur le site">
+        </form>
+        <a href="panier.html" class="ftl-icon-btn ftl-cart ftl-mobile-cart" aria-label="Panier, 2 articles">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7h15l-1.5 11a2 2 0 0 1-2 1.75H8.5a2 2 0 0 1-2-1.75L5 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+          <span class="ftl-cart-badge" aria-hidden="true">2</span>
+        </a>
+        <button type="button" class="ftl-burger" id="ftlBurger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="ftlMobileNav">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+  <div class="ftl-mobile-nav" id="ftlMobileNav" hidden>
+    <nav aria-label="Navigation mobile">
+      <details class="ftl-m-group">
+        <summary>Boutique</summary>
+        <div class="ftl-m-sub">
+          <p class="ftl-m-subhead">Par gamme</p>
+          <a href="boutique.html">Toute la boutique</a>
+          <a href="boutique.html">Bases A / B — Terra &amp; Aqua</a>
+          <a href="boutique.html">Boosters de floraison</a>
+          <a href="boutique.html">Suppléments &amp; correctifs</a>
+          <a href="boutique.html">Organiques</a>
+          <a href="kit.html">Kits &amp; combos</a>
+          <p class="ftl-m-subhead">Par plante</p>
+          <a href="boutique.html">Légumes</a>
+          <a href="boutique.html">Fleurs</a>
+          <a href="boutique.html">Plantes d'intérieur</a>
+          <a href="boutique.html">Pelouses &amp; haies</a>
+          <a href="boutique.html">Fines herbes</a>
+          <p class="ftl-m-subhead">Par médium &amp; stade</p>
+          <a href="boutique.html">Terre · Coco · Hydroponie</a>
+          <a href="boutique.html">Semis · Croissance · Floraison · Rinçage</a>
+        </div>
+      </details>
+      <details class="ftl-m-group">
+        <summary>Apprendre</summary>
+        <div class="ftl-m-sub">
+          <a href="calculateur.html">Calculateur de dosage</a>
+          <a href="../home/06-bold-conversion.html#feedcharts">Recettes &amp; feed charts</a>
+          <a href="../home/06-bold-conversion.html#guides">Guides de culture</a>
+          <a href="../home/06-bold-conversion.html#faq">FAQ</a>
+          <a href="comparatif.html">Sélecteur de produits</a>
+          <a href="../home/06-bold-conversion.html#sds">Fiches techniques (SDS)</a>
+          <a href="../home/06-bold-conversion.html#blogue">Blogue</a>
+        </div>
+      </details>
+      <a class="ftl-m-link" href="b2b-revendeurs.html">Revendeurs</a>
+      <a class="ftl-m-link" href="../home/06-bold-conversion.html#fondateur">À propos</a>
+      <a class="ftl-m-link" href="../home/06-bold-conversion.html#contact">Contact</a>
+    </nav>
+    <div class="ftl-m-actions">
+      <a href="compte.html" class="ftl-m-account">Mon compte</a>
+    </div>
+  </div>
+</div>
+<!-- ============ /HEADER FRED T. LIZER ============ -->
+
+<main id="main">
+
+<!-- ============ FIL D'ARIANE ============ -->
+<nav aria-label="Fil d'Ariane" class="border-b border-line bg-smoke">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3">
+    <ol class="flex items-center gap-2 text-sm text-ink/55 flex-wrap">
+      <li><a href="index.html" class="hover:text-punchdark transition focusable rounded font-semibold">Accueil</a></li>
+      <li aria-hidden="true" class="text-ink/30">/</li>
+      <li><span class="font-bold text-ink" aria-current="page">Boutique</span></li>
+    </ol>
+  </div>
+</nav>
+
+<!-- ============ BANDEAU TITRE ============ -->
+<section class="relative bg-ink text-white overflow-hidden">
+  <img src="../assets/lifestyle/nursery-rows.jpg" alt="Rangées de plants en pépinière" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover opacity-60" aria-hidden="true">
+  <div class="absolute inset-0 bg-gradient-to-r from-ink via-ink/85 to-ink/40" aria-hidden="true"></div>
+  <div class="absolute inset-0 grain" aria-hidden="true"></div>
+  <div class="absolute -top-24 -right-24 w-[28rem] h-[28rem] rounded-full bg-punch/20 blur-3xl" aria-hidden="true"></div>
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-10 lg:py-14">
+    <span class="inline-flex items-center gap-2 bg-white/10 border border-white/15 rounded-full px-3 py-1.5 text-xs font-bold tracking-wide uppercase">
+      <span class="w-2 h-2 rounded-full bg-punch" aria-hidden="true"></span>
+      Toute la gamme
+    </span>
+    <h1 class="mt-4 font-display text-[clamp(2.5rem,7vw,4.5rem)] leading-[0.92] uppercase">Boutique</h1>
+    <p class="mt-4 text-lg text-white/70 max-w-2xl">
+      Bases A/B, boosters de floraison, correctifs et organiques — formulés et embouteillés au Québec. Choisissez votre format, calculez votre dosage, cultivez sans vous tromper.
+    </p>
+  </div>
+</section>
+
+<!-- ============ BARRE D'OUTILS ============ -->
+<section class="border-b border-line bg-white sticky top-16 lg:top-20 z-40">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex flex-wrap items-center justify-between gap-3">
+    <div class="flex items-center gap-3">
+      <!-- Bouton filtres mobile -->
+      <button id="openFilters" class="lg:hidden inline-flex items-center gap-2 bg-ink text-white font-archivo font-bold text-sm px-3.5 py-2.5 rounded-lg hover:bg-punchdark transition focusable" aria-controls="filterDrawer" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" y1="6" x2="20" y2="6"/><line x1="7" y1="12" x2="17" y2="12"/><line x1="10" y1="18" x2="14" y2="18"/></svg>
+        Filtres
+      </button>
+      <p class="text-sm font-semibold text-ink/70"><span id="resultCount" class="text-ink font-bold">8</span> produits</p>
+    </div>
+
+    <div class="flex flex-wrap items-center gap-3">
+      <!-- Bascule prix résidentiel / revendeur -->
+      <div class="flex items-center gap-2">
+        <div class="inline-flex items-center bg-smoke border border-line rounded-lg p-0.5" role="group" aria-label="Affichage des prix">
+          <button id="priceResi" type="button" class="px-3 py-1.5 rounded-md text-xs font-archivo font-bold transition focusable bg-white text-ink shadow-sm" aria-pressed="true">Résidentiel</button>
+          <button id="priceReseller" type="button" class="px-3 py-1.5 rounded-md text-xs font-archivo font-bold transition focusable text-ink/55 hover:text-ink" aria-pressed="false">Revendeur</button>
+        </div>
+        <span id="resellerHint" class="hidden sm:inline text-xs text-ink/50">connectez-vous pour le tarif réel</span>
+      </div>
+
+      <!-- Tri -->
+      <div class="flex items-center gap-2">
+        <label for="sort" class="text-xs font-bold uppercase tracking-wide text-ink/55">Trier</label>
+        <select id="sort" class="bg-white border-2 border-line rounded-lg pl-3 pr-9 py-2 text-sm font-semibold focusable">
+          <option value="featured">Mis de l'avant</option>
+          <option value="price-asc">Prix croissant</option>
+          <option value="price-desc">Prix décroissant</option>
+          <option value="name">Nom (A→Z)</option>
+          <option value="new">Nouveautés</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LAYOUT : FILTRES + GRILLE ============ -->
+<section class="bg-smoke">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-8 lg:py-12">
+    <div class="lg:grid lg:grid-cols-12 lg:gap-8">
+
+      <!-- ===== RAIL DE FILTRES ===== -->
+      <aside class="lg:col-span-3">
+        <!-- Overlay drawer mobile -->
+        <div id="filterOverlay" class="hidden lg:hidden fixed inset-0 bg-ink/50 z-50" tabindex="-1"></div>
+
+        <div id="filterDrawer"
+             class="fixed lg:static top-0 left-0 z-50 h-full lg:h-auto w-[85%] max-w-sm lg:max-w-none lg:w-auto
+                    bg-white lg:bg-transparent overflow-y-auto lg:overflow-visible
+                    -translate-x-full lg:translate-x-0 lg:sticky lg:top-32"
+             role="region" aria-label="Filtres de produits">
+
+          <div class="lg:hidden flex items-center justify-between px-5 py-4 border-b border-line sticky top-0 bg-white">
+            <h2 class="font-archivo font-900 text-lg">Filtres</h2>
+            <button id="closeFilters" class="p-2 rounded-lg hover:bg-smoke transition focusable" aria-label="Fermer les filtres">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>
+            </button>
+          </div>
+
+          <form id="filterForm" class="p-5 lg:p-0 space-y-6 lg:space-y-5">
+
+            <div class="hidden lg:flex items-center justify-between">
+              <h2 class="font-archivo font-900 text-lg">Filtres</h2>
+              <button type="button" id="resetFilters" class="text-xs font-bold text-punchdark hover:underline focusable rounded">Réinitialiser</button>
+            </div>
+
+            <!-- Par plante -->
+            <fieldset class="bg-white lg:border lg:border-line lg:rounded-2xl lg:p-4">
+              <legend class="font-archivo font-bold text-sm uppercase tracking-wide text-ink/60 mb-3 px-1 lg:px-0">Par plante</legend>
+              <div class="flex flex-wrap gap-2">
+                <label class="filter-chip cursor-pointer"><input type="checkbox" class="sr-only" data-group="plante" value="legumes"><span class="inline-block px-3 py-1.5 rounded-full border border-line text-xs font-semibold transition hover:border-punch">Légumes</span></label>
+                <label class="filter-chip cursor-pointer"><input type="checkbox" class="sr-only" data-group="plante" value="fleurs"><span class="inline-block px-3 py-1.5 rounded-full border border-line text-xs font-semibold transition hover:border-punch">Fleurs</span></label>
+                <label class="filter-chip cursor-pointer"><input type="checkbox" class="sr-only" data-group="plante" value="herbes"><span class="inline-block px-3 py-1.5 rounded-full border border-line text-xs font-semibold transition hover:border-punch">Fines herbes</span></label>
+                <label class="filter-chip cursor-pointer"><input type="checkbox" class="sr-only" data-group="plante" value="fruits"><span class="inline-block px-3 py-1.5 rounded-full border border-line text-xs font-semibold transition hover:border-punch">Petits fruits</span></label>
+              </div>
+            </fieldset>
+
+            <!-- Par médium -->
+            <fieldset class="bg-white lg:border lg:border-line lg:rounded-2xl lg:p-4">
+              <legend class="font-archivo font-bold text-sm uppercase tracking-wide text-ink/60 mb-3 px-1 lg:px-0">Par médium</legend>
+              <div class="flex flex-wrap gap-2">
+                <label class="filter-chip cursor-pointer"><input type="checkbox" class="sr-only" data-group="medium" value="terre"><span class="inline-block px-3 py-1.5 rounded-full border border-line text-xs font-semibold transition hover:border-punch">Terre</span></label>
+                <label class="filter-chip cursor-pointer"><input type="checkbox" class="sr-only" data-group="medium" value="coco"><span class="inline-block px-3 py-1.5 rounded-full border border-line text-xs font-semibold transition hover:border-punch">Coco</span></label>
+                <label class="filter-chip cursor-pointer"><input type="checkbox" class="sr-only" data-group="medium" value="hydro"><span class="inline-block px-3 py-1.5 rounded-full border border-line text-xs font-semibold transition hover:border-punch">Hydro</span></label>
+              </div>
+            </fieldset>
+
+            <!-- Par stade -->
+            <fieldset class="bg-white lg:border lg:border-line lg:rounded-2xl lg:p-4">
+              <legend class="font-archivo font-bold text-sm uppercase tracking-wide text-ink/60 mb-3 px-1 lg:px-0">Stade de culture</legend>
+              <div class="flex flex-wrap gap-2">
+                <label class="filter-chip cursor-pointer"><input type="checkbox" class="sr-only" data-group="stade" value="semis"><span class="inline-block px-3 py-1.5 rounded-full border border-line text-xs font-semibold transition hover:border-punch">Semis</span></label>
+                <label class="filter-chip cursor-pointer"><input type="checkbox" class="sr-only" data-group="stade" value="croissance"><span class="inline-block px-3 py-1.5 rounded-full border border-line text-xs font-semibold transition hover:border-punch">Croissance</span></label>
+                <label class="filter-chip cursor-pointer"><input type="checkbox" class="sr-only" data-group="stade" value="floraison"><span class="inline-block px-3 py-1.5 rounded-full border border-line text-xs font-semibold transition hover:border-punch">Floraison</span></label>
+                <label class="filter-chip cursor-pointer"><input type="checkbox" class="sr-only" data-group="stade" value="rincage"><span class="inline-block px-3 py-1.5 rounded-full border border-line text-xs font-semibold transition hover:border-punch">Rinçage</span></label>
+              </div>
+            </fieldset>
+
+            <!-- Par kit -->
+            <fieldset class="bg-white lg:border lg:border-line lg:rounded-2xl lg:p-4">
+              <legend class="font-archivo font-bold text-sm uppercase tracking-wide text-ink/60 mb-3 px-1 lg:px-0">Type</legend>
+              <div class="space-y-2">
+                <label class="flex items-center gap-2.5 text-sm font-semibold cursor-pointer"><input type="checkbox" class="w-4 h-4 accent-punch focusable" data-group="type" value="kit"> Kits complets</label>
+                <label class="flex items-center gap-2.5 text-sm font-semibold cursor-pointer"><input type="checkbox" class="w-4 h-4 accent-punch focusable" data-group="type" value="base"> Bases A/B</label>
+                <label class="flex items-center gap-2.5 text-sm font-semibold cursor-pointer"><input type="checkbox" class="w-4 h-4 accent-punch focusable" data-group="type" value="supplement"> Suppléments</label>
+              </div>
+            </fieldset>
+
+            <!-- Par problème / besoin -->
+            <fieldset class="bg-white lg:border lg:border-line lg:rounded-2xl lg:p-4">
+              <legend class="font-archivo font-bold text-sm uppercase tracking-wide text-ink/60 mb-3 px-1 lg:px-0">Problème / besoin</legend>
+              <div class="flex flex-wrap gap-2">
+                <label class="filter-chip cursor-pointer"><input type="checkbox" class="sr-only" data-group="besoin" value="racines"><span class="inline-block px-3 py-1.5 rounded-full border border-line text-xs font-semibold transition hover:border-punch">Racines faibles</span></label>
+                <label class="filter-chip cursor-pointer"><input type="checkbox" class="sr-only" data-group="besoin" value="carence"><span class="inline-block px-3 py-1.5 rounded-full border border-line text-xs font-semibold transition hover:border-punch">Carence Ca/Mg</span></label>
+                <label class="filter-chip cursor-pointer"><input type="checkbox" class="sr-only" data-group="besoin" value="rendement"><span class="inline-block px-3 py-1.5 rounded-full border border-line text-xs font-semibold transition hover:border-punch">Rendement</span></label>
+                <label class="filter-chip cursor-pointer"><input type="checkbox" class="sr-only" data-group="besoin" value="vigueur"><span class="inline-block px-3 py-1.5 rounded-full border border-line text-xs font-semibold transition hover:border-punch">Vigueur</span></label>
+              </div>
+            </fieldset>
+
+            <!-- Par niveau -->
+            <fieldset class="bg-white lg:border lg:border-line lg:rounded-2xl lg:p-4">
+              <legend class="font-archivo font-bold text-sm uppercase tracking-wide text-ink/60 mb-3 px-1 lg:px-0">Niveau</legend>
+              <div class="flex flex-wrap gap-2">
+                <label class="filter-chip cursor-pointer"><input type="checkbox" class="sr-only" data-group="niveau" value="debutant"><span class="inline-block px-3 py-1.5 rounded-full border border-line text-xs font-semibold transition hover:border-punch">Débutant</span></label>
+                <label class="filter-chip cursor-pointer"><input type="checkbox" class="sr-only" data-group="niveau" value="avance"><span class="inline-block px-3 py-1.5 rounded-full border border-line text-xs font-semibold transition hover:border-punch">Avancé</span></label>
+              </div>
+            </fieldset>
+
+            <!-- Gamme -->
+            <fieldset class="bg-white lg:border lg:border-line lg:rounded-2xl lg:p-4">
+              <legend class="font-archivo font-bold text-sm uppercase tracking-wide text-ink/60 mb-3 px-1 lg:px-0">Gamme</legend>
+              <div class="space-y-2">
+                <label class="flex items-center gap-2.5 text-sm font-semibold cursor-pointer"><input type="checkbox" class="w-4 h-4 accent-punch focusable" data-group="gamme" value="minerale"> Minérale</label>
+                <label class="flex items-center gap-2.5 text-sm font-semibold cursor-pointer"><input type="checkbox" class="w-4 h-4 accent-punch focusable" data-group="gamme" value="organique"> Organique / Bio</label>
+              </div>
+            </fieldset>
+
+            <!-- Fourchette de prix -->
+            <fieldset class="bg-white lg:border lg:border-line lg:rounded-2xl lg:p-4">
+              <legend class="font-archivo font-bold text-sm uppercase tracking-wide text-ink/60 mb-3 px-1 lg:px-0">Prix maximum</legend>
+              <input id="priceRange" type="range" min="15" max="120" value="120" step="5" class="w-full accent-punch focusable" aria-describedby="priceRangeOut">
+              <p id="priceRangeOut" class="mt-2 text-sm font-bold">Jusqu'à <span id="priceRangeVal">120</span>&nbsp;$</p>
+            </fieldset>
+
+            <!-- Boutons drawer mobile -->
+            <div class="lg:hidden flex gap-3 sticky bottom-0 bg-white pt-4 pb-2 -mx-5 px-5 border-t border-line">
+              <button type="button" id="resetFiltersM" class="flex-1 border-2 border-line text-ink font-archivo font-bold py-3 rounded-xl focusable">Réinitialiser</button>
+              <button type="button" id="applyFilters" class="flex-1 bg-punch text-ink font-archivo font-800 py-3 rounded-xl focusable">Voir <span id="applyCount">8</span></button>
+            </div>
+          </form>
+        </div>
+      </aside>
+
+      <!-- ===== GRILLE PRODUITS ===== -->
+      <div class="lg:col-span-9 mt-6 lg:mt-0">
+
+        <!-- Filtres actifs -->
+        <div id="activeFilters" class="hidden flex-wrap items-center gap-2 mb-5"></div>
+
+        <div id="productGrid" class="grid sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-5">
+
+          <!-- ===================== PRODUITS (photos réelles) ===================== -->
+
+          <!-- 1 · Terra A -->
+          <article class="product bg-white rounded-2xl border border-line overflow-hidden flex flex-col group"
+            data-name="Terra A" data-plante="legumes fleurs herbes fruits" data-medium="terre"
+            data-stade="croissance floraison" data-type="base" data-besoin="rendement vigueur"
+            data-niveau="debutant" data-gamme="minerale" data-order="1"
+            data-prices="29.99|99.99|199.99" data-reseller="0.78">
+            <div class="relative h-44 bg-white p-3">
+              <span class="absolute top-3 left-3 z-10 text-[10px] font-900 uppercase tracking-wider bg-punch text-ink px-2.5 py-1 rounded">Vedette</span>
+              <span class="absolute top-3 right-3 z-10 text-[10px] font-bold uppercase tracking-wider bg-white/80 border border-line text-ink px-2 py-1 rounded">5.7-0-0 +7Ca</span>
+              <div class="h-full grid place-items-center bg-white">
+                <img src="../assets/products/terra-a-30ml.png" alt="Bouteille Terra A — engrais de base minéral pour cultures en terre, NPK 5.7-0-0 +7Ca" loading="lazy" class="h-36 w-auto object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-300">
+              </div>
+            </div>
+            <div class="p-4 flex flex-col flex-1">
+              <h3 class="font-archivo font-800 text-lg leading-tight">Terra A</h3>
+              <p class="text-sm text-ink/55 mt-0.5">Engrais de base minéral · cultures en terre</p>
+              <div class="mt-2 flex items-center gap-1.5" aria-label="Note 4,8 sur 5 — 112 avis">
+                <span class="flex" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="#F6A623"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.6 5.9 20.4l1.5-6.8L2.2 9l6.9-.7z"/></svg>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="#F6A623"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.6 5.9 20.4l1.5-6.8L2.2 9l6.9-.7z"/></svg>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="#F6A623"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.6 5.9 20.4l1.5-6.8L2.2 9l6.9-.7z"/></svg>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="#F6A623"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.6 5.9 20.4l1.5-6.8L2.2 9l6.9-.7z"/></svg>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="#F6A623"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.6 5.9 20.4l1.5-6.8L2.2 9l6.9-.7z"/></svg>
+                </span>
+                <span class="text-xs font-bold text-ink">4,8</span>
+                <span class="text-xs text-ink/45">(112&nbsp;avis)</span>
+              </div>
+              <div class="mt-3 flex gap-1.5" role="group" aria-label="Format de Terra A">
+                <button type="button" class="fmt-btn px-2.5 py-1 rounded-lg border-2 border-line text-xs font-archivo font-bold transition focusable" data-i="0" aria-pressed="true">1&nbsp;L</button>
+                <button type="button" class="fmt-btn px-2.5 py-1 rounded-lg border-2 border-line text-xs font-archivo font-bold transition focusable" data-i="1" aria-pressed="false">4&nbsp;L</button>
+                <button type="button" class="fmt-btn px-2.5 py-1 rounded-lg border-2 border-line text-xs font-archivo font-bold transition focusable" data-i="2" aria-pressed="false">10&nbsp;L</button>
+              </div>
+              <div class="mt-auto pt-4 flex items-center justify-between gap-2">
+                <span class="price font-display text-2xl">29,99&nbsp;$</span>
+                <button class="addBtn inline-flex items-center gap-1.5 bg-ink text-white font-archivo font-bold text-sm px-3.5 py-2.5 rounded-lg hover:bg-punchdark transition focusable" aria-label="Ajouter Terra A au panier">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                  Ajouter
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 2 · Terra B -->
+          <article class="product bg-white rounded-2xl border border-line overflow-hidden flex flex-col group"
+            data-name="Terra B" data-plante="legumes fleurs herbes fruits" data-medium="terre"
+            data-stade="croissance floraison" data-type="base" data-besoin="rendement vigueur"
+            data-niveau="debutant" data-gamme="minerale" data-order="2"
+            data-prices="29.99|99.99|199.99" data-reseller="0.78">
+            <div class="relative h-44 bg-white p-3">
+              <span class="absolute top-3 left-3 z-10 text-[10px] font-900 uppercase tracking-wider bg-punch text-ink px-2.5 py-1 rounded">Vedette</span>
+              <span class="absolute top-3 right-3 z-10 text-[10px] font-bold uppercase tracking-wider bg-white/80 border border-line text-ink px-2 py-1 rounded">3-5-4</span>
+              <div class="h-full grid place-items-center bg-white">
+                <img src="../assets/products/terra-b-30ml.png" alt="Bouteille Terra B — engrais de base minéral pour cultures en terre, NPK 3-5-4" loading="lazy" class="h-36 w-auto object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-300">
+              </div>
+            </div>
+            <div class="p-4 flex flex-col flex-1">
+              <h3 class="font-archivo font-800 text-lg leading-tight">Terra B</h3>
+              <p class="text-sm text-ink/55 mt-0.5">Engrais de base minéral · cultures en terre</p>
+              <div class="mt-2 flex items-center gap-1.5" aria-label="Note 4,7 sur 5 — 98 avis">
+                <span class="flex" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="#F6A623"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.6 5.9 20.4l1.5-6.8L2.2 9l6.9-.7z"/></svg>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="#F6A623"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.6 5.9 20.4l1.5-6.8L2.2 9l6.9-.7z"/></svg>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="#F6A623"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.6 5.9 20.4l1.5-6.8L2.2 9l6.9-.7z"/></svg>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="#F6A623"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.6 5.9 20.4l1.5-6.8L2.2 9l6.9-.7z"/></svg>
+                  <svg width="14" height="14" viewBox="0 0 24 24"><defs><linearGradient id="hbq2"><stop offset="50%" stop-color="#F6A623"/><stop offset="50%" stop-color="#E5E7E2"/></linearGradient></defs><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.6 5.9 20.4l1.5-6.8L2.2 9l6.9-.7z" fill="url(#hbq2)"/></svg>
+                </span>
+                <span class="text-xs font-bold text-ink">4,7</span>
+                <span class="text-xs text-ink/45">(98&nbsp;avis)</span>
+              </div>
+              <div class="mt-3 flex gap-1.5" role="group" aria-label="Format de Terra B">
+                <button type="button" class="fmt-btn px-2.5 py-1 rounded-lg border-2 border-line text-xs font-archivo font-bold transition focusable" data-i="0" aria-pressed="true">1&nbsp;L</button>
+                <button type="button" class="fmt-btn px-2.5 py-1 rounded-lg border-2 border-line text-xs font-archivo font-bold transition focusable" data-i="1" aria-pressed="false">4&nbsp;L</button>
+                <button type="button" class="fmt-btn px-2.5 py-1 rounded-lg border-2 border-line text-xs font-archivo font-bold transition focusable" data-i="2" aria-pressed="false">10&nbsp;L</button>
+              </div>
+              <div class="mt-auto pt-4 flex items-center justify-between gap-2">
+                <span class="price font-display text-2xl">29,99&nbsp;$</span>
+                <button class="addBtn inline-flex items-center gap-1.5 bg-ink text-white font-archivo font-bold text-sm px-3.5 py-2.5 rounded-lg hover:bg-punchdark transition focusable" aria-label="Ajouter Terra B au panier">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                  Ajouter
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 3 · Aqua A -->
+          <article class="product bg-white rounded-2xl border border-line overflow-hidden flex flex-col group"
+            data-name="Aqua A" data-plante="legumes fleurs fruits" data-medium="coco hydro"
+            data-stade="croissance floraison" data-type="base" data-besoin="rendement vigueur"
+            data-niveau="avance" data-gamme="minerale" data-order="3"
+            data-prices="32.99|109.99|219.99" data-reseller="0.78">
+            <div class="relative h-44 bg-white p-3">
+              <span class="absolute top-3 left-3 z-10 text-[10px] font-900 uppercase tracking-wider bg-acid text-ink px-2.5 py-1 rounded">Hydro</span>
+              <span class="absolute top-3 right-3 z-10 text-[10px] font-bold uppercase tracking-wider bg-white/80 border border-line text-ink px-2 py-1 rounded">4-0-5.7 +3Ca</span>
+              <div class="h-full grid place-items-center bg-white">
+                <img src="../assets/products/aqua-a-30ml.png" alt="Bouteille Aqua A — engrais de base minéral pour cultures hydroponiques, NPK 4-0-5.7 +3Ca" loading="lazy" class="h-36 w-auto object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-300">
+              </div>
+            </div>
+            <div class="p-4 flex flex-col flex-1">
+              <h3 class="font-archivo font-800 text-lg leading-tight">Aqua A</h3>
+              <p class="text-sm text-ink/55 mt-0.5">Engrais de base minéral · coco &amp; hydroponie</p>
+              <div class="mt-2 flex items-center gap-1.5" aria-label="Note 4,6 sur 5 — 54 avis">
+                <span class="flex" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="#F6A623"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.6 5.9 20.4l1.5-6.8L2.2 9l6.9-.7z"/></svg>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="#F6A623"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.6 5.9 20.4l1.5-6.8L2.2 9l6.9-.7z"/></svg>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="#F6A623"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.6 5.9 20.4l1.5-6.8L2.2 9l6.9-.7z"/></svg>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="#F6A623"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.6 5.9 20.4l1.5-6.8L2.2 9l6.9-.7z"/></svg>
+                  <svg width="14" height="14" viewBox="0 0 24 24"><defs><linearGradient id="hbq3"><stop offset="50%" stop-color="#F6A623"/><stop offset="50%" stop-color="#E5E7E2"/></linearGradient></defs><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.6 5.9 20.4l1.5-6.8L2.2 9l6.9-.7z" fill="url(#hbq3)"/></svg>
+                </span>
+                <span class="text-xs font-bold text-ink">4,6</span>
+                <span class="text-xs text-ink/45">(54&nbsp;avis)</span>
+              </div>
+              <div class="mt-3 flex gap-1.5" role="group" aria-label="Format de Aqua A">
+                <button type="button" class="fmt-btn px-2.5 py-1 rounded-lg border-2 border-line text-xs font-archivo font-bold transition focusable" data-i="0" aria-pressed="true">1&nbsp;L</button>
+                <button type="button" class="fmt-btn px-2.5 py-1 rounded-lg border-2 border-line text-xs font-archivo font-bold transition focusable" data-i="1" aria-pressed="false">4&nbsp;L</button>
+                <button type="button" class="fmt-btn px-2.5 py-1 rounded-lg border-2 border-line text-xs font-archivo font-bold transition focusable" data-i="2" aria-pressed="false">10&nbsp;L</button>
+              </div>
+              <div class="mt-auto pt-4 flex items-center justify-between gap-2">
+                <span class="price font-display text-2xl">32,99&nbsp;$</span>
+                <button class="addBtn inline-flex items-center gap-1.5 bg-ink text-white font-archivo font-bold text-sm px-3.5 py-2.5 rounded-lg hover:bg-punchdark transition focusable" aria-label="Ajouter Aqua A au panier">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                  Ajouter
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 4 · Aqua B -->
+          <article class="product bg-white rounded-2xl border border-line overflow-hidden flex flex-col group"
+            data-name="Aqua B" data-plante="legumes fleurs fruits" data-medium="coco hydro"
+            data-stade="croissance floraison" data-type="base" data-besoin="rendement vigueur"
+            data-niveau="avance" data-gamme="minerale" data-order="4"
+            data-prices="32.99|109.99|219.99" data-reseller="0.78">
+            <div class="relative h-44 bg-white p-3">
+              <span class="absolute top-3 left-3 z-10 text-[10px] font-900 uppercase tracking-wider bg-acid text-ink px-2.5 py-1 rounded">Hydro</span>
+              <span class="absolute top-3 right-3 z-10 text-[10px] font-bold uppercase tracking-wider bg-white/80 border border-line text-ink px-2 py-1 rounded">1.7-5-6.5 +2.5S</span>
+              <div class="h-full grid place-items-center bg-white">
+                <img src="../assets/products/aqua-b-30ml.png" alt="Bouteille Aqua B — engrais de base minéral pour cultures hydroponiques, NPK 1.7-5-6.5 +2.5S" loading="lazy" class="h-36 w-auto object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-300">
+              </div>
+            </div>
+            <div class="p-4 flex flex-col flex-1">
+              <h3 class="font-archivo font-800 text-lg leading-tight">Aqua B</h3>
+              <p class="text-sm text-ink/55 mt-0.5">Engrais de base minéral · coco &amp; hydroponie</p>
+              <div class="mt-2 flex items-center gap-1.5" aria-label="Note 4,5 sur 5 — 47 avis">
+                <span class="flex" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="#F6A623"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.6 5.9 20.4l1.5-6.8L2.2 9l6.9-.7z"/></svg>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="#F6A623"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.6 5.9 20.4l1.5-6.8L2.2 9l6.9-.7z"/></svg>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="#F6A623"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.6 5.9 20.4l1.5-6.8L2.2 9l6.9-.7z"/></svg>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="#F6A623"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.6 5.9 20.4l1.5-6.8L2.2 9l6.9-.7z"/></svg>
+                  <svg width="14" height="14" viewBox="0 0 24 24"><defs><linearGradient id="hbq4"><stop offset="50%" stop-color="#F6A623"/><stop offset="50%" stop-color="#E5E7E2"/></linearGradient></defs><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.6 5.9 20.4l1.5-6.8L2.2 9l6.9-.7z" fill="url(#hbq4)"/></svg>
+                </span>
+                <span class="text-xs font-bold text-ink">4,5</span>
+                <span class="text-xs text-ink/45">(47&nbsp;avis)</span>
+              </div>
+              <div class="mt-3 flex gap-1.5" role="group" aria-label="Format de Aqua B">
+                <button type="button" class="fmt-btn px-2.5 py-1 rounded-lg border-2 border-line text-xs font-archivo font-bold transition focusable" data-i="0" aria-pressed="true">1&nbsp;L</button>
+                <button type="button" class="fmt-btn px-2.5 py-1 rounded-lg border-2 border-line text-xs font-archivo font-bold transition focusable" data-i="1" aria-pressed="false">4&nbsp;L</button>
+                <button type="button" class="fmt-btn px-2.5 py-1 rounded-lg border-2 border-line text-xs font-archivo font-bold transition focusable" data-i="2" aria-pressed="false">10&nbsp;L</button>
+              </div>
+              <div class="mt-auto pt-4 flex items-center justify-between gap-2">
+                <span class="price font-display text-2xl">32,99&nbsp;$</span>
+                <button class="addBtn inline-flex items-center gap-1.5 bg-ink text-white font-archivo font-bold text-sm px-3.5 py-2.5 rounded-lg hover:bg-punchdark transition focusable" aria-label="Ajouter Aqua B au panier">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                  Ajouter
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 5 · Boostlizer -->
+          <article class="product bg-white rounded-2xl border border-line overflow-hidden flex flex-col group"
+            data-name="Boostlizer" data-plante="legumes fleurs fruits" data-medium="terre coco hydro"
+            data-stade="floraison" data-type="supplement" data-besoin="rendement"
+            data-niveau="debutant" data-gamme="organique" data-order="5"
+            data-prices="26.99|26.99|26.99" data-reseller="0.81">
+            <div class="relative h-44 bg-white p-3">
+              <span class="absolute top-3 left-3 z-10 text-[10px] font-900 uppercase tracking-wider bg-punch text-ink px-2.5 py-1 rounded">Floraison</span>
+              <span class="absolute top-3 right-3 z-10 text-[10px] font-900 uppercase tracking-wider bg-acid text-ink px-2 py-1 rounded">Bio</span>
+              <div class="h-full grid place-items-center bg-white">
+                <img src="../assets/products/boostlizer-250ml.png" alt="Bouteille Boostlizer 250 ml — supplément organique qui augmente le poids et la saveur des fruits et des fleurs, NPK 0-0-0.1" loading="lazy" class="h-36 w-auto object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-300">
+              </div>
+            </div>
+            <div class="p-4 flex flex-col flex-1">
+              <h3 class="font-archivo font-800 text-lg leading-tight">Boostlizer</h3>
+              <p class="text-sm text-ink/55 mt-0.5">Augmente le poids et la saveur des fruits et fleurs · 0-0-0.1</p>
+              <div class="mt-2 flex items-center gap-1.5" aria-label="Note 4,9 sur 5 — 73 avis">
+                <span class="flex" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="#F6A623"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.6 5.9 20.4l1.5-6.8L2.2 9l6.9-.7z"/></svg>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="#F6A623"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.6 5.9 20.4l1.5-6.8L2.2 9l6.9-.7z"/></svg>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="#F6A623"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.6 5.9 20.4l1.5-6.8L2.2 9l6.9-.7z"/></svg>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="#F6A623"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.6 5.9 20.4l1.5-6.8L2.2 9l6.9-.7z"/></svg>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="#F6A623"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.6 5.9 20.4l1.5-6.8L2.2 9l6.9-.7z"/></svg>
+                </span>
+                <span class="text-xs font-bold text-ink">4,9</span>
+                <span class="text-xs text-ink/45">(73&nbsp;avis)</span>
+              </div>
+              <div class="mt-3">
+                <span class="inline-flex items-center px-2.5 py-1 rounded-lg border-2 border-ink bg-ink text-white text-xs font-archivo font-bold">250&nbsp;ml</span>
+              </div>
+              <div class="mt-auto pt-4 flex items-center justify-between gap-2">
+                <span class="price font-display text-2xl">26,99&nbsp;$</span>
+                <button class="addBtn inline-flex items-center gap-1.5 bg-ink text-white font-archivo font-bold text-sm px-3.5 py-2.5 rounded-lg hover:bg-punchdark transition focusable" aria-label="Ajouter Boostlizer au panier">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                  Ajouter
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 6 · Flush & Sweet -->
+          <article class="product bg-white rounded-2xl border border-line overflow-hidden flex flex-col group"
+            data-name="Flush &amp; Sweet" data-plante="legumes fleurs fruits" data-medium="terre coco hydro"
+            data-stade="floraison rincage" data-type="supplement" data-besoin="rendement"
+            data-niveau="debutant" data-gamme="organique" data-order="6"
+            data-prices="24.99|24.99|24.99" data-reseller="0.82">
+            <div class="relative h-44 bg-white p-3">
+              <span class="absolute top-3 left-3 z-10 text-[10px] font-900 uppercase tracking-wider bg-punch text-ink px-2.5 py-1 rounded">Rinçage</span>
+              <span class="absolute top-3 right-3 z-10 text-[10px] font-900 uppercase tracking-wider bg-acid text-ink px-2 py-1 rounded">Bio</span>
+              <div class="h-full grid place-items-center bg-white">
+                <img src="../assets/products/flush-sweet-250ml.png" alt="Bouteille Flush &amp; Sweet 250 ml — supplément organique de rinçage qui régénère les arômes des fleurs" loading="lazy" class="h-36 w-auto object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-300">
+              </div>
+            </div>
+            <div class="p-4 flex flex-col flex-1">
+              <h3 class="font-archivo font-800 text-lg leading-tight">Flush &amp; Sweet</h3>
+              <p class="text-sm text-ink/55 mt-0.5">Rinçage de finition · régénère les arômes des fleurs</p>
+              <div class="mt-2 flex items-center gap-1.5" aria-label="Note 4,4 sur 5 — 31 avis">
+                <span class="flex" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="#F6A623"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.6 5.9 20.4l1.5-6.8L2.2 9l6.9-.7z"/></svg>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="#F6A623"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.6 5.9 20.4l1.5-6.8L2.2 9l6.9-.7z"/></svg>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="#F6A623"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.6 5.9 20.4l1.5-6.8L2.2 9l6.9-.7z"/></svg>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="#F6A623"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.6 5.9 20.4l1.5-6.8L2.2 9l6.9-.7z"/></svg>
+                  <svg width="14" height="14" viewBox="0 0 24 24"><defs><linearGradient id="hbq6"><stop offset="50%" stop-color="#F6A623"/><stop offset="50%" stop-color="#E5E7E2"/></linearGradient></defs><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.6 5.9 20.4l1.5-6.8L2.2 9l6.9-.7z" fill="url(#hbq6)"/></svg>
+                </span>
+                <span class="text-xs font-bold text-ink">4,4</span>
+                <span class="text-xs text-ink/45">(31&nbsp;avis)</span>
+              </div>
+              <div class="mt-3">
+                <span class="inline-flex items-center px-2.5 py-1 rounded-lg border-2 border-ink bg-ink text-white text-xs font-archivo font-bold">250&nbsp;ml</span>
+              </div>
+              <div class="mt-auto pt-4 flex items-center justify-between gap-2">
+                <span class="price font-display text-2xl">24,99&nbsp;$</span>
+                <button class="addBtn inline-flex items-center gap-1.5 bg-ink text-white font-archivo font-bold text-sm px-3.5 py-2.5 rounded-lg hover:bg-punchdark transition focusable" aria-label="Ajouter Flush et Sweet au panier">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                  Ajouter
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 7 · Kit Potager 1 L -->
+          <article class="product bg-white rounded-2xl border border-line overflow-hidden flex flex-col group"
+            data-name="Kit Potager 1 L" data-plante="legumes fleurs herbes fruits" data-medium="terre"
+            data-stade="semis croissance floraison" data-type="kit base" data-besoin="rendement vigueur racines"
+            data-niveau="debutant" data-gamme="minerale" data-order="7"
+            data-prices="89.99|89.99|89.99" data-reseller="0.85">
+            <div class="relative h-44 bg-white p-3">
+              <span class="absolute top-3 left-3 z-10 text-[10px] font-900 uppercase tracking-wider bg-ink text-white px-2.5 py-1 rounded">Vedette</span>
+              <span class="absolute top-3 right-3 z-10 text-[10px] font-900 uppercase tracking-wider bg-acid text-ink px-2 py-1 rounded">Kit</span>
+              <div class="h-full grid place-items-center bg-white">
+                <img src="../assets/products/kit-potager-1litre.png" alt="Kit Potager 1 L — Terra A, Terra B, PK Bloom et Roots, ensemble complet pour culture en terre" loading="lazy" class="w-[92%] h-auto object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-300">
+              </div>
+            </div>
+            <div class="p-4 flex flex-col flex-1">
+              <h3 class="font-archivo font-800 text-lg leading-tight">Kit Potager 1 L</h3>
+              <p class="text-sm text-ink/55 mt-0.5">Terra A/B + PK Bloom + Roots · format 1 L</p>
+              <div class="mt-2 flex items-center gap-1.5" aria-label="Note 4,8 sur 5 — 66 avis">
+                <span class="flex" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="#F6A623"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.6 5.9 20.4l1.5-6.8L2.2 9l6.9-.7z"/></svg>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="#F6A623"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.6 5.9 20.4l1.5-6.8L2.2 9l6.9-.7z"/></svg>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="#F6A623"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.6 5.9 20.4l1.5-6.8L2.2 9l6.9-.7z"/></svg>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="#F6A623"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.6 5.9 20.4l1.5-6.8L2.2 9l6.9-.7z"/></svg>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="#F6A623"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.6 5.9 20.4l1.5-6.8L2.2 9l6.9-.7z"/></svg>
+                </span>
+                <span class="text-xs font-bold text-ink">4,8</span>
+                <span class="text-xs text-ink/45">(66&nbsp;avis)</span>
+              </div>
+              <div class="mt-3 inline-flex items-center gap-1.5 text-xs font-bold text-punchdark">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+                Économisez 15&nbsp;$ vs à l'unité
+              </div>
+              <div class="mt-auto pt-4 flex items-center justify-between gap-2">
+                <span class="price font-display text-2xl">89,99&nbsp;$</span>
+                <button class="addBtn inline-flex items-center gap-1.5 bg-ink text-white font-archivo font-bold text-sm px-3.5 py-2.5 rounded-lg hover:bg-punchdark transition focusable" aria-label="Ajouter Kit Potager 1 L au panier">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                  Ajouter
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 8 · Kit Potager 4 L -->
+          <article class="product bg-white rounded-2xl border border-line overflow-hidden flex flex-col group"
+            data-name="Kit Potager 4 L" data-plante="legumes fleurs herbes fruits" data-medium="terre"
+            data-stade="semis croissance floraison" data-type="kit base" data-besoin="rendement vigueur racines"
+            data-niveau="debutant" data-gamme="minerale" data-order="8"
+            data-prices="119.99|119.99|119.99" data-reseller="0.85">
+            <div class="relative h-44 bg-white p-3">
+              <span class="absolute top-3 left-3 z-10 text-[10px] font-900 uppercase tracking-wider bg-ink text-white px-2.5 py-1 rounded">Grand format</span>
+              <span class="absolute top-3 right-3 z-10 text-[10px] font-900 uppercase tracking-wider bg-acid text-ink px-2 py-1 rounded">Kit</span>
+              <div class="h-full grid place-items-center bg-white">
+                <img src="../assets/products/kit-potager-4litres.png" alt="Kit Potager 4 L — Terra A, Terra B, PK Bloom et Roots en grand format pour culture en terre" loading="lazy" class="w-[94%] h-auto object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-300">
+              </div>
+            </div>
+            <div class="p-4 flex flex-col flex-1">
+              <h3 class="font-archivo font-800 text-lg leading-tight">Kit Potager 4 L</h3>
+              <p class="text-sm text-ink/55 mt-0.5">Terra A/B + PK Bloom + Roots · format 4 L</p>
+              <div class="mt-2 flex items-center gap-1.5" aria-label="Note 4,6 sur 5 — 22 avis">
+                <span class="flex" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="#F6A623"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.6 5.9 20.4l1.5-6.8L2.2 9l6.9-.7z"/></svg>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="#F6A623"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.6 5.9 20.4l1.5-6.8L2.2 9l6.9-.7z"/></svg>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="#F6A623"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.6 5.9 20.4l1.5-6.8L2.2 9l6.9-.7z"/></svg>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="#F6A623"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.6 5.9 20.4l1.5-6.8L2.2 9l6.9-.7z"/></svg>
+                  <svg width="14" height="14" viewBox="0 0 24 24"><defs><linearGradient id="hbq8"><stop offset="50%" stop-color="#F6A623"/><stop offset="50%" stop-color="#E5E7E2"/></linearGradient></defs><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17.6 5.9 20.4l1.5-6.8L2.2 9l6.9-.7z" fill="url(#hbq8)"/></svg>
+                </span>
+                <span class="text-xs font-bold text-ink">4,6</span>
+                <span class="text-xs text-ink/45">(22&nbsp;avis)</span>
+              </div>
+              <div class="mt-3 inline-flex items-center gap-1.5 text-xs font-bold text-punchdark">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+                Économisez 40&nbsp;$ vs à l'unité
+              </div>
+              <div class="mt-auto pt-4 flex items-center justify-between gap-2">
+                <span class="price font-display text-2xl">119,99&nbsp;$</span>
+                <button class="addBtn inline-flex items-center gap-1.5 bg-ink text-white font-archivo font-bold text-sm px-3.5 py-2.5 rounded-lg hover:bg-punchdark transition focusable" aria-label="Ajouter Kit Potager 4 L au panier">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                  Ajouter
+                </button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Aucun résultat -->
+        <div id="noResults" class="hidden text-center py-16">
+          <span class="grid place-items-center w-14 h-14 mx-auto bg-white border border-line rounded-2xl" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0E9E54" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg>
+          </span>
+          <p class="mt-4 font-archivo font-800 text-lg">Aucun produit ne correspond</p>
+          <p class="mt-1 text-sm text-ink/55">Essayez de retirer un ou deux filtres.</p>
+          <button type="button" id="clearFromEmpty" class="mt-4 inline-flex items-center gap-2 bg-punch text-ink font-archivo font-bold text-sm px-5 py-2.5 rounded-lg hover:bg-acid transition focusable">Réinitialiser les filtres</button>
+        </div>
+
+        <!-- ===== ENCART CTA CALCULATEUR ===== -->
+        <div class="mt-8 relative overflow-hidden rounded-2xl bg-ink text-white p-7 lg:p-9">
+          <div class="absolute inset-0 grain" aria-hidden="true"></div>
+          <div class="absolute -top-16 -right-16 w-56 h-56 rounded-full bg-punch/25 blur-3xl" aria-hidden="true"></div>
+          <div class="relative flex flex-col sm:flex-row sm:items-center justify-between gap-5">
+            <div class="flex items-start gap-4">
+              <span class="grid place-items-center w-12 h-12 bg-punch rounded-xl shrink-0" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="10" y2="10"/><line x1="14" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="10" y2="14"/><line x1="14" y1="14" x2="16" y2="14"/></svg>
+              </span>
+              <div>
+                <h2 class="font-display text-2xl sm:text-3xl uppercase leading-none">Pas sûr quoi choisir&nbsp;?</h2>
+                <p class="mt-2 text-white/70 max-w-md">Indiquez votre plante, votre médium et votre stade : le calculateur vous dit quels produits prendre et à quel dosage, en ml/L et ml/gallon.</p>
+              </div>
+            </div>
+            <a href="#" class="shrink-0 inline-flex items-center justify-center gap-2 bg-punch text-ink font-archivo font-800 text-base px-6 py-4 rounded-xl hover:bg-acid transition focusable">
+              Calculateur de dosage
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- ===== PAGINATION ===== -->
+        <nav class="mt-8 flex items-center justify-center gap-2" aria-label="Pagination">
+          <a href="#" aria-disabled="true" class="grid place-items-center w-10 h-10 rounded-lg border border-line text-ink/30 cursor-not-allowed bg-white" aria-label="Page précédente">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+          </a>
+          <a href="#" aria-current="page" class="grid place-items-center w-10 h-10 rounded-lg bg-ink text-white font-archivo font-bold focusable">1</a>
+          <a href="#" class="grid place-items-center w-10 h-10 rounded-lg border border-line bg-white font-archivo font-bold hover:border-punch transition focusable">2</a>
+          <a href="#" class="grid place-items-center w-10 h-10 rounded-lg border border-line bg-white font-archivo font-bold hover:border-punch transition focusable">3</a>
+          <span class="px-1 text-ink/40" aria-hidden="true">…</span>
+          <a href="#" class="grid place-items-center w-10 h-10 rounded-lg border border-line bg-white font-archivo font-bold hover:border-punch transition focusable">6</a>
+          <a href="#" class="grid place-items-center w-10 h-10 rounded-lg border border-line bg-white hover:border-punch transition focusable" aria-label="Page suivante">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+          </a>
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="bg-ink text-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-14">
+    <div class="grid md:grid-cols-12 gap-x-6 gap-y-10">
+      <div class="md:col-span-4">
+        <div class="flex items-center gap-2.5">
+          <span class="grid place-items-center w-10 h-10 bg-white/10 rounded-lg" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#16C46A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5-3 7-7 7-12V4l-7-2-7 2v6c0 5 2 9 7 12z"/><path d="M12 8v9M9 11l3-3 3 3"/></svg>
+          </span>
+          <span class="font-archivo font-900 text-lg">FRED&nbsp;T.&nbsp;LIZER</span>
+        </div>
+        <p class="mt-4 text-white/55 text-sm max-w-xs">Nutriments et suppléments horticoles fabriqués au Québec. Simple, propre et puissant.</p>
+        <div class="mt-5 flex gap-2.5">
+          <a href="#" class="grid place-items-center w-10 h-10 bg-white/10 rounded-lg hover:bg-punch hover:text-ink transition focusable" aria-label="Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="#" class="grid place-items-center w-10 h-10 bg-white/10 rounded-lg hover:bg-punch hover:text-ink transition focusable" aria-label="Facebook">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h-2a4 4 0 0 0-4 4v3H6v4h3v7h4v-7h3l1-4h-4V7a1 1 0 0 1 1-1h2z"/></svg>
+          </a>
+          <a href="#" class="grid place-items-center w-10 h-10 bg-white/10 rounded-lg hover:bg-punch hover:text-ink transition focusable" aria-label="YouTube">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="M10 9l5 3-5 3z" fill="currentColor" stroke="none"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <nav class="md:col-span-2" aria-label="Boutique">
+        <h3 class="font-archivo font-bold text-sm uppercase tracking-wide text-white/50 mb-3">Boutique</h3>
+        <ul class="space-y-2 text-sm text-white/75">
+          <li><a href="#" class="hover:text-punch transition focusable">Bases A/B</a></li>
+          <li><a href="#" class="hover:text-punch transition focusable">Boosters floraison</a></li>
+          <li><a href="#" class="hover:text-punch transition focusable">Suppléments &amp; correctifs</a></li>
+          <li><a href="#" class="hover:text-punch transition focusable">Organiques</a></li>
+          <li><a href="#" class="hover:text-punch transition focusable">Kits complets</a></li>
+        </ul>
+      </nav>
+
+      <nav class="md:col-span-2" aria-label="Apprendre">
+        <h3 class="font-archivo font-bold text-sm uppercase tracking-wide text-white/50 mb-3">Apprendre</h3>
+        <ul class="space-y-2 text-sm text-white/75">
+          <li><a href="#" class="hover:text-punch transition focusable">Calculateur de dosage</a></li>
+          <li><a href="#" class="hover:text-punch transition focusable">Feed charts</a></li>
+          <li><a href="#" class="hover:text-punch transition focusable">Guides</a></li>
+          <li><a href="#" class="hover:text-punch transition focusable">Foire aux questions</a></li>
+        </ul>
+      </nav>
+
+      <nav class="md:col-span-2" aria-label="Entreprise">
+        <h3 class="font-archivo font-bold text-sm uppercase tracking-wide text-white/50 mb-3">Entreprise</h3>
+        <ul class="space-y-2 text-sm text-white/75">
+          <li><a href="#" class="hover:text-punch transition focusable">Devenir revendeur</a></li>
+          <li><a href="#" class="hover:text-punch transition focusable">Notre histoire</a></li>
+          <li><a href="#" class="hover:text-punch transition focusable">Nous joindre</a></li>
+          <li><a href="#" class="hover:text-punch transition focusable">Carrières</a></li>
+        </ul>
+      </nav>
+
+      <div class="md:col-span-2">
+        <h3 class="font-archivo font-bold text-sm uppercase tracking-wide text-white/50 mb-3">Joindre</h3>
+        <ul class="space-y-2 text-sm text-white/75">
+          <li><a href="mailto:bonjour@fredtlizer.ca" class="hover:text-punch transition focusable">bonjour@fredtlizer.ca</a></li>
+          <li><a href="tel:+15140000000" class="hover:text-punch transition focusable">514 000-0000</a></li>
+          <li class="text-white/55">Lun–Ven · 9 h à 17 h (HE)</li>
+          <li class="text-white/55">Montréal, Québec, Canada</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/45">
+      <p>© 2026 Fred T. Lizer inc. Tous droits réservés.</p>
+      <div class="flex items-center gap-5">
+        <a href="#" class="hover:text-white transition focusable">Confidentialité</a>
+        <a href="#" class="hover:text-white transition focusable">Conditions</a>
+        <a href="#" class="hover:text-white transition focusable">Expédition &amp; retours</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- toast ajout panier -->
+<div id="toast" class="fixed bottom-5 left-1/2 -translate-x-1/2 z-[80] bg-ink text-white px-5 py-3 rounded-xl shadow-2xl font-archivo font-bold text-sm opacity-0 pointer-events-none transition-opacity duration-300" role="status" aria-live="polite"></div>
+
+<!-- ============ JS — format→prix, filtres, tri, drawer, panier ============ -->
+<script>
+(function () {
+  'use strict';
+
+  var FORMATS = ['1 L', '4 L', '10 L'];
+  var products = Array.prototype.slice.call(document.querySelectorAll('.product'));
+  var grid = document.getElementById('productGrid');
+  var resultCount = document.getElementById('resultCount');
+  var applyCount = document.getElementById('applyCount');
+  var noResults = document.getElementById('noResults');
+  var resellerMode = false;
+
+  function fmtPrice(n) {
+    return n.toFixed(2).replace('.', ',') + ' $';
+  }
+
+  // ----- format → prix (par produit) -----
+  function priceForProduct(article) {
+    var prices = (article.getAttribute('data-prices') || '0|0|0').split('|').map(parseFloat);
+    var idx = parseInt(article.getAttribute('data-fmt') || '0', 10);
+    var base = prices[idx] != null ? prices[idx] : prices[0];
+    var multi = prices[0] !== prices[1]; // produit à formats multiples (vs kit)
+    if (resellerMode) {
+      var r = parseFloat(article.getAttribute('data-reseller')) || 1;
+      base = base * r;
+    }
+    return { value: base, multi: multi };
+  }
+
+  function renderPrice(article) {
+    var p = priceForProduct(article);
+    var span = article.querySelector('.price');
+    span.textContent = fmtPrice(p.value);
+  }
+
+  // boutons format
+  products.forEach(function (article) {
+    article.setAttribute('data-fmt', '0');
+    var btns = article.querySelectorAll('.fmt-btn');
+    btns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        btns.forEach(function (b) { b.setAttribute('aria-pressed', 'false'); });
+        btn.setAttribute('aria-pressed', 'true');
+        article.setAttribute('data-fmt', btn.getAttribute('data-i'));
+        renderPrice(article);
+      });
+    });
+    renderPrice(article);
+  });
+
+  // ----- bascule prix résidentiel / revendeur -----
+  var btnResi = document.getElementById('priceResi');
+  var btnReseller = document.getElementById('priceReseller');
+  function setPriceMode(reseller) {
+    resellerMode = reseller;
+    btnResi.setAttribute('aria-pressed', String(!reseller));
+    btnReseller.setAttribute('aria-pressed', String(reseller));
+    if (reseller) {
+      btnReseller.className = 'px-3 py-1.5 rounded-md text-xs font-archivo font-bold transition focusable bg-white text-ink shadow-sm';
+      btnResi.className = 'px-3 py-1.5 rounded-md text-xs font-archivo font-bold transition focusable text-ink/55 hover:text-ink';
+    } else {
+      btnResi.className = 'px-3 py-1.5 rounded-md text-xs font-archivo font-bold transition focusable bg-white text-ink shadow-sm';
+      btnReseller.className = 'px-3 py-1.5 rounded-md text-xs font-archivo font-bold transition focusable text-ink/55 hover:text-ink';
+    }
+    products.forEach(renderPrice);
+    if (reseller) showToast('Prix revendeur estimés — connectez-vous pour votre tarif réel');
+  }
+  btnResi.addEventListener('click', function () { setPriceMode(false); });
+  btnReseller.addEventListener('click', function () { setPriceMode(true); });
+
+  // ----- collecte des filtres -----
+  var form = document.getElementById('filterForm');
+  var priceRange = document.getElementById('priceRange');
+  var priceRangeVal = document.getElementById('priceRangeVal');
+  var sort = document.getElementById('sort');
+
+  function activeFilters() {
+    var groups = {};
+    form.querySelectorAll('input[type="checkbox"]:checked').forEach(function (cb) {
+      var g = cb.getAttribute('data-group');
+      (groups[g] = groups[g] || []).push(cb.value);
+    });
+    return groups;
+  }
+
+  function matches(article, groups) {
+    for (var g in groups) {
+      var attr = (article.getAttribute('data-' + g) || '').split(/\s+/);
+      var ok = groups[g].some(function (v) { return attr.indexOf(v) !== -1; });
+      if (!ok) return false;
+    }
+    // prix : on regarde le prix de base 1 L (résidentiel)
+    var max = parseInt(priceRange.value, 10);
+    var base = parseFloat((article.getAttribute('data-prices') || '0').split('|')[0]);
+    if (base > max) return false;
+    return true;
+  }
+
+  function applyAndRender() {
+    var groups = activeFilters();
+    var visible = [];
+    products.forEach(function (a) {
+      var show = matches(a, groups);
+      a.style.display = show ? '' : 'none';
+      if (show) visible.push(a);
+    });
+
+    // tri
+    var s = sort.value;
+    visible.sort(function (a, b) {
+      var pa = parseFloat((a.getAttribute('data-prices') || '0').split('|')[0]);
+      var pb = parseFloat((b.getAttribute('data-prices') || '0').split('|')[0]);
+      if (s === 'price-asc') return pa - pb;
+      if (s === 'price-desc') return pb - pa;
+      if (s === 'name') return a.getAttribute('data-name').localeCompare(b.getAttribute('data-name'), 'fr');
+      if (s === 'new') return parseInt(b.getAttribute('data-order'),10) - parseInt(a.getAttribute('data-order'),10);
+      return parseInt(a.getAttribute('data-order'),10) - parseInt(b.getAttribute('data-order'),10);
+    });
+    visible.forEach(function (a) { grid.appendChild(a); });
+
+    resultCount.textContent = visible.length;
+    if (applyCount) applyCount.textContent = visible.length;
+    noResults.classList.toggle('hidden', visible.length !== 0);
+    renderActiveChips(groups);
+  }
+
+  // ----- chips de filtres actifs -----
+  var activeBox = document.getElementById('activeFilters');
+  var LABELS = {
+    legumes:'Légumes', fleurs:'Fleurs', herbes:'Fines herbes', fruits:'Petits fruits',
+    terre:'Terre', coco:'Coco', hydro:'Hydro',
+    semis:'Semis', croissance:'Croissance', floraison:'Floraison', rincage:'Rinçage',
+    kit:'Kits', base:'Bases A/B', supplement:'Suppléments',
+    racines:'Racines faibles', carence:'Carence Ca/Mg', rendement:'Rendement', vigueur:'Vigueur',
+    debutant:'Débutant', avance:'Avancé', minerale:'Minérale', organique:'Organique'
+  };
+  function renderActiveChips(groups) {
+    activeBox.innerHTML = '';
+    var any = false;
+    for (var g in groups) {
+      groups[g].forEach(function (v) {
+        any = true;
+        var chip = document.createElement('button');
+        chip.type = 'button';
+        chip.className = 'inline-flex items-center gap-1.5 bg-white border border-line rounded-full pl-3 pr-2 py-1 text-xs font-semibold hover:border-punch transition focusable';
+        chip.innerHTML = (LABELS[v] || v) + '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>';
+        chip.setAttribute('aria-label', 'Retirer le filtre ' + (LABELS[v] || v));
+        chip.addEventListener('click', function () {
+          var cb = form.querySelector('input[data-group="'+g+'"][value="'+v+'"]');
+          if (cb) { cb.checked = false; applyAndRender(); }
+        });
+        activeBox.appendChild(chip);
+      });
+    }
+    activeBox.classList.toggle('hidden', !any);
+    activeBox.classList.toggle('flex', any);
+  }
+
+  // ----- events filtres -----
+  form.addEventListener('change', applyAndRender);
+  priceRange.addEventListener('input', function () {
+    priceRangeVal.textContent = priceRange.value;
+    applyAndRender();
+  });
+  sort.addEventListener('change', applyAndRender);
+
+  function resetAll() {
+    form.querySelectorAll('input[type="checkbox"]').forEach(function (cb) { cb.checked = false; });
+    priceRange.value = 120; priceRangeVal.textContent = '120';
+    sort.value = 'featured';
+    applyAndRender();
+  }
+  ['resetFilters','resetFiltersM','clearFromEmpty'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) el.addEventListener('click', resetAll);
+  });
+
+  // ----- drawer mobile -----
+  var drawer = document.getElementById('filterDrawer');
+  var overlay = document.getElementById('filterOverlay');
+  var openBtn = document.getElementById('openFilters');
+  var closeBtn = document.getElementById('closeFilters');
+  var applyBtn = document.getElementById('applyFilters');
+  function openDrawer() {
+    overlay.classList.remove('hidden');
+    drawer.classList.remove('-translate-x-full');
+    openBtn.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeDrawer() {
+    overlay.classList.add('hidden');
+    drawer.classList.add('-translate-x-full');
+    openBtn.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+  openBtn.addEventListener('click', openDrawer);
+  closeBtn.addEventListener('click', closeDrawer);
+  overlay.addEventListener('click', closeDrawer);
+  applyBtn.addEventListener('click', closeDrawer);
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !overlay.classList.contains('hidden')) closeDrawer();
+  });
+
+  // ----- panier démo (toast + compteur) -----
+  var toast = document.getElementById('toast');
+  var toastTimer;
+  var cartCount = document.getElementById('cartCount');
+  var count = 2;
+  window.showToast = function (msg) {
+    toast.textContent = msg;
+    toast.style.opacity = '1';
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { toast.style.opacity = '0'; }, 2400);
+  };
+  document.querySelectorAll('.addBtn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var article = btn.closest('.product');
+      var name = article.getAttribute('data-name').replace('&amp;', '&');
+      var idx = parseInt(article.getAttribute('data-fmt') || '0', 10);
+      var prices = (article.getAttribute('data-prices') || '').split('|');
+      var hasFormats = prices[0] !== prices[1];
+      var fmtTxt = hasFormats ? ' (' + FORMATS[idx] + ')' : '';
+      count++;
+      cartCount.textContent = count;
+      showToast(name + fmtTxt + ' ajouté au panier');
+    });
+  });
+
+  // init
+  applyAndRender();
+})();
+</script>
+
+<script id="ftl-header-js">
+(function(){
+  var wrap=document.querySelector('.ftl-header-wrap');if(!wrap)return;
+  var items=wrap.querySelectorAll('.ftl-nav-item');
+  var closeTimer=null;
+  function clearTimer(){if(closeTimer){clearTimeout(closeTimer);closeTimer=null;}}
+  function closeAll(except){
+    clearTimer();
+    items.forEach(function(it){
+      var t=it.querySelector('.ftl-nav-trigger'),p=it.querySelector('.ftl-mega');
+      if(!t||!p||it===except)return;
+      t.setAttribute('aria-expanded','false');p.setAttribute('data-open','false');p.setAttribute('hidden','');
+    });
+  }
+  items.forEach(function(it){
+    var t=it.querySelector('.ftl-nav-trigger'),p=it.querySelector('.ftl-mega');
+    if(!t||!p)return;
+    function open(){clearTimer();closeAll(it);t.setAttribute('aria-expanded','true');p.removeAttribute('hidden');p.setAttribute('data-open','true');}
+    function close(){t.setAttribute('aria-expanded','false');p.setAttribute('data-open','false');p.setAttribute('hidden','');}
+    function deferClose(){clearTimer();closeTimer=setTimeout(close,140);}
+    it.addEventListener('mouseenter',open);
+    it.addEventListener('mouseleave',deferClose);
+    p.addEventListener('mouseenter',clearTimer);
+    p.addEventListener('mouseleave',deferClose);
+    t.addEventListener('click',function(e){e.preventDefault();(t.getAttribute('aria-expanded')==='true')?close():open();});
+    t.addEventListener('keydown',function(e){if(e.key==='Escape'){close();t.focus();}});
+    p.addEventListener('keydown',function(e){if(e.key==='Escape'){close();t.focus();}});
+  });
+  document.addEventListener('click',function(e){if(!wrap.contains(e.target))closeAll(null);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll(null);});
+  // Hamburger mobile
+  var burger=document.getElementById('ftlBurger'),mnav=document.getElementById('ftlMobileNav');
+  if(burger&&mnav){
+    burger.addEventListener('click',function(){
+      var open=mnav.hasAttribute('hidden');
+      if(open){mnav.removeAttribute('hidden');burger.setAttribute('aria-expanded','true');}
+      else{mnav.setAttribute('hidden','');burger.setAttribute('aria-expanded','false');}
+    });
+  }
+})();
+</script>
+</body>
+</html>

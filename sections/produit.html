@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terra A + B — Engrais de base pour culture en terre | Fred T. Lizer</title>
+<meta name="description" content="Terra A + B : engrais de base 2 parts pour culture en terre, fabriqué au Québec. Feed chart par stade en ml/L et ml/gallon, cibles EC/PPM, formats 1 L, 4 L et 10 L. Prix résidentiel et prix revendeur par paliers.">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          ink: '#0A0A0A',
+          punch: '#16C46A',
+          punchdark: '#0E9E54',
+          acid: '#D6FF2E',
+          smoke: '#F4F5F2',
+          line: '#E5E7E2',
+        },
+        fontFamily: {
+          display: ['Anton', 'sans-serif'],
+          archivo: ['Archivo', 'sans-serif'],
+          sans: ['Inter', 'sans-serif'],
+        },
+      }
+    }
+  }
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; }
+  .font-display { letter-spacing: -0.01em; }
+  .grain {
+    background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,.08) 1px, transparent 0);
+    background-size: 22px 22px;
+  }
+  .marquee-track { animation: marquee 28s linear infinite; }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce) { .marquee-track { animation: none; } html { scroll-behavior: auto; } }
+  .focusable:focus-visible { outline: 3px solid #16C46A; outline-offset: 2px; }
+  select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%230A0A0A' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 0.75rem center; -webkit-appearance: none; appearance: none; }
+</style>
+
+<style id="ftl-header-css">
+/* ===== HEADER FRED T. LIZER — barre utilitaire + nav + MÉGA-MENU pleine largeur ===== */
+.ftl-header-wrap{position:sticky;top:0;z-index:60;font-family:'Inter',sans-serif;}
+.ftl-header-wrap *{box-sizing:border-box;}
+.ftl-utility{background:#0c1a10;color:#e7efe7;font-size:12px;}
+.ftl-utility-inner{max-width:1280px;margin:0 auto;padding:0 16px;height:36px;display:flex;align-items:center;justify-content:space-between;gap:12px;}
+.ftl-util-left{display:flex;align-items:center;gap:8px;min-width:0;overflow:hidden;white-space:nowrap;}
+.ftl-util-left span{flex:0 0 auto;}
+.ftl-util-dot{color:#3FB44A;}
+.ftl-util-right{display:flex;align-items:center;gap:10px;flex:0 0 auto;}
+.ftl-lang{display:flex;align-items:center;gap:5px;font-weight:700;letter-spacing:.02em;color:#9fb3a0;}
+.ftl-lang button{background:none;border:0;color:#9fb3a0;font:inherit;font-weight:700;cursor:pointer;padding:0;}
+.ftl-lang button:hover{color:#fff;}
+.ftl-lang .ftl-lang-on{color:#3FB44A;}
+.ftl-util-ico{color:#cdd9cd;display:inline-flex;padding:2px;border-radius:6px;}
+.ftl-util-ico:hover{color:#fff;}
+.ftl-util-cart{position:relative;display:inline-flex;align-items:center;justify-content:center;padding:2px;border-radius:6px;}
+.ftl-util-cart-badge{position:absolute;top:-5px;right:-6px;min-width:15px;height:15px;padding:0 3px;display:grid;place-items:center;background:#3FB44A;color:#0c1a10;font-size:10px;font-weight:900;border-radius:999px;line-height:1;}
+
+.ftl-nav-bar{position:relative;background:#14401F;color:#f5f1e8;border-bottom:2px solid rgba(255,255,255,.08);}
+.ftl-nav-inner{max-width:1280px;margin:0 auto;padding:0 16px;height:68px;display:flex;align-items:center;gap:18px;}
+.ftl-logo{flex:0 0 auto;min-width:0;display:inline-flex;align-items:center;border-radius:6px;overflow:hidden;}
+.ftl-logo img{height:30px;width:auto;max-width:100%;display:block;}
+.ftl-nav-center{flex:1 1 auto;min-width:0;display:flex;align-items:center;justify-content:center;}
+.ftl-nav-list{list-style:none;display:flex;align-items:center;gap:6px;margin:0;padding:0;}
+.ftl-nav-item{position:static;}
+.ftl-nav-link,.ftl-nav-trigger{position:relative;display:inline-flex;align-items:center;gap:5px;font:inherit;font-size:15px;font-weight:600;color:#f5f1e8;background:none;border:0;cursor:pointer;padding:10px 18px;border-radius:8px;text-decoration:none;line-height:1;white-space:nowrap;}
+.ftl-nav-link:hover,.ftl-nav-trigger:hover{background:rgba(255,255,255,.08);color:#fff;}
+.ftl-nav-link-active,.ftl-nav-trigger.nav-link-active{color:#fff;}
+.ftl-nav-link-active::after,.ftl-nav-trigger.nav-link-active::after{content:"";position:absolute;left:14px;right:14px;bottom:3px;height:2px;background:#3FB44A;border-radius:2px;}
+.ftl-nav-trigger[aria-expanded="true"]{background:rgba(255,255,255,.08);color:#fff;}
+
+/* ===== MÉGA-MENU PLEINE LARGEUR ===== */
+.ftl-mega{position:absolute;top:100%;left:0;right:0;z-index:55;background:#0c1a10;color:#e7efe7;border-top:1px solid rgba(63,180,74,.18);border-bottom-left-radius:18px;border-bottom-right-radius:18px;box-shadow:0 26px 60px -16px rgba(4,12,6,.65);opacity:0;visibility:hidden;transform:translateY(-10px);transition:opacity .22s ease,transform .22s ease,visibility .22s;pointer-events:none;}
+.ftl-mega[data-open="true"]{opacity:1;visibility:visible;transform:translateY(0);pointer-events:auto;}
+.ftl-mega-inner{max-width:1280px;margin:0 auto;padding:30px 16px 26px;}
+.ftl-mega-cols{display:grid;grid-template-columns:repeat(5,1fr);gap:26px;align-items:start;}
+.ftl-mega.ftl-mega-sm .ftl-mega-cols{grid-template-columns:1fr 1fr 1.35fr;gap:36px;}
+.ftl-mega-col-head{display:flex;align-items:center;gap:8px;margin:0 0 14px;padding:0 0 11px;border-bottom:1px solid rgba(255,255,255,.08);}
+.ftl-mega-col-head svg{flex:0 0 auto;color:#3FB44A;}
+.ftl-mega-col-head span{font-size:11.5px;font-weight:800;letter-spacing:.11em;text-transform:uppercase;color:#3FB44A;}
+.ftl-mega-list{display:flex;flex-direction:column;gap:1px;}
+.ftl-mega-link{display:flex;flex-direction:column;gap:2px;padding:8px 10px;margin:0 -10px;border-radius:9px;text-decoration:none;transition:background .15s ease;}
+.ftl-mega-link:hover{background:rgba(63,180,74,.12);}
+.ftl-mega-t{font-size:14px;font-weight:700;color:#f5f1e8;line-height:1.25;transition:color .15s ease;}
+.ftl-mega-link:hover .ftl-mega-t{color:#3FB44A;}
+.ftl-mega-d{font-size:12px;color:#9fb3a4;line-height:1.3;}
+.ftl-mega-intro{font-size:13px;color:#9fb3a4;line-height:1.5;margin:0 0 14px;}
+.ftl-mega-feature{display:block;border-radius:12px;overflow:hidden;text-decoration:none;border:1px solid rgba(255,255,255,.08);background:#14401F;}
+.ftl-mega-feature img{display:block;width:100%;height:120px;object-fit:cover;}
+.ftl-mega-feature-body{padding:12px 14px;}
+.ftl-mega-feature-k{font-size:10.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#3FB44A;}
+.ftl-mega-feature-t{display:block;margin-top:3px;font-size:14px;font-weight:700;color:#f5f1e8;}
+/* Bandeau bas */
+.ftl-mega-foot{background:#14401F;border-top:1px solid rgba(255,255,255,.07);border-bottom-left-radius:18px;border-bottom-right-radius:18px;}
+.ftl-mega-foot-inner{max-width:1280px;margin:0 auto;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;}
+.ftl-mega-perks{display:flex;align-items:center;gap:18px;flex-wrap:wrap;min-width:0;}
+.ftl-mega-perk{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:600;color:#cdd9cd;white-space:nowrap;}
+.ftl-mega-perk svg{flex:0 0 auto;color:#3FB44A;}
+.ftl-mega-shop{display:inline-flex;align-items:center;gap:7px;background:#3FB44A;color:#0c1a10;font-weight:800;font-size:14px;padding:10px 18px;border-radius:10px;text-decoration:none;white-space:nowrap;transition:background .15s ease,color .15s ease;}
+.ftl-mega-shop:hover{background:#2E9239;color:#fff;}
+
+.ftl-actions{flex:0 0 auto;display:flex;align-items:center;gap:8px;margin-left:auto;}
+.ftl-search{display:none;align-items:center;gap:7px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.16);border-radius:10px;padding:7px 11px;color:#d8e2d8;}
+.ftl-search svg{flex:0 0 auto;}
+.ftl-search input{background:none;border:0;outline:none;color:#f5f1e8;font:inherit;font-size:14px;width:170px;}
+.ftl-search input::placeholder{color:#9fb3a0;}
+.ftl-search:focus-within{border-color:#3FB44A;}
+.ftl-icon-btn{position:relative;display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;color:#f5f1e8;}
+.ftl-icon-btn:hover{background:rgba(255,255,255,.10);}
+.ftl-cart-badge{position:absolute;top:3px;right:3px;min-width:17px;height:17px;padding:0 4px;display:grid;place-items:center;background:#3FB44A;color:#0c1a10;font-size:11px;font-weight:900;border-radius:999px;line-height:1;}
+.ftl-cta{display:none;align-items:center;background:#3FB44A;color:#0c1a10;font-weight:800;font-size:14px;padding:10px 16px;border-radius:10px;text-decoration:none;white-space:nowrap;}
+.ftl-cta:hover{background:#2E9239;color:#fff;}
+
+/* Mobile nav panel */
+.ftl-mobile-cart{display:inline-flex;}
+.ftl-burger{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:10px;background:none;border:0;color:#f5f1e8;cursor:pointer;}
+.ftl-burger:hover{background:rgba(255,255,255,.10);}
+.ftl-mobile-nav{background:#14401F;color:#f5f1e8;border-bottom:2px solid rgba(255,255,255,.08);padding:8px 16px 18px;}
+.ftl-mobile-nav nav{display:flex;flex-direction:column;}
+.ftl-m-group{border-bottom:1px solid rgba(255,255,255,.10);}
+.ftl-m-group summary{cursor:pointer;list-style:none;padding:13px 4px;font-weight:700;font-size:16px;display:flex;align-items:center;justify-content:space-between;}
+.ftl-m-group summary::-webkit-details-marker{display:none;}
+.ftl-m-group summary::after{content:"+";font-weight:400;font-size:20px;color:#3FB44A;}
+.ftl-m-group[open] summary::after{content:"–";}
+.ftl-m-sub{padding:2px 4px 8px;}
+.ftl-m-subhead{font-size:10.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#3FB44A;padding:8px 10px 4px;}
+.ftl-m-group a{display:block;padding:8px 14px;color:#cdd9cd;text-decoration:none;font-size:15px;}
+.ftl-m-group a:hover{color:#fff;}
+.ftl-m-link{padding:13px 4px;font-weight:700;font-size:16px;color:#f5f1e8;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.10);}
+.ftl-m-link.nav-link-active{color:#3FB44A;}
+.ftl-m-actions{margin-top:16px;display:flex;flex-direction:column;gap:10px;}
+.ftl-m-account{display:flex;justify-content:center;padding:11px;border:1px solid rgba(255,255,255,.20);border-radius:10px;color:#f5f1e8;text-decoration:none;font-weight:700;}
+
+/* Responsive */
+.ftl-util-hide-sm,.ftl-util-hide-md{display:inline;}
+@media (max-width:1100px){.ftl-util-hide-md{display:none;}}
+@media (max-width:640px){
+  .ftl-util-hide-sm{display:none;}
+  .ftl-utility-inner{padding:0 12px;}
+  .ftl-nav-inner{padding:0 12px;gap:10px;height:60px;}
+  .ftl-logo img{height:22px;}
+  .ftl-actions{gap:2px;}
+  .ftl-icon-btn,.ftl-burger{width:38px;height:38px;}
+}
+@media (max-width:380px){.ftl-logo img{height:20px;}}
+@media (min-width:1024px){.ftl-search{display:flex;}.ftl-cta{display:inline-flex;}}
+/* desktop : nav visible, burger caché ; mobile : inverse */
+@media (max-width:1023px){
+  .ftl-nav-center{display:none;}
+  .ftl-mega{display:none !important;}
+  .ftl-actions .ftl-search,.ftl-actions .ftl-icon-btn:not(.ftl-mobile-cart),.ftl-actions .ftl-cta{display:none;}
+}
+@media (min-width:1024px){
+  .ftl-mobile-cart,.ftl-burger{display:none;}
+  .ftl-mobile-nav{display:none !important;}
+}
+.ftl-header-wrap a:focus-visible,.ftl-header-wrap button:focus-visible,.ftl-header-wrap input:focus-visible{outline:3px solid #3FB44A;outline-offset:2px;}
+@media (prefers-reduced-motion:reduce){.ftl-mega{transition:none;}}
+</style>
+</head>
+<body class="bg-white text-ink antialiased">
+
+<!-- ============ SKIP LINK ============ -->
+<a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:top-3 focus:left-3 focus:bg-ink focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focusable">Aller au contenu principal</a>
+
+<!-- ============ HEADER FRED T. LIZER (méga-menu pleine largeur, style PPS) ============ -->
+<div class="ftl-header-wrap">
+  <!-- Barre utilitaire fine (STATIQUE) -->
+  <div class="ftl-utility">
+    <div class="ftl-utility-inner">
+      <div class="ftl-util-left">
+        <span>Livraison gratuite dès 89&nbsp;$ au Canada</span>
+        <span class="ftl-util-dot" aria-hidden="true">·</span>
+        <span class="ftl-util-hide-sm">Fabriqué au Québec</span>
+        <span class="ftl-util-dot ftl-util-hide-sm" aria-hidden="true">·</span>
+        <span class="ftl-util-hide-md">Enraciné dans la science depuis 2002</span>
+      </div>
+      <div class="ftl-util-right">
+        <div class="ftl-lang" role="group" aria-label="Choix de la langue">
+          <button type="button" class="ftl-lang-on" aria-current="true">FR</button>
+          <span aria-hidden="true">·</span>
+          <button type="button">EN</button>
+          <span aria-hidden="true">·</span>
+          <button type="button">ES</button>
+        </div>
+        <a href="compte.html" class="ftl-util-ico" aria-label="Mon compte">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
+        </a>
+        <a href="panier.html" class="ftl-util-cart" aria-label="Panier, 2 articles">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7h15l-1.5 11a2 2 0 0 1-2 1.75H8.5a2 2 0 0 1-2-1.75L5 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+          <span class="ftl-util-cart-badge" aria-hidden="true">2</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  <!-- Barre de navigation principale (sticky) -->
+  <header class="ftl-nav-bar">
+    <div class="ftl-nav-inner">
+      <a href="../home/06-bold-conversion.html" class="ftl-logo" aria-label="Fred T. Lizer — accueil">
+        <img src="../assets/logo-blanc-3.png" alt="Fred T. Lizer" width="361" height="35">
+      </a>
+      <nav class="ftl-nav-center" aria-label="Navigation principale">
+        <ul class="ftl-nav-list" role="menubar">
+          <li class="ftl-nav-item" role="none">
+            <button type="button" class="ftl-nav-trigger nav-link-active" aria-expanded="false" aria-haspopup="true" data-menu="boutique" aria-current="page">Boutique</button>
+            <div class="ftl-mega" data-panel="boutique" data-open="false" role="menu" aria-label="Boutique" hidden>
+              <div class="ftl-mega-inner">
+                <div class="ftl-mega-cols">
+        <div class="ftl-mega-col">
+          <p class="ftl-mega-col-head"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6"/><path d="M10 3v6.5L4.5 19a1.5 1.5 0 0 0 1.3 2.3h12.4a1.5 1.5 0 0 0 1.3-2.3L14 9.5V3"/><path d="M7.5 15h9"/></svg><span>Par gamme</span></p>
+          <div class="ftl-mega-list">
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Toute la boutique</span><span class="ftl-mega-d">Tous les produits Fred T. Lizer</span></a>
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Bases A / B</span><span class="ftl-mega-d">Terra &amp; Aqua, croissance &amp; floraison</span></a>
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Boosters de floraison</span><span class="ftl-mega-d">PK, sucres &amp; renforçateurs</span></a>
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Suppléments &amp; correctifs</span><span class="ftl-mega-d">CalMag, enzymes</span></a>
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Organiques</span><span class="ftl-mega-d">Algue, fumier de vers</span></a>
+            <a class="ftl-mega-link" href="kit.html" role="menuitem"><span class="ftl-mega-t">Kits &amp; combos</span><span class="ftl-mega-d">Prêts à cultiver</span></a>
+          </div>
+        </div>
+        <div class="ftl-mega-col">
+          <p class="ftl-mega-col-head"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20c8 1 16-4 16-14 0 0-9-1-13 3s-3 11-3 11Z"/><path d="M4 20c2-5 5-8 9-10"/></svg><span>Par plante</span></p>
+          <div class="ftl-mega-list">
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Légumes</span><span class="ftl-mega-d">Tomates, piments</span></a>
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Fleurs</span><span class="ftl-mega-d">Annuelles, vivaces</span></a>
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Plantes d'intérieur</span><span class="ftl-mega-d">Verdure de maison</span></a>
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Pelouses &amp; haies</span><span class="ftl-mega-d">Gazon, cèdres, arbustes</span></a>
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Fines herbes</span><span class="ftl-mega-d">Basilic, menthe &amp; cie</span></a>
+          </div>
+        </div>
+        <div class="ftl-mega-col">
+          <p class="ftl-mega-col-head"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11Z"/></svg><span>Par médium</span></p>
+          <div class="ftl-mega-list">
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Terre &amp; potager</span><span class="ftl-mega-d">Pleine terre &amp; pots</span></a>
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Coco</span><span class="ftl-mega-d">Substrat de coco</span></a>
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Hydroponie</span><span class="ftl-mega-d">Systèmes sans sol</span></a>
+          </div>
+        </div>
+        <div class="ftl-mega-col">
+          <p class="ftl-mega-col-head"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21v-7"/><path d="M12 14c0-3 2.5-5 6-5 0 3-2.5 5-6 5Z"/><path d="M12 14c0-3-2.5-5-6-5 0 3 2.5 5 6 5Z"/></svg><span>Par stade</span></p>
+          <div class="ftl-mega-list">
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Semis &amp; bouturage</span><span class="ftl-mega-d">Départ en douceur</span></a>
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Croissance</span><span class="ftl-mega-d">Développement végétatif</span></a>
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Floraison</span><span class="ftl-mega-d">Fleurs &amp; fruits</span></a>
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Rinçage</span><span class="ftl-mega-d">Avant la récolte</span></a>
+          </div>
+        </div>
+        <div class="ftl-mega-col">
+          <p class="ftl-mega-col-head"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.5-.6-.6-2.5 2.6-2.4Z"/></svg><span>Outils &amp; ressources</span></p>
+          <p class="ftl-mega-intro">Trouvez le bon produit et le bon dosage en quelques clics.</p>
+          <div class="ftl-mega-list">
+            <a class="ftl-mega-link" href="calculateur.html" role="menuitem"><span class="ftl-mega-t">Calculateur de dosage</span><span class="ftl-mega-d">ml/L et ml/gallon</span></a>
+            <a class="ftl-mega-link" href="../home/06-bold-conversion.html#feedcharts" role="menuitem"><span class="ftl-mega-t">Recettes &amp; feed charts</span><span class="ftl-mega-d">Programmes semaine par semaine</span></a>
+            <a class="ftl-mega-link" href="comparatif.html" role="menuitem"><span class="ftl-mega-t">Sélecteur de produits</span><span class="ftl-mega-d">Comparez et choisissez</span></a>
+            <a class="ftl-mega-link" href="../home/06-bold-conversion.html#guides" role="menuitem"><span class="ftl-mega-t">Guides de culture</span><span class="ftl-mega-d">Conseils &amp; fiches</span></a>
+          </div>
+        </div>
+                </div>
+              </div>
+      <div class="ftl-mega-foot">
+        <div class="ftl-mega-foot-inner">
+          <div class="ftl-mega-perks">
+            <span class="ftl-mega-perk"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l1.6 3.4 3.4-.9-1.3 3.3 3.3 1.3-2.7 2.2 1.9 3-3.5-.6-.2 3.5L12 18l-2.2 2.7-.2-3.5-3.5.6 1.9-3-2.7-2.2 3.3-1.3-1.3-3.3 3.4.9z"/><path d="M12 18v4"/></svg>Fabriqué au Québec</span>
+            <span class="ftl-mega-perk"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v9H3z"/><path d="M14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.6"/><circle cx="17.5" cy="18" r="1.6"/></svg>Livraison gratuite dès 89&nbsp;$</span>
+            <span class="ftl-mega-perk"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3h4"/><path d="M11 3v5L6 18a1.4 1.4 0 0 0 1.2 2.1h9.6A1.4 1.4 0 0 0 18 18L13 8V3"/></svg>Appuyé par la science</span>
+          </div>
+          <a class="ftl-mega-shop" href="boutique.html">Magasiner maintenant <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+            </div>
+          </li>
+          <li class="ftl-nav-item" role="none">
+            <button type="button" class="ftl-nav-trigger" aria-expanded="false" aria-haspopup="true" data-menu="apprendre">Apprendre</button>
+            <div class="ftl-mega ftl-mega-sm" data-panel="apprendre" data-open="false" role="menu" aria-label="Apprendre" hidden>
+              <div class="ftl-mega-inner">
+                <div class="ftl-mega-cols">
+        <div class="ftl-mega-col">
+          <p class="ftl-mega-col-head"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h7v16H6a2 2 0 0 0-2 2V5Z"/><path d="M20 3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1h-7"/></svg><span>Apprendre</span></p>
+          <div class="ftl-mega-list">
+            <a class="ftl-mega-link" href="calculateur.html" role="menuitem"><span class="ftl-mega-t">Calculateur de dosage</span><span class="ftl-mega-d">ml/L et ml/gallon</span></a>
+            <a class="ftl-mega-link" href="../home/06-bold-conversion.html#feedcharts" role="menuitem"><span class="ftl-mega-t">Recettes &amp; feed charts</span><span class="ftl-mega-d">Programmes semaine par semaine</span></a>
+            <a class="ftl-mega-link" href="../home/06-bold-conversion.html#guides" role="menuitem"><span class="ftl-mega-t">Guides de culture</span><span class="ftl-mega-d">Conseils &amp; fiches techniques</span></a>
+            <a class="ftl-mega-link" href="../home/06-bold-conversion.html#faq" role="menuitem"><span class="ftl-mega-t">FAQ</span><span class="ftl-mega-d">Questions fréquentes</span></a>
+          </div>
+        </div>
+        <div class="ftl-mega-col">
+          <p class="ftl-mega-col-head"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"/></svg><span>Ressources</span></p>
+          <div class="ftl-mega-list">
+            <a class="ftl-mega-link" href="comparatif.html" role="menuitem"><span class="ftl-mega-t">Sélecteur de produits</span><span class="ftl-mega-d">Trouvez la bonne formule</span></a>
+            <a class="ftl-mega-link" href="../home/06-bold-conversion.html#sds" role="menuitem"><span class="ftl-mega-t">Fiches techniques (SDS)</span><span class="ftl-mega-d">Sécurité &amp; composition</span></a>
+            <a class="ftl-mega-link" href="../home/06-bold-conversion.html#blogue" role="menuitem"><span class="ftl-mega-t">Blogue</span><span class="ftl-mega-d">Actualités &amp; culture</span></a>
+          </div>
+        </div>
+        <div class="ftl-mega-col">
+          <p class="ftl-mega-col-head"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20c8 1 16-4 16-14 0 0-9-1-13 3s-3 11-3 11Z"/><path d="M4 20c2-5 5-8 9-10"/></svg><span>En vedette</span></p>
+          <a class="ftl-mega-feature" href="../home/06-bold-conversion.html#guides" role="menuitem">
+            <img src="../assets/lifestyle/hero-serre.jpg" alt="Serre de culture luxuriante" loading="lazy">
+            <span class="ftl-mega-feature-body"><span class="ftl-mega-feature-k">Guide vedette</span><span class="ftl-mega-feature-t">Réussir sa floraison en serre</span></span>
+          </a>
+        </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="ftl-nav-item" role="none"><a href="b2b-revendeurs.html" class="ftl-nav-link nav-link">Revendeurs</a></li>
+          <li class="ftl-nav-item" role="none"><a href="../home/06-bold-conversion.html#fondateur" class="ftl-nav-link nav-link">À propos</a></li>
+          <li class="ftl-nav-item" role="none"><a href="../home/06-bold-conversion.html#contact" class="ftl-nav-link nav-link">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="ftl-actions">
+        <form class="ftl-search" role="search" onsubmit="return false">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <input type="search" placeholder="Rechercher un produit…" aria-label="Rechercher sur le site">
+        </form>
+        <a href="panier.html" class="ftl-icon-btn ftl-cart ftl-mobile-cart" aria-label="Panier, 2 articles">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7h15l-1.5 11a2 2 0 0 1-2 1.75H8.5a2 2 0 0 1-2-1.75L5 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+          <span class="ftl-cart-badge" aria-hidden="true">2</span>
+        </a>
+        <button type="button" class="ftl-burger" id="ftlBurger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="ftlMobileNav">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+  <div class="ftl-mobile-nav" id="ftlMobileNav" hidden>
+    <nav aria-label="Navigation mobile">
+      <details class="ftl-m-group">
+        <summary>Boutique</summary>
+        <div class="ftl-m-sub">
+          <p class="ftl-m-subhead">Par gamme</p>
+          <a href="boutique.html">Toute la boutique</a>
+          <a href="boutique.html">Bases A / B — Terra &amp; Aqua</a>
+          <a href="boutique.html">Boosters de floraison</a>
+          <a href="boutique.html">Suppléments &amp; correctifs</a>
+          <a href="boutique.html">Organiques</a>
+          <a href="kit.html">Kits &amp; combos</a>
+          <p class="ftl-m-subhead">Par plante</p>
+          <a href="boutique.html">Légumes</a>
+          <a href="boutique.html">Fleurs</a>
+          <a href="boutique.html">Plantes d'intérieur</a>
+          <a href="boutique.html">Pelouses &amp; haies</a>
+          <a href="boutique.html">Fines herbes</a>
+          <p class="ftl-m-subhead">Par médium &amp; stade</p>
+          <a href="boutique.html">Terre · Coco · Hydroponie</a>
+          <a href="boutique.html">Semis · Croissance · Floraison · Rinçage</a>
+        </div>
+      </details>
+      <details class="ftl-m-group">
+        <summary>Apprendre</summary>
+        <div class="ftl-m-sub">
+          <a href="calculateur.html">Calculateur de dosage</a>
+          <a href="../home/06-bold-conversion.html#feedcharts">Recettes &amp; feed charts</a>
+          <a href="../home/06-bold-conversion.html#guides">Guides de culture</a>
+          <a href="../home/06-bold-conversion.html#faq">FAQ</a>
+          <a href="comparatif.html">Sélecteur de produits</a>
+          <a href="../home/06-bold-conversion.html#sds">Fiches techniques (SDS)</a>
+          <a href="../home/06-bold-conversion.html#blogue">Blogue</a>
+        </div>
+      </details>
+      <a class="ftl-m-link" href="b2b-revendeurs.html">Revendeurs</a>
+      <a class="ftl-m-link" href="../home/06-bold-conversion.html#fondateur">À propos</a>
+      <a class="ftl-m-link" href="../home/06-bold-conversion.html#contact">Contact</a>
+    </nav>
+    <div class="ftl-m-actions">
+      <a href="compte.html" class="ftl-m-account">Mon compte</a>
+    </div>
+  </div>
+</div>
+<!-- ============ /HEADER FRED T. LIZER ============ -->
+
+<main id="main">
+
+<!-- ============ FIL D'ARIANE ============ -->
+<nav aria-label="Fil d'Ariane" class="border-b border-line bg-smoke/60">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3">
+    <ol class="flex flex-wrap items-center gap-1.5 text-sm font-semibold text-ink/55">
+      <li><a href="../home/06-bold-conversion.html" class="hover:text-punchdark transition focusable rounded">Accueil</a></li>
+      <li aria-hidden="true" class="text-ink/30">/</li>
+      <li><a href="#" class="hover:text-punchdark transition focusable rounded">Boutique</a></li>
+      <li aria-hidden="true" class="text-ink/30">/</li>
+      <li><a href="#" class="hover:text-punchdark transition focusable rounded">Bases A/B</a></li>
+      <li aria-hidden="true" class="text-ink/30">/</li>
+      <li aria-current="page" class="text-ink">Terra A + B</li>
+    </ol>
+  </div>
+</nav>
+
+<!-- ============ PRODUIT — GALERIE + ACHAT ============ -->
+<section class="max-w-7xl mx-auto px-4 sm:px-6 py-8 lg:py-12">
+  <div class="grid lg:grid-cols-2 gap-8 lg:gap-12">
+
+    <!-- ---------- GALERIE ---------- -->
+    <div>
+      <div class="relative rounded-2xl overflow-hidden bg-white aspect-square border-2 border-line">
+        <span class="absolute top-4 left-4 z-10 text-[10px] font-900 uppercase tracking-wider bg-punch text-ink px-2.5 py-1 rounded">Vedette</span>
+        <span class="absolute top-4 left-[5.5rem] z-10 text-[10px] font-900 uppercase tracking-wider bg-acid text-ink px-2.5 py-1 rounded">Minéral</span>
+
+        <!-- Visuel principal : vraies photos des deux bidons A + B -->
+        <div id="galleryMain" class="absolute inset-0 grid place-items-center">
+          <div class="flex items-end justify-center gap-3 sm:gap-5 px-6">
+            <img src="../assets/products/terra-a-30ml.png" alt="Bidon Fred T. Lizer Terra A — engrais de base partie A pour la terre" class="w-[42%] max-w-[12rem] h-auto drop-shadow-2xl" loading="lazy">
+            <img src="../assets/products/terra-b-30ml.png" alt="Bidon Fred T. Lizer Terra B — engrais de base partie B pour la terre" class="w-[42%] max-w-[12rem] h-auto drop-shadow-2xl" loading="lazy">
+          </div>
+        </div>
+        <span id="galleryFormatTag" class="absolute bottom-4 right-4 z-10 text-[11px] font-bold uppercase tracking-wider bg-ink/85 text-white px-2.5 py-1 rounded">Format 1 L</span>
+      </div>
+
+      <!-- Vignettes -->
+      <div class="mt-3 grid grid-cols-4 gap-3" role="group" aria-label="Vues du produit">
+        <button class="thumb relative rounded-xl overflow-hidden aspect-square border-2 border-ink bg-white focusable" aria-label="Vue : les deux bidons" aria-pressed="true">
+          <span class="absolute inset-0 flex items-end justify-center gap-1 p-1.5">
+            <img src="../assets/products/terra-a-30ml.png" alt="" class="w-[42%] h-auto" aria-hidden="true">
+            <img src="../assets/products/terra-b-30ml.png" alt="" class="w-[42%] h-auto" aria-hidden="true">
+          </span>
+        </button>
+        <button class="thumb relative rounded-xl overflow-hidden aspect-square border-2 border-line hover:border-ink/40 transition bg-white focusable" aria-label="Vue : partie A seule" aria-pressed="false">
+          <img src="../assets/products/terra-a-30ml.png" alt="" class="absolute inset-0 m-auto h-[88%] w-auto" aria-hidden="true">
+        </button>
+        <button class="thumb relative rounded-xl overflow-hidden aspect-square border-2 border-line hover:border-ink/40 transition bg-white focusable" aria-label="Vue : partie B seule" aria-pressed="false">
+          <img src="../assets/products/terra-b-30ml.png" alt="" class="absolute inset-0 m-auto h-[88%] w-auto" aria-hidden="true">
+        </button>
+        <button class="thumb relative rounded-xl overflow-hidden aspect-square border-2 border-line hover:border-ink/40 transition bg-smoke focusable" aria-label="Vue : étiquette NPK" aria-pressed="false">
+          <svg class="absolute inset-0 m-auto w-2/3" viewBox="0 0 60 40" aria-hidden="true"><rect x="4" y="4" width="52" height="32" rx="3" fill="#fff" stroke="#0A0A0A" stroke-width="1.5"/><text x="30" y="26" text-anchor="middle" font-family="Anton, sans-serif" font-size="13" fill="#0A0A0A">NPK</text></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- ---------- BLOC ACHAT ---------- -->
+    <div>
+      <p class="text-xs font-bold uppercase tracking-[0.2em] text-punchdark">Base 2 parts · Culture en terre</p>
+      <h1 class="mt-2 font-display text-4xl sm:text-5xl lg:text-6xl uppercase leading-[0.92]">Terra A + B</h1>
+
+      <!-- Avis -->
+      <div class="mt-3 flex items-center gap-2 text-sm">
+        <span class="flex" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#16C46A"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.7 1.4 6.8L12 17.8 5.9 20.5l1.4-6.8L2.2 9l6.9-.7z"/></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#16C46A"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.7 1.4 6.8L12 17.8 5.9 20.5l1.4-6.8L2.2 9l6.9-.7z"/></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#16C46A"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.7 1.4 6.8L12 17.8 5.9 20.5l1.4-6.8L2.2 9l6.9-.7z"/></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#16C46A"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.7 1.4 6.8L12 17.8 5.9 20.5l1.4-6.8L2.2 9l6.9-.7z"/></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16C46A" stroke-width="2"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.7 1.4 6.8L12 17.8 5.9 20.5l1.4-6.8L2.2 9l6.9-.7z"/></svg>
+        </span>
+        <span class="font-bold">4,8</span>
+        <a href="#avis" class="text-ink/55 hover:text-punchdark transition focusable rounded">(128 avis)</a>
+      </div>
+
+      <p class="mt-4 text-lg text-ink/70 max-w-md">
+        L'engrais de base qui simplifie la terre : deux parts équilibrées qui couvrent tout le cycle, du premier vrai feuillage à la récolte. Dosage précis, résultats reproductibles.
+      </p>
+
+      <!-- Sélecteur de format -->
+      <div class="mt-7">
+        <div class="flex items-center justify-between mb-2.5">
+          <span class="text-xs font-bold uppercase tracking-wide text-ink/60">Format</span>
+          <span id="formatHint" class="text-xs font-semibold text-punchdark">Le plus populaire : 4 L</span>
+        </div>
+        <div id="formatGroup" role="radiogroup" aria-label="Choisir le format" class="grid grid-cols-3 gap-2.5">
+          <button type="button" role="radio" aria-checked="false" data-format="1 L" data-price="29.99" data-base89="—" class="format-btn rounded-xl border-2 border-line bg-white px-3 py-3 text-left transition hover:border-ink/40 focusable">
+            <span class="block font-archivo font-900 text-lg leading-none">1 L</span>
+            <span class="block mt-1 text-sm font-semibold text-ink/60">29,99&nbsp;$</span>
+          </button>
+          <button type="button" role="radio" aria-checked="true" data-format="4 L" data-price="89.99" class="format-btn rounded-xl border-2 border-punch bg-punch/10 px-3 py-3 text-left transition focusable relative">
+            <span class="absolute -top-2 right-2 text-[9px] font-900 uppercase tracking-wide bg-acid text-ink px-1.5 py-0.5 rounded">Populaire</span>
+            <span class="block font-archivo font-900 text-lg leading-none">4 L</span>
+            <span class="block mt-1 text-sm font-semibold text-ink/60">89,99&nbsp;$</span>
+          </button>
+          <button type="button" role="radio" aria-checked="false" data-format="10 L" data-price="189.99" class="format-btn rounded-xl border-2 border-line bg-white px-3 py-3 text-left transition hover:border-ink/40 focusable">
+            <span class="block font-archivo font-900 text-lg leading-none">10 L</span>
+            <span class="block mt-1 text-sm font-semibold text-ink/60">189,99&nbsp;$</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Double tarification -->
+      <div class="mt-6 rounded-2xl border-2 border-line overflow-hidden">
+        <!-- Prix résidentiel -->
+        <div class="flex items-end justify-between gap-4 p-5">
+          <div>
+            <p class="text-xs font-bold uppercase tracking-wide text-ink/55">Prix résidentiel</p>
+            <p class="mt-1 flex items-baseline gap-2">
+              <span id="priceMain" class="font-display text-4xl sm:text-5xl">89,99&nbsp;$</span>
+              <span id="pricePerL" class="text-sm font-semibold text-ink/50">22,50&nbsp;$/L</span>
+            </p>
+          </div>
+          <span class="inline-flex items-center gap-1.5 self-center bg-smoke text-ink text-xs font-bold px-2.5 py-1.5 rounded-full">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0E9E54" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+            En stock
+          </span>
+        </div>
+        <!-- Encart revendeur -->
+        <div class="bg-ink text-white p-5 relative overflow-hidden">
+          <div class="absolute -top-16 -right-16 w-44 h-44 rounded-full bg-punch/20 blur-3xl" aria-hidden="true"></div>
+          <div class="relative flex items-start gap-3">
+            <span class="grid place-items-center w-9 h-9 bg-white/10 rounded-lg shrink-0 mt-0.5" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16C46A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V8l6-4 6 4v13"/><path d="M15 21V11l6 4v6"/><path d="M3 21h18"/></svg>
+            </span>
+            <div>
+              <p class="font-archivo font-800 text-sm">Prix revendeur — selon votre volume</p>
+              <p class="mt-1 text-sm text-white/65">Tarification dégressive par paliers (caisse, palette). <a href="#" class="text-punch font-semibold underline decoration-punch/40 underline-offset-2 hover:decoration-punch transition focusable rounded">Connectez-vous à votre compte revendeur</a> pour voir votre prix.</p>
+              <div class="mt-3 flex flex-wrap gap-2 text-[11px] font-bold">
+                <span class="bg-white/10 rounded px-2 py-1">6+ unités · −12&nbsp;%</span>
+                <span class="bg-white/10 rounded px-2 py-1">24+ · −20&nbsp;%</span>
+                <span class="bg-white/10 rounded px-2 py-1">Palette · sur devis</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quantité + Ajouter au panier -->
+      <div class="mt-6 flex flex-col sm:flex-row gap-3">
+        <div class="flex items-stretch rounded-xl border-2 border-ink overflow-hidden shrink-0" role="group" aria-label="Quantité">
+          <button type="button" id="qtyMinus" class="grid place-items-center w-12 hover:bg-smoke transition focusable" aria-label="Diminuer la quantité">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <input id="qty" type="number" min="1" max="99" value="1" inputmode="numeric" class="w-14 text-center font-display text-2xl border-x-2 border-ink focusable" aria-label="Quantité">
+          <button type="button" id="qtyPlus" class="grid place-items-center w-12 hover:bg-smoke transition focusable" aria-label="Augmenter la quantité">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+        </div>
+        <button type="button" id="addToCart" class="flex-1 inline-flex items-center justify-center gap-2.5 bg-punch text-ink font-archivo font-900 text-base sm:text-lg px-7 py-4 rounded-xl hover:bg-acid transition focusable">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7h15l-1.5 11a2 2 0 0 1-2 1.75H8.5a2 2 0 0 1-2-1.75L5 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+          Ajouter au panier — <span id="addTotal">89,99&nbsp;$</span>
+        </button>
+      </div>
+
+      <!-- Réassurances -->
+      <ul class="mt-5 grid sm:grid-cols-3 gap-3 text-sm">
+        <li class="flex items-center gap-2 text-ink/65"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0E9E54" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="6" width="14" height="11" rx="1.5"/><path d="M15 9h4l3 3v5h-7"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg> Livraison dès 89&nbsp;$</li>
+        <li class="flex items-center gap-2 text-ink/65"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0E9E54" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22c5-3 7-7 7-12V4l-7-2-7 2v6c0 5 2 9 7 12z"/></svg> Fabriqué au Québec</li>
+        <li class="flex items-center gap-2 text-ink/65"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0E9E54" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.5 8.5 8.5 0 0 1-3.7-.85L3 21l1.85-5.8A8.5 8.5 0 1 1 21 11.5z"/></svg> Support horticole réel</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEED CHART / DOSAGE ============ -->
+<section id="feedchart" class="bg-ink text-white relative overflow-hidden">
+  <img src="../assets/lifestyle/watering-jardin.jpg" alt="Arrosage et dosage au jardin" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover opacity-40" aria-hidden="true">
+  <div class="absolute inset-0 bg-gradient-to-r from-ink via-ink/90 to-ink/70" aria-hidden="true"></div>
+  <div class="absolute inset-0 grain" aria-hidden="true"></div>
+  <div class="absolute -bottom-40 -right-20 w-[30rem] h-[30rem] rounded-full bg-punch/15 blur-3xl" aria-hidden="true"></div>
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-14 lg:py-20">
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+      <div>
+        <p class="text-xs font-bold uppercase tracking-[0.2em] text-punch">Le bon dosage, à chaque stade</p>
+        <h2 class="mt-2 font-display text-4xl sm:text-5xl uppercase leading-none">Feed chart — Terra A + B</h2>
+        <p class="mt-3 text-white/65 max-w-xl">Doses de référence pour la culture en terre, en <strong class="text-white">ml/L</strong> comme en <strong class="text-white">ml/gallon</strong>, avec les cibles <strong class="text-white">EC</strong> et <strong class="text-white">PPM</strong> par stade. Parts A et B en quantités égales.</p>
+      </div>
+      <!-- Bascule unités -->
+      <div class="shrink-0">
+        <span class="block text-[10px] font-bold uppercase tracking-wider text-white/40 mb-1.5">Unité de mesure</span>
+        <div id="unitToggle" role="radiogroup" aria-label="Choisir l'unité de dosage" class="inline-flex rounded-lg border border-white/15 p-1 bg-white/[0.04]">
+          <button type="button" role="radio" aria-checked="true" data-unit="mll" class="unit-btn px-3 py-1.5 text-xs font-bold rounded-md bg-punch text-ink focusable">ml/L</button>
+          <button type="button" role="radio" aria-checked="false" data-unit="gal" class="unit-btn px-3 py-1.5 text-xs font-bold rounded-md text-white/70 hover:text-white transition focusable">ml/gallon</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-white/[0.04] border border-white/10 rounded-2xl p-4 sm:p-6 overflow-x-auto">
+      <table class="w-full text-left text-sm min-w-[560px]">
+        <caption class="sr-only">Dosage de Terra A et B par stade, avec cibles EC et PPM</caption>
+        <thead>
+          <tr class="text-white/50 text-xs uppercase tracking-wide border-b border-white/10">
+            <th scope="col" class="py-3 pr-3 font-bold">Stade</th>
+            <th scope="col" class="py-3 px-2 font-bold">Partie A <span id="unitColA" class="font-normal normal-case text-white/35">(ml/L)</span></th>
+            <th scope="col" class="py-3 px-2 font-bold">Partie B <span id="unitColB" class="font-normal normal-case text-white/35">(ml/L)</span></th>
+            <th scope="col" class="py-3 px-2 font-bold">EC cible</th>
+            <th scope="col" class="py-3 pl-2 font-bold">PPM (500)</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-white/[0.06]">
+          <tr>
+            <th scope="row" class="py-3.5 pr-3">
+              <span class="flex items-center gap-2 font-semibold text-white/90"><span class="w-2 h-2 rounded-full bg-punch" aria-hidden="true"></span>Croissance</span>
+              <span class="block text-xs text-white/45 mt-0.5 pl-4">Semaines 1 à 4</span>
+            </th>
+            <td class="px-2 font-bold text-punch"><span class="dose" data-mll="3.0">3,0</span></td>
+            <td class="px-2 font-bold text-punch"><span class="dose" data-mll="3.0">3,0</span></td>
+            <td class="px-2 text-white/80">1,2 – 1,5</td>
+            <td class="pl-2 text-white/80">600 – 750</td>
+          </tr>
+          <tr>
+            <th scope="row" class="py-3.5 pr-3">
+              <span class="flex items-center gap-2 font-semibold text-white/90"><span class="w-2 h-2 rounded-full bg-acid" aria-hidden="true"></span>Floraison</span>
+              <span class="block text-xs text-white/45 mt-0.5 pl-4">Semaines 5 à 8</span>
+            </th>
+            <td class="px-2 font-bold text-punch"><span class="dose" data-mll="3.5">3,5</span></td>
+            <td class="px-2 font-bold text-punch"><span class="dose" data-mll="3.5">3,5</span></td>
+            <td class="px-2 text-white/80">1,6 – 2,0</td>
+            <td class="pl-2 text-white/80">800 – 1000</td>
+          </tr>
+          <tr>
+            <th scope="row" class="py-3.5 pr-3">
+              <span class="flex items-center gap-2 font-semibold text-white/90"><span class="w-2 h-2 rounded-full bg-white/40" aria-hidden="true"></span>Rinçage</span>
+              <span class="block text-xs text-white/45 mt-0.5 pl-4">7 à 10 derniers jours</span>
+            </th>
+            <td class="px-2 text-white/40">—</td>
+            <td class="px-2 text-white/40">—</td>
+            <td class="px-2 text-white/80">&lt; 0,4</td>
+            <td class="pl-2 text-white/80">&lt; 200</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="mt-4 text-xs text-white/45">Valeurs indicatives pour la terre. Ajustez selon votre EC mesurée, votre eau de source et la vigueur de vos plants. PPM affiché à l'échelle 500 (NaCl).</p>
+    </div>
+
+    <!-- CTA calculateur -->
+    <div class="mt-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 rounded-2xl bg-punch text-ink p-5 sm:p-6">
+      <div>
+        <p class="font-archivo font-900 text-lg sm:text-xl leading-tight">Besoin de la dose exacte pour votre réservoir ?</p>
+        <p class="text-sm text-ink/70 mt-1">Entrez votre volume et votre stade — on calcule les ml exacts de A et B.</p>
+      </div>
+      <a href="#" class="inline-flex items-center justify-center gap-2 bg-ink text-white font-archivo font-800 text-base px-6 py-3.5 rounded-xl hover:bg-punchdark transition focusable shrink-0">
+        Calculer ma dose exacte
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SPECS ============ -->
+<section class="max-w-7xl mx-auto px-4 sm:px-6 py-14 lg:py-20">
+  <div class="grid lg:grid-cols-2 gap-10 lg:gap-14">
+    <div>
+      <p class="text-xs font-bold uppercase tracking-[0.2em] text-punchdark">Fiche technique</p>
+      <h2 class="mt-2 font-display text-4xl sm:text-5xl uppercase leading-none">Spécifications</h2>
+      <p class="mt-4 text-ink/65 max-w-md">Une base 2 parts conçue pour la terre : la partie A (5,7-0-0 + 7Ca) apporte l'azote et le calcium, la partie B (3-5-4) le phosphore, le potassium et les micro-éléments. Mélangées en quantités égales dans l'eau.</p>
+
+      <dl class="mt-7 divide-y divide-line border-y border-line">
+        <div class="flex justify-between gap-4 py-3.5">
+          <dt class="font-semibold text-ink/60">NPK Partie A</dt>
+          <dd class="font-archivo font-800 text-right">5,7 – 0 – 0 <span class="text-ink/40 font-semibold">+ 7Ca</span></dd>
+        </div>
+        <div class="flex justify-between gap-4 py-3.5">
+          <dt class="font-semibold text-ink/60">NPK Partie B</dt>
+          <dd class="font-archivo font-800 text-right">3 – 5 – 4</dd>
+        </div>
+        <div class="flex justify-between gap-4 py-3.5">
+          <dt class="font-semibold text-ink/60">Type</dt>
+          <dd class="font-archivo font-800 text-right">Base 2 parts (A + B)</dd>
+        </div>
+        <div class="flex justify-between gap-4 py-3.5">
+          <dt class="font-semibold text-ink/60">Médiums compatibles</dt>
+          <dd class="font-archivo font-800 text-right">Terre <span class="text-ink/40 font-semibold">· coco (ajusté)</span></dd>
+        </div>
+        <div class="flex justify-between gap-4 py-3.5">
+          <dt class="font-semibold text-ink/60">Formats</dt>
+          <dd class="font-archivo font-800 text-right">1 L · 4 L · 10 L</dd>
+        </div>
+        <div class="flex justify-between gap-4 py-3.5">
+          <dt class="font-semibold text-ink/60">pH recommandé</dt>
+          <dd class="font-archivo font-800 text-right">6,2 – 6,8</dd>
+        </div>
+        <div class="flex justify-between gap-4 py-3.5">
+          <dt class="font-semibold text-ink/60">Fabrication</dt>
+          <dd class="font-archivo font-800 text-right">Mélangé au Québec</dd>
+        </div>
+      </dl>
+    </div>
+
+    <!-- Pastilles compatibilité médium -->
+    <div class="grid sm:grid-cols-3 gap-3 content-start">
+      <div class="rounded-2xl border-2 border-punch bg-punch/5 p-5">
+        <span class="grid place-items-center w-11 h-11 bg-punch rounded-xl mb-3" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18M6 20v-6M11 20V9M16 20V4"/></svg>
+        </span>
+        <p class="font-archivo font-800">Terre</p>
+        <p class="text-sm text-ink/60 mt-1">Médium de prédilection. Doses du feed chart telles quelles.</p>
+      </div>
+      <div class="rounded-2xl border-2 border-line p-5">
+        <span class="grid place-items-center w-11 h-11 bg-smoke rounded-xl mb-3" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 16c3-2 6-2 9 0s6 2 9 0M3 11c3-2 6-2 9 0s6 2 9 0"/><circle cx="12" cy="5" r="2"/></svg>
+        </span>
+        <p class="font-archivo font-800">Coco</p>
+        <p class="text-sm text-ink/60 mt-1">Possible avec un complément calcium-magnésium. Pour le coco pur, voir Aqua A/B.</p>
+      </div>
+      <div class="rounded-2xl border-2 border-line p-5 opacity-70">
+        <span class="grid place-items-center w-11 h-11 bg-smoke rounded-xl mb-3" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8 7 5 10 5 14a7 7 0 0 0 14 0c0-4-3-7-7-12z"/></svg>
+        </span>
+        <p class="font-archivo font-800">Hydro</p>
+        <p class="text-sm text-ink/60 mt-1">Non recommandé. Choisissez Aqua A/B pour l'hydroponie.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RECETTE ASSOCIÉE ============ -->
+<section class="bg-smoke border-y border-line">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-14 lg:py-20">
+    <div class="grid lg:grid-cols-2 gap-8 items-center">
+      <div class="rounded-2xl bg-gradient-to-br from-[#1f3d2b] to-ink p-7 sm:p-9 text-white relative overflow-hidden">
+        <div class="absolute inset-0 grain" aria-hidden="true"></div>
+        <span class="relative inline-flex items-center gap-2 bg-white/10 text-xs font-bold uppercase tracking-wide px-3 py-1.5 rounded-full">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16C46A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          Recette associée
+        </span>
+        <h2 class="relative mt-4 font-display text-3xl sm:text-4xl uppercase leading-[0.95]">Tomates de serre<br>en terre — 8 semaines</h2>
+        <p class="relative mt-3 text-white/65 max-w-md">Programme complet semaine par semaine combinant Terra A + B, Boostlizer et Flush &amp; Sweet pour des fruits denses et sucrés.</p>
+        <a href="#" class="relative mt-6 inline-flex items-center gap-2 bg-punch text-ink font-archivo font-800 px-6 py-3.5 rounded-xl hover:bg-acid transition focusable">
+          Voir la recette complète
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+
+      <!-- Produits complémentaires -->
+      <div>
+        <h2 class="font-display text-3xl sm:text-4xl uppercase leading-none">Complétez le programme</h2>
+        <p class="text-ink/60 mt-2 mb-5">Les indispensables qui vont avec Terra A + B.</p>
+        <div class="space-y-3">
+          <!-- Boostlizer -->
+          <article class="flex items-center gap-4 bg-white rounded-2xl border border-line p-3 sm:p-4">
+            <div class="relative w-16 h-20 sm:w-20 sm:h-24 rounded-xl bg-white border border-line shrink-0 overflow-hidden">
+              <img src="../assets/products/boostlizer-250ml.png" alt="Bidon Fred T. Lizer Boostlizer 250 ml" class="absolute inset-0 m-auto h-[90%] w-auto" loading="lazy">
+            </div>
+            <div class="min-w-0 flex-1">
+              <h3 class="font-archivo font-800 leading-tight">Boostlizer</h3>
+              <p class="text-sm text-ink/55">Poids et saveur des fruits et fleurs</p>
+              <span class="font-display text-xl">24,99&nbsp;$</span>
+            </div>
+            <button type="button" class="addComp inline-flex items-center gap-1.5 bg-ink text-white font-archivo font-bold text-sm px-3.5 py-2.5 rounded-lg hover:bg-punchdark transition focusable shrink-0" aria-label="Ajouter Boostlizer au panier">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              Ajouter
+            </button>
+          </article>
+          <!-- Flush & Sweet -->
+          <article class="flex items-center gap-4 bg-white rounded-2xl border border-line p-3 sm:p-4">
+            <div class="relative w-16 h-20 sm:w-20 sm:h-24 rounded-xl bg-white border border-line shrink-0 overflow-hidden">
+              <img src="../assets/products/flush-sweet-250ml.png" alt="Bidon Fred T. Lizer Flush &amp; Sweet 250 ml" class="absolute inset-0 m-auto h-[90%] w-auto" loading="lazy">
+            </div>
+            <div class="min-w-0 flex-1">
+              <h3 class="font-archivo font-800 leading-tight">Flush &amp; Sweet</h3>
+              <p class="text-sm text-ink/55">Régénère les arômes des fleurs</p>
+              <span class="font-display text-xl">21,99&nbsp;$</span>
+            </div>
+            <button type="button" class="addComp inline-flex items-center gap-1.5 bg-ink text-white font-archivo font-bold text-sm px-3.5 py-2.5 rounded-lg hover:bg-punchdark transition focusable shrink-0" aria-label="Ajouter Flush et Sweet au panier">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              Ajouter
+            </button>
+          </article>
+          <!-- Aqua A + B -->
+          <article class="flex items-center gap-4 bg-white rounded-2xl border border-line p-3 sm:p-4">
+            <div class="relative w-16 h-20 sm:w-20 sm:h-24 rounded-xl bg-white border border-line shrink-0 overflow-hidden">
+              <span class="absolute inset-0 flex items-end justify-center gap-0.5 p-1.5">
+                <img src="../assets/products/aqua-a-30ml.png" alt="" class="w-[44%] h-auto" aria-hidden="true">
+                <img src="../assets/products/aqua-b-30ml.png" alt="" class="w-[44%] h-auto" aria-hidden="true">
+              </span>
+            </div>
+            <div class="min-w-0 flex-1">
+              <h3 class="font-archivo font-800 leading-tight">Aqua A + B</h3>
+              <p class="text-sm text-ink/55">Base 2 parts pour l'hydroponie</p>
+              <span class="font-display text-xl">32,99&nbsp;$</span>
+            </div>
+            <button type="button" class="addComp inline-flex items-center gap-1.5 bg-ink text-white font-archivo font-bold text-sm px-3.5 py-2.5 rounded-lg hover:bg-punchdark transition focusable shrink-0" aria-label="Ajouter Aqua A plus B au panier">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              Ajouter
+            </button>
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AVIS CLIENTS ============ -->
+<section id="avis" class="max-w-7xl mx-auto px-4 sm:px-6 py-14 lg:py-20">
+  <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+    <div>
+      <p class="text-xs font-bold uppercase tracking-[0.2em] text-punchdark">Ce qu'en disent les cultivateurs</p>
+      <h2 class="mt-2 font-display text-4xl sm:text-5xl uppercase leading-none">Avis clients</h2>
+    </div>
+    <div class="flex items-center gap-3">
+      <span class="font-display text-4xl">4,8</span>
+      <div>
+        <span class="flex" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#16C46A"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.7 1.4 6.8L12 17.8 5.9 20.5l1.4-6.8L2.2 9l6.9-.7z"/></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#16C46A"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.7 1.4 6.8L12 17.8 5.9 20.5l1.4-6.8L2.2 9l6.9-.7z"/></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#16C46A"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.7 1.4 6.8L12 17.8 5.9 20.5l1.4-6.8L2.2 9l6.9-.7z"/></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#16C46A"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.7 1.4 6.8L12 17.8 5.9 20.5l1.4-6.8L2.2 9l6.9-.7z"/></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16C46A" stroke-width="2"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.7 1.4 6.8L12 17.8 5.9 20.5l1.4-6.8L2.2 9l6.9-.7z"/></svg>
+        </span>
+        <p class="text-sm text-ink/55 mt-0.5">128 avis vérifiés</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid md:grid-cols-3 gap-4 sm:gap-5">
+    <!-- Avis 1 -->
+    <article class="rounded-2xl border border-line p-5 flex flex-col">
+      <div class="flex items-center justify-between">
+        <span class="flex" aria-label="5 étoiles sur 5">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#16C46A" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.7 1.4 6.8L12 17.8 5.9 20.5l1.4-6.8L2.2 9l6.9-.7z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#16C46A" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.7 1.4 6.8L12 17.8 5.9 20.5l1.4-6.8L2.2 9l6.9-.7z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#16C46A" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.7 1.4 6.8L12 17.8 5.9 20.5l1.4-6.8L2.2 9l6.9-.7z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#16C46A" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.7 1.4 6.8L12 17.8 5.9 20.5l1.4-6.8L2.2 9l6.9-.7z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#16C46A" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.7 1.4 6.8L12 17.8 5.9 20.5l1.4-6.8L2.2 9l6.9-.7z"/></svg>
+        </span>
+        <span class="inline-flex items-center gap-1 text-[11px] font-bold text-punchdark"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Achat vérifié</span>
+      </div>
+      <p class="mt-3 text-ink/80 flex-1">« Je suis passé d'un engrais tout-en-un à Terra A + B et la différence est nette : feuillage plus dense, aucune carence en pleine floraison. Le feed chart en ml/L est clair. »</p>
+      <p class="mt-4 font-archivo font-800 text-sm">Mathieu L. <span class="font-semibold text-ink/45">· Sherbrooke</span></p>
+    </article>
+    <!-- Avis 2 -->
+    <article class="rounded-2xl border border-line p-5 flex flex-col">
+      <div class="flex items-center justify-between">
+        <span class="flex" aria-label="5 étoiles sur 5">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#16C46A" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.7 1.4 6.8L12 17.8 5.9 20.5l1.4-6.8L2.2 9l6.9-.7z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#16C46A" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.7 1.4 6.8L12 17.8 5.9 20.5l1.4-6.8L2.2 9l6.9-.7z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#16C46A" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.7 1.4 6.8L12 17.8 5.9 20.5l1.4-6.8L2.2 9l6.9-.7z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#16C46A" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.7 1.4 6.8L12 17.8 5.9 20.5l1.4-6.8L2.2 9l6.9-.7z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16C46A" stroke-width="2" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.7 1.4 6.8L12 17.8 5.9 20.5l1.4-6.8L2.2 9l6.9-.7z"/></svg>
+        </span>
+        <span class="inline-flex items-center gap-1 text-[11px] font-bold text-punchdark"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Achat vérifié</span>
+      </div>
+      <p class="mt-3 text-ink/80 flex-1">« Le format 4 L dure toute une saison de potager. Dosage simple à suivre et l'EC reste stable. J'aurais aimé une version pour le coco, mais on m'a référé à Aqua. »</p>
+      <p class="mt-4 font-archivo font-800 text-sm">Sophie D. <span class="font-semibold text-ink/45">· Québec</span></p>
+    </article>
+    <!-- Avis 3 -->
+    <article class="rounded-2xl border border-line p-5 flex flex-col">
+      <div class="flex items-center justify-between">
+        <span class="flex" aria-label="5 étoiles sur 5">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#16C46A" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.7 1.4 6.8L12 17.8 5.9 20.5l1.4-6.8L2.2 9l6.9-.7z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#16C46A" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.7 1.4 6.8L12 17.8 5.9 20.5l1.4-6.8L2.2 9l6.9-.7z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#16C46A" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.7 1.4 6.8L12 17.8 5.9 20.5l1.4-6.8L2.2 9l6.9-.7z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#16C46A" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.7 1.4 6.8L12 17.8 5.9 20.5l1.4-6.8L2.2 9l6.9-.7z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#16C46A" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.7 1.4 6.8L12 17.8 5.9 20.5l1.4-6.8L2.2 9l6.9-.7z"/></svg>
+        </span>
+        <span class="inline-flex items-center gap-1 text-[11px] font-bold text-punchdark"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Achat vérifié</span>
+      </div>
+      <p class="mt-3 text-ink/80 flex-1">« Revendeur depuis l'an dernier : les paliers de volume sont avantageux et le produit tourne vite en boutique. Le bidon 10 L est parfait pour reremplir mes formats maison. »</p>
+      <p class="mt-4 font-archivo font-800 text-sm">Jardinerie Le Coteau <span class="font-semibold text-ink/45">· Trois-Rivières</span></p>
+    </article>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="bg-ink text-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-14">
+    <div class="grid md:grid-cols-12 gap-x-6 gap-y-10">
+      <div class="md:col-span-4">
+        <div class="flex items-center gap-2.5">
+          <span class="grid place-items-center w-10 h-10 bg-white/10 rounded-lg" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#16C46A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5-3 7-7 7-12V4l-7-2-7 2v6c0 5 2 9 7 12z"/><path d="M12 8v9M9 11l3-3 3 3"/></svg>
+          </span>
+          <span class="font-archivo font-900 text-lg">FRED&nbsp;T.&nbsp;LIZER</span>
+        </div>
+        <p class="mt-4 text-white/55 text-sm max-w-xs">Nutriments et suppléments horticoles fabriqués au Québec. Simple, propre et puissant.</p>
+        <div class="mt-5 flex gap-2.5">
+          <a href="#" class="grid place-items-center w-10 h-10 bg-white/10 rounded-lg hover:bg-punch hover:text-ink transition focusable" aria-label="Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="#" class="grid place-items-center w-10 h-10 bg-white/10 rounded-lg hover:bg-punch hover:text-ink transition focusable" aria-label="Facebook">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h-2a4 4 0 0 0-4 4v3H6v4h3v7h4v-7h3l1-4h-4V7a1 1 0 0 1 1-1h2z"/></svg>
+          </a>
+          <a href="#" class="grid place-items-center w-10 h-10 bg-white/10 rounded-lg hover:bg-punch hover:text-ink transition focusable" aria-label="YouTube">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="M10 9l5 3-5 3z" fill="currentColor" stroke="none"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <nav class="md:col-span-2" aria-label="Boutique">
+        <h3 class="font-archivo font-bold text-sm uppercase tracking-wide text-white/50 mb-3">Boutique</h3>
+        <ul class="space-y-2 text-sm text-white/75">
+          <li><a href="#" class="hover:text-punch transition focusable">Bases A/B</a></li>
+          <li><a href="#" class="hover:text-punch transition focusable">Boosters floraison</a></li>
+          <li><a href="#" class="hover:text-punch transition focusable">Suppléments &amp; correctifs</a></li>
+          <li><a href="#" class="hover:text-punch transition focusable">Organiques</a></li>
+          <li><a href="#" class="hover:text-punch transition focusable">Kits complets</a></li>
+        </ul>
+      </nav>
+
+      <nav class="md:col-span-2" aria-label="Apprendre">
+        <h3 class="font-archivo font-bold text-sm uppercase tracking-wide text-white/50 mb-3">Apprendre</h3>
+        <ul class="space-y-2 text-sm text-white/75">
+          <li><a href="#" class="hover:text-punch transition focusable">Calculateur de dosage</a></li>
+          <li><a href="#feedchart" class="hover:text-punch transition focusable">Feed charts</a></li>
+          <li><a href="#" class="hover:text-punch transition focusable">Guides</a></li>
+          <li><a href="#" class="hover:text-punch transition focusable">Foire aux questions</a></li>
+        </ul>
+      </nav>
+
+      <nav class="md:col-span-2" aria-label="Entreprise">
+        <h3 class="font-archivo font-bold text-sm uppercase tracking-wide text-white/50 mb-3">Entreprise</h3>
+        <ul class="space-y-2 text-sm text-white/75">
+          <li><a href="#" class="hover:text-punch transition focusable">Devenir revendeur</a></li>
+          <li><a href="#" class="hover:text-punch transition focusable">Notre histoire</a></li>
+          <li><a href="#" class="hover:text-punch transition focusable">Nous joindre</a></li>
+          <li><a href="#" class="hover:text-punch transition focusable">Carrières</a></li>
+        </ul>
+      </nav>
+
+      <div class="md:col-span-2">
+        <h3 class="font-archivo font-bold text-sm uppercase tracking-wide text-white/50 mb-3">Joindre</h3>
+        <ul class="space-y-2 text-sm text-white/75">
+          <li><a href="mailto:bonjour@fredtlizer.ca" class="hover:text-punch transition focusable">bonjour@fredtlizer.ca</a></li>
+          <li><a href="tel:+15140000000" class="hover:text-punch transition focusable">514 000-0000</a></li>
+          <li class="text-white/55">Lun–Ven · 9 h à 17 h (HE)</li>
+          <li class="text-white/55">Montréal, Québec, Canada</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/45">
+      <p>© 2026 Fred T. Lizer inc. Tous droits réservés.</p>
+      <div class="flex items-center gap-5">
+        <a href="#" class="hover:text-white transition focusable">Confidentialité</a>
+        <a href="#" class="hover:text-white transition focusable">Conditions</a>
+        <a href="#" class="hover:text-white transition focusable">Expédition &amp; retours</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- toast ajout panier -->
+<div id="toast" class="fixed bottom-5 left-1/2 -translate-x-1/2 z-[80] bg-ink text-white px-5 py-3 rounded-xl shadow-2xl font-archivo font-bold text-sm opacity-0 pointer-events-none transition-opacity duration-300" role="status" aria-live="polite"></div>
+
+<!-- ============ JS — format/prix, quantité, panier, unités, galerie ============ -->
+<script>
+(function () {
+  'use strict';
+
+  var L_PER_FORMAT_PRICE = null;
+
+  // ---- Format -> prix ----
+  var formatBtns = Array.prototype.slice.call(document.querySelectorAll('.format-btn'));
+  var priceMain = document.getElementById('priceMain');
+  var pricePerL = document.getElementById('pricePerL');
+  var addTotal = document.getElementById('addTotal');
+  var qty = document.getElementById('qty');
+  var galleryFormatTag = document.getElementById('galleryFormatTag');
+
+  // litres par format pour le prix au litre
+  var formatLitres = { '1 L': 1, '4 L': 4, '10 L': 10 };
+
+  function fmtMoney(v) {
+    return v.toFixed(2).replace('.', ',') + ' $';
+  }
+
+  function currentPrice() {
+    var active = document.querySelector('.format-btn[aria-checked="true"]');
+    return active ? parseFloat(active.getAttribute('data-price')) : 0;
+  }
+  function currentFormat() {
+    var active = document.querySelector('.format-btn[aria-checked="true"]');
+    return active ? active.getAttribute('data-format') : '';
+  }
+
+  function clampQty(v) {
+    v = parseInt(v, 10);
+    if (isNaN(v) || v < 1) v = 1;
+    if (v > 99) v = 99;
+    return v;
+  }
+
+  function refresh() {
+    var unit = currentPrice();
+    var fmt = currentFormat();
+    var litres = formatLitres[fmt] || 1;
+    var q = clampQty(qty.value);
+    qty.value = q;
+
+    priceMain.innerHTML = fmtMoney(unit);
+    pricePerL.innerHTML = fmtMoney(unit / litres) + '/L';
+    addTotal.innerHTML = fmtMoney(unit * q);
+    galleryFormatTag.textContent = 'Format ' + fmt;
+  }
+
+  formatBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      formatBtns.forEach(function (b) {
+        b.setAttribute('aria-checked', 'false');
+        b.classList.remove('border-punch', 'bg-punch/10');
+        b.classList.add('border-line', 'bg-white');
+      });
+      btn.setAttribute('aria-checked', 'true');
+      btn.classList.remove('border-line', 'bg-white');
+      btn.classList.add('border-punch', 'bg-punch/10');
+      refresh();
+    });
+  });
+
+  // ---- Quantité ----
+  document.getElementById('qtyMinus').addEventListener('click', function () {
+    qty.value = clampQty(parseInt(qty.value, 10) - 1);
+    refresh();
+  });
+  document.getElementById('qtyPlus').addEventListener('click', function () {
+    qty.value = clampQty(parseInt(qty.value, 10) + 1);
+    refresh();
+  });
+  qty.addEventListener('input', refresh);
+
+  refresh();
+
+  // ---- Toast + panier démo ----
+  var toast = document.getElementById('toast');
+  var cartCount = document.getElementById('cartCount');
+  var count = 2;
+  var toastTimer;
+  function showToast(msg) {
+    toast.textContent = msg;
+    toast.style.opacity = '1';
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { toast.style.opacity = '0'; }, 2200);
+  }
+  function bump(n) {
+    count += n;
+    cartCount.textContent = count;
+  }
+
+  document.getElementById('addToCart').addEventListener('click', function () {
+    var q = clampQty(qty.value);
+    bump(q);
+    showToast('Terra A + B (' + currentFormat() + ') × ' + q + ' ajouté au panier');
+  });
+
+  document.querySelectorAll('.addComp').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var art = btn.closest('article');
+      var name = art ? art.querySelector('h3').textContent.trim() : 'Produit';
+      bump(1);
+      showToast(name + ' ajouté au panier');
+    });
+  });
+
+  // ---- Bascule unités feed chart (ml/L <-> ml/gallon) ----
+  var L_PER_GAL = 3.78541;
+  var unitBtns = Array.prototype.slice.call(document.querySelectorAll('.unit-btn'));
+  var doses = Array.prototype.slice.call(document.querySelectorAll('.dose'));
+  var unitColA = document.getElementById('unitColA');
+  var unitColB = document.getElementById('unitColB');
+
+  function applyUnit(unit) {
+    var isGal = unit === 'gal';
+    doses.forEach(function (el) {
+      var mll = parseFloat(el.getAttribute('data-mll'));
+      var val = isGal ? Math.round(mll * L_PER_GAL * 10) / 10 : mll;
+      el.textContent = val.toFixed(1).replace('.', ',');
+    });
+    var label = isGal ? '(ml/gal)' : '(ml/L)';
+    unitColA.textContent = label;
+    unitColB.textContent = label;
+  }
+
+  unitBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      unitBtns.forEach(function (b) {
+        b.setAttribute('aria-checked', 'false');
+        b.classList.remove('bg-punch', 'text-ink');
+        b.classList.add('text-white/70');
+      });
+      btn.setAttribute('aria-checked', 'true');
+      btn.classList.remove('text-white/70');
+      btn.classList.add('bg-punch', 'text-ink');
+      applyUnit(btn.getAttribute('data-unit'));
+    });
+  });
+
+  // ---- Galerie : vignettes ----
+  var thumbs = Array.prototype.slice.call(document.querySelectorAll('.thumb'));
+  thumbs.forEach(function (t) {
+    t.addEventListener('click', function () {
+      thumbs.forEach(function (x) {
+        x.setAttribute('aria-pressed', 'false');
+        x.classList.remove('border-ink');
+        x.classList.add('border-line');
+      });
+      t.setAttribute('aria-pressed', 'true');
+      t.classList.remove('border-line');
+      t.classList.add('border-ink');
+    });
+  });
+})();
+</script>
+
+<script id="ftl-header-js">
+(function(){
+  var wrap=document.querySelector('.ftl-header-wrap');if(!wrap)return;
+  var items=wrap.querySelectorAll('.ftl-nav-item');
+  var closeTimer=null;
+  function clearTimer(){if(closeTimer){clearTimeout(closeTimer);closeTimer=null;}}
+  function closeAll(except){
+    clearTimer();
+    items.forEach(function(it){
+      var t=it.querySelector('.ftl-nav-trigger'),p=it.querySelector('.ftl-mega');
+      if(!t||!p||it===except)return;
+      t.setAttribute('aria-expanded','false');p.setAttribute('data-open','false');p.setAttribute('hidden','');
+    });
+  }
+  items.forEach(function(it){
+    var t=it.querySelector('.ftl-nav-trigger'),p=it.querySelector('.ftl-mega');
+    if(!t||!p)return;
+    function open(){clearTimer();closeAll(it);t.setAttribute('aria-expanded','true');p.removeAttribute('hidden');p.setAttribute('data-open','true');}
+    function close(){t.setAttribute('aria-expanded','false');p.setAttribute('data-open','false');p.setAttribute('hidden','');}
+    function deferClose(){clearTimer();closeTimer=setTimeout(close,140);}
+    it.addEventListener('mouseenter',open);
+    it.addEventListener('mouseleave',deferClose);
+    p.addEventListener('mouseenter',clearTimer);
+    p.addEventListener('mouseleave',deferClose);
+    t.addEventListener('click',function(e){e.preventDefault();(t.getAttribute('aria-expanded')==='true')?close():open();});
+    t.addEventListener('keydown',function(e){if(e.key==='Escape'){close();t.focus();}});
+    p.addEventListener('keydown',function(e){if(e.key==='Escape'){close();t.focus();}});
+  });
+  document.addEventListener('click',function(e){if(!wrap.contains(e.target))closeAll(null);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll(null);});
+  // Hamburger mobile
+  var burger=document.getElementById('ftlBurger'),mnav=document.getElementById('ftlMobileNav');
+  if(burger&&mnav){
+    burger.addEventListener('click',function(){
+      var open=mnav.hasAttribute('hidden');
+      if(open){mnav.removeAttribute('hidden');burger.setAttribute('aria-expanded','true');}
+      else{mnav.setAttribute('hidden','');burger.setAttribute('aria-expanded','false');}
+    });
+  }
+})();
+</script>
+</body>
+</html>

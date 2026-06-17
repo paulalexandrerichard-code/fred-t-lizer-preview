@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portail affilié — Fred T. Lizer | Tableau de bord ambassadeur</title>
+<meta name="description" content="Espace affilié Fred T. Lizer : suivez vos clics, conversions et commissions, copiez votre lien et code unique, téléchargez vos bannières et demandez vos paiements Interac.">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          ink: '#0A0A0A',
+          punch: '#16C46A',
+          punchdark: '#0E9E54',
+          acid: '#D6FF2E',
+          smoke: '#F4F5F2',
+          line: '#E5E7E2',
+        },
+        fontFamily: {
+          display: ['Anton', 'sans-serif'],
+          archivo: ['Archivo', 'sans-serif'],
+          sans: ['Inter', 'sans-serif'],
+        },
+      }
+    }
+  }
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; }
+  .font-display { letter-spacing: -0.01em; }
+  .grain {
+    background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,.08) 1px, transparent 0);
+    background-size: 22px 22px;
+  }
+  .marquee-track { animation: marquee 28s linear infinite; }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce) { .marquee-track { animation: none; } html { scroll-behavior: auto; } }
+  .focusable:focus-visible { outline: 3px solid #16C46A; outline-offset: 2px; }
+  select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%230A0A0A' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 0.75rem center; -webkit-appearance: none; appearance: none; }
+  .dash-anim { stroke-dasharray: 4 4; }
+</style>
+
+<style id="ftl-header-css">
+/* ===== HEADER FRED T. LIZER — barre utilitaire + nav + MÉGA-MENU pleine largeur ===== */
+.ftl-header-wrap{position:sticky;top:0;z-index:60;font-family:'Inter',sans-serif;}
+.ftl-header-wrap *{box-sizing:border-box;}
+.ftl-utility{background:#0c1a10;color:#e7efe7;font-size:12px;}
+.ftl-utility-inner{max-width:1280px;margin:0 auto;padding:0 16px;height:36px;display:flex;align-items:center;justify-content:space-between;gap:12px;}
+.ftl-util-left{display:flex;align-items:center;gap:8px;min-width:0;overflow:hidden;white-space:nowrap;}
+.ftl-util-left span{flex:0 0 auto;}
+.ftl-util-dot{color:#3FB44A;}
+.ftl-util-right{display:flex;align-items:center;gap:10px;flex:0 0 auto;}
+.ftl-lang{display:flex;align-items:center;gap:5px;font-weight:700;letter-spacing:.02em;color:#9fb3a0;}
+.ftl-lang button{background:none;border:0;color:#9fb3a0;font:inherit;font-weight:700;cursor:pointer;padding:0;}
+.ftl-lang button:hover{color:#fff;}
+.ftl-lang .ftl-lang-on{color:#3FB44A;}
+.ftl-util-ico{color:#cdd9cd;display:inline-flex;padding:2px;border-radius:6px;}
+.ftl-util-ico:hover{color:#fff;}
+.ftl-util-cart{position:relative;display:inline-flex;align-items:center;justify-content:center;padding:2px;border-radius:6px;}
+.ftl-util-cart-badge{position:absolute;top:-5px;right:-6px;min-width:15px;height:15px;padding:0 3px;display:grid;place-items:center;background:#3FB44A;color:#0c1a10;font-size:10px;font-weight:900;border-radius:999px;line-height:1;}
+
+.ftl-nav-bar{position:relative;background:#14401F;color:#f5f1e8;border-bottom:2px solid rgba(255,255,255,.08);}
+.ftl-nav-inner{max-width:1280px;margin:0 auto;padding:0 16px;height:68px;display:flex;align-items:center;gap:18px;}
+.ftl-logo{flex:0 0 auto;min-width:0;display:inline-flex;align-items:center;border-radius:6px;overflow:hidden;}
+.ftl-logo img{height:30px;width:auto;max-width:100%;display:block;}
+.ftl-nav-center{flex:1 1 auto;min-width:0;display:flex;align-items:center;justify-content:center;}
+.ftl-nav-list{list-style:none;display:flex;align-items:center;gap:6px;margin:0;padding:0;}
+.ftl-nav-item{position:static;}
+.ftl-nav-link,.ftl-nav-trigger{position:relative;display:inline-flex;align-items:center;gap:5px;font:inherit;font-size:15px;font-weight:600;color:#f5f1e8;background:none;border:0;cursor:pointer;padding:10px 18px;border-radius:8px;text-decoration:none;line-height:1;white-space:nowrap;}
+.ftl-nav-link:hover,.ftl-nav-trigger:hover{background:rgba(255,255,255,.08);color:#fff;}
+.ftl-nav-link-active,.ftl-nav-trigger.nav-link-active{color:#fff;}
+.ftl-nav-link-active::after,.ftl-nav-trigger.nav-link-active::after{content:"";position:absolute;left:14px;right:14px;bottom:3px;height:2px;background:#3FB44A;border-radius:2px;}
+.ftl-nav-trigger[aria-expanded="true"]{background:rgba(255,255,255,.08);color:#fff;}
+
+/* ===== MÉGA-MENU PLEINE LARGEUR ===== */
+.ftl-mega{position:absolute;top:100%;left:0;right:0;z-index:55;background:#0c1a10;color:#e7efe7;border-top:1px solid rgba(63,180,74,.18);border-bottom-left-radius:18px;border-bottom-right-radius:18px;box-shadow:0 26px 60px -16px rgba(4,12,6,.65);opacity:0;visibility:hidden;transform:translateY(-10px);transition:opacity .22s ease,transform .22s ease,visibility .22s;pointer-events:none;}
+.ftl-mega[data-open="true"]{opacity:1;visibility:visible;transform:translateY(0);pointer-events:auto;}
+.ftl-mega-inner{max-width:1280px;margin:0 auto;padding:30px 16px 26px;}
+.ftl-mega-cols{display:grid;grid-template-columns:repeat(5,1fr);gap:26px;align-items:start;}
+.ftl-mega.ftl-mega-sm .ftl-mega-cols{grid-template-columns:1fr 1fr 1.35fr;gap:36px;}
+.ftl-mega-col-head{display:flex;align-items:center;gap:8px;margin:0 0 14px;padding:0 0 11px;border-bottom:1px solid rgba(255,255,255,.08);}
+.ftl-mega-col-head svg{flex:0 0 auto;color:#3FB44A;}
+.ftl-mega-col-head span{font-size:11.5px;font-weight:800;letter-spacing:.11em;text-transform:uppercase;color:#3FB44A;}
+.ftl-mega-list{display:flex;flex-direction:column;gap:1px;}
+.ftl-mega-link{display:flex;flex-direction:column;gap:2px;padding:8px 10px;margin:0 -10px;border-radius:9px;text-decoration:none;transition:background .15s ease;}
+.ftl-mega-link:hover{background:rgba(63,180,74,.12);}
+.ftl-mega-t{font-size:14px;font-weight:700;color:#f5f1e8;line-height:1.25;transition:color .15s ease;}
+.ftl-mega-link:hover .ftl-mega-t{color:#3FB44A;}
+.ftl-mega-d{font-size:12px;color:#9fb3a4;line-height:1.3;}
+.ftl-mega-intro{font-size:13px;color:#9fb3a4;line-height:1.5;margin:0 0 14px;}
+.ftl-mega-feature{display:block;border-radius:12px;overflow:hidden;text-decoration:none;border:1px solid rgba(255,255,255,.08);background:#14401F;}
+.ftl-mega-feature img{display:block;width:100%;height:120px;object-fit:cover;}
+.ftl-mega-feature-body{padding:12px 14px;}
+.ftl-mega-feature-k{font-size:10.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#3FB44A;}
+.ftl-mega-feature-t{display:block;margin-top:3px;font-size:14px;font-weight:700;color:#f5f1e8;}
+/* Bandeau bas */
+.ftl-mega-foot{background:#14401F;border-top:1px solid rgba(255,255,255,.07);border-bottom-left-radius:18px;border-bottom-right-radius:18px;}
+.ftl-mega-foot-inner{max-width:1280px;margin:0 auto;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;}
+.ftl-mega-perks{display:flex;align-items:center;gap:18px;flex-wrap:wrap;min-width:0;}
+.ftl-mega-perk{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:600;color:#cdd9cd;white-space:nowrap;}
+.ftl-mega-perk svg{flex:0 0 auto;color:#3FB44A;}
+.ftl-mega-shop{display:inline-flex;align-items:center;gap:7px;background:#3FB44A;color:#0c1a10;font-weight:800;font-size:14px;padding:10px 18px;border-radius:10px;text-decoration:none;white-space:nowrap;transition:background .15s ease,color .15s ease;}
+.ftl-mega-shop:hover{background:#2E9239;color:#fff;}
+
+.ftl-actions{flex:0 0 auto;display:flex;align-items:center;gap:8px;margin-left:auto;}
+.ftl-search{display:none;align-items:center;gap:7px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.16);border-radius:10px;padding:7px 11px;color:#d8e2d8;}
+.ftl-search svg{flex:0 0 auto;}
+.ftl-search input{background:none;border:0;outline:none;color:#f5f1e8;font:inherit;font-size:14px;width:170px;}
+.ftl-search input::placeholder{color:#9fb3a0;}
+.ftl-search:focus-within{border-color:#3FB44A;}
+.ftl-icon-btn{position:relative;display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;color:#f5f1e8;}
+.ftl-icon-btn:hover{background:rgba(255,255,255,.10);}
+.ftl-cart-badge{position:absolute;top:3px;right:3px;min-width:17px;height:17px;padding:0 4px;display:grid;place-items:center;background:#3FB44A;color:#0c1a10;font-size:11px;font-weight:900;border-radius:999px;line-height:1;}
+.ftl-cta{display:none;align-items:center;background:#3FB44A;color:#0c1a10;font-weight:800;font-size:14px;padding:10px 16px;border-radius:10px;text-decoration:none;white-space:nowrap;}
+.ftl-cta:hover{background:#2E9239;color:#fff;}
+
+/* Mobile nav panel */
+.ftl-mobile-cart{display:inline-flex;}
+.ftl-burger{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:10px;background:none;border:0;color:#f5f1e8;cursor:pointer;}
+.ftl-burger:hover{background:rgba(255,255,255,.10);}
+.ftl-mobile-nav{background:#14401F;color:#f5f1e8;border-bottom:2px solid rgba(255,255,255,.08);padding:8px 16px 18px;}
+.ftl-mobile-nav nav{display:flex;flex-direction:column;}
+.ftl-m-group{border-bottom:1px solid rgba(255,255,255,.10);}
+.ftl-m-group summary{cursor:pointer;list-style:none;padding:13px 4px;font-weight:700;font-size:16px;display:flex;align-items:center;justify-content:space-between;}
+.ftl-m-group summary::-webkit-details-marker{display:none;}
+.ftl-m-group summary::after{content:"+";font-weight:400;font-size:20px;color:#3FB44A;}
+.ftl-m-group[open] summary::after{content:"–";}
+.ftl-m-sub{padding:2px 4px 8px;}
+.ftl-m-subhead{font-size:10.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#3FB44A;padding:8px 10px 4px;}
+.ftl-m-group a{display:block;padding:8px 14px;color:#cdd9cd;text-decoration:none;font-size:15px;}
+.ftl-m-group a:hover{color:#fff;}
+.ftl-m-link{padding:13px 4px;font-weight:700;font-size:16px;color:#f5f1e8;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.10);}
+.ftl-m-link.nav-link-active{color:#3FB44A;}
+.ftl-m-actions{margin-top:16px;display:flex;flex-direction:column;gap:10px;}
+.ftl-m-account{display:flex;justify-content:center;padding:11px;border:1px solid rgba(255,255,255,.20);border-radius:10px;color:#f5f1e8;text-decoration:none;font-weight:700;}
+
+/* Responsive */
+.ftl-util-hide-sm,.ftl-util-hide-md{display:inline;}
+@media (max-width:1100px){.ftl-util-hide-md{display:none;}}
+@media (max-width:640px){
+  .ftl-util-hide-sm{display:none;}
+  .ftl-utility-inner{padding:0 12px;}
+  .ftl-nav-inner{padding:0 12px;gap:10px;height:60px;}
+  .ftl-logo img{height:22px;}
+  .ftl-actions{gap:2px;}
+  .ftl-icon-btn,.ftl-burger{width:38px;height:38px;}
+}
+@media (max-width:380px){.ftl-logo img{height:20px;}}
+@media (min-width:1024px){.ftl-search{display:flex;}.ftl-cta{display:inline-flex;}}
+/* desktop : nav visible, burger caché ; mobile : inverse */
+@media (max-width:1023px){
+  .ftl-nav-center{display:none;}
+  .ftl-mega{display:none !important;}
+  .ftl-actions .ftl-search,.ftl-actions .ftl-icon-btn:not(.ftl-mobile-cart),.ftl-actions .ftl-cta{display:none;}
+}
+@media (min-width:1024px){
+  .ftl-mobile-cart,.ftl-burger{display:none;}
+  .ftl-mobile-nav{display:none !important;}
+}
+.ftl-header-wrap a:focus-visible,.ftl-header-wrap button:focus-visible,.ftl-header-wrap input:focus-visible{outline:3px solid #3FB44A;outline-offset:2px;}
+@media (prefers-reduced-motion:reduce){.ftl-mega{transition:none;}}
+</style>
+</head>
+<body class="bg-smoke text-ink antialiased">
+
+<!-- ============ SKIP LINK ============ -->
+<a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:top-3 focus:left-3 focus:bg-ink focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focusable">Aller au contenu principal</a>
+
+<!-- ============ HEADER FRED T. LIZER (méga-menu pleine largeur, style PPS) ============ -->
+<div class="ftl-header-wrap">
+  <!-- Barre utilitaire fine (STATIQUE) -->
+  <div class="ftl-utility">
+    <div class="ftl-utility-inner">
+      <div class="ftl-util-left">
+        <span>Livraison gratuite dès 89&nbsp;$ au Canada</span>
+        <span class="ftl-util-dot" aria-hidden="true">·</span>
+        <span class="ftl-util-hide-sm">Fabriqué au Québec</span>
+        <span class="ftl-util-dot ftl-util-hide-sm" aria-hidden="true">·</span>
+        <span class="ftl-util-hide-md">Enraciné dans la science depuis 2002</span>
+      </div>
+      <div class="ftl-util-right">
+        <div class="ftl-lang" role="group" aria-label="Choix de la langue">
+          <button type="button" class="ftl-lang-on" aria-current="true">FR</button>
+          <span aria-hidden="true">·</span>
+          <button type="button">EN</button>
+          <span aria-hidden="true">·</span>
+          <button type="button">ES</button>
+        </div>
+        <a href="compte.html" class="ftl-util-ico" aria-label="Mon compte">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
+        </a>
+        <a href="panier.html" class="ftl-util-cart" aria-label="Panier, 2 articles">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7h15l-1.5 11a2 2 0 0 1-2 1.75H8.5a2 2 0 0 1-2-1.75L5 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+          <span class="ftl-util-cart-badge" aria-hidden="true">2</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  <!-- Barre de navigation principale (sticky) -->
+  <header class="ftl-nav-bar">
+    <div class="ftl-nav-inner">
+      <a href="../home/06-bold-conversion.html" class="ftl-logo" aria-label="Fred T. Lizer — accueil">
+        <img src="../assets/logo-blanc-3.png" alt="Fred T. Lizer" width="361" height="35">
+      </a>
+      <nav class="ftl-nav-center" aria-label="Navigation principale">
+        <ul class="ftl-nav-list" role="menubar">
+          <li class="ftl-nav-item" role="none">
+            <button type="button" class="ftl-nav-trigger" aria-expanded="false" aria-haspopup="true" data-menu="boutique">Boutique</button>
+            <div class="ftl-mega" data-panel="boutique" data-open="false" role="menu" aria-label="Boutique" hidden>
+              <div class="ftl-mega-inner">
+                <div class="ftl-mega-cols">
+        <div class="ftl-mega-col">
+          <p class="ftl-mega-col-head"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6"/><path d="M10 3v6.5L4.5 19a1.5 1.5 0 0 0 1.3 2.3h12.4a1.5 1.5 0 0 0 1.3-2.3L14 9.5V3"/><path d="M7.5 15h9"/></svg><span>Par gamme</span></p>
+          <div class="ftl-mega-list">
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Toute la boutique</span><span class="ftl-mega-d">Tous les produits Fred T. Lizer</span></a>
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Bases A / B</span><span class="ftl-mega-d">Terra &amp; Aqua, croissance &amp; floraison</span></a>
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Boosters de floraison</span><span class="ftl-mega-d">PK, sucres &amp; renforçateurs</span></a>
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Suppléments &amp; correctifs</span><span class="ftl-mega-d">CalMag, enzymes</span></a>
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Organiques</span><span class="ftl-mega-d">Algue, fumier de vers</span></a>
+            <a class="ftl-mega-link" href="kit.html" role="menuitem"><span class="ftl-mega-t">Kits &amp; combos</span><span class="ftl-mega-d">Prêts à cultiver</span></a>
+          </div>
+        </div>
+        <div class="ftl-mega-col">
+          <p class="ftl-mega-col-head"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20c8 1 16-4 16-14 0 0-9-1-13 3s-3 11-3 11Z"/><path d="M4 20c2-5 5-8 9-10"/></svg><span>Par plante</span></p>
+          <div class="ftl-mega-list">
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Légumes</span><span class="ftl-mega-d">Tomates, piments</span></a>
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Fleurs</span><span class="ftl-mega-d">Annuelles, vivaces</span></a>
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Plantes d'intérieur</span><span class="ftl-mega-d">Verdure de maison</span></a>
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Pelouses &amp; haies</span><span class="ftl-mega-d">Gazon, cèdres, arbustes</span></a>
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Fines herbes</span><span class="ftl-mega-d">Basilic, menthe &amp; cie</span></a>
+          </div>
+        </div>
+        <div class="ftl-mega-col">
+          <p class="ftl-mega-col-head"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11Z"/></svg><span>Par médium</span></p>
+          <div class="ftl-mega-list">
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Terre &amp; potager</span><span class="ftl-mega-d">Pleine terre &amp; pots</span></a>
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Coco</span><span class="ftl-mega-d">Substrat de coco</span></a>
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Hydroponie</span><span class="ftl-mega-d">Systèmes sans sol</span></a>
+          </div>
+        </div>
+        <div class="ftl-mega-col">
+          <p class="ftl-mega-col-head"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21v-7"/><path d="M12 14c0-3 2.5-5 6-5 0 3-2.5 5-6 5Z"/><path d="M12 14c0-3-2.5-5-6-5 0 3 2.5 5 6 5Z"/></svg><span>Par stade</span></p>
+          <div class="ftl-mega-list">
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Semis &amp; bouturage</span><span class="ftl-mega-d">Départ en douceur</span></a>
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Croissance</span><span class="ftl-mega-d">Développement végétatif</span></a>
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Floraison</span><span class="ftl-mega-d">Fleurs &amp; fruits</span></a>
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Rinçage</span><span class="ftl-mega-d">Avant la récolte</span></a>
+          </div>
+        </div>
+        <div class="ftl-mega-col">
+          <p class="ftl-mega-col-head"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.5-.6-.6-2.5 2.6-2.4Z"/></svg><span>Outils &amp; ressources</span></p>
+          <p class="ftl-mega-intro">Trouvez le bon produit et le bon dosage en quelques clics.</p>
+          <div class="ftl-mega-list">
+            <a class="ftl-mega-link" href="calculateur.html" role="menuitem"><span class="ftl-mega-t">Calculateur de dosage</span><span class="ftl-mega-d">ml/L et ml/gallon</span></a>
+            <a class="ftl-mega-link" href="../home/06-bold-conversion.html#feedcharts" role="menuitem"><span class="ftl-mega-t">Recettes &amp; feed charts</span><span class="ftl-mega-d">Programmes semaine par semaine</span></a>
+            <a class="ftl-mega-link" href="comparatif.html" role="menuitem"><span class="ftl-mega-t">Sélecteur de produits</span><span class="ftl-mega-d">Comparez et choisissez</span></a>
+            <a class="ftl-mega-link" href="../home/06-bold-conversion.html#guides" role="menuitem"><span class="ftl-mega-t">Guides de culture</span><span class="ftl-mega-d">Conseils &amp; fiches</span></a>
+          </div>
+        </div>
+                </div>
+              </div>
+      <div class="ftl-mega-foot">
+        <div class="ftl-mega-foot-inner">
+          <div class="ftl-mega-perks">
+            <span class="ftl-mega-perk"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l1.6 3.4 3.4-.9-1.3 3.3 3.3 1.3-2.7 2.2 1.9 3-3.5-.6-.2 3.5L12 18l-2.2 2.7-.2-3.5-3.5.6 1.9-3-2.7-2.2 3.3-1.3-1.3-3.3 3.4.9z"/><path d="M12 18v4"/></svg>Fabriqué au Québec</span>
+            <span class="ftl-mega-perk"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v9H3z"/><path d="M14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.6"/><circle cx="17.5" cy="18" r="1.6"/></svg>Livraison gratuite dès 89&nbsp;$</span>
+            <span class="ftl-mega-perk"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3h4"/><path d="M11 3v5L6 18a1.4 1.4 0 0 0 1.2 2.1h9.6A1.4 1.4 0 0 0 18 18L13 8V3"/></svg>Appuyé par la science</span>
+          </div>
+          <a class="ftl-mega-shop" href="boutique.html">Magasiner maintenant <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+            </div>
+          </li>
+          <li class="ftl-nav-item" role="none">
+            <button type="button" class="ftl-nav-trigger" aria-expanded="false" aria-haspopup="true" data-menu="apprendre">Apprendre</button>
+            <div class="ftl-mega ftl-mega-sm" data-panel="apprendre" data-open="false" role="menu" aria-label="Apprendre" hidden>
+              <div class="ftl-mega-inner">
+                <div class="ftl-mega-cols">
+        <div class="ftl-mega-col">
+          <p class="ftl-mega-col-head"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h7v16H6a2 2 0 0 0-2 2V5Z"/><path d="M20 3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1h-7"/></svg><span>Apprendre</span></p>
+          <div class="ftl-mega-list">
+            <a class="ftl-mega-link" href="calculateur.html" role="menuitem"><span class="ftl-mega-t">Calculateur de dosage</span><span class="ftl-mega-d">ml/L et ml/gallon</span></a>
+            <a class="ftl-mega-link" href="../home/06-bold-conversion.html#feedcharts" role="menuitem"><span class="ftl-mega-t">Recettes &amp; feed charts</span><span class="ftl-mega-d">Programmes semaine par semaine</span></a>
+            <a class="ftl-mega-link" href="../home/06-bold-conversion.html#guides" role="menuitem"><span class="ftl-mega-t">Guides de culture</span><span class="ftl-mega-d">Conseils &amp; fiches techniques</span></a>
+            <a class="ftl-mega-link" href="../home/06-bold-conversion.html#faq" role="menuitem"><span class="ftl-mega-t">FAQ</span><span class="ftl-mega-d">Questions fréquentes</span></a>
+          </div>
+        </div>
+        <div class="ftl-mega-col">
+          <p class="ftl-mega-col-head"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"/></svg><span>Ressources</span></p>
+          <div class="ftl-mega-list">
+            <a class="ftl-mega-link" href="comparatif.html" role="menuitem"><span class="ftl-mega-t">Sélecteur de produits</span><span class="ftl-mega-d">Trouvez la bonne formule</span></a>
+            <a class="ftl-mega-link" href="../home/06-bold-conversion.html#sds" role="menuitem"><span class="ftl-mega-t">Fiches techniques (SDS)</span><span class="ftl-mega-d">Sécurité &amp; composition</span></a>
+            <a class="ftl-mega-link" href="../home/06-bold-conversion.html#blogue" role="menuitem"><span class="ftl-mega-t">Blogue</span><span class="ftl-mega-d">Actualités &amp; culture</span></a>
+          </div>
+        </div>
+        <div class="ftl-mega-col">
+          <p class="ftl-mega-col-head"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20c8 1 16-4 16-14 0 0-9-1-13 3s-3 11-3 11Z"/><path d="M4 20c2-5 5-8 9-10"/></svg><span>En vedette</span></p>
+          <a class="ftl-mega-feature" href="../home/06-bold-conversion.html#guides" role="menuitem">
+            <img src="../assets/lifestyle/hero-serre.jpg" alt="Serre de culture luxuriante" loading="lazy">
+            <span class="ftl-mega-feature-body"><span class="ftl-mega-feature-k">Guide vedette</span><span class="ftl-mega-feature-t">Réussir sa floraison en serre</span></span>
+          </a>
+        </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="ftl-nav-item" role="none"><a href="b2b-revendeurs.html" class="ftl-nav-link nav-link nav-link-active" aria-current="page">Revendeurs</a></li>
+          <li class="ftl-nav-item" role="none"><a href="../home/06-bold-conversion.html#fondateur" class="ftl-nav-link nav-link">À propos</a></li>
+          <li class="ftl-nav-item" role="none"><a href="../home/06-bold-conversion.html#contact" class="ftl-nav-link nav-link">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="ftl-actions">
+        <form class="ftl-search" role="search" onsubmit="return false">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <input type="search" placeholder="Rechercher un produit…" aria-label="Rechercher sur le site">
+        </form>
+        <a href="panier.html" class="ftl-icon-btn ftl-cart ftl-mobile-cart" aria-label="Panier, 2 articles">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7h15l-1.5 11a2 2 0 0 1-2 1.75H8.5a2 2 0 0 1-2-1.75L5 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+          <span class="ftl-cart-badge" aria-hidden="true">2</span>
+        </a>
+        <button type="button" class="ftl-burger" id="ftlBurger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="ftlMobileNav">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+  <div class="ftl-mobile-nav" id="ftlMobileNav" hidden>
+    <nav aria-label="Navigation mobile">
+      <details class="ftl-m-group">
+        <summary>Boutique</summary>
+        <div class="ftl-m-sub">
+          <p class="ftl-m-subhead">Par gamme</p>
+          <a href="boutique.html">Toute la boutique</a>
+          <a href="boutique.html">Bases A / B — Terra &amp; Aqua</a>
+          <a href="boutique.html">Boosters de floraison</a>
+          <a href="boutique.html">Suppléments &amp; correctifs</a>
+          <a href="boutique.html">Organiques</a>
+          <a href="kit.html">Kits &amp; combos</a>
+          <p class="ftl-m-subhead">Par plante</p>
+          <a href="boutique.html">Légumes</a>
+          <a href="boutique.html">Fleurs</a>
+          <a href="boutique.html">Plantes d'intérieur</a>
+          <a href="boutique.html">Pelouses &amp; haies</a>
+          <a href="boutique.html">Fines herbes</a>
+          <p class="ftl-m-subhead">Par médium &amp; stade</p>
+          <a href="boutique.html">Terre · Coco · Hydroponie</a>
+          <a href="boutique.html">Semis · Croissance · Floraison · Rinçage</a>
+        </div>
+      </details>
+      <details class="ftl-m-group">
+        <summary>Apprendre</summary>
+        <div class="ftl-m-sub">
+          <a href="calculateur.html">Calculateur de dosage</a>
+          <a href="../home/06-bold-conversion.html#feedcharts">Recettes &amp; feed charts</a>
+          <a href="../home/06-bold-conversion.html#guides">Guides de culture</a>
+          <a href="../home/06-bold-conversion.html#faq">FAQ</a>
+          <a href="comparatif.html">Sélecteur de produits</a>
+          <a href="../home/06-bold-conversion.html#sds">Fiches techniques (SDS)</a>
+          <a href="../home/06-bold-conversion.html#blogue">Blogue</a>
+        </div>
+      </details>
+      <a class="ftl-m-link nav-link-active" href="b2b-revendeurs.html">Revendeurs</a>
+      <a class="ftl-m-link" href="../home/06-bold-conversion.html#fondateur">À propos</a>
+      <a class="ftl-m-link" href="../home/06-bold-conversion.html#contact">Contact</a>
+    </nav>
+    <div class="ftl-m-actions">
+      <a href="compte.html" class="ftl-m-account">Mon compte</a>
+    </div>
+  </div>
+</div>
+<!-- ============ /HEADER FRED T. LIZER ============ -->
+
+<main id="main">
+
+<!-- ============ BANDEAU ESPACE AFFILIÉ ============ -->
+<section id="tableau" class="relative bg-ink text-white overflow-hidden">
+  <div class="absolute inset-0 grain" aria-hidden="true"></div>
+  <div class="absolute -top-32 -right-32 w-[34rem] h-[34rem] rounded-full bg-punch/20 blur-3xl" aria-hidden="true"></div>
+  <div class="absolute bottom-0 left-0 w-[26rem] h-[26rem] rounded-full bg-acid/10 blur-3xl" aria-hidden="true"></div>
+
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 py-10 lg:py-14">
+    <div class="grid lg:grid-cols-12 gap-8 lg:gap-10 items-end">
+
+      <!-- Bienvenue + palier -->
+      <div class="lg:col-span-7">
+        <span class="inline-flex items-center gap-2 bg-white/10 border border-white/15 rounded-full px-3 py-1.5 text-xs font-bold tracking-wide uppercase">
+          <span class="w-2 h-2 rounded-full bg-punch" aria-hidden="true"></span>
+          Compte affilié vérifié
+        </span>
+
+        <h1 class="mt-4 font-display text-[clamp(2.25rem,6vw,3.75rem)] leading-[0.95] uppercase">
+          Bienvenue,<br><span class="text-punch">@marie_jardine</span>
+        </h1>
+
+        <p class="mt-4 text-white/65 max-w-lg">
+          Vous êtes au palier <strong class="text-white">Argent</strong> — vous touchez <strong class="text-white">15&nbsp;%</strong> sur chaque vente. Plus que <strong class="text-acid">1&nbsp;572&nbsp;$</strong> de ventes ce trimestre pour débloquer le palier <strong class="text-white">Or (20&nbsp;%)</strong>.
+        </p>
+      </div>
+
+      <!-- Carte progression de palier -->
+      <div class="lg:col-span-5">
+        <div class="bg-white/[0.04] border border-white/10 rounded-2xl p-5 sm:p-6">
+          <div class="flex items-center justify-between mb-3">
+            <div class="flex items-center gap-2.5">
+              <span class="grid place-items-center w-9 h-9 rounded-lg bg-gradient-to-br from-[#cfd4da] to-[#8b9099]" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.5 5 5.5.8-4 3.9.9 5.5L12 20l-4.9 2.2.9-5.5-4-3.9 5.5-.8z"/></svg>
+              </span>
+              <div class="leading-tight">
+                <p class="font-archivo font-800 text-sm">Palier Argent</p>
+                <p class="text-xs text-white/55">Commission 15&nbsp;%</p>
+              </div>
+            </div>
+            <span class="text-[11px] font-bold uppercase tracking-wider bg-acid text-ink px-2 py-1 rounded">Vers Or</span>
+          </div>
+
+          <div class="flex items-end justify-between text-xs text-white/55 mb-1.5">
+            <span><strong class="text-white text-sm">5&nbsp;428&nbsp;$</strong> vendus</span>
+            <span>Objectif 7&nbsp;000&nbsp;$</span>
+          </div>
+          <div class="h-3 rounded-full bg-white/10 overflow-hidden" role="progressbar" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100" aria-label="Progression vers le palier Or : 78 %">
+            <div class="h-full rounded-full bg-gradient-to-r from-punch to-acid" style="width:78%"></div>
+          </div>
+          <p class="mt-3 text-xs text-white/50">Le palier est recalculé sur vos ventes des 90 derniers jours. Trimestre en cours&nbsp;: <strong class="text-white/80">78&nbsp;%</strong> atteint.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ CARTES DE STATS ============ -->
+<section class="max-w-7xl mx-auto px-4 sm:px-6 -mt-8 lg:-mt-10 relative z-10">
+  <div class="grid grid-cols-2 lg:grid-cols-6 gap-3 sm:gap-4">
+
+    <!-- Clics -->
+    <div class="bg-white rounded-2xl border border-line p-4 sm:p-5">
+      <div class="flex items-center justify-between">
+        <span class="grid place-items-center w-9 h-9 bg-smoke rounded-lg" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0E9E54" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 9l5 12 1.8-5.2L21 14z"/><path d="M3 3l3 3M6 3l-3 3M3 9h4M12 3v4"/></svg>
+        </span>
+        <span class="text-[11px] font-bold text-punchdark">+12&nbsp;%</span>
+      </div>
+      <p class="mt-3 font-display text-3xl leading-none">2&nbsp;184</p>
+      <p class="text-xs text-ink/55 mt-1">Clics (30 j)</p>
+    </div>
+
+    <!-- Conversions -->
+    <div class="bg-white rounded-2xl border border-line p-4 sm:p-5">
+      <div class="flex items-center justify-between">
+        <span class="grid place-items-center w-9 h-9 bg-smoke rounded-lg" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0E9E54" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7h15l-1.5 11a2 2 0 0 1-2 1.75H8.5a2 2 0 0 1-2-1.75L5 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+        </span>
+        <span class="text-[11px] font-bold text-punchdark">+8&nbsp;%</span>
+      </div>
+      <p class="mt-3 font-display text-3xl leading-none">96</p>
+      <p class="text-xs text-ink/55 mt-1">Conversions (30 j)</p>
+    </div>
+
+    <!-- Taux de conversion -->
+    <div class="bg-white rounded-2xl border border-line p-4 sm:p-5">
+      <div class="flex items-center justify-between">
+        <span class="grid place-items-center w-9 h-9 bg-smoke rounded-lg" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0E9E54" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 7-7"/><path d="M21 8V3h-5"/></svg>
+        </span>
+        <span class="text-[11px] font-bold text-punchdark">stable</span>
+      </div>
+      <p class="mt-3 font-display text-3xl leading-none">4,4&nbsp;%</p>
+      <p class="text-xs text-ink/55 mt-1">Taux de conversion</p>
+    </div>
+
+    <!-- Gains du mois -->
+    <div class="bg-ink text-white rounded-2xl p-4 sm:p-5 relative overflow-hidden">
+      <div class="absolute -top-10 -right-10 w-28 h-28 rounded-full bg-punch/20 blur-2xl" aria-hidden="true"></div>
+      <div class="relative flex items-center justify-between">
+        <span class="grid place-items-center w-9 h-9 bg-white/10 rounded-lg" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16C46A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="2" x2="12" y2="22"/><path d="M17 6.5C17 4.6 14.8 3.5 12 3.5S7 4.6 7 6.5 9.2 9.5 12 9.5s5 1.1 5 3-2.2 3-5 3-5-1.1-5-3"/></svg>
+        </span>
+        <span class="text-[11px] font-bold text-punch">+18&nbsp;%</span>
+      </div>
+      <p class="relative mt-3 font-display text-3xl leading-none text-punch">312,40&nbsp;$</p>
+      <p class="relative text-xs text-white/55 mt-1">Gains du mois</p>
+    </div>
+
+    <!-- Gains totaux -->
+    <div class="bg-white rounded-2xl border border-line p-4 sm:p-5">
+      <div class="flex items-center justify-between">
+        <span class="grid place-items-center w-9 h-9 bg-smoke rounded-lg" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0E9E54" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.5 5 5.5.8-4 3.9.9 5.5L12 20l-4.9 2.2.9-5.5-4-3.9 5.5-.8z"/></svg>
+        </span>
+      </div>
+      <p class="mt-3 font-display text-3xl leading-none">2&nbsp;947&nbsp;$</p>
+      <p class="text-xs text-ink/55 mt-1">Gains totaux</p>
+    </div>
+
+    <!-- Solde à payer -->
+    <div class="bg-acid text-ink rounded-2xl p-4 sm:p-5">
+      <div class="flex items-center justify-between">
+        <span class="grid place-items-center w-9 h-9 bg-ink/10 rounded-lg" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/><path d="M6 15h4"/></svg>
+        </span>
+        <span class="text-[11px] font-bold uppercase tracking-wider">Dispo</span>
+      </div>
+      <p class="mt-3 font-display text-3xl leading-none">428,50&nbsp;$</p>
+      <p class="text-xs text-ink/65 mt-1">Solde à payer</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ MON LIEN & CODE + GÉNÉRATEUR ============ -->
+<section id="lien" class="max-w-7xl mx-auto px-4 sm:px-6 py-12 lg:py-16">
+  <div class="grid lg:grid-cols-12 gap-6">
+
+    <!-- Lien & code unique -->
+    <div class="lg:col-span-7 bg-white rounded-2xl border border-line p-5 sm:p-7">
+      <div class="flex items-center gap-2.5 mb-5">
+        <span class="grid place-items-center w-10 h-10 bg-punch rounded-lg" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1.5 1.5"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1.5-1.5"/></svg>
+        </span>
+        <div>
+          <h2 class="font-archivo font-800 text-xl leading-tight">Mon lien &amp; code unique</h2>
+          <p class="text-sm text-ink/55">Partout où vous le partagez, vos ventes sont attribuées.</p>
+        </div>
+      </div>
+
+      <!-- Lien d'affiliation -->
+      <label for="affLink" class="block text-xs font-bold uppercase tracking-wide text-ink/60 mb-1.5">Lien d'affiliation</label>
+      <div class="flex flex-col sm:flex-row gap-2">
+        <input id="affLink" type="text" readonly value="https://fredtlizer.ca/?aff=marie_jardine" class="flex-1 bg-smoke border-2 border-line rounded-lg px-3.5 py-3 text-sm font-semibold focusable" aria-label="Lien d'affiliation">
+        <button type="button" class="copy-btn inline-flex items-center justify-center gap-2 bg-ink text-white font-archivo font-bold text-sm px-5 py-3 rounded-lg hover:bg-punchdark transition focusable" data-copy="#affLink" data-label="Lien copié">
+          <svg class="ico-copy" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+          <span class="copy-txt">Copier</span>
+        </button>
+      </div>
+
+      <!-- Code promo -->
+      <label for="affCode" class="block text-xs font-bold uppercase tracking-wide text-ink/60 mb-1.5 mt-5">Code promo (–10&nbsp;% pour vos abonnés)</label>
+      <div class="flex flex-col sm:flex-row gap-2">
+        <input id="affCode" type="text" readonly value="MARIE10" class="flex-1 bg-smoke border-2 border-dashed border-punchdark rounded-lg px-3.5 py-3 text-lg font-display tracking-[0.18em] text-punchdark focusable" aria-label="Code promo">
+        <button type="button" class="copy-btn inline-flex items-center justify-center gap-2 bg-punch text-ink font-archivo font-800 text-sm px-5 py-3 rounded-lg hover:bg-acid transition focusable" data-copy="#affCode" data-label="Code copié">
+          <svg class="ico-copy" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+          <span class="copy-txt">Copier</span>
+        </button>
+      </div>
+      <p class="mt-4 text-xs text-ink/50 leading-relaxed">Cookie de suivi de 45 jours&nbsp;: même si l'achat se fait plus tard, la commission vous revient. Le code promo offre –10&nbsp;% à votre audience et vous est toujours attribué.</p>
+    </div>
+
+    <!-- Générateur de lien produit -->
+    <div class="lg:col-span-5 bg-ink text-white rounded-2xl p-5 sm:p-7 relative overflow-hidden">
+      <div class="absolute -top-20 -right-20 w-56 h-56 rounded-full bg-punch/15 blur-3xl" aria-hidden="true"></div>
+      <div class="relative">
+        <div class="flex items-center gap-2.5 mb-5">
+          <span class="grid place-items-center w-10 h-10 bg-white/10 rounded-lg" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16C46A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/><circle cx="12" cy="12" r="9"/></svg>
+          </span>
+          <div>
+            <h2 class="font-archivo font-800 text-xl leading-tight">Générer un lien produit</h2>
+            <p class="text-sm text-white/55">Pointez vers une fiche précise.</p>
+          </div>
+        </div>
+
+        <label for="genProduit" class="block text-xs font-bold uppercase tracking-wide text-white/50 mb-1.5">Produit à promouvoir</label>
+        <select id="genProduit" class="w-full bg-white/[0.06] border-2 border-white/15 text-white rounded-lg px-3.5 py-3 text-sm font-semibold focusable">
+          <option value="terra-ab" class="text-ink">Terra A/B — base terre</option>
+          <option value="aqua-ab" class="text-ink">Aqua A/B — coco &amp; hydro</option>
+          <option value="pk-bloom" class="text-ink">PK Bloom — booster floraison</option>
+          <option value="roots-rhizo" class="text-ink">Roots &amp; Rhizo — racines</option>
+          <option value="calmag" class="text-ink">CalMag — correctif</option>
+          <option value="fumier-vers" class="text-ink">Fumier de vers liquide</option>
+          <option value="kit-complet" class="text-ink">Kit complet débutant</option>
+        </select>
+
+        <label class="flex items-center gap-2.5 mt-4 text-sm text-white/75 cursor-pointer select-none">
+          <input id="genCode" type="checkbox" checked class="w-4 h-4 accent-punch focusable">
+          Inclure mon code promo <span class="font-archivo font-bold text-punch">MARIE10</span>
+        </label>
+
+        <label for="genResult" class="block text-xs font-bold uppercase tracking-wide text-white/50 mb-1.5 mt-5">Votre lien généré</label>
+        <div class="flex flex-col gap-2">
+          <input id="genResult" type="text" readonly value="https://fredtlizer.ca/produits/terra-ab?aff=marie_jardine&code=MARIE10" class="w-full bg-white/[0.06] border-2 border-white/15 text-white rounded-lg px-3.5 py-3 text-sm font-semibold focusable" aria-label="Lien produit généré">
+          <button type="button" class="copy-btn inline-flex items-center justify-center gap-2 bg-punch text-ink font-archivo font-800 text-sm px-5 py-3 rounded-lg hover:bg-acid transition focusable" data-copy="#genResult" data-label="Lien produit copié">
+            <svg class="ico-copy" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+            <span class="copy-txt">Copier le lien produit</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ GRAPHIQUE DE PERFORMANCE ============ -->
+<section class="bg-ink text-white relative overflow-hidden">
+  <div class="absolute inset-0 grain" aria-hidden="true"></div>
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 py-12 lg:py-16">
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-7">
+      <div>
+        <p class="text-xs font-bold uppercase tracking-[0.2em] text-punch">Sur 30 jours</p>
+        <h2 class="mt-2 font-display text-3xl sm:text-4xl uppercase leading-none">Performance</h2>
+      </div>
+      <div class="flex items-center gap-5 text-sm">
+        <span class="inline-flex items-center gap-2"><span class="w-3 h-3 rounded-sm bg-punch" aria-hidden="true"></span>Clics</span>
+        <span class="inline-flex items-center gap-2"><span class="w-3 h-3 rounded-sm bg-acid" aria-hidden="true"></span>Ventes</span>
+      </div>
+    </div>
+
+    <div class="bg-white/[0.04] border border-white/10 rounded-2xl p-4 sm:p-6">
+      <div class="overflow-x-auto">
+        <svg viewBox="0 0 800 280" class="w-full h-auto min-w-[640px]" role="img" aria-label="Courbe des clics et des ventes sur les 30 derniers jours : tendance générale à la hausse, des clics passant d'environ 40 à 95 par jour et des ventes de 1 à 5 par jour.">
+          <!-- grille -->
+          <g stroke="#ffffff" stroke-opacity="0.08" stroke-width="1">
+            <line x1="48" y1="40" x2="780" y2="40"/>
+            <line x1="48" y1="100" x2="780" y2="100"/>
+            <line x1="48" y1="160" x2="780" y2="160"/>
+            <line x1="48" y1="220" x2="780" y2="220"/>
+          </g>
+          <!-- axes labels Y (clics) -->
+          <g fill="#ffffff" fill-opacity="0.45" font-family="Inter, sans-serif" font-size="11" text-anchor="end">
+            <text x="40" y="44">100</text>
+            <text x="40" y="104">70</text>
+            <text x="40" y="164">40</text>
+            <text x="40" y="224">10</text>
+          </g>
+          <!-- aire sous la courbe clics -->
+          <defs>
+            <linearGradient id="fillClics" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#16C46A" stop-opacity="0.35"/>
+              <stop offset="1" stop-color="#16C46A" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <path d="M48,200 L96,188 L144,196 L192,170 L240,176 L288,150 L336,158 L384,132 L432,140 L480,120 L528,108 L576,118 L624,92 L672,100 L720,76 L768,70 L768,240 L48,240 Z" fill="url(#fillClics)"/>
+          <!-- courbe clics -->
+          <polyline points="48,200 96,188 144,196 192,170 240,176 288,150 336,158 384,132 432,140 480,120 528,108 576,118 624,92 672,100 720,76 768,70" fill="none" stroke="#16C46A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- courbe ventes (échelle ×12) -->
+          <polyline points="48,228 96,224 144,228 192,216 240,220 288,212 336,216 384,204 432,208 480,200 528,196 576,200 624,188 672,192 720,184 768,180" fill="none" stroke="#D6FF2E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="dash-anim"/>
+          <!-- points repères clics -->
+          <g fill="#16C46A">
+            <circle cx="288" cy="150" r="4"/>
+            <circle cx="480" cy="120" r="4"/>
+            <circle cx="768" cy="70" r="5"/>
+          </g>
+          <!-- axe X -->
+          <g fill="#ffffff" fill-opacity="0.45" font-family="Inter, sans-serif" font-size="11" text-anchor="middle">
+            <text x="48" y="262">J-30</text>
+            <text x="240" y="262">J-22</text>
+            <text x="432" y="262">J-14</text>
+            <text x="624" y="262">J-6</text>
+            <text x="768" y="262">Auj.</text>
+          </g>
+        </svg>
+      </div>
+      <div class="grid grid-cols-3 gap-4 mt-5 pt-5 border-t border-white/10 text-center sm:text-left">
+        <div><p class="font-display text-2xl text-punch">+38&nbsp;%</p><p class="text-xs text-white/55 mt-0.5">Clics vs mois précédent</p></div>
+        <div><p class="font-display text-2xl">95</p><p class="text-xs text-white/55 mt-0.5">Meilleur jour (clics)</p></div>
+        <div><p class="font-display text-2xl text-acid">5</p><p class="text-xs text-white/55 mt-0.5">Meilleur jour (ventes)</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MES COMMISSIONS ============ -->
+<section id="commissions" class="max-w-7xl mx-auto px-4 sm:px-6 py-12 lg:py-16">
+  <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-7">
+    <div>
+      <p class="text-xs font-bold uppercase tracking-[0.2em] text-punchdark">Détail des ventes</p>
+      <h2 class="mt-2 font-display text-3xl sm:text-4xl uppercase leading-none">Mes commissions</h2>
+    </div>
+    <div class="flex items-center gap-2">
+      <label for="filtreStatut" class="sr-only">Filtrer par statut</label>
+      <select id="filtreStatut" class="bg-white border-2 border-line rounded-lg px-3 py-2.5 text-sm font-semibold focusable">
+        <option value="tous">Tous les statuts</option>
+        <option value="paye">Payé</option>
+        <option value="attente">En attente</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="bg-white rounded-2xl border border-line overflow-hidden">
+    <div class="overflow-x-auto">
+      <table class="w-full text-left text-sm min-w-[640px]">
+        <caption class="sr-only">Tableau des commissions par commande : date, numéro de commande, montant de vente, commission et statut</caption>
+        <thead>
+          <tr class="bg-smoke text-ink/55 text-xs uppercase tracking-wide border-b border-line">
+            <th scope="col" class="py-3 px-4 font-bold">Date</th>
+            <th scope="col" class="py-3 px-4 font-bold">Commande</th>
+            <th scope="col" class="py-3 px-4 font-bold text-right">Vente</th>
+            <th scope="col" class="py-3 px-4 font-bold text-right">Commission</th>
+            <th scope="col" class="py-3 px-4 font-bold text-right">Statut</th>
+          </tr>
+        </thead>
+        <tbody id="commTable" class="divide-y divide-line">
+          <tr data-statut="attente">
+            <td class="py-3.5 px-4 text-ink/70">14 juin 2026</td>
+            <td class="py-3.5 px-4 font-semibold">#FTL-10482</td>
+            <td class="py-3.5 px-4 text-right">129,98&nbsp;$</td>
+            <td class="py-3.5 px-4 text-right font-archivo font-bold text-punchdark">19,50&nbsp;$</td>
+            <td class="py-3.5 px-4 text-right"><span class="inline-flex items-center gap-1.5 bg-acid/40 text-ink text-xs font-bold px-2.5 py-1 rounded-full"><span class="w-1.5 h-1.5 rounded-full bg-ink/60" aria-hidden="true"></span>En attente</span></td>
+          </tr>
+          <tr data-statut="attente">
+            <td class="py-3.5 px-4 text-ink/70">11 juin 2026</td>
+            <td class="py-3.5 px-4 font-semibold">#FTL-10461</td>
+            <td class="py-3.5 px-4 text-right">62,99&nbsp;$</td>
+            <td class="py-3.5 px-4 text-right font-archivo font-bold text-punchdark">9,45&nbsp;$</td>
+            <td class="py-3.5 px-4 text-right"><span class="inline-flex items-center gap-1.5 bg-acid/40 text-ink text-xs font-bold px-2.5 py-1 rounded-full"><span class="w-1.5 h-1.5 rounded-full bg-ink/60" aria-hidden="true"></span>En attente</span></td>
+          </tr>
+          <tr data-statut="paye">
+            <td class="py-3.5 px-4 text-ink/70">28 mai 2026</td>
+            <td class="py-3.5 px-4 font-semibold">#FTL-10398</td>
+            <td class="py-3.5 px-4 text-right">214,95&nbsp;$</td>
+            <td class="py-3.5 px-4 text-right font-archivo font-bold text-punchdark">32,24&nbsp;$</td>
+            <td class="py-3.5 px-4 text-right"><span class="inline-flex items-center gap-1.5 bg-punch/15 text-punchdark text-xs font-bold px-2.5 py-1 rounded-full"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 6"/></svg>Payé</span></td>
+          </tr>
+          <tr data-statut="paye">
+            <td class="py-3.5 px-4 text-ink/70">22 mai 2026</td>
+            <td class="py-3.5 px-4 font-semibold">#FTL-10355</td>
+            <td class="py-3.5 px-4 text-right">89,99&nbsp;$</td>
+            <td class="py-3.5 px-4 text-right font-archivo font-bold text-punchdark">13,50&nbsp;$</td>
+            <td class="py-3.5 px-4 text-right"><span class="inline-flex items-center gap-1.5 bg-punch/15 text-punchdark text-xs font-bold px-2.5 py-1 rounded-full"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 6"/></svg>Payé</span></td>
+          </tr>
+          <tr data-statut="paye">
+            <td class="py-3.5 px-4 text-ink/70">15 mai 2026</td>
+            <td class="py-3.5 px-4 font-semibold">#FTL-10311</td>
+            <td class="py-3.5 px-4 text-right">156,50&nbsp;$</td>
+            <td class="py-3.5 px-4 text-right font-archivo font-bold text-punchdark">23,48&nbsp;$</td>
+            <td class="py-3.5 px-4 text-right"><span class="inline-flex items-center gap-1.5 bg-punch/15 text-punchdark text-xs font-bold px-2.5 py-1 rounded-full"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 6"/></svg>Payé</span></td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr class="bg-smoke border-t border-line">
+            <td class="py-3 px-4 font-bold text-ink/70" colspan="3">Total affiché</td>
+            <td class="py-3 px-4 text-right font-archivo font-900">98,17&nbsp;$</td>
+            <td class="py-3 px-4"></td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+  <p class="mt-3 text-xs text-ink/50">Les commissions « en attente » sont validées après la période de retour de 14 jours, puis versées au prochain cycle de paiement.</p>
+</section>
+
+<!-- ============ DEMANDE DE PAIEMENT ============ -->
+<section class="bg-smoke border-y border-line">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-12 lg:py-16">
+    <div class="grid lg:grid-cols-12 gap-6 items-stretch">
+
+      <!-- Solde + bouton -->
+      <div class="lg:col-span-7 bg-ink text-white rounded-2xl p-6 sm:p-8 relative overflow-hidden">
+        <div class="absolute -top-24 -right-24 w-72 h-72 rounded-full bg-punch/15 blur-3xl" aria-hidden="true"></div>
+        <div class="relative grid sm:grid-cols-2 gap-6 items-center">
+          <div>
+            <p class="text-xs font-bold uppercase tracking-[0.2em] text-punch">Solde disponible</p>
+            <p class="mt-2 font-display text-5xl sm:text-6xl leading-none text-punch">428,50&nbsp;$</p>
+            <p class="mt-3 text-sm text-white/55">Seuil de paiement minimum&nbsp;: 50&nbsp;$. Vous pouvez demander un retrait dès maintenant.</p>
+          </div>
+          <div class="sm:text-right">
+            <button id="payBtn" type="button" class="inline-flex items-center justify-center gap-2 bg-punch text-ink font-archivo font-800 text-base px-7 py-4 rounded-xl hover:bg-acid transition focusable w-full sm:w-auto">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v14M6 10l6 6 6-6"/><path d="M4 20h16"/></svg>
+              Demander un paiement
+            </button>
+            <p id="payNote" class="mt-3 text-xs text-white/55 sm:max-w-[14rem] sm:ml-auto" aria-live="polite">Versement traité sous 1 à 3 jours ouvrables.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Méthode de paiement -->
+      <div class="lg:col-span-5 bg-white rounded-2xl border border-line p-6 sm:p-7">
+        <h2 class="font-archivo font-800 text-lg mb-4">Méthode de paiement</h2>
+
+        <label class="flex items-start gap-3 p-3.5 rounded-xl border-2 border-punch bg-punch/[0.06] cursor-pointer mb-3">
+          <input type="radio" name="methode" value="interac" checked class="mt-1 w-4 h-4 accent-punch focusable">
+          <span class="flex-1">
+            <span class="flex items-center justify-between">
+              <span class="font-archivo font-bold">Virement Interac</span>
+              <span class="grid place-items-center w-8 h-8 bg-punch rounded-lg" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18M3 12l5-5M3 12l5 5"/></svg></span>
+            </span>
+            <span class="block text-sm text-ink/55 mt-0.5">marie.jardine@courriel.ca · dépôt automatique</span>
+          </span>
+        </label>
+
+        <label class="flex items-start gap-3 p-3.5 rounded-xl border-2 border-line cursor-pointer">
+          <input type="radio" name="methode" value="virement" class="mt-1 w-4 h-4 accent-punch focusable">
+          <span class="flex-1">
+            <span class="flex items-center justify-between">
+              <span class="font-archivo font-bold">Virement bancaire</span>
+              <span class="grid place-items-center w-8 h-8 bg-smoke rounded-lg" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V9l7-5 7 5v12"/><path d="M9 21v-6h6v6"/></svg></span>
+            </span>
+            <span class="block text-sm text-ink/55 mt-0.5">Compte se terminant par ••4821</span>
+          </span>
+        </label>
+
+        <a href="#" class="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-punchdark hover:text-ink transition focusable">
+          Gérer mes méthodes de paiement
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ ASSETS À PARTAGER ============ -->
+<section id="assets" class="max-w-7xl mx-auto px-4 sm:px-6 py-12 lg:py-16">
+  <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-7">
+    <div>
+      <p class="text-xs font-bold uppercase tracking-[0.2em] text-punchdark">Prêt à publier</p>
+      <h2 class="mt-2 font-display text-3xl sm:text-4xl uppercase leading-none">Assets à partager</h2>
+    </div>
+  </div>
+
+  <!-- Onglets -->
+  <div class="flex flex-wrap gap-2 mb-6" role="tablist" aria-label="Catégories d'assets">
+    <button type="button" role="tab" aria-selected="true" aria-controls="panel-bannieres" id="tab-bannieres" class="asset-tab font-archivo font-bold text-sm px-4 py-2.5 rounded-lg bg-ink text-white transition focusable">Bannières</button>
+    <button type="button" role="tab" aria-selected="false" aria-controls="panel-video" id="tab-video" tabindex="-1" class="asset-tab font-archivo font-bold text-sm px-4 py-2.5 rounded-lg bg-white border border-line text-ink hover:border-ink transition focusable">Vidéo promo</button>
+  </div>
+
+  <!-- Panneau bannières -->
+  <div id="panel-bannieres" role="tabpanel" aria-labelledby="tab-bannieres" tabindex="0">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+
+      <!-- Bannière 1 -->
+      <article class="bg-white rounded-2xl border border-line overflow-hidden flex flex-col">
+        <div class="relative h-40 bg-gradient-to-br from-punch to-punchdark grid place-items-center text-ink p-5 overflow-hidden">
+          <svg class="absolute -right-4 -bottom-4 opacity-20 w-28 h-28" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="1.4" aria-hidden="true"><path d="M12 22V11M12 11C12 7 9 4 4 4c0 5 3 7 8 7zM12 11c0-4 3-7 8-7 0 5-3 7-8 7z"/></svg>
+          <div class="relative text-center">
+            <p class="font-display text-2xl uppercase leading-none">Simple, propre<br>&amp; puissant</p>
+            <p class="mt-2 text-xs font-bold uppercase tracking-wide">Code MARIE10 · –10&nbsp;%</p>
+          </div>
+        </div>
+        <div class="p-4 flex flex-col flex-1">
+          <h3 class="font-archivo font-800">Carrée — 1080 × 1080</h3>
+          <p class="text-sm text-ink/55 mt-0.5">Idéale pour publications Instagram &amp; Facebook.</p>
+          <button type="button" class="dl-btn mt-3 inline-flex items-center justify-center gap-2 bg-ink text-white font-archivo font-bold text-sm py-2.5 rounded-lg hover:bg-punchdark transition focusable">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 11l5 5 5-5"/><path d="M5 21h14"/></svg>
+            Télécharger
+          </button>
+        </div>
+      </article>
+
+      <!-- Bannière 2 -->
+      <article class="bg-white rounded-2xl border border-line overflow-hidden flex flex-col">
+        <div class="relative h-40 bg-gradient-to-br from-ink to-[#1f3d2b] grid place-items-center text-white p-5 overflow-hidden">
+          <svg class="absolute -right-4 -bottom-4 opacity-20 w-28 h-28" viewBox="0 0 60 90" aria-hidden="true"><rect x="14" y="22" width="32" height="60" rx="5" fill="#16C46A"/><rect x="22" y="10" width="16" height="14" rx="2" fill="#0E9E54"/></svg>
+          <div class="relative text-center">
+            <p class="font-display text-2xl uppercase leading-none text-punch">Nutrition<br>de précision</p>
+            <p class="mt-2 text-xs font-bold uppercase tracking-wide text-white/70">Fabriqué au Québec</p>
+          </div>
+        </div>
+        <div class="p-4 flex flex-col flex-1">
+          <h3 class="font-archivo font-800">Story — 1080 × 1920</h3>
+          <p class="text-sm text-ink/55 mt-0.5">Format vertical pour stories &amp; Reels.</p>
+          <button type="button" class="dl-btn mt-3 inline-flex items-center justify-center gap-2 bg-ink text-white font-archivo font-bold text-sm py-2.5 rounded-lg hover:bg-punchdark transition focusable">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 11l5 5 5-5"/><path d="M5 21h14"/></svg>
+            Télécharger
+          </button>
+        </div>
+      </article>
+
+      <!-- Bannière 3 -->
+      <article class="bg-white rounded-2xl border border-line overflow-hidden flex flex-col">
+        <div class="relative h-40 bg-gradient-to-br from-acid to-[#b6dc14] grid place-items-center text-ink p-5 overflow-hidden">
+          <svg class="absolute -right-4 -bottom-4 opacity-20 w-28 h-28" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="1.4" aria-hidden="true"><path d="M3 20h18M6 20v-6M11 20V9M16 20V4"/></svg>
+          <div class="relative text-center">
+            <p class="font-display text-3xl uppercase leading-none">–10&nbsp;%</p>
+            <p class="mt-1 font-archivo font-800 text-sm">avec MARIE10</p>
+            <p class="mt-1 text-xs font-bold uppercase tracking-wide">Engrais &amp; nutriments</p>
+          </div>
+        </div>
+        <div class="p-4 flex flex-col flex-1">
+          <h3 class="font-archivo font-800">Bannière web — 1200 × 628</h3>
+          <p class="text-sm text-ink/55 mt-0.5">Pour blogue, infolettre ou en-tête.</p>
+          <button type="button" class="dl-btn mt-3 inline-flex items-center justify-center gap-2 bg-ink text-white font-archivo font-bold text-sm py-2.5 rounded-lg hover:bg-punchdark transition focusable">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 11l5 5 5-5"/><path d="M5 21h14"/></svg>
+            Télécharger
+          </button>
+        </div>
+      </article>
+
+    </div>
+    <p class="mt-4 text-xs text-ink/50">Tous les visuels incluent déjà votre code <strong class="text-punchdark">MARIE10</strong>. Fichiers fournis en JPG haute résolution et PNG.</p>
+  </div>
+
+  <!-- Panneau vidéo -->
+  <div id="panel-video" role="tabpanel" aria-labelledby="tab-video" tabindex="0" hidden>
+    <div class="grid lg:grid-cols-12 gap-6">
+
+      <!-- Lecteur vidéo placeholder -->
+      <div class="lg:col-span-7">
+        <div class="relative rounded-2xl overflow-hidden border border-line">
+          <svg viewBox="0 0 800 450" class="w-full h-auto" role="img" aria-label="Aperçu de la vidéo promotionnelle Fred T. Lizer">
+            <defs>
+              <linearGradient id="vidBg" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#0A0A0A"/>
+                <stop offset="0.6" stop-color="#1f3d2b"/>
+                <stop offset="1" stop-color="#0A0A0A"/>
+              </linearGradient>
+            </defs>
+            <rect width="800" height="450" fill="url(#vidBg)"/>
+            <g opacity="0.12" fill="none" stroke="#16C46A" stroke-width="1.5">
+              <path d="M0,360 C150,330 300,360 450,330 S700,330 800,300"/>
+              <path d="M0,400 C150,380 300,400 450,380 S700,380 800,360"/>
+            </g>
+            <!-- bouteille -->
+            <g transform="translate(610,150)" opacity="0.9">
+              <rect x="0" y="40" width="70" height="130" rx="10" fill="#16C46A"/>
+              <rect x="18" y="10" width="34" height="34" rx="4" fill="#0E9E54"/>
+              <rect x="8" y="78" width="54" height="60" rx="4" fill="#ffffff" opacity="0.92"/>
+              <text x="35" y="116" text-anchor="middle" font-family="Anton, sans-serif" font-size="22" fill="#0A0A0A">A·B</text>
+            </g>
+            <!-- bouton play -->
+            <circle cx="400" cy="225" r="48" fill="#16C46A"/>
+            <path d="M388,202 L424,225 L388,248 Z" fill="#0A0A0A"/>
+            <text x="48" y="64" font-family="Anton, sans-serif" font-size="30" fill="#ffffff" letter-spacing="0.5">FRED T. LIZER</text>
+            <text x="48" y="98" font-family="Inter, sans-serif" font-weight="700" font-size="16" fill="#16C46A">Simple, propre et puissant — la vidéo</text>
+            <text x="48" y="420" font-family="Inter, sans-serif" font-weight="700" font-size="14" fill="#ffffff" opacity="0.7">0:38 · MP4 1080p · sous-titres FR inclus</text>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Partage vidéo -->
+      <div class="lg:col-span-5 bg-white rounded-2xl border border-line p-6 flex flex-col">
+        <h3 class="font-archivo font-800 text-lg">Vidéo promo « Simple, propre et puissant »</h3>
+        <p class="text-sm text-ink/55 mt-1.5">38 secondes, prête à publier. Le lien de partage inclut automatiquement votre code <strong class="text-punchdark">MARIE10</strong> et votre attribution.</p>
+
+        <label for="vidLink" class="block text-xs font-bold uppercase tracking-wide text-ink/60 mb-1.5 mt-5">Lien de partage avec mon code</label>
+        <div class="flex flex-col gap-2">
+          <input id="vidLink" type="text" readonly value="https://fredtlizer.ca/v/simple-propre-puissant?aff=marie_jardine&code=MARIE10" class="w-full bg-smoke border-2 border-line rounded-lg px-3.5 py-3 text-sm font-semibold focusable" aria-label="Lien de partage de la vidéo">
+          <button type="button" class="copy-btn inline-flex items-center justify-center gap-2 bg-punch text-ink font-archivo font-800 text-sm py-3 rounded-lg hover:bg-acid transition focusable" data-copy="#vidLink" data-label="Lien vidéo copié">
+            <svg class="ico-copy" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+            <span class="copy-txt">Copier le lien</span>
+          </button>
+        </div>
+
+        <div class="mt-4 grid grid-cols-2 gap-2">
+          <button type="button" class="dl-btn inline-flex items-center justify-center gap-2 bg-ink text-white font-archivo font-bold text-sm py-2.5 rounded-lg hover:bg-punchdark transition focusable">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 11l5 5 5-5"/><path d="M5 21h14"/></svg>
+            Télécharger MP4
+          </button>
+          <button type="button" class="share-btn inline-flex items-center justify-center gap-2 bg-smoke text-ink font-archivo font-bold text-sm py-2.5 rounded-lg hover:bg-line transition focusable">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg>
+            Partager
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ MON PALIER DE COMMISSION ============ -->
+<section id="palier" class="bg-ink text-white relative overflow-hidden">
+  <div class="absolute inset-0 grain" aria-hidden="true"></div>
+  <div class="absolute -bottom-40 -left-20 w-[30rem] h-[30rem] rounded-full bg-punch/15 blur-3xl" aria-hidden="true"></div>
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 py-12 lg:py-16">
+    <div class="text-center max-w-2xl mx-auto mb-9">
+      <p class="text-xs font-bold uppercase tracking-[0.2em] text-punch">Plus vous vendez, plus vous gagnez</p>
+      <h2 class="mt-2 font-display text-3xl sm:text-5xl uppercase leading-none">Mon palier de commission</h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-4 sm:gap-5">
+
+      <!-- Bronze -->
+      <div class="rounded-2xl bg-white/[0.04] border border-white/10 p-6 flex flex-col">
+        <div class="flex items-center justify-between">
+          <span class="grid place-items-center w-11 h-11 rounded-lg bg-gradient-to-br from-[#d9a066] to-[#a9743c]" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.5 5 5.5.8-4 3.9.9 5.5L12 20l-4.9 2.2.9-5.5-4-3.9 5.5-.8z"/></svg></span>
+          <span class="text-[11px] font-bold uppercase tracking-wider text-white/40">Atteint</span>
+        </div>
+        <h3 class="mt-4 font-display text-2xl uppercase">Bronze</h3>
+        <p class="font-display text-4xl text-white/80 leading-none mt-1">10&nbsp;%</p>
+        <p class="text-sm text-white/55 mt-3">Palier de départ pour tous les nouveaux affiliés.</p>
+        <p class="mt-auto pt-4 text-xs text-white/45">Ventes 0 $ – 2 500 $ / trimestre</p>
+      </div>
+
+      <!-- Argent (actuel) -->
+      <div class="rounded-2xl bg-white text-ink p-6 flex flex-col relative ring-2 ring-punch">
+        <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-punch text-ink text-[11px] font-900 uppercase tracking-wider px-3 py-1 rounded-full">Votre palier</span>
+        <div class="flex items-center justify-between">
+          <span class="grid place-items-center w-11 h-11 rounded-lg bg-gradient-to-br from-[#cfd4da] to-[#8b9099]" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.5 5 5.5.8-4 3.9.9 5.5L12 20l-4.9 2.2.9-5.5-4-3.9 5.5-.8z"/></svg></span>
+          <span class="text-[11px] font-bold uppercase tracking-wider text-punchdark">Actuel</span>
+        </div>
+        <h3 class="mt-4 font-display text-2xl uppercase">Argent</h3>
+        <p class="font-display text-4xl text-punchdark leading-none mt-1">15&nbsp;%</p>
+        <p class="text-sm text-ink/60 mt-3">Votre taux en vigueur sur chaque vente attribuée.</p>
+        <p class="mt-auto pt-4 text-xs text-ink/50">Ventes 2 500 $ – 7 000 $ / trimestre</p>
+      </div>
+
+      <!-- Or -->
+      <div class="rounded-2xl bg-white/[0.04] border border-white/10 p-6 flex flex-col">
+        <div class="flex items-center justify-between">
+          <span class="grid place-items-center w-11 h-11 rounded-lg bg-gradient-to-br from-[#f4d35e] to-[#d4a017]" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.5 5 5.5.8-4 3.9.9 5.5L12 20l-4.9 2.2.9-5.5-4-3.9 5.5-.8z"/></svg></span>
+          <span class="text-[11px] font-bold uppercase tracking-wider text-acid">À débloquer</span>
+        </div>
+        <h3 class="mt-4 font-display text-2xl uppercase">Or</h3>
+        <p class="font-display text-4xl text-acid leading-none mt-1">20&nbsp;%</p>
+        <p class="text-sm text-white/55 mt-3">Le taux maximum, plus un soutien et des avant-premières.</p>
+        <p class="mt-auto pt-4 text-xs text-white/45">Ventes 7 000 $ et + / trimestre</p>
+      </div>
+
+    </div>
+    <p class="mt-6 text-center text-sm text-white/55">Plus que <strong class="text-acid">1&nbsp;572&nbsp;$</strong> de ventes ce trimestre pour passer au palier Or et gagner <strong class="text-white">5&nbsp;%</strong> de plus sur chaque commande.</p>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="bg-ink text-white border-t border-white/10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-14">
+    <div class="grid md:grid-cols-12 gap-x-6 gap-y-10">
+      <div class="md:col-span-4">
+        <div class="flex items-center gap-2.5">
+          <span class="grid place-items-center w-10 h-10 bg-white/10 rounded-lg" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#16C46A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5-3 7-7 7-12V4l-7-2-7 2v6c0 5 2 9 7 12z"/><path d="M12 8v9M9 11l3-3 3 3"/></svg>
+          </span>
+          <span class="font-archivo font-900 text-lg">FRED&nbsp;T.&nbsp;LIZER</span>
+        </div>
+        <p class="mt-4 text-white/55 text-sm max-w-xs">Espace affilié. Suivez vos performances, copiez vos liens et touchez vos commissions. Simple, propre et puissant.</p>
+        <div class="mt-5 flex gap-2.5">
+          <a href="#" class="grid place-items-center w-10 h-10 bg-white/10 rounded-lg hover:bg-punch hover:text-ink transition focusable" aria-label="Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="#" class="grid place-items-center w-10 h-10 bg-white/10 rounded-lg hover:bg-punch hover:text-ink transition focusable" aria-label="Facebook">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h-2a4 4 0 0 0-4 4v3H6v4h3v7h4v-7h3l1-4h-4V7a1 1 0 0 1 1-1h2z"/></svg>
+          </a>
+          <a href="#" class="grid place-items-center w-10 h-10 bg-white/10 rounded-lg hover:bg-punch hover:text-ink transition focusable" aria-label="YouTube">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="M10 9l5 3-5 3z" fill="currentColor" stroke="none"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <nav class="md:col-span-2" aria-label="Mon espace">
+        <h3 class="font-archivo font-bold text-sm uppercase tracking-wide text-white/50 mb-3">Mon espace</h3>
+        <ul class="space-y-2 text-sm text-white/75">
+          <li><a href="#tableau" class="hover:text-punch transition focusable">Tableau de bord</a></li>
+          <li><a href="#lien" class="hover:text-punch transition focusable">Mon lien &amp; code</a></li>
+          <li><a href="#commissions" class="hover:text-punch transition focusable">Mes commissions</a></li>
+          <li><a href="#assets" class="hover:text-punch transition focusable">Assets à partager</a></li>
+          <li><a href="#palier" class="hover:text-punch transition focusable">Mon palier</a></li>
+        </ul>
+      </nav>
+
+      <nav class="md:col-span-2" aria-label="Programme">
+        <h3 class="font-archivo font-bold text-sm uppercase tracking-wide text-white/50 mb-3">Programme</h3>
+        <ul class="space-y-2 text-sm text-white/75">
+          <li><a href="#palier" class="hover:text-punch transition focusable">Barème de commission</a></li>
+          <li><a href="#" class="hover:text-punch transition focusable">Conditions du programme</a></li>
+          <li><a href="#" class="hover:text-punch transition focusable">Foire aux questions</a></li>
+          <li><a href="#" class="hover:text-punch transition focusable">Bonnes pratiques</a></li>
+        </ul>
+      </nav>
+
+      <nav class="md:col-span-2" aria-label="Compte">
+        <h3 class="font-archivo font-bold text-sm uppercase tracking-wide text-white/50 mb-3">Compte</h3>
+        <ul class="space-y-2 text-sm text-white/75">
+          <li><a href="#" class="hover:text-punch transition focusable">Mon profil</a></li>
+          <li><a href="#" class="hover:text-punch transition focusable">Méthodes de paiement</a></li>
+          <li><a href="#" class="hover:text-punch transition focusable">Historique des versements</a></li>
+          <li><a href="#" class="hover:text-punch transition focusable">Se déconnecter</a></li>
+        </ul>
+      </nav>
+
+      <div class="md:col-span-2">
+        <h3 class="font-archivo font-bold text-sm uppercase tracking-wide text-white/50 mb-3">Soutien affilié</h3>
+        <ul class="space-y-2 text-sm text-white/75">
+          <li><a href="mailto:affilies@fredtlizer.ca" class="hover:text-punch transition focusable">affilies@fredtlizer.ca</a></li>
+          <li class="text-white/55">Réponse sous 1 jour ouvrable</li>
+          <li class="text-white/55">Lun–Ven · 9 h à 17 h (HE)</li>
+          <li class="text-white/55">Montréal, Québec, Canada</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/45">
+      <p>© 2026 Fred T. Lizer inc. Tous droits réservés.</p>
+      <div class="flex items-center gap-5">
+        <a href="#" class="hover:text-white transition focusable">Confidentialité</a>
+        <a href="#" class="hover:text-white transition focusable">Conditions</a>
+        <a href="#" class="hover:text-white transition focusable">Programme affilié</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- toast -->
+<div id="toast" class="fixed bottom-5 left-1/2 -translate-x-1/2 z-[80] bg-ink text-white px-5 py-3 rounded-xl shadow-2xl font-archivo font-bold text-sm opacity-0 pointer-events-none transition-opacity duration-300" role="status" aria-live="polite"></div>
+
+<!-- ============ JS — copier, onglets, générateur, paiement ============ -->
+<script>
+(function () {
+  'use strict';
+
+  // ---- Toast ----
+  var toast = document.getElementById('toast');
+  var toastTimer;
+  function showToast(msg) {
+    toast.textContent = msg;
+    toast.style.opacity = '1';
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { toast.style.opacity = '0'; }, 2200);
+  }
+
+  // ---- Copier dans le presse-papiers ----
+  function copyText(text) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      return navigator.clipboard.writeText(text);
+    }
+    return new Promise(function (resolve, reject) {
+      try {
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        ta.setAttribute('readonly', '');
+        ta.style.position = 'absolute';
+        ta.style.left = '-9999px';
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        resolve();
+      } catch (e) { reject(e); }
+    });
+  }
+
+  document.querySelectorAll('.copy-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var target = document.querySelector(btn.getAttribute('data-copy'));
+      if (!target) return;
+      var label = btn.getAttribute('data-label') || 'Copié';
+      var txtEl = btn.querySelector('.copy-txt');
+      var original = txtEl ? txtEl.textContent : null;
+      copyText(target.value).then(function () {
+        showToast(label);
+        if (txtEl) {
+          txtEl.textContent = 'Copié !';
+          setTimeout(function () { txtEl.textContent = original; }, 1600);
+        }
+      }).catch(function () {
+        showToast('Sélectionnez le texte puis copiez-le');
+        target.focus();
+        target.select();
+      });
+    });
+  });
+
+  // ---- Générateur de lien produit ----
+  var genProduit = document.getElementById('genProduit');
+  var genCode = document.getElementById('genCode');
+  var genResult = document.getElementById('genResult');
+  var BASE = 'https://fredtlizer.ca/produits/';
+  var AFF = 'marie_jardine';
+  var CODE = 'MARIE10';
+
+  function buildLink() {
+    var url = BASE + genProduit.value + '?aff=' + AFF;
+    if (genCode.checked) url += '&code=' + CODE;
+    genResult.value = url;
+  }
+  genProduit.addEventListener('change', buildLink);
+  genCode.addEventListener('change', buildLink);
+  buildLink();
+
+  // ---- Onglets assets ----
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.asset-tab'));
+  function activate(tab) {
+    tabs.forEach(function (t) {
+      var selected = t === tab;
+      t.setAttribute('aria-selected', selected ? 'true' : 'false');
+      t.tabIndex = selected ? 0 : -1;
+      if (selected) {
+        t.classList.add('bg-ink', 'text-white');
+        t.classList.remove('bg-white', 'border', 'border-line', 'text-ink');
+      } else {
+        t.classList.remove('bg-ink', 'text-white');
+        t.classList.add('bg-white', 'border', 'border-line', 'text-ink');
+      }
+      var panel = document.getElementById(t.getAttribute('aria-controls'));
+      if (panel) panel.hidden = !selected;
+    });
+  }
+  tabs.forEach(function (tab, i) {
+    tab.addEventListener('click', function () { activate(tab); });
+    tab.addEventListener('keydown', function (e) {
+      var idx = null;
+      if (e.key === 'ArrowRight') idx = (i + 1) % tabs.length;
+      else if (e.key === 'ArrowLeft') idx = (i - 1 + tabs.length) % tabs.length;
+      if (idx !== null) { e.preventDefault(); tabs[idx].focus(); activate(tabs[idx]); }
+    });
+  });
+
+  // ---- Demande de paiement ----
+  var payBtn = document.getElementById('payBtn');
+  var payNote = document.getElementById('payNote');
+  if (payBtn) {
+    payBtn.addEventListener('click', function () {
+      var methode = document.querySelector('input[name="methode"]:checked');
+      var label = methode && methode.value === 'virement' ? 'virement bancaire' : 'virement Interac';
+      payBtn.disabled = true;
+      payBtn.classList.add('opacity-60', 'cursor-not-allowed');
+      payBtn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 6"/></svg>Demande envoyée';
+      payNote.textContent = 'Paiement de 428,50 $ demandé par ' + label + '. Vous recevrez une confirmation par courriel.';
+      showToast('Demande de paiement envoyée');
+    });
+  }
+
+  // ---- Filtre commissions ----
+  var filtre = document.getElementById('filtreStatut');
+  var rows = Array.prototype.slice.call(document.querySelectorAll('#commTable tr'));
+  if (filtre) {
+    filtre.addEventListener('change', function () {
+      var v = filtre.value;
+      rows.forEach(function (r) {
+        r.style.display = (v === 'tous' || r.getAttribute('data-statut') === v) ? '' : 'none';
+      });
+    });
+  }
+
+  // ---- Boutons télécharger / partager (démo) ----
+  document.querySelectorAll('.dl-btn').forEach(function (b) {
+    b.addEventListener('click', function () { showToast('Téléchargement démarré'); });
+  });
+  document.querySelectorAll('.share-btn').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var link = document.getElementById('vidLink');
+      if (navigator.share && link) {
+        navigator.share({ title: 'Fred T. Lizer', url: link.value }).catch(function () {});
+      } else {
+        showToast('Lien de partage prêt');
+      }
+    });
+  });
+})();
+</script>
+
+<script id="ftl-header-js">
+(function(){
+  var wrap=document.querySelector('.ftl-header-wrap');if(!wrap)return;
+  var items=wrap.querySelectorAll('.ftl-nav-item');
+  var closeTimer=null;
+  function clearTimer(){if(closeTimer){clearTimeout(closeTimer);closeTimer=null;}}
+  function closeAll(except){
+    clearTimer();
+    items.forEach(function(it){
+      var t=it.querySelector('.ftl-nav-trigger'),p=it.querySelector('.ftl-mega');
+      if(!t||!p||it===except)return;
+      t.setAttribute('aria-expanded','false');p.setAttribute('data-open','false');p.setAttribute('hidden','');
+    });
+  }
+  items.forEach(function(it){
+    var t=it.querySelector('.ftl-nav-trigger'),p=it.querySelector('.ftl-mega');
+    if(!t||!p)return;
+    function open(){clearTimer();closeAll(it);t.setAttribute('aria-expanded','true');p.removeAttribute('hidden');p.setAttribute('data-open','true');}
+    function close(){t.setAttribute('aria-expanded','false');p.setAttribute('data-open','false');p.setAttribute('hidden','');}
+    function deferClose(){clearTimer();closeTimer=setTimeout(close,140);}
+    it.addEventListener('mouseenter',open);
+    it.addEventListener('mouseleave',deferClose);
+    p.addEventListener('mouseenter',clearTimer);
+    p.addEventListener('mouseleave',deferClose);
+    t.addEventListener('click',function(e){e.preventDefault();(t.getAttribute('aria-expanded')==='true')?close():open();});
+    t.addEventListener('keydown',function(e){if(e.key==='Escape'){close();t.focus();}});
+    p.addEventListener('keydown',function(e){if(e.key==='Escape'){close();t.focus();}});
+  });
+  document.addEventListener('click',function(e){if(!wrap.contains(e.target))closeAll(null);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll(null);});
+  // Hamburger mobile
+  var burger=document.getElementById('ftlBurger'),mnav=document.getElementById('ftlMobileNav');
+  if(burger&&mnav){
+    burger.addEventListener('click',function(){
+      var open=mnav.hasAttribute('hidden');
+      if(open){mnav.removeAttribute('hidden');burger.setAttribute('aria-expanded','true');}
+      else{mnav.setAttribute('hidden','');burger.setAttribute('aria-expanded','false');}
+    });
+  }
+})();
+</script>
+</body>
+</html>

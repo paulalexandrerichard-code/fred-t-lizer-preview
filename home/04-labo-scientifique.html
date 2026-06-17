@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Fred T. Lizer — Engrais, nutriments et suppléments horticoles | Fabriqué au Québec</title>
+<meta name="description" content="Fred T. Lizer : engrais, nutriments et suppléments horticoles de précision. Simple, propre et puissant. Calculateur de dosage, feed charts et recettes. Fabriqué au Québec, livraison partout au Canada." />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['"IBM Plex Sans"', 'system-ui', 'sans-serif'],
+          mono: ['"IBM Plex Mono"', 'ui-monospace', 'monospace'],
+        },
+        colors: {
+          ink:    '#0B1220',
+          deep:   '#0F3D8C',
+          blue:   '#1E5BFF',
+          green:  '#1FA36B',
+          tech:   '#5B6B82',
+          mist:   '#EAF0FB',
+          clinic: '#F7F9FC',
+          line:   '#D8E0ED',
+        },
+        boxShadow: {
+          panel: '0 1px 2px rgba(11,18,32,.04), 0 8px 28px rgba(15,61,140,.07)',
+          lift:  '0 12px 40px rgba(15,61,140,.14)',
+        },
+      },
+    },
+  };
+</script>
+
+<style>
+  html { scroll-behavior: smooth; }
+  body { -webkit-font-smoothing: antialiased; }
+
+  /* Blueprint grid background */
+  .blueprint {
+    background-color: #F7F9FC;
+    background-image:
+      linear-gradient(rgba(30,91,255,.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(30,91,255,.05) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+  .blueprint-dark {
+    background-color: #0B1220;
+    background-image:
+      linear-gradient(rgba(30,91,255,.10) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(30,91,255,.10) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+  .ticks {
+    background-image: repeating-linear-gradient(90deg, rgba(91,107,130,.35) 0 1px, transparent 1px 12px);
+  }
+  .measure-tag {
+    font-family: '"IBM Plex Mono"', monospace;
+    letter-spacing: .04em;
+  }
+  /* Subtle scrollbars on tables */
+  .scroll-x { scrollbar-width: thin; }
+  details > summary { list-style: none; cursor: pointer; }
+  details > summary::-webkit-details-marker { display: none; }
+  .focus-ring:focus-visible { outline: 3px solid rgba(30,91,255,.45); outline-offset: 2px; }
+  @keyframes pulseDot { 0%,100%{opacity:.35} 50%{opacity:1} }
+  .live-dot { animation: pulseDot 1.8s ease-in-out infinite; }
+</style>
+</head>
+
+<body class="font-sans text-ink bg-white antialiased">
+
+<!-- Skip link -->
+<a href="#contenu" class="sr-only focus:not-sr-only focus:fixed focus:z-[60] focus:top-3 focus:left-3 focus:bg-deep focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:text-sm">Aller au contenu principal</a>
+
+<!-- Announcement bar -->
+<div class="bg-ink text-white text-[12.5px] md:text-[13px]">
+  <div class="max-w-7xl mx-auto px-4 py-2 flex items-center justify-center gap-2 text-center">
+    <svg viewBox="0 0 24 24" class="w-4 h-4 shrink-0 text-green" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span class="measure-tag text-mist/90">Fabriqué au Québec</span>
+    <span class="text-tech">•</span>
+    <span>Livraison gratuite au Canada dès <span class="measure-tag text-green">89&nbsp;$&nbsp;CA</span></span>
+  </div>
+</div>
+
+<!-- ============ HEADER (sticky) ============ -->
+<header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-line">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="h-16 flex items-center justify-between gap-4">
+
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-2.5 shrink-0 focus-ring rounded-lg" aria-label="Fred T. Lizer — accueil">
+        <span class="relative grid place-items-center w-10 h-10 rounded-xl bg-deep">
+          <svg viewBox="0 0 32 32" class="w-6 h-6" fill="none" aria-hidden="true">
+            <path d="M16 4c5 4 7 8 7 12a7 7 0 0 1-14 0c0-1.4.3-2.7.9-3.9" stroke="#1FA36B" stroke-width="2.2" stroke-linecap="round"/>
+            <path d="M16 28V11" stroke="#7FB6FF" stroke-width="2.2" stroke-linecap="round"/>
+            <path d="M16 17l4-3M16 21l-4-3" stroke="#7FB6FF" stroke-width="2.2" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span class="leading-none">
+          <span class="block font-bold tracking-tight text-[15px]">Fred&nbsp;T.&nbsp;Lizer</span>
+          <span class="block measure-tag text-[10px] text-tech tracking-wider uppercase">Nutriments horticoles</span>
+        </span>
+      </a>
+
+      <!-- Primary nav -->
+      <nav class="hidden lg:flex items-center gap-1 text-[14px] font-medium text-ink/80" aria-label="Navigation principale">
+        <a href="#magasiner" class="px-3 py-2 rounded-lg hover:bg-clinic hover:text-deep transition focus-ring">Boutique</a>
+        <a href="#feed" class="px-3 py-2 rounded-lg hover:bg-clinic hover:text-deep transition focus-ring">Recettes &amp; feed charts</a>
+        <a href="#calculateur" class="px-3 py-2 rounded-lg hover:bg-clinic hover:text-deep transition focus-ring">Calculateur de dosage</a>
+        <a href="#guides" class="px-3 py-2 rounded-lg hover:bg-clinic hover:text-deep transition focus-ring">Guides</a>
+        <a href="#b2b" class="px-3 py-2 rounded-lg hover:bg-clinic hover:text-deep transition focus-ring">Revendeurs</a>
+      </nav>
+
+      <!-- Right utilities -->
+      <div class="flex items-center gap-1.5">
+
+        <!-- Language selector (discrete, no flags) -->
+        <div class="hidden sm:flex items-center measure-tag text-[12px] text-tech border border-line rounded-lg overflow-hidden" role="group" aria-label="Sélecteur de langue">
+          <button class="px-2 py-1.5 bg-deep text-white focus-ring" aria-current="true">FR</button>
+          <button class="px-2 py-1.5 hover:bg-clinic hover:text-deep transition focus-ring">EN</button>
+          <button class="px-2 py-1.5 hover:bg-clinic hover:text-deep transition focus-ring">ES</button>
+        </div>
+
+        <!-- Account -->
+        <a href="#" class="grid place-items-center w-9 h-9 rounded-lg text-ink/70 hover:bg-clinic hover:text-deep transition focus-ring" aria-label="Mon compte">
+          <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c.7-3.6 3.4-5.5 7-5.5s6.3 1.9 7 5.5" stroke-linecap="round"/></svg>
+        </a>
+
+        <!-- Cart -->
+        <a href="#" class="relative grid place-items-center w-9 h-9 rounded-lg text-ink/70 hover:bg-clinic hover:text-deep transition focus-ring" aria-label="Panier, 2 articles">
+          <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 4h2l2.2 11.2a2 2 0 0 0 2 1.6h7.4a2 2 0 0 0 2-1.6L21 7H6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="20" r="1.3"/><circle cx="18" cy="20" r="1.3"/></svg>
+          <span class="absolute -top-0.5 -right-0.5 measure-tag text-[10px] font-semibold bg-green text-white rounded-full w-4 h-4 grid place-items-center">2</span>
+        </a>
+
+        <!-- CTA -->
+        <a href="#b2b" class="hidden md:inline-flex items-center gap-1.5 ml-1 px-3.5 py-2 rounded-lg bg-deep text-white text-[13px] font-semibold hover:bg-blue transition shadow-sm focus-ring">
+          <svg viewBox="0 0 24 24" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg>
+          Compte revendeur
+        </a>
+
+        <!-- Mobile menu -->
+        <button class="lg:hidden grid place-items-center w-9 h-9 rounded-lg text-ink/70 hover:bg-clinic transition focus-ring" aria-label="Ouvrir le menu" onclick="document.getElementById('mobileNav').classList.toggle('hidden')">
+          <svg viewBox="0 0 24 24" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile nav drawer -->
+    <nav id="mobileNav" class="hidden lg:hidden pb-4 text-[15px] font-medium" aria-label="Navigation mobile">
+      <a href="#magasiner" class="block px-3 py-2.5 rounded-lg hover:bg-clinic">Boutique</a>
+      <a href="#feed" class="block px-3 py-2.5 rounded-lg hover:bg-clinic">Recettes &amp; feed charts</a>
+      <a href="#calculateur" class="block px-3 py-2.5 rounded-lg hover:bg-clinic">Calculateur de dosage</a>
+      <a href="#guides" class="block px-3 py-2.5 rounded-lg hover:bg-clinic">Guides</a>
+      <a href="#b2b" class="block px-3 py-2.5 rounded-lg hover:bg-clinic">Revendeurs</a>
+      <div class="mt-2 flex items-center gap-2">
+        <a href="#b2b" class="flex-1 text-center px-3 py-2.5 rounded-lg bg-deep text-white text-[14px] font-semibold">Ouvrir un compte revendeur</a>
+        <div class="flex items-center measure-tag text-[12px] text-tech border border-line rounded-lg overflow-hidden">
+          <button class="px-2.5 py-2.5 bg-deep text-white">FR</button>
+          <button class="px-2.5 py-2.5">EN</button>
+          <button class="px-2.5 py-2.5">ES</button>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="contenu">
+
+<!-- ============ HERO + CALCULATEUR ============ -->
+<section class="blueprint border-b border-line relative overflow-hidden">
+  <!-- decorative blueprint corner marks -->
+  <svg class="absolute top-6 right-6 w-40 h-40 text-blue/20 hidden md:block" viewBox="0 0 160 160" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">
+    <circle cx="80" cy="80" r="60"/><circle cx="80" cy="80" r="38"/><circle cx="80" cy="80" r="16"/>
+    <path d="M80 4v152M4 80h152"/>
+  </svg>
+
+  <div class="max-w-7xl mx-auto px-4 py-12 md:py-16 grid lg:grid-cols-[1.05fr_1fr] gap-10 lg:gap-12 items-center">
+
+    <!-- Hero copy -->
+    <div class="relative">
+      <div class="inline-flex items-center gap-2 measure-tag text-[11px] tracking-wider uppercase text-deep bg-mist border border-blue/20 rounded-full px-3 py-1.5">
+        <span class="w-1.5 h-1.5 rounded-full bg-green live-dot"></span>
+        Nutriments de précision
+      </div>
+
+      <h1 class="mt-5 text-4xl md:text-5xl lg:text-[3.4rem] font-bold tracking-tight leading-[1.05]">
+        Simple, propre<br/>et&nbsp;<span class="text-deep">puissant.</span>
+      </h1>
+
+      <p class="mt-5 text-[16.5px] leading-relaxed text-tech max-w-xl">
+        Engrais, nutriments et suppléments horticoles formulés pour des résultats reproductibles. Du jardinier curieux au grower avancé&nbsp;: le bon dosage, au bon stade, à la goutte près.
+      </p>
+
+      <!-- Trust strip -->
+      <dl class="mt-7 grid grid-cols-3 gap-3 max-w-lg">
+        <div class="bg-white/70 border border-line rounded-xl px-3 py-3">
+          <dt class="measure-tag text-[10px] uppercase tracking-wider text-tech">Précision</dt>
+          <dd class="measure-tag text-xl font-semibold text-deep">±2&nbsp;%</dd>
+        </div>
+        <div class="bg-white/70 border border-line rounded-xl px-3 py-3">
+          <dt class="measure-tag text-[10px] uppercase tracking-wider text-tech">Référence pH</dt>
+          <dd class="measure-tag text-xl font-semibold text-deep">5.8–6.2</dd>
+        </div>
+        <div class="bg-white/70 border border-line rounded-xl px-3 py-3">
+          <dt class="measure-tag text-[10px] uppercase tracking-wider text-tech">Cible EC</dt>
+          <dd class="measure-tag text-xl font-semibold text-deep">1.8–2.4</dd>
+        </div>
+      </dl>
+
+      <div class="mt-7 flex flex-wrap items-center gap-3">
+        <a href="#magasiner" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-deep text-white text-[14.5px] font-semibold hover:bg-blue transition shadow-panel focus-ring">
+          Magasiner les nutriments
+          <svg viewBox="0 0 24 24" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#calculateur" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white border border-line text-ink text-[14.5px] font-semibold hover:border-blue hover:text-deep transition focus-ring">
+          <svg viewBox="0 0 24 24" class="w-4 h-4 text-green" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 11h2M12 11h4M8 15h2M12 15h4" stroke-linecap="round"/></svg>
+          Voir le calculateur
+        </a>
+      </div>
+    </div>
+
+    <!-- ===== CALCULATEUR DE DOSAGE (hero) ===== -->
+    <div id="calc-card" class="relative">
+      <div class="absolute -inset-2 bg-gradient-to-br from-blue/15 via-green/10 to-transparent rounded-3xl blur-xl" aria-hidden="true"></div>
+      <form class="relative bg-white border border-line rounded-2xl shadow-lift overflow-hidden" onsubmit="return false;" aria-labelledby="calc-titre">
+        <!-- header -->
+        <div class="flex items-center justify-between gap-3 px-5 py-3.5 bg-ink text-white">
+          <div class="flex items-center gap-2.5">
+            <svg viewBox="0 0 24 24" class="w-5 h-5 text-green" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8" stroke-linecap="round"/><circle cx="9" cy="12" r="1"/><circle cx="13" cy="12" r="1"/><circle cx="9" cy="16" r="1"/><circle cx="13" cy="16" r="1"/></svg>
+            <h2 id="calc-titre" class="font-semibold text-[15px]">Calculateur de dosage</h2>
+          </div>
+          <span class="measure-tag text-[10px] uppercase tracking-wider text-mist/70">Démo&nbsp;v2.4</span>
+        </div>
+
+        <div class="p-5 space-y-4">
+          <div class="grid grid-cols-2 gap-3">
+            <label class="block">
+              <span class="measure-tag text-[11px] uppercase tracking-wider text-tech">Type de culture</span>
+              <select id="calc-culture" class="mt-1.5 w-full rounded-lg border border-line bg-clinic px-3 py-2.5 text-[14px] focus-ring focus:border-blue">
+                <option value="1">Cannabis</option>
+                <option value="0.9">Légumes-fruits</option>
+                <option value="0.8">Fines herbes</option>
+                <option value="1.05">Floraison ornementale</option>
+              </select>
+            </label>
+            <label class="block">
+              <span class="measure-tag text-[11px] uppercase tracking-wider text-tech">Médium</span>
+              <select id="calc-medium" class="mt-1.5 w-full rounded-lg border border-line bg-clinic px-3 py-2.5 text-[14px] focus-ring focus:border-blue">
+                <option value="terra">Terre / Coco (Terra)</option>
+                <option value="aqua">Hydro / DWC (Aqua)</option>
+              </select>
+            </label>
+            <label class="block">
+              <span class="measure-tag text-[11px] uppercase tracking-wider text-tech">Stade</span>
+              <select id="calc-stade" class="mt-1.5 w-full rounded-lg border border-line bg-clinic px-3 py-2.5 text-[14px] focus-ring focus:border-blue">
+                <option value="semis">Semis / Bouture</option>
+                <option value="croissance" selected>Croissance</option>
+                <option value="pre">Pré-floraison</option>
+                <option value="floraison">Floraison</option>
+                <option value="rincage">Rinçage</option>
+              </select>
+            </label>
+            <label class="block">
+              <span class="measure-tag text-[11px] uppercase tracking-wider text-tech">Produit</span>
+              <select id="calc-produit" class="mt-1.5 w-full rounded-lg border border-line bg-clinic px-3 py-2.5 text-[14px] focus-ring focus:border-blue">
+                <option value="base">Base A/B</option>
+                <option value="pk">PK Bloom</option>
+                <option value="roots">Roots &amp; Rhizo</option>
+                <option value="calmag">CalMag</option>
+                <option value="algue">Algue marine</option>
+                <option value="vers">Fumier de vers liquide</option>
+              </select>
+            </label>
+          </div>
+
+          <label class="block">
+            <span class="flex items-center justify-between">
+              <span class="measure-tag text-[11px] uppercase tracking-wider text-tech">Volume du réservoir</span>
+              <output id="calc-litres-val" class="measure-tag text-[13px] font-semibold text-deep">10 L</output>
+            </span>
+            <input id="calc-litres" type="range" min="1" max="200" value="10" step="1" class="mt-2 w-full accent-deep focus-ring" aria-label="Volume en litres" />
+            <span class="flex justify-between measure-tag text-[10px] text-tech mt-1"><span>1 L</span><span>200 L</span></span>
+          </label>
+
+          <!-- RESULTS -->
+          <div class="grid grid-cols-2 gap-3 pt-1">
+            <div class="rounded-xl border border-blue/25 bg-mist px-4 py-3.5">
+              <div class="measure-tag text-[10px] uppercase tracking-wider text-deep/70">Dose / litre</div>
+              <div class="measure-tag font-semibold text-deep leading-none mt-1">
+                <span id="out-mll" class="text-3xl">2.0</span><span class="text-base"> ml/L</span>
+              </div>
+            </div>
+            <div class="rounded-xl border border-green/30 bg-green/5 px-4 py-3.5">
+              <div class="measure-tag text-[10px] uppercase tracking-wider text-green/80">Dose / gallon</div>
+              <div class="measure-tag font-semibold text-green leading-none mt-1">
+                <span id="out-mlg" class="text-3xl">7.6</span><span class="text-base"> ml/gal</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between rounded-lg bg-clinic border border-line px-4 py-2.5">
+            <span class="measure-tag text-[11px] uppercase tracking-wider text-tech">Quantité totale</span>
+            <span id="out-total" class="measure-tag text-[15px] font-semibold text-ink">20 ml</span>
+          </div>
+
+          <p class="flex items-start gap-2 measure-tag text-[10.5px] text-tech leading-snug">
+            <svg viewBox="0 0 24 24" class="w-3.5 h-3.5 mt-px shrink-0 text-blue" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1" stroke-linecap="round"/></svg>
+            Estimation à titre indicatif. Ajustez selon EC&nbsp;/&nbsp;pH mesurés. 1&nbsp;gal&nbsp;US&nbsp;=&nbsp;3.785&nbsp;L.
+          </p>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ MAGASINER PAR ============ -->
+<section id="magasiner" class="max-w-7xl mx-auto px-4 py-14 md:py-16">
+  <div class="flex items-end justify-between gap-4 mb-7">
+    <div>
+      <span class="measure-tag text-[11px] uppercase tracking-wider text-deep">// Navigation rapide</span>
+      <h2 class="mt-1 text-2xl md:text-3xl font-bold tracking-tight">Magasiner par</h2>
+    </div>
+    <a href="#magasiner" class="hidden sm:inline-flex items-center gap-1.5 text-[14px] font-semibold text-deep hover:text-blue transition focus-ring rounded-lg px-1">
+      Toute la boutique
+      <svg viewBox="0 0 24 24" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+
+  <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+    <!-- Plante -->
+    <a href="#magasiner" class="group relative overflow-hidden rounded-2xl border border-line bg-white p-5 hover:border-blue hover:shadow-panel transition focus-ring">
+      <span class="absolute inset-0 opacity-0 group-hover:opacity-100 transition bg-gradient-to-br from-mist to-transparent" aria-hidden="true"></span>
+      <span class="relative grid place-items-center w-11 h-11 rounded-xl bg-mist text-deep">
+        <svg viewBox="0 0 24 24" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 21V9" stroke-linecap="round"/><path d="M12 13c-3 0-5-2-5-5 3 0 5 2 5 5ZM12 11c2.5 0 4-1.7 4-4-2.5 0-4 1.6-4 4Z"/></svg>
+      </span>
+      <h3 class="relative mt-3.5 font-semibold text-[15px]">Plante</h3>
+      <p class="relative measure-tag text-[11px] text-tech mt-0.5">Cannabis · Légumes · Herbes</p>
+    </a>
+    <!-- Médium -->
+    <a href="#magasiner" class="group relative overflow-hidden rounded-2xl border border-line bg-white p-5 hover:border-blue hover:shadow-panel transition focus-ring">
+      <span class="absolute inset-0 opacity-0 group-hover:opacity-100 transition bg-gradient-to-br from-mist to-transparent" aria-hidden="true"></span>
+      <span class="relative grid place-items-center w-11 h-11 rounded-xl bg-mist text-deep">
+        <svg viewBox="0 0 24 24" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 14h16M4 18h16M6 14c0-3 2-5 6-5s6 2 6 5" /><path d="M9 7l1 2M15 7l-1 2" stroke-linecap="round"/></svg>
+      </span>
+      <h3 class="relative mt-3.5 font-semibold text-[15px]">Médium</h3>
+      <p class="relative measure-tag text-[11px] text-tech mt-0.5">Terre · Coco · Hydro</p>
+    </a>
+    <!-- Stade -->
+    <a href="#magasiner" class="group relative overflow-hidden rounded-2xl border border-line bg-white p-5 hover:border-blue hover:shadow-panel transition focus-ring">
+      <span class="absolute inset-0 opacity-0 group-hover:opacity-100 transition bg-gradient-to-br from-mist to-transparent" aria-hidden="true"></span>
+      <span class="relative grid place-items-center w-11 h-11 rounded-xl bg-mist text-deep">
+        <svg viewBox="0 0 24 24" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 19l4-6 3 3 5-8 4 5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+      <h3 class="relative mt-3.5 font-semibold text-[15px]">Stade</h3>
+      <p class="relative measure-tag text-[11px] text-tech mt-0.5">Croissance · Floraison</p>
+    </a>
+    <!-- Kit -->
+    <a href="#magasiner" class="group relative overflow-hidden rounded-2xl border border-line bg-white p-5 hover:border-blue hover:shadow-panel transition focus-ring">
+      <span class="absolute inset-0 opacity-0 group-hover:opacity-100 transition bg-gradient-to-br from-mist to-transparent" aria-hidden="true"></span>
+      <span class="relative grid place-items-center w-11 h-11 rounded-xl bg-mist text-deep">
+        <svg viewBox="0 0 24 24" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a3 3 0 0 1 6 0v2M3 12h18" stroke-linecap="round"/></svg>
+      </span>
+      <h3 class="relative mt-3.5 font-semibold text-[15px]">Kit complet</h3>
+      <p class="relative measure-tag text-[11px] text-tech mt-0.5">Tout-en-un par cycle</p>
+    </a>
+  </div>
+</section>
+
+<!-- ============ GRILLE PRODUITS VEDETTES ============ -->
+<section class="blueprint border-y border-line">
+  <div class="max-w-7xl mx-auto px-4 py-14 md:py-16">
+    <div class="flex items-end justify-between gap-4 mb-8">
+      <div>
+        <span class="measure-tag text-[11px] uppercase tracking-wider text-deep">// Catalogue</span>
+        <h2 class="mt-1 text-2xl md:text-3xl font-bold tracking-tight">Produits vedettes</h2>
+        <p class="text-tech text-[15px] mt-1.5 max-w-xl">Chaque formule affiche ses repères&nbsp;: NPK, plage de pH et conductivité (EC) cible.</p>
+      </div>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5" id="grille-produits">
+      <!-- Card template repeated -->
+      <!-- 1 Terra A/B -->
+      <article class="group bg-white border border-line rounded-2xl overflow-hidden hover:shadow-panel hover:border-blue/50 transition flex flex-col">
+        <div class="relative h-40 bg-gradient-to-br from-deep to-blue overflow-hidden">
+          <div class="absolute inset-0 ticks opacity-30" aria-hidden="true"></div>
+          <svg class="absolute right-3 bottom-0 w-24 h-32 drop-shadow" viewBox="0 0 64 96" aria-hidden="true"><rect x="12" y="22" width="40" height="68" rx="6" fill="#fff" opacity=".95"/><rect x="22" y="10" width="20" height="14" rx="3" fill="#0B1220"/><rect x="16" y="34" width="32" height="40" rx="3" fill="#1FA36B" opacity=".15"/><text x="32" y="52" font-family="IBM Plex Mono" font-size="11" font-weight="600" fill="#0F3D8C" text-anchor="middle">TERRA</text><text x="32" y="66" font-family="IBM Plex Mono" font-size="9" fill="#5B6B82" text-anchor="middle">A / B</text></svg>
+          <span class="absolute top-3 left-3 measure-tag text-[10px] uppercase tracking-wider bg-white/95 text-deep rounded-full px-2.5 py-1">Base · Terre/Coco</span>
+        </div>
+        <div class="p-5 flex flex-col flex-1">
+          <h3 class="font-semibold text-[16px]">Terra A/B</h3>
+          <p class="text-tech text-[13.5px] mt-1 flex-1">Engrais de base deux parts pour terre et coco. Croissance dense, racines vigoureuses.</p>
+          <div class="flex flex-wrap gap-1.5 mt-3">
+            <span class="measure-tag text-[10px] bg-mist text-deep rounded px-1.5 py-1 border border-blue/15">NPK 4-2-5</span>
+            <span class="measure-tag text-[10px] bg-clinic text-tech rounded px-1.5 py-1 border border-line">pH 6.0</span>
+            <span class="measure-tag text-[10px] bg-clinic text-tech rounded px-1.5 py-1 border border-line">EC 2.0</span>
+          </div>
+          <div class="flex items-center justify-between mt-4 pt-4 border-t border-line">
+            <div><span class="measure-tag text-[10px] text-tech block">dès</span><span class="measure-tag text-xl font-semibold text-ink">24,99&nbsp;$</span></div>
+            <button class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-deep text-white text-[13px] font-semibold hover:bg-blue transition focus-ring">Ajouter<svg viewBox="0 0 24 24" class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></button>
+          </div>
+        </div>
+      </article>
+
+      <!-- 2 Aqua A/B -->
+      <article class="group bg-white border border-line rounded-2xl overflow-hidden hover:shadow-panel hover:border-blue/50 transition flex flex-col">
+        <div class="relative h-40 bg-gradient-to-br from-[#0E6BA8] to-[#1E5BFF] overflow-hidden">
+          <div class="absolute inset-0 ticks opacity-30" aria-hidden="true"></div>
+          <svg class="absolute right-3 bottom-0 w-24 h-32 drop-shadow" viewBox="0 0 64 96" aria-hidden="true"><rect x="12" y="22" width="40" height="68" rx="6" fill="#fff" opacity=".95"/><rect x="22" y="10" width="20" height="14" rx="3" fill="#0B1220"/><rect x="16" y="34" width="32" height="40" rx="3" fill="#1E5BFF" opacity=".15"/><text x="32" y="52" font-family="IBM Plex Mono" font-size="11" font-weight="600" fill="#0F3D8C" text-anchor="middle">AQUA</text><text x="32" y="66" font-family="IBM Plex Mono" font-size="9" fill="#5B6B82" text-anchor="middle">A / B</text></svg>
+          <span class="absolute top-3 left-3 measure-tag text-[10px] uppercase tracking-wider bg-white/95 text-deep rounded-full px-2.5 py-1">Base · Hydro</span>
+        </div>
+        <div class="p-5 flex flex-col flex-1">
+          <h3 class="font-semibold text-[16px]">Aqua A/B</h3>
+          <p class="text-tech text-[13.5px] mt-1 flex-1">Base hydroponique deux parts pour DWC, NFT et goutte-à-goutte. Solubilité parfaite.</p>
+          <div class="flex flex-wrap gap-1.5 mt-3">
+            <span class="measure-tag text-[10px] bg-mist text-deep rounded px-1.5 py-1 border border-blue/15">NPK 5-0-1</span>
+            <span class="measure-tag text-[10px] bg-clinic text-tech rounded px-1.5 py-1 border border-line">pH 5.8</span>
+            <span class="measure-tag text-[10px] bg-clinic text-tech rounded px-1.5 py-1 border border-line">EC 2.2</span>
+          </div>
+          <div class="flex items-center justify-between mt-4 pt-4 border-t border-line">
+            <div><span class="measure-tag text-[10px] text-tech block">dès</span><span class="measure-tag text-xl font-semibold text-ink">27,99&nbsp;$</span></div>
+            <button class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-deep text-white text-[13px] font-semibold hover:bg-blue transition focus-ring">Ajouter<svg viewBox="0 0 24 24" class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></button>
+          </div>
+        </div>
+      </article>
+
+      <!-- 3 PK Bloom -->
+      <article class="group bg-white border border-line rounded-2xl overflow-hidden hover:shadow-panel hover:border-blue/50 transition flex flex-col">
+        <div class="relative h-40 bg-gradient-to-br from-[#7A1FA3] to-[#B0228C] overflow-hidden">
+          <div class="absolute inset-0 ticks opacity-30" aria-hidden="true"></div>
+          <svg class="absolute right-3 bottom-0 w-24 h-32 drop-shadow" viewBox="0 0 64 96" aria-hidden="true"><rect x="12" y="22" width="40" height="68" rx="6" fill="#fff" opacity=".95"/><rect x="22" y="10" width="20" height="14" rx="3" fill="#0B1220"/><rect x="16" y="34" width="32" height="40" rx="3" fill="#B0228C" opacity=".15"/><text x="32" y="52" font-family="IBM Plex Mono" font-size="11" font-weight="600" fill="#7A1FA3" text-anchor="middle">PK</text><text x="32" y="66" font-family="IBM Plex Mono" font-size="9" fill="#5B6B82" text-anchor="middle">BLOOM</text></svg>
+          <span class="absolute top-3 left-3 measure-tag text-[10px] uppercase tracking-wider bg-white/95 text-deep rounded-full px-2.5 py-1">Stimulant · Floraison</span>
+        </div>
+        <div class="p-5 flex flex-col flex-1">
+          <h3 class="font-semibold text-[16px]">PK Bloom</h3>
+          <p class="text-tech text-[13.5px] mt-1 flex-1">Booster phosphore-potassium pour la mi-floraison. Densité et poids des fleurs.</p>
+          <div class="flex flex-wrap gap-1.5 mt-3">
+            <span class="measure-tag text-[10px] bg-mist text-deep rounded px-1.5 py-1 border border-blue/15">NPK 0-9-12</span>
+            <span class="measure-tag text-[10px] bg-clinic text-tech rounded px-1.5 py-1 border border-line">pH 6.0</span>
+            <span class="measure-tag text-[10px] bg-clinic text-tech rounded px-1.5 py-1 border border-line">EC 0.6</span>
+          </div>
+          <div class="flex items-center justify-between mt-4 pt-4 border-t border-line">
+            <div><span class="measure-tag text-[10px] text-tech block">dès</span><span class="measure-tag text-xl font-semibold text-ink">29,99&nbsp;$</span></div>
+            <button class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-deep text-white text-[13px] font-semibold hover:bg-blue transition focus-ring">Ajouter<svg viewBox="0 0 24 24" class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></button>
+          </div>
+        </div>
+      </article>
+
+      <!-- 4 Roots & Rhizo -->
+      <article class="group bg-white border border-line rounded-2xl overflow-hidden hover:shadow-panel hover:border-blue/50 transition flex flex-col">
+        <div class="relative h-40 bg-gradient-to-br from-[#5C3A21] to-[#9A6B3F] overflow-hidden">
+          <div class="absolute inset-0 ticks opacity-30" aria-hidden="true"></div>
+          <svg class="absolute right-3 bottom-0 w-24 h-32 drop-shadow" viewBox="0 0 64 96" aria-hidden="true"><rect x="12" y="22" width="40" height="68" rx="6" fill="#fff" opacity=".95"/><rect x="22" y="10" width="20" height="14" rx="3" fill="#0B1220"/><rect x="16" y="34" width="32" height="40" rx="3" fill="#5C3A21" opacity=".15"/><text x="32" y="52" font-family="IBM Plex Mono" font-size="11" font-weight="600" fill="#5C3A21" text-anchor="middle">ROOTS</text><text x="32" y="66" font-family="IBM Plex Mono" font-size="9" fill="#5B6B82" text-anchor="middle">&amp; RHIZO</text></svg>
+          <span class="absolute top-3 left-3 measure-tag text-[10px] uppercase tracking-wider bg-white/95 text-deep rounded-full px-2.5 py-1">Racinaire · Microbien</span>
+        </div>
+        <div class="p-5 flex flex-col flex-1">
+          <h3 class="font-semibold text-[16px]">Roots &amp; Rhizo</h3>
+          <p class="text-tech text-[13.5px] mt-1 flex-1">Stimulateur racinaire avec micro-organismes bénéfiques. Reprise et explosion des racines.</p>
+          <div class="flex flex-wrap gap-1.5 mt-3">
+            <span class="measure-tag text-[10px] bg-mist text-deep rounded px-1.5 py-1 border border-blue/15">NPK 1-1-1</span>
+            <span class="measure-tag text-[10px] bg-clinic text-tech rounded px-1.5 py-1 border border-line">pH 6.2</span>
+            <span class="measure-tag text-[10px] bg-clinic text-tech rounded px-1.5 py-1 border border-line">EC 0.3</span>
+          </div>
+          <div class="flex items-center justify-between mt-4 pt-4 border-t border-line">
+            <div><span class="measure-tag text-[10px] text-tech block">dès</span><span class="measure-tag text-xl font-semibold text-ink">26,99&nbsp;$</span></div>
+            <button class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-deep text-white text-[13px] font-semibold hover:bg-blue transition focus-ring">Ajouter<svg viewBox="0 0 24 24" class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></button>
+          </div>
+        </div>
+      </article>
+
+      <!-- 5 CalMag -->
+      <article class="group bg-white border border-line rounded-2xl overflow-hidden hover:shadow-panel hover:border-blue/50 transition flex flex-col">
+        <div class="relative h-40 bg-gradient-to-br from-[#1FA36B] to-[#0F7A56] overflow-hidden">
+          <div class="absolute inset-0 ticks opacity-30" aria-hidden="true"></div>
+          <svg class="absolute right-3 bottom-0 w-24 h-32 drop-shadow" viewBox="0 0 64 96" aria-hidden="true"><rect x="12" y="22" width="40" height="68" rx="6" fill="#fff" opacity=".95"/><rect x="22" y="10" width="20" height="14" rx="3" fill="#0B1220"/><rect x="16" y="34" width="32" height="40" rx="3" fill="#1FA36B" opacity=".15"/><text x="32" y="52" font-family="IBM Plex Mono" font-size="11" font-weight="600" fill="#0F7A56" text-anchor="middle">CAL</text><text x="32" y="66" font-family="IBM Plex Mono" font-size="9" fill="#5B6B82" text-anchor="middle">MAG</text></svg>
+          <span class="absolute top-3 left-3 measure-tag text-[10px] uppercase tracking-wider bg-white/95 text-deep rounded-full px-2.5 py-1">Supplément · Cal/Mag</span>
+        </div>
+        <div class="p-5 flex flex-col flex-1">
+          <h3 class="font-semibold text-[16px]">CalMag</h3>
+          <p class="text-tech text-[13.5px] mt-1 flex-1">Calcium et magnésium chélatés. Corrige les carences en coco et eau osmosée.</p>
+          <div class="flex flex-wrap gap-1.5 mt-3">
+            <span class="measure-tag text-[10px] bg-mist text-deep rounded px-1.5 py-1 border border-blue/15">NPK 2-0-0</span>
+            <span class="measure-tag text-[10px] bg-clinic text-tech rounded px-1.5 py-1 border border-line">pH 6.5</span>
+            <span class="measure-tag text-[10px] bg-clinic text-tech rounded px-1.5 py-1 border border-line">EC 0.4</span>
+          </div>
+          <div class="flex items-center justify-between mt-4 pt-4 border-t border-line">
+            <div><span class="measure-tag text-[10px] text-tech block">dès</span><span class="measure-tag text-xl font-semibold text-ink">21,99&nbsp;$</span></div>
+            <button class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-deep text-white text-[13px] font-semibold hover:bg-blue transition focus-ring">Ajouter<svg viewBox="0 0 24 24" class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></button>
+          </div>
+        </div>
+      </article>
+
+      <!-- 6 Fumier de vers liquide -->
+      <article class="group bg-white border border-line rounded-2xl overflow-hidden hover:shadow-panel hover:border-blue/50 transition flex flex-col">
+        <div class="relative h-40 bg-gradient-to-br from-[#3A5A1E] to-[#6E9A3A] overflow-hidden">
+          <div class="absolute inset-0 ticks opacity-30" aria-hidden="true"></div>
+          <svg class="absolute right-3 bottom-0 w-24 h-32 drop-shadow" viewBox="0 0 64 96" aria-hidden="true"><rect x="12" y="22" width="40" height="68" rx="6" fill="#fff" opacity=".95"/><rect x="22" y="10" width="20" height="14" rx="3" fill="#0B1220"/><rect x="16" y="34" width="32" height="40" rx="3" fill="#3A5A1E" opacity=".15"/><text x="32" y="50" font-family="IBM Plex Mono" font-size="9" font-weight="600" fill="#3A5A1E" text-anchor="middle">FUMIER</text><text x="32" y="63" font-family="IBM Plex Mono" font-size="9" fill="#5B6B82" text-anchor="middle">DE VERS</text></svg>
+          <span class="absolute top-3 left-3 measure-tag text-[10px] uppercase tracking-wider bg-white/95 text-deep rounded-full px-2.5 py-1">Organique · Vivant</span>
+        </div>
+        <div class="p-5 flex flex-col flex-1">
+          <h3 class="font-semibold text-[16px]">Fumier de vers liquide</h3>
+          <p class="text-tech text-[13.5px] mt-1 flex-1">Thé de lombricompost concentré. Vie microbienne et oligo-éléments, en douceur.</p>
+          <div class="flex flex-wrap gap-1.5 mt-3">
+            <span class="measure-tag text-[10px] bg-mist text-deep rounded px-1.5 py-1 border border-blue/15">NPK 1-1-1</span>
+            <span class="measure-tag text-[10px] bg-clinic text-tech rounded px-1.5 py-1 border border-line">pH 6.8</span>
+            <span class="measure-tag text-[10px] bg-clinic text-tech rounded px-1.5 py-1 border border-line">EC 0.2</span>
+          </div>
+          <div class="flex items-center justify-between mt-4 pt-4 border-t border-line">
+            <div><span class="measure-tag text-[10px] text-tech block">1 L / 4 L / 10 L · dès</span><span class="measure-tag text-xl font-semibold text-ink">18,99&nbsp;$</span></div>
+            <button class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-deep text-white text-[13px] font-semibold hover:bg-blue transition focus-ring">Ajouter<svg viewBox="0 0 24 24" class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></button>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <!-- format/price chips -->
+    <div class="mt-6 flex flex-wrap items-center gap-2 measure-tag text-[12px] text-tech">
+      <span class="uppercase tracking-wider">Formats disponibles :</span>
+      <span class="bg-white border border-line rounded-full px-3 py-1">1&nbsp;L — dès 18,99&nbsp;$</span>
+      <span class="bg-white border border-line rounded-full px-3 py-1">4&nbsp;L — dès 54,99&nbsp;$</span>
+      <span class="bg-white border border-line rounded-full px-3 py-1">10&nbsp;L — dès 109,99&nbsp;$</span>
+      <span class="text-tech/70">Prix en CAD</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEED CHARTS + CALCULATEUR (section dédiée) ============ -->
+<section id="feed" class="bg-white">
+  <div class="max-w-7xl mx-auto px-4 py-14 md:py-20">
+    <div class="text-center max-w-2xl mx-auto mb-10">
+      <span class="measure-tag text-[11px] uppercase tracking-wider text-deep">// Données &amp; recettes</span>
+      <h2 class="mt-1 text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight">Feed charts &amp; dosage par stade</h2>
+      <p class="text-tech text-[15.5px] mt-3">Des recettes vérifiées, exprimées en ml/L. Branchez vos volumes au calculateur et obtenez l'équivalent ml/gallon instantanément.</p>
+    </div>
+
+    <div class="grid lg:grid-cols-[1.4fr_1fr] gap-7 items-start">
+
+      <!-- FEED CHART TABLE -->
+      <div id="calculateur" class="bg-clinic border border-line rounded-2xl overflow-hidden shadow-panel">
+        <div class="flex flex-wrap items-center justify-between gap-3 px-5 py-4 border-b border-line bg-white">
+          <div>
+            <h3 class="font-semibold text-[16px]">Feed chart — Terra A/B (terre/coco)</h3>
+            <p class="measure-tag text-[11px] text-tech mt-0.5">Valeurs en ml par litre d'eau · cycle 9 semaines</p>
+          </div>
+          <span class="inline-flex items-center gap-1.5 measure-tag text-[11px] text-green bg-green/10 border border-green/20 rounded-full px-2.5 py-1">
+            <span class="w-1.5 h-1.5 rounded-full bg-green"></span> Vérifié labo
+          </span>
+        </div>
+
+        <div class="overflow-x-auto scroll-x">
+          <table class="w-full text-left border-collapse min-w-[560px]">
+            <thead>
+              <tr class="measure-tag text-[11px] uppercase tracking-wider text-tech bg-mist/50">
+                <th scope="col" class="px-4 py-3 font-medium">Stade</th>
+                <th scope="col" class="px-4 py-3 font-medium text-right">Terra A</th>
+                <th scope="col" class="px-4 py-3 font-medium text-right">Terra B</th>
+                <th scope="col" class="px-4 py-3 font-medium text-right">PK Bloom</th>
+                <th scope="col" class="px-4 py-3 font-medium text-right">CalMag</th>
+                <th scope="col" class="px-4 py-3 font-medium text-right">EC cible</th>
+              </tr>
+            </thead>
+            <tbody class="measure-tag text-[13px]">
+              <tr class="border-t border-line bg-white">
+                <th scope="row" class="px-4 py-3 font-sans font-medium text-ink">Semis / Bouture</th>
+                <td class="px-4 py-3 text-right">0.5</td><td class="px-4 py-3 text-right">0.5</td><td class="px-4 py-3 text-right text-tech/50">—</td><td class="px-4 py-3 text-right">0.5</td><td class="px-4 py-3 text-right text-deep font-semibold">0.8</td>
+              </tr>
+              <tr class="border-t border-line">
+                <th scope="row" class="px-4 py-3 font-sans font-medium text-ink">Croissance</th>
+                <td class="px-4 py-3 text-right">2.0</td><td class="px-4 py-3 text-right">2.0</td><td class="px-4 py-3 text-right text-tech/50">—</td><td class="px-4 py-3 text-right">1.0</td><td class="px-4 py-3 text-right text-deep font-semibold">1.6</td>
+              </tr>
+              <tr class="border-t border-line bg-white">
+                <th scope="row" class="px-4 py-3 font-sans font-medium text-ink">Pré-floraison</th>
+                <td class="px-4 py-3 text-right">2.5</td><td class="px-4 py-3 text-right">2.5</td><td class="px-4 py-3 text-right">1.0</td><td class="px-4 py-3 text-right">1.0</td><td class="px-4 py-3 text-right text-deep font-semibold">2.0</td>
+              </tr>
+              <tr class="border-t border-line">
+                <th scope="row" class="px-4 py-3 font-sans font-medium text-ink">Floraison</th>
+                <td class="px-4 py-3 text-right">3.0</td><td class="px-4 py-3 text-right">3.0</td><td class="px-4 py-3 text-right">2.0</td><td class="px-4 py-3 text-right">0.5</td><td class="px-4 py-3 text-right text-deep font-semibold">2.4</td>
+              </tr>
+              <tr class="border-t border-line bg-white">
+                <th scope="row" class="px-4 py-3 font-sans font-medium text-ink">Rinçage</th>
+                <td class="px-4 py-3 text-right text-tech/50">—</td><td class="px-4 py-3 text-right text-tech/50">—</td><td class="px-4 py-3 text-right text-tech/50">—</td><td class="px-4 py-3 text-right text-tech/50">—</td><td class="px-4 py-3 text-right text-deep font-semibold">0.0</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- EC bar chart (SVG diagram) -->
+        <div class="px-5 py-5 border-t border-line bg-white">
+          <div class="flex items-center justify-between mb-3">
+            <span class="measure-tag text-[11px] uppercase tracking-wider text-tech">Courbe EC sur le cycle</span>
+            <span class="measure-tag text-[11px] text-tech">mS/cm</span>
+          </div>
+          <svg viewBox="0 0 480 140" class="w-full h-auto" role="img" aria-label="Diagramme de la conductivité EC cible par stade : 0.8, 1.6, 2.0, 2.4 puis 0.0 au rinçage.">
+            <!-- grid -->
+            <g stroke="#D8E0ED" stroke-width="1">
+              <line x1="40" y1="10" x2="40" y2="115"/><line x1="40" y1="115" x2="470" y2="115"/>
+              <line x1="40" y1="80" x2="470" y2="80" stroke-dasharray="3 5"/><line x1="40" y1="45" x2="470" y2="45" stroke-dasharray="3 5"/>
+            </g>
+            <g class="measure-tag" font-size="9" fill="#5B6B82" font-family="IBM Plex Mono">
+              <text x="32" y="118" text-anchor="end">0</text><text x="32" y="83" text-anchor="end">1.6</text><text x="32" y="48" text-anchor="end">2.4</text>
+            </g>
+            <!-- area + line: pts at x=80,170,260,350,430 -->
+            <polyline points="80,79 170,49 260,34 350,20 430,115" fill="none" stroke="#1E5BFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <polygon points="80,79 170,49 260,34 350,20 430,115 430,115 80,115" fill="#1E5BFF" opacity=".08"/>
+            <g fill="#0F3D8C">
+              <circle cx="80" cy="79" r="3.5"/><circle cx="170" cy="49" r="3.5"/><circle cx="260" cy="34" r="3.5"/><circle cx="350" cy="20" r="3.5"/><circle cx="430" cy="115" r="3.5" fill="#1FA36B"/>
+            </g>
+            <g class="measure-tag" font-size="8.5" fill="#5B6B82" font-family="IBM Plex Mono" text-anchor="middle">
+              <text x="80" y="132">Semis</text><text x="170" y="132">Crois.</text><text x="260" y="132">Pré-flo</text><text x="350" y="132">Flo</text><text x="430" y="132">Rinçage</text>
+            </g>
+          </svg>
+        </div>
+      </div>
+
+      <!-- recipe / quick info column -->
+      <div class="space-y-5">
+        <div class="bg-deep text-white rounded-2xl p-6 relative overflow-hidden">
+          <div class="absolute inset-0 blueprint-dark opacity-40" aria-hidden="true"></div>
+          <div class="relative">
+            <h3 class="font-semibold text-lg">Recettes prêtes à l'emploi</h3>
+            <p class="text-mist/85 text-[14px] mt-2">Chaque produit s'accompagne d'une fiche de dosage par stade, mélange et fréquence — exportable PDF.</p>
+            <ul class="mt-4 space-y-2.5 text-[14px]">
+              <li class="flex items-center gap-2.5"><svg viewBox="0 0 24 24" class="w-4 h-4 text-green shrink-0" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg> Recettes Terre, Coco &amp; Hydro</li>
+              <li class="flex items-center gap-2.5"><svg viewBox="0 0 24 24" class="w-4 h-4 text-green shrink-0" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg> Conversion ml/L ↔ ml/gallon</li>
+              <li class="flex items-center gap-2.5"><svg viewBox="0 0 24 24" class="w-4 h-4 text-green shrink-0" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg> Ordre de mélange recommandé</li>
+            </ul>
+            <a href="#calc-card" class="mt-5 inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-white text-deep text-[13.5px] font-semibold hover:bg-mist transition focus-ring">
+              Ouvrir le calculateur
+              <svg viewBox="0 0 24 24" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- NPK radial mini diagram -->
+        <div class="bg-white border border-line rounded-2xl p-6">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="font-semibold text-[15px]">Équilibre NPK — Floraison</h3>
+            <span class="measure-tag text-[11px] text-tech">0-9-12</span>
+          </div>
+          <div class="flex items-center gap-5">
+            <svg viewBox="0 0 120 120" class="w-28 h-28 shrink-0" role="img" aria-label="Anneau NPK : azote faible, phosphore moyen, potassium élevé.">
+              <circle cx="60" cy="60" r="48" fill="none" stroke="#EAF0FB" stroke-width="14"/>
+              <circle cx="60" cy="60" r="48" fill="none" stroke="#1FA36B" stroke-width="14" stroke-dasharray="20 281" stroke-dashoffset="0" transform="rotate(-90 60 60)" stroke-linecap="round"/>
+              <circle cx="60" cy="60" r="48" fill="none" stroke="#1E5BFF" stroke-width="14" stroke-dasharray="90 211" stroke-dashoffset="-30" transform="rotate(-90 60 60)" stroke-linecap="round"/>
+              <circle cx="60" cy="60" r="48" fill="none" stroke="#0F3D8C" stroke-width="14" stroke-dasharray="120 181" stroke-dashoffset="-130" transform="rotate(-90 60 60)" stroke-linecap="round"/>
+              <text x="60" y="58" text-anchor="middle" class="measure-tag" font-family="IBM Plex Mono" font-size="13" font-weight="600" fill="#0B1220">NPK</text>
+              <text x="60" y="73" text-anchor="middle" class="measure-tag" font-family="IBM Plex Mono" font-size="9" fill="#5B6B82">Floraison</text>
+            </svg>
+            <ul class="measure-tag text-[12px] space-y-2">
+              <li class="flex items-center gap-2"><span class="w-3 h-3 rounded-sm bg-green"></span> N · Azote <span class="text-tech">faible</span></li>
+              <li class="flex items-center gap-2"><span class="w-3 h-3 rounded-sm bg-blue"></span> P · Phosphore <span class="text-tech">moyen</span></li>
+              <li class="flex items-center gap-2"><span class="w-3 h-3 rounded-sm bg-deep"></span> K · Potassium <span class="text-tech">élevé</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ B2C vs B2B ============ -->
+<section id="b2b" class="blueprint-dark text-white border-y border-blue/20">
+  <div class="max-w-7xl mx-auto px-4 py-14 md:py-18">
+    <div class="text-center max-w-2xl mx-auto mb-9">
+      <span class="measure-tag text-[11px] uppercase tracking-wider text-[#7FB6FF]">// Deux parcours</span>
+      <h2 class="mt-1 text-2xl md:text-3xl font-bold tracking-tight">Un produit, deux clientèles</h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-5">
+      <!-- B2C -->
+      <div class="bg-white/[.04] border border-white/10 rounded-2xl p-7 backdrop-blur">
+        <div class="flex items-center gap-3">
+          <span class="grid place-items-center w-11 h-11 rounded-xl bg-green/15 text-green">
+            <svg viewBox="0 0 24 24" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c.7-3.6 3.4-5.5 7-5.5s6.3 1.9 7 5.5" stroke-linecap="round"/></svg>
+          </span>
+          <div>
+            <h3 class="font-semibold text-lg">Jardiniers &amp; growers</h3>
+            <p class="measure-tag text-[11px] uppercase tracking-wider text-[#9FB8E0]">Particuliers · B2C</p>
+          </div>
+        </div>
+        <ul class="mt-5 space-y-3 text-[14.5px] text-mist/90">
+          <li class="flex gap-2.5"><svg viewBox="0 0 24 24" class="w-4 h-4 mt-0.5 text-green shrink-0" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg> Formats 1 L et 4 L, parfaits pour 1 à 6 plants</li>
+          <li class="flex gap-2.5"><svg viewBox="0 0 24 24" class="w-4 h-4 mt-0.5 text-green shrink-0" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg> Calculateur et recettes guidées sans jargon</li>
+          <li class="flex gap-2.5"><svg viewBox="0 0 24 24" class="w-4 h-4 mt-0.5 text-green shrink-0" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg> Livraison à domicile partout au Canada</li>
+        </ul>
+        <a href="#magasiner" class="mt-6 inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-green text-white text-[14px] font-semibold hover:bg-[#178a59] transition focus-ring">
+          Magasiner au détail
+          <svg viewBox="0 0 24 24" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+
+      <!-- B2B -->
+      <div class="bg-white/[.04] border border-white/10 rounded-2xl p-7 backdrop-blur relative overflow-hidden">
+        <span class="absolute top-5 right-5 measure-tag text-[10px] uppercase tracking-wider bg-blue/20 text-[#9FB8E0] border border-blue/30 rounded-full px-2.5 py-1">Tarifs en gros</span>
+        <div class="flex items-center gap-3">
+          <span class="grid place-items-center w-11 h-11 rounded-xl bg-blue/15 text-[#7FB6FF]">
+            <svg viewBox="0 0 24 24" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 21h18M5 21V8l7-4 7 4v13M9 21v-5h6v5M9 11h.01M15 11h.01" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <div>
+            <h3 class="font-semibold text-lg">Revendeurs &amp; distributeurs</h3>
+            <p class="measure-tag text-[11px] uppercase tracking-wider text-[#9FB8E0]">Commerces · B2B</p>
+          </div>
+        </div>
+        <ul class="mt-5 space-y-3 text-[14.5px] text-mist/90">
+          <li class="flex gap-2.5"><svg viewBox="0 0 24 24" class="w-4 h-4 mt-0.5 text-[#7FB6FF] shrink-0" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg> Formats 10 L, palettes et prix dégressifs</li>
+          <li class="flex gap-2.5"><svg viewBox="0 0 24 24" class="w-4 h-4 mt-0.5 text-[#7FB6FF] shrink-0" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg> Portail de commande, facturation nette 30</li>
+          <li class="flex gap-2.5"><svg viewBox="0 0 24 24" class="w-4 h-4 mt-0.5 text-[#7FB6FF] shrink-0" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg> Matériel de présentation et fiches techniques</li>
+        </ul>
+        <a href="#" class="mt-6 inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-white text-deep text-[14px] font-semibold hover:bg-mist transition focus-ring">
+          Ouvrir un compte revendeur
+          <svg viewBox="0 0 24 24" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONFIANCE LOCALE ============ -->
+<section class="bg-white border-b border-line">
+  <div class="max-w-7xl mx-auto px-4 py-12 md:py-14">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="flex items-start gap-3.5 p-5 rounded-2xl border border-line bg-clinic">
+        <span class="grid place-items-center w-11 h-11 rounded-xl bg-mist text-deep shrink-0">
+          <svg viewBox="0 0 24 24" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <div>
+          <h3 class="font-semibold text-[15px]">Fabriqué au Québec</h3>
+          <p class="text-tech text-[13px] mt-1">Formulé et embouteillé localement, lot par lot.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-3.5 p-5 rounded-2xl border border-line bg-clinic">
+        <span class="grid place-items-center w-11 h-11 rounded-xl bg-mist text-deep shrink-0">
+          <svg viewBox="0 0 24 24" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="1" y="6" width="14" height="11" rx="1.5"/><path d="M15 9h4l3 3v5h-7" stroke-linecap="round" stroke-linejoin="round"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg>
+        </span>
+        <div>
+          <h3 class="font-semibold text-[15px]">Livraison Canada</h3>
+          <p class="text-tech text-[13px] mt-1">Expédition rapide d'un océan à l'autre.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-3.5 p-5 rounded-2xl border border-line bg-clinic">
+        <span class="grid place-items-center w-11 h-11 rounded-xl bg-mist text-deep shrink-0">
+          <svg viewBox="0 0 24 24" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M9 3h6l1 3-2 2 3 8a3 3 0 0 1-3 4h-4a3 3 0 0 1-3-4l3-8-2-2z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <div>
+          <h3 class="font-semibold text-[15px]">Testé en laboratoire</h3>
+          <p class="text-tech text-[13px] mt-1">NPK, pH et EC contrôlés à chaque production.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-3.5 p-5 rounded-2xl border border-line bg-clinic">
+        <span class="grid place-items-center w-11 h-11 rounded-xl bg-mist text-deep shrink-0">
+          <svg viewBox="0 0 24 24" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <div>
+          <h3 class="font-semibold text-[15px]">Garantie satisfaction</h3>
+          <p class="text-tech text-[13px] mt-1">Support horticole par des growers, en français.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GUIDES / APPRENTISSAGE ============ -->
+<section id="guides" class="blueprint border-b border-line">
+  <div class="max-w-7xl mx-auto px-4 py-14 md:py-16">
+    <div class="flex items-end justify-between gap-4 mb-8">
+      <div>
+        <span class="measure-tag text-[11px] uppercase tracking-wider text-deep">// Apprentissage</span>
+        <h2 class="mt-1 text-2xl md:text-3xl font-bold tracking-tight">Guides &amp; ressources</h2>
+        <p class="text-tech text-[15px] mt-1.5 max-w-xl">Comprendre la science derrière chaque goutte, sans deviner.</p>
+      </div>
+      <a href="#guides" class="hidden sm:inline-flex items-center gap-1.5 text-[14px] font-semibold text-deep hover:text-blue transition focus-ring rounded-lg px-1">
+        Tous les guides
+        <svg viewBox="0 0 24 24" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-5">
+      <!-- Guide 1 -->
+      <a href="#guides" class="group bg-white border border-line rounded-2xl overflow-hidden hover:shadow-panel hover:border-blue/50 transition flex flex-col focus-ring">
+        <div class="relative h-36 bg-gradient-to-br from-deep to-blue overflow-hidden grid place-items-center">
+          <div class="absolute inset-0 ticks opacity-25" aria-hidden="true"></div>
+          <svg viewBox="0 0 80 60" class="relative w-24 h-auto" aria-hidden="true"><path d="M5 50h70M10 50V30M28 50V18M46 50V36M64 50V10" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".85"/></svg>
+        </div>
+        <div class="p-5 flex flex-col flex-1">
+          <span class="measure-tag text-[10px] uppercase tracking-wider text-deep">Fondamentaux</span>
+          <h3 class="font-semibold text-[16px] mt-1.5 group-hover:text-deep transition">Comprendre pH et EC</h3>
+          <p class="text-tech text-[13.5px] mt-1.5 flex-1">Pourquoi 5.8–6.2 change tout, et comment lire votre solution nutritive comme un labo.</p>
+          <span class="measure-tag text-[11px] text-tech mt-3 inline-flex items-center gap-1.5">7 min de lecture <svg viewBox="0 0 24 24" class="w-3.5 h-3.5 text-deep" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+      </a>
+
+      <!-- Guide 2 -->
+      <a href="#guides" class="group bg-white border border-line rounded-2xl overflow-hidden hover:shadow-panel hover:border-blue/50 transition flex flex-col focus-ring">
+        <div class="relative h-36 bg-gradient-to-br from-green to-[#0F7A56] overflow-hidden grid place-items-center">
+          <div class="absolute inset-0 ticks opacity-25" aria-hidden="true"></div>
+          <svg viewBox="0 0 80 60" class="relative w-24 h-auto" aria-hidden="true"><path d="M40 52V20" stroke="#fff" stroke-width="3" stroke-linecap="round"/><path d="M40 34c-9 0-15-6-15-15 9 0 15 6 15 15ZM40 28c7 0 12-5 12-12-7 0-12 5-12 12Z" fill="#fff" opacity=".9"/></svg>
+        </div>
+        <div class="p-5 flex flex-col flex-1">
+          <span class="measure-tag text-[10px] uppercase tracking-wider text-green">Médiums</span>
+          <h3 class="font-semibold text-[16px] mt-1.5 group-hover:text-deep transition">Terre, coco ou hydro&nbsp;?</h3>
+          <p class="text-tech text-[13.5px] mt-1.5 flex-1">Choisir son médium selon son espace, son budget et le niveau de contrôle souhaité.</p>
+          <span class="measure-tag text-[11px] text-tech mt-3 inline-flex items-center gap-1.5">9 min de lecture <svg viewBox="0 0 24 24" class="w-3.5 h-3.5 text-deep" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+      </a>
+
+      <!-- Guide 3 -->
+      <a href="#guides" class="group bg-white border border-line rounded-2xl overflow-hidden hover:shadow-panel hover:border-blue/50 transition flex flex-col focus-ring">
+        <div class="relative h-36 bg-gradient-to-br from-[#7A1FA3] to-[#B0228C] overflow-hidden grid place-items-center">
+          <div class="absolute inset-0 ticks opacity-25" aria-hidden="true"></div>
+          <svg viewBox="0 0 80 60" class="relative w-24 h-auto" aria-hidden="true"><path d="M10 45c12 0 12-30 30-30s18 30 30 30" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" opacity=".9"/><circle cx="40" cy="15" r="3.5" fill="#fff"/></svg>
+        </div>
+        <div class="p-5 flex flex-col flex-1">
+          <span class="measure-tag text-[10px] uppercase tracking-wider text-[#9A2A8C]">Floraison</span>
+          <h3 class="font-semibold text-[16px] mt-1.5 group-hover:text-deep transition">Doser le PK Bloom</h3>
+          <p class="text-tech text-[13.5px] mt-1.5 flex-1">Quand introduire le phosphore-potassium et comment lire la fenêtre de floraison.</p>
+          <span class="measure-tag text-[11px] text-tech mt-3 inline-flex items-center gap-1.5">6 min de lecture <svg viewBox="0 0 24 24" class="w-3.5 h-3.5 text-deep" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NEWSLETTER ============ -->
+<section class="bg-white">
+  <div class="max-w-7xl mx-auto px-4 py-14 md:py-16">
+    <div class="relative overflow-hidden rounded-3xl bg-deep text-white px-6 py-10 md:px-12 md:py-14">
+      <div class="absolute inset-0 blueprint-dark opacity-50" aria-hidden="true"></div>
+      <svg class="absolute -right-10 -bottom-10 w-64 h-64 text-blue/20 hidden md:block" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><circle cx="100" cy="100" r="80"/><circle cx="100" cy="100" r="52"/><circle cx="100" cy="100" r="24"/></svg>
+      <div class="relative max-w-2xl">
+        <span class="measure-tag text-[11px] uppercase tracking-wider text-[#9FB8E0]">// Infolettre</span>
+        <h2 class="mt-2 text-2xl md:text-3xl font-bold tracking-tight">Recettes, feed charts et nouveautés</h2>
+        <p class="text-mist/85 text-[15px] mt-3">Une fois par mois&nbsp;: nouvelles formules, mises à jour des feed charts et conseils de dosage. Sans spam, désabonnement en un clic.</p>
+        <form class="mt-6 flex flex-col sm:flex-row gap-3 max-w-lg" onsubmit="return false;">
+          <label class="sr-only" for="nl-email">Adresse courriel</label>
+          <input id="nl-email" type="email" required placeholder="vous@exemple.ca" class="flex-1 rounded-xl bg-white/95 text-ink placeholder:text-tech px-4 py-3 text-[15px] focus-ring focus:bg-white" />
+          <button class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-green text-white text-[14.5px] font-semibold hover:bg-[#178a59] transition focus-ring whitespace-nowrap">
+            S'abonner
+            <svg viewBox="0 0 24 24" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </form>
+        <p class="measure-tag text-[11px] text-[#9FB8E0] mt-3">Déjà 4&nbsp;200&nbsp;+ jardiniers et growers abonnés.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="bg-ink text-white">
+  <div class="max-w-7xl mx-auto px-4 pt-14 pb-8">
+    <div class="grid md:grid-cols-[1.4fr_1fr_1fr_1fr] gap-10">
+      <!-- brand -->
+      <div>
+        <a href="#" class="flex items-center gap-2.5" aria-label="Fred T. Lizer — accueil">
+          <span class="grid place-items-center w-10 h-10 rounded-xl bg-deep">
+            <svg viewBox="0 0 32 32" class="w-6 h-6" fill="none" aria-hidden="true"><path d="M16 4c5 4 7 8 7 12a7 7 0 0 1-14 0c0-1.4.3-2.7.9-3.9" stroke="#1FA36B" stroke-width="2.2" stroke-linecap="round"/><path d="M16 28V11" stroke="#7FB6FF" stroke-width="2.2" stroke-linecap="round"/><path d="M16 17l4-3M16 21l-4-3" stroke="#7FB6FF" stroke-width="2.2" stroke-linecap="round"/></svg>
+          </span>
+          <span class="font-bold tracking-tight text-[15px]">Fred T. Lizer</span>
+        </a>
+        <p class="text-mist/70 text-[13.5px] mt-4 max-w-xs leading-relaxed">Engrais, nutriments et suppléments horticoles de précision. Simple, propre et puissant.</p>
+        <div class="mt-5 flex items-center gap-2">
+          <a href="#" class="grid place-items-center w-9 h-9 rounded-lg bg-white/5 hover:bg-white/10 transition focus-ring" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="#" class="grid place-items-center w-9 h-9 rounded-lg bg-white/5 hover:bg-white/10 transition focus-ring" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="M10 9l5 3-5 3z" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="#" class="grid place-items-center w-9 h-9 rounded-lg bg-white/5 hover:bg-white/10 transition focus-ring" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" class="w-5 h-5" fill="currentColor" aria-hidden="true"><path d="M14 9h3V6h-3a4 4 0 0 0-4 4v2H8v3h2v6h3v-6h2.5l.5-3H13v-2a1 1 0 0 1 1-1z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Boutique -->
+      <nav aria-label="Boutique">
+        <h3 class="measure-tag text-[11px] uppercase tracking-wider text-[#9FB8E0]">Boutique</h3>
+        <ul class="mt-4 space-y-2.5 text-[14px] text-mist/80">
+          <li><a href="#magasiner" class="hover:text-white transition">Tous les produits</a></li>
+          <li><a href="#magasiner" class="hover:text-white transition">Bases A/B</a></li>
+          <li><a href="#magasiner" class="hover:text-white transition">Suppléments</a></li>
+          <li><a href="#magasiner" class="hover:text-white transition">Kits complets</a></li>
+          <li><a href="#magasiner" class="hover:text-white transition">Organique</a></li>
+        </ul>
+      </nav>
+
+      <!-- Ressources -->
+      <nav aria-label="Ressources">
+        <h3 class="measure-tag text-[11px] uppercase tracking-wider text-[#9FB8E0]">Ressources</h3>
+        <ul class="mt-4 space-y-2.5 text-[14px] text-mist/80">
+          <li><a href="#calculateur" class="hover:text-white transition">Calculateur de dosage</a></li>
+          <li><a href="#feed" class="hover:text-white transition">Feed charts</a></li>
+          <li><a href="#guides" class="hover:text-white transition">Guides</a></li>
+          <li><a href="#feed" class="hover:text-white transition">Recettes</a></li>
+          <li><a href="#" class="hover:text-white transition">Fiches techniques</a></li>
+        </ul>
+      </nav>
+
+      <!-- Entreprise -->
+      <nav aria-label="Entreprise">
+        <h3 class="measure-tag text-[11px] uppercase tracking-wider text-[#9FB8E0]">Entreprise</h3>
+        <ul class="mt-4 space-y-2.5 text-[14px] text-mist/80">
+          <li><a href="#b2b" class="hover:text-white transition">Devenir revendeur</a></li>
+          <li><a href="#" class="hover:text-white transition">À propos</a></li>
+          <li><a href="#" class="hover:text-white transition">Nous joindre</a></li>
+          <li><a href="#" class="hover:text-white transition">Livraison &amp; retours</a></li>
+          <li><a href="#" class="hover:text-white transition">Foire aux questions</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- bottom bar -->
+    <div class="mt-12 pt-6 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="measure-tag text-[12px] text-mist/60">© 2026 Fred T. Lizer inc. · Fabriqué au Québec, Canada</p>
+      <div class="flex items-center gap-4 measure-tag text-[12px] text-mist/60">
+        <a href="#" class="hover:text-white transition">Confidentialité</a>
+        <a href="#" class="hover:text-white transition">Conditions</a>
+        <span class="flex items-center measure-tag text-[11px] border border-white/15 rounded-lg overflow-hidden">
+          <button class="px-2 py-1 bg-white/10 text-white">FR</button>
+          <button class="px-2 py-1 hover:bg-white/5 transition">EN</button>
+          <button class="px-2 py-1 hover:bg-white/5 transition">ES</button>
+        </span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</main>
+
+<script>
+(function () {
+  // ---- Dosage calculator (demo) ----
+  // Base ml/L per stage (for Base A/B reference), then multiplied by product + medium + culture factors.
+  var STAGE_BASE = { semis: 0.6, croissance: 2.0, pre: 2.5, floraison: 3.0, rincage: 0.0 };
+  // Product multipliers relative to Base A/B
+  var PRODUCT = { base: 1.0, pk: 0.7, roots: 0.5, calmag: 0.5, algue: 0.4, vers: 1.5 };
+  // Medium adjustment
+  var MEDIUM = { terra: 1.0, aqua: 0.9 };
+  var L_PER_GAL = 3.785411784;
+
+  var el = function (id) { return document.getElementById(id); };
+  var culture = el('calc-culture'),
+      medium  = el('calc-medium'),
+      stade   = el('calc-stade'),
+      produit = el('calc-produit'),
+      litres  = el('calc-litres');
+
+  var outMll   = el('out-mll'),
+      outMlg   = el('out-mlg'),
+      outTotal = el('out-total'),
+      litVal   = el('calc-litres-val');
+
+  function fmt(n) {
+    // up to 1 decimal, strip trailing .0
+    var r = Math.round(n * 10) / 10;
+    return Number.isInteger(r) ? r.toFixed(1) : String(r);
+  }
+
+  function compute() {
+    var cFactor = parseFloat(culture.value) || 1;
+    var mFactor = MEDIUM[medium.value] || 1;
+    var pFactor = PRODUCT[produit.value] || 1;
+    var base    = STAGE_BASE[stade.value];
+    if (base === undefined) base = 0;
+
+    var L = parseInt(litres.value, 10) || 0;
+
+    var mlPerL   = base * cFactor * mFactor * pFactor;
+    var mlPerGal = mlPerL * L_PER_GAL;
+    var total    = mlPerL * L;
+
+    outMll.textContent   = fmt(mlPerL);
+    outMlg.textContent   = fmt(mlPerGal);
+    outTotal.textContent = fmt(total) + ' ml';
+    litVal.textContent   = L + ' L';
+  }
+
+  [culture, medium, stade, produit, litres].forEach(function (n) {
+    n.addEventListener('input', compute);
+    n.addEventListener('change', compute);
+  });
+  compute();
+})();
+</script>
+</body>
+</html>

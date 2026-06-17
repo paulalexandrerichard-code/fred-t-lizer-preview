@@ -1,0 +1,1332 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mon compte — Fred T. Lizer | Tableau de bord client</title>
+<meta name="description" content="Votre compte Fred T. Lizer : commandes, suivi de livraison, adresses, programmes de dosage sauvegardés, kits, fidélité et accès revendeur.">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          ink: '#0A0A0A',
+          punch: '#16C46A',
+          punchdark: '#0E9E54',
+          acid: '#D6FF2E',
+          smoke: '#F4F5F2',
+          line: '#E5E7E2',
+        },
+        fontFamily: {
+          display: ['Anton', 'sans-serif'],
+          archivo: ['Archivo', 'sans-serif'],
+          sans: ['Inter', 'sans-serif'],
+        },
+      }
+    }
+  }
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; }
+  .font-display { letter-spacing: -0.01em; }
+  .grain {
+    background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,.08) 1px, transparent 0);
+    background-size: 22px 22px;
+  }
+  .marquee-track { animation: marquee 28s linear infinite; }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce) { .marquee-track { animation: none; } html { scroll-behavior: auto; } }
+  .focusable:focus-visible { outline: 3px solid #16C46A; outline-offset: 2px; }
+  select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%230A0A0A' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 0.75rem center; -webkit-appearance: none; appearance: none; }
+  /* Panneaux de compte : on n'affiche que la section active */
+  .acct-panel { display: none; }
+  .acct-panel.is-active { display: block; }
+  /* Lien de nav latérale actif */
+  .acct-nav-link[aria-current="page"] {
+    background-color: #0A0A0A;
+    color: #fff;
+  }
+  .acct-nav-link[aria-current="page"] .nav-ico { color: #16C46A; }
+</style>
+
+<style id="ftl-header-css">
+/* ===== HEADER FRED T. LIZER — barre utilitaire + nav + MÉGA-MENU pleine largeur ===== */
+.ftl-header-wrap{position:sticky;top:0;z-index:60;font-family:'Inter',sans-serif;}
+.ftl-header-wrap *{box-sizing:border-box;}
+.ftl-utility{background:#0c1a10;color:#e7efe7;font-size:12px;}
+.ftl-utility-inner{max-width:1280px;margin:0 auto;padding:0 16px;height:36px;display:flex;align-items:center;justify-content:space-between;gap:12px;}
+.ftl-util-left{display:flex;align-items:center;gap:8px;min-width:0;overflow:hidden;white-space:nowrap;}
+.ftl-util-left span{flex:0 0 auto;}
+.ftl-util-dot{color:#3FB44A;}
+.ftl-util-right{display:flex;align-items:center;gap:10px;flex:0 0 auto;}
+.ftl-lang{display:flex;align-items:center;gap:5px;font-weight:700;letter-spacing:.02em;color:#9fb3a0;}
+.ftl-lang button{background:none;border:0;color:#9fb3a0;font:inherit;font-weight:700;cursor:pointer;padding:0;}
+.ftl-lang button:hover{color:#fff;}
+.ftl-lang .ftl-lang-on{color:#3FB44A;}
+.ftl-util-ico{color:#cdd9cd;display:inline-flex;padding:2px;border-radius:6px;}
+.ftl-util-ico:hover{color:#fff;}
+.ftl-util-cart{position:relative;display:inline-flex;align-items:center;justify-content:center;padding:2px;border-radius:6px;}
+.ftl-util-cart-badge{position:absolute;top:-5px;right:-6px;min-width:15px;height:15px;padding:0 3px;display:grid;place-items:center;background:#3FB44A;color:#0c1a10;font-size:10px;font-weight:900;border-radius:999px;line-height:1;}
+
+.ftl-nav-bar{position:relative;background:#14401F;color:#f5f1e8;border-bottom:2px solid rgba(255,255,255,.08);}
+.ftl-nav-inner{max-width:1280px;margin:0 auto;padding:0 16px;height:68px;display:flex;align-items:center;gap:18px;}
+.ftl-logo{flex:0 0 auto;min-width:0;display:inline-flex;align-items:center;border-radius:6px;overflow:hidden;}
+.ftl-logo img{height:30px;width:auto;max-width:100%;display:block;}
+.ftl-nav-center{flex:1 1 auto;min-width:0;display:flex;align-items:center;justify-content:center;}
+.ftl-nav-list{list-style:none;display:flex;align-items:center;gap:6px;margin:0;padding:0;}
+.ftl-nav-item{position:static;}
+.ftl-nav-link,.ftl-nav-trigger{position:relative;display:inline-flex;align-items:center;gap:5px;font:inherit;font-size:15px;font-weight:600;color:#f5f1e8;background:none;border:0;cursor:pointer;padding:10px 18px;border-radius:8px;text-decoration:none;line-height:1;white-space:nowrap;}
+.ftl-nav-link:hover,.ftl-nav-trigger:hover{background:rgba(255,255,255,.08);color:#fff;}
+.ftl-nav-link-active,.ftl-nav-trigger.nav-link-active{color:#fff;}
+.ftl-nav-link-active::after,.ftl-nav-trigger.nav-link-active::after{content:"";position:absolute;left:14px;right:14px;bottom:3px;height:2px;background:#3FB44A;border-radius:2px;}
+.ftl-nav-trigger[aria-expanded="true"]{background:rgba(255,255,255,.08);color:#fff;}
+
+/* ===== MÉGA-MENU PLEINE LARGEUR ===== */
+.ftl-mega{position:absolute;top:100%;left:0;right:0;z-index:55;background:#0c1a10;color:#e7efe7;border-top:1px solid rgba(63,180,74,.18);border-bottom-left-radius:18px;border-bottom-right-radius:18px;box-shadow:0 26px 60px -16px rgba(4,12,6,.65);opacity:0;visibility:hidden;transform:translateY(-10px);transition:opacity .22s ease,transform .22s ease,visibility .22s;pointer-events:none;}
+.ftl-mega[data-open="true"]{opacity:1;visibility:visible;transform:translateY(0);pointer-events:auto;}
+.ftl-mega-inner{max-width:1280px;margin:0 auto;padding:30px 16px 26px;}
+.ftl-mega-cols{display:grid;grid-template-columns:repeat(5,1fr);gap:26px;align-items:start;}
+.ftl-mega.ftl-mega-sm .ftl-mega-cols{grid-template-columns:1fr 1fr 1.35fr;gap:36px;}
+.ftl-mega-col-head{display:flex;align-items:center;gap:8px;margin:0 0 14px;padding:0 0 11px;border-bottom:1px solid rgba(255,255,255,.08);}
+.ftl-mega-col-head svg{flex:0 0 auto;color:#3FB44A;}
+.ftl-mega-col-head span{font-size:11.5px;font-weight:800;letter-spacing:.11em;text-transform:uppercase;color:#3FB44A;}
+.ftl-mega-list{display:flex;flex-direction:column;gap:1px;}
+.ftl-mega-link{display:flex;flex-direction:column;gap:2px;padding:8px 10px;margin:0 -10px;border-radius:9px;text-decoration:none;transition:background .15s ease;}
+.ftl-mega-link:hover{background:rgba(63,180,74,.12);}
+.ftl-mega-t{font-size:14px;font-weight:700;color:#f5f1e8;line-height:1.25;transition:color .15s ease;}
+.ftl-mega-link:hover .ftl-mega-t{color:#3FB44A;}
+.ftl-mega-d{font-size:12px;color:#9fb3a4;line-height:1.3;}
+.ftl-mega-intro{font-size:13px;color:#9fb3a4;line-height:1.5;margin:0 0 14px;}
+.ftl-mega-feature{display:block;border-radius:12px;overflow:hidden;text-decoration:none;border:1px solid rgba(255,255,255,.08);background:#14401F;}
+.ftl-mega-feature img{display:block;width:100%;height:120px;object-fit:cover;}
+.ftl-mega-feature-body{padding:12px 14px;}
+.ftl-mega-feature-k{font-size:10.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#3FB44A;}
+.ftl-mega-feature-t{display:block;margin-top:3px;font-size:14px;font-weight:700;color:#f5f1e8;}
+/* Bandeau bas */
+.ftl-mega-foot{background:#14401F;border-top:1px solid rgba(255,255,255,.07);border-bottom-left-radius:18px;border-bottom-right-radius:18px;}
+.ftl-mega-foot-inner{max-width:1280px;margin:0 auto;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;}
+.ftl-mega-perks{display:flex;align-items:center;gap:18px;flex-wrap:wrap;min-width:0;}
+.ftl-mega-perk{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:600;color:#cdd9cd;white-space:nowrap;}
+.ftl-mega-perk svg{flex:0 0 auto;color:#3FB44A;}
+.ftl-mega-shop{display:inline-flex;align-items:center;gap:7px;background:#3FB44A;color:#0c1a10;font-weight:800;font-size:14px;padding:10px 18px;border-radius:10px;text-decoration:none;white-space:nowrap;transition:background .15s ease,color .15s ease;}
+.ftl-mega-shop:hover{background:#2E9239;color:#fff;}
+
+.ftl-actions{flex:0 0 auto;display:flex;align-items:center;gap:8px;margin-left:auto;}
+.ftl-search{display:none;align-items:center;gap:7px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.16);border-radius:10px;padding:7px 11px;color:#d8e2d8;}
+.ftl-search svg{flex:0 0 auto;}
+.ftl-search input{background:none;border:0;outline:none;color:#f5f1e8;font:inherit;font-size:14px;width:170px;}
+.ftl-search input::placeholder{color:#9fb3a0;}
+.ftl-search:focus-within{border-color:#3FB44A;}
+.ftl-icon-btn{position:relative;display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;color:#f5f1e8;}
+.ftl-icon-btn:hover{background:rgba(255,255,255,.10);}
+.ftl-cart-badge{position:absolute;top:3px;right:3px;min-width:17px;height:17px;padding:0 4px;display:grid;place-items:center;background:#3FB44A;color:#0c1a10;font-size:11px;font-weight:900;border-radius:999px;line-height:1;}
+.ftl-cta{display:none;align-items:center;background:#3FB44A;color:#0c1a10;font-weight:800;font-size:14px;padding:10px 16px;border-radius:10px;text-decoration:none;white-space:nowrap;}
+.ftl-cta:hover{background:#2E9239;color:#fff;}
+
+/* Mobile nav panel */
+.ftl-mobile-cart{display:inline-flex;}
+.ftl-burger{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:10px;background:none;border:0;color:#f5f1e8;cursor:pointer;}
+.ftl-burger:hover{background:rgba(255,255,255,.10);}
+.ftl-mobile-nav{background:#14401F;color:#f5f1e8;border-bottom:2px solid rgba(255,255,255,.08);padding:8px 16px 18px;}
+.ftl-mobile-nav nav{display:flex;flex-direction:column;}
+.ftl-m-group{border-bottom:1px solid rgba(255,255,255,.10);}
+.ftl-m-group summary{cursor:pointer;list-style:none;padding:13px 4px;font-weight:700;font-size:16px;display:flex;align-items:center;justify-content:space-between;}
+.ftl-m-group summary::-webkit-details-marker{display:none;}
+.ftl-m-group summary::after{content:"+";font-weight:400;font-size:20px;color:#3FB44A;}
+.ftl-m-group[open] summary::after{content:"–";}
+.ftl-m-sub{padding:2px 4px 8px;}
+.ftl-m-subhead{font-size:10.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#3FB44A;padding:8px 10px 4px;}
+.ftl-m-group a{display:block;padding:8px 14px;color:#cdd9cd;text-decoration:none;font-size:15px;}
+.ftl-m-group a:hover{color:#fff;}
+.ftl-m-link{padding:13px 4px;font-weight:700;font-size:16px;color:#f5f1e8;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.10);}
+.ftl-m-link.nav-link-active{color:#3FB44A;}
+.ftl-m-actions{margin-top:16px;display:flex;flex-direction:column;gap:10px;}
+.ftl-m-account{display:flex;justify-content:center;padding:11px;border:1px solid rgba(255,255,255,.20);border-radius:10px;color:#f5f1e8;text-decoration:none;font-weight:700;}
+
+/* Responsive */
+.ftl-util-hide-sm,.ftl-util-hide-md{display:inline;}
+@media (max-width:1100px){.ftl-util-hide-md{display:none;}}
+@media (max-width:640px){
+  .ftl-util-hide-sm{display:none;}
+  .ftl-utility-inner{padding:0 12px;}
+  .ftl-nav-inner{padding:0 12px;gap:10px;height:60px;}
+  .ftl-logo img{height:22px;}
+  .ftl-actions{gap:2px;}
+  .ftl-icon-btn,.ftl-burger{width:38px;height:38px;}
+}
+@media (max-width:380px){.ftl-logo img{height:20px;}}
+@media (min-width:1024px){.ftl-search{display:flex;}.ftl-cta{display:inline-flex;}}
+/* desktop : nav visible, burger caché ; mobile : inverse */
+@media (max-width:1023px){
+  .ftl-nav-center{display:none;}
+  .ftl-mega{display:none !important;}
+  .ftl-actions .ftl-search,.ftl-actions .ftl-icon-btn:not(.ftl-mobile-cart),.ftl-actions .ftl-cta{display:none;}
+}
+@media (min-width:1024px){
+  .ftl-mobile-cart,.ftl-burger{display:none;}
+  .ftl-mobile-nav{display:none !important;}
+}
+.ftl-header-wrap a:focus-visible,.ftl-header-wrap button:focus-visible,.ftl-header-wrap input:focus-visible{outline:3px solid #3FB44A;outline-offset:2px;}
+@media (prefers-reduced-motion:reduce){.ftl-mega{transition:none;}}
+</style>
+</head>
+<body class="bg-white text-ink antialiased">
+
+<!-- ============ SKIP LINK ============ -->
+<a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:top-3 focus:left-3 focus:bg-ink focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focusable">Aller au contenu principal</a>
+
+<!-- ============ HEADER FRED T. LIZER (méga-menu pleine largeur, style PPS) ============ -->
+<div class="ftl-header-wrap">
+  <!-- Barre utilitaire fine (STATIQUE) -->
+  <div class="ftl-utility">
+    <div class="ftl-utility-inner">
+      <div class="ftl-util-left">
+        <span>Livraison gratuite dès 89&nbsp;$ au Canada</span>
+        <span class="ftl-util-dot" aria-hidden="true">·</span>
+        <span class="ftl-util-hide-sm">Fabriqué au Québec</span>
+        <span class="ftl-util-dot ftl-util-hide-sm" aria-hidden="true">·</span>
+        <span class="ftl-util-hide-md">Enraciné dans la science depuis 2002</span>
+      </div>
+      <div class="ftl-util-right">
+        <div class="ftl-lang" role="group" aria-label="Choix de la langue">
+          <button type="button" class="ftl-lang-on" aria-current="true">FR</button>
+          <span aria-hidden="true">·</span>
+          <button type="button">EN</button>
+          <span aria-hidden="true">·</span>
+          <button type="button">ES</button>
+        </div>
+        <a href="compte.html" class="ftl-util-ico" aria-label="Mon compte">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
+        </a>
+        <a href="panier.html" class="ftl-util-cart" aria-label="Panier, 2 articles">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7h15l-1.5 11a2 2 0 0 1-2 1.75H8.5a2 2 0 0 1-2-1.75L5 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+          <span class="ftl-util-cart-badge" aria-hidden="true">2</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  <!-- Barre de navigation principale (sticky) -->
+  <header class="ftl-nav-bar">
+    <div class="ftl-nav-inner">
+      <a href="../home/06-bold-conversion.html" class="ftl-logo" aria-label="Fred T. Lizer — accueil">
+        <img src="../assets/logo-blanc-3.png" alt="Fred T. Lizer" width="361" height="35">
+      </a>
+      <nav class="ftl-nav-center" aria-label="Navigation principale">
+        <ul class="ftl-nav-list" role="menubar">
+          <li class="ftl-nav-item" role="none">
+            <button type="button" class="ftl-nav-trigger" aria-expanded="false" aria-haspopup="true" data-menu="boutique">Boutique</button>
+            <div class="ftl-mega" data-panel="boutique" data-open="false" role="menu" aria-label="Boutique" hidden>
+              <div class="ftl-mega-inner">
+                <div class="ftl-mega-cols">
+        <div class="ftl-mega-col">
+          <p class="ftl-mega-col-head"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6"/><path d="M10 3v6.5L4.5 19a1.5 1.5 0 0 0 1.3 2.3h12.4a1.5 1.5 0 0 0 1.3-2.3L14 9.5V3"/><path d="M7.5 15h9"/></svg><span>Par gamme</span></p>
+          <div class="ftl-mega-list">
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Toute la boutique</span><span class="ftl-mega-d">Tous les produits Fred T. Lizer</span></a>
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Bases A / B</span><span class="ftl-mega-d">Terra &amp; Aqua, croissance &amp; floraison</span></a>
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Boosters de floraison</span><span class="ftl-mega-d">PK, sucres &amp; renforçateurs</span></a>
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Suppléments &amp; correctifs</span><span class="ftl-mega-d">CalMag, enzymes</span></a>
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Organiques</span><span class="ftl-mega-d">Algue, fumier de vers</span></a>
+            <a class="ftl-mega-link" href="kit.html" role="menuitem"><span class="ftl-mega-t">Kits &amp; combos</span><span class="ftl-mega-d">Prêts à cultiver</span></a>
+          </div>
+        </div>
+        <div class="ftl-mega-col">
+          <p class="ftl-mega-col-head"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20c8 1 16-4 16-14 0 0-9-1-13 3s-3 11-3 11Z"/><path d="M4 20c2-5 5-8 9-10"/></svg><span>Par plante</span></p>
+          <div class="ftl-mega-list">
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Légumes</span><span class="ftl-mega-d">Tomates, piments</span></a>
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Fleurs</span><span class="ftl-mega-d">Annuelles, vivaces</span></a>
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Plantes d'intérieur</span><span class="ftl-mega-d">Verdure de maison</span></a>
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Pelouses &amp; haies</span><span class="ftl-mega-d">Gazon, cèdres, arbustes</span></a>
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Fines herbes</span><span class="ftl-mega-d">Basilic, menthe &amp; cie</span></a>
+          </div>
+        </div>
+        <div class="ftl-mega-col">
+          <p class="ftl-mega-col-head"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11Z"/></svg><span>Par médium</span></p>
+          <div class="ftl-mega-list">
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Terre &amp; potager</span><span class="ftl-mega-d">Pleine terre &amp; pots</span></a>
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Coco</span><span class="ftl-mega-d">Substrat de coco</span></a>
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Hydroponie</span><span class="ftl-mega-d">Systèmes sans sol</span></a>
+          </div>
+        </div>
+        <div class="ftl-mega-col">
+          <p class="ftl-mega-col-head"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21v-7"/><path d="M12 14c0-3 2.5-5 6-5 0 3-2.5 5-6 5Z"/><path d="M12 14c0-3-2.5-5-6-5 0 3 2.5 5 6 5Z"/></svg><span>Par stade</span></p>
+          <div class="ftl-mega-list">
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Semis &amp; bouturage</span><span class="ftl-mega-d">Départ en douceur</span></a>
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Croissance</span><span class="ftl-mega-d">Développement végétatif</span></a>
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Floraison</span><span class="ftl-mega-d">Fleurs &amp; fruits</span></a>
+            <a class="ftl-mega-link" href="boutique.html" role="menuitem"><span class="ftl-mega-t">Rinçage</span><span class="ftl-mega-d">Avant la récolte</span></a>
+          </div>
+        </div>
+        <div class="ftl-mega-col">
+          <p class="ftl-mega-col-head"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.5-.6-.6-2.5 2.6-2.4Z"/></svg><span>Outils &amp; ressources</span></p>
+          <p class="ftl-mega-intro">Trouvez le bon produit et le bon dosage en quelques clics.</p>
+          <div class="ftl-mega-list">
+            <a class="ftl-mega-link" href="calculateur.html" role="menuitem"><span class="ftl-mega-t">Calculateur de dosage</span><span class="ftl-mega-d">ml/L et ml/gallon</span></a>
+            <a class="ftl-mega-link" href="../home/06-bold-conversion.html#feedcharts" role="menuitem"><span class="ftl-mega-t">Recettes &amp; feed charts</span><span class="ftl-mega-d">Programmes semaine par semaine</span></a>
+            <a class="ftl-mega-link" href="comparatif.html" role="menuitem"><span class="ftl-mega-t">Sélecteur de produits</span><span class="ftl-mega-d">Comparez et choisissez</span></a>
+            <a class="ftl-mega-link" href="../home/06-bold-conversion.html#guides" role="menuitem"><span class="ftl-mega-t">Guides de culture</span><span class="ftl-mega-d">Conseils &amp; fiches</span></a>
+          </div>
+        </div>
+                </div>
+              </div>
+      <div class="ftl-mega-foot">
+        <div class="ftl-mega-foot-inner">
+          <div class="ftl-mega-perks">
+            <span class="ftl-mega-perk"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l1.6 3.4 3.4-.9-1.3 3.3 3.3 1.3-2.7 2.2 1.9 3-3.5-.6-.2 3.5L12 18l-2.2 2.7-.2-3.5-3.5.6 1.9-3-2.7-2.2 3.3-1.3-1.3-3.3 3.4.9z"/><path d="M12 18v4"/></svg>Fabriqué au Québec</span>
+            <span class="ftl-mega-perk"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v9H3z"/><path d="M14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.6"/><circle cx="17.5" cy="18" r="1.6"/></svg>Livraison gratuite dès 89&nbsp;$</span>
+            <span class="ftl-mega-perk"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3h4"/><path d="M11 3v5L6 18a1.4 1.4 0 0 0 1.2 2.1h9.6A1.4 1.4 0 0 0 18 18L13 8V3"/></svg>Appuyé par la science</span>
+          </div>
+          <a class="ftl-mega-shop" href="boutique.html">Magasiner maintenant <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+            </div>
+          </li>
+          <li class="ftl-nav-item" role="none">
+            <button type="button" class="ftl-nav-trigger" aria-expanded="false" aria-haspopup="true" data-menu="apprendre">Apprendre</button>
+            <div class="ftl-mega ftl-mega-sm" data-panel="apprendre" data-open="false" role="menu" aria-label="Apprendre" hidden>
+              <div class="ftl-mega-inner">
+                <div class="ftl-mega-cols">
+        <div class="ftl-mega-col">
+          <p class="ftl-mega-col-head"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h7v16H6a2 2 0 0 0-2 2V5Z"/><path d="M20 3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1h-7"/></svg><span>Apprendre</span></p>
+          <div class="ftl-mega-list">
+            <a class="ftl-mega-link" href="calculateur.html" role="menuitem"><span class="ftl-mega-t">Calculateur de dosage</span><span class="ftl-mega-d">ml/L et ml/gallon</span></a>
+            <a class="ftl-mega-link" href="../home/06-bold-conversion.html#feedcharts" role="menuitem"><span class="ftl-mega-t">Recettes &amp; feed charts</span><span class="ftl-mega-d">Programmes semaine par semaine</span></a>
+            <a class="ftl-mega-link" href="../home/06-bold-conversion.html#guides" role="menuitem"><span class="ftl-mega-t">Guides de culture</span><span class="ftl-mega-d">Conseils &amp; fiches techniques</span></a>
+            <a class="ftl-mega-link" href="../home/06-bold-conversion.html#faq" role="menuitem"><span class="ftl-mega-t">FAQ</span><span class="ftl-mega-d">Questions fréquentes</span></a>
+          </div>
+        </div>
+        <div class="ftl-mega-col">
+          <p class="ftl-mega-col-head"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"/></svg><span>Ressources</span></p>
+          <div class="ftl-mega-list">
+            <a class="ftl-mega-link" href="comparatif.html" role="menuitem"><span class="ftl-mega-t">Sélecteur de produits</span><span class="ftl-mega-d">Trouvez la bonne formule</span></a>
+            <a class="ftl-mega-link" href="../home/06-bold-conversion.html#sds" role="menuitem"><span class="ftl-mega-t">Fiches techniques (SDS)</span><span class="ftl-mega-d">Sécurité &amp; composition</span></a>
+            <a class="ftl-mega-link" href="../home/06-bold-conversion.html#blogue" role="menuitem"><span class="ftl-mega-t">Blogue</span><span class="ftl-mega-d">Actualités &amp; culture</span></a>
+          </div>
+        </div>
+        <div class="ftl-mega-col">
+          <p class="ftl-mega-col-head"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20c8 1 16-4 16-14 0 0-9-1-13 3s-3 11-3 11Z"/><path d="M4 20c2-5 5-8 9-10"/></svg><span>En vedette</span></p>
+          <a class="ftl-mega-feature" href="../home/06-bold-conversion.html#guides" role="menuitem">
+            <img src="../assets/lifestyle/hero-serre.jpg" alt="Serre de culture luxuriante" loading="lazy">
+            <span class="ftl-mega-feature-body"><span class="ftl-mega-feature-k">Guide vedette</span><span class="ftl-mega-feature-t">Réussir sa floraison en serre</span></span>
+          </a>
+        </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="ftl-nav-item" role="none"><a href="b2b-revendeurs.html" class="ftl-nav-link nav-link">Revendeurs</a></li>
+          <li class="ftl-nav-item" role="none"><a href="../home/06-bold-conversion.html#fondateur" class="ftl-nav-link nav-link">À propos</a></li>
+          <li class="ftl-nav-item" role="none"><a href="../home/06-bold-conversion.html#contact" class="ftl-nav-link nav-link">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="ftl-actions">
+        <form class="ftl-search" role="search" onsubmit="return false">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <input type="search" placeholder="Rechercher un produit…" aria-label="Rechercher sur le site">
+        </form>
+        <a href="panier.html" class="ftl-icon-btn ftl-cart ftl-mobile-cart" aria-label="Panier, 2 articles">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7h15l-1.5 11a2 2 0 0 1-2 1.75H8.5a2 2 0 0 1-2-1.75L5 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+          <span class="ftl-cart-badge" aria-hidden="true">2</span>
+        </a>
+        <button type="button" class="ftl-burger" id="ftlBurger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="ftlMobileNav">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+  <div class="ftl-mobile-nav" id="ftlMobileNav" hidden>
+    <nav aria-label="Navigation mobile">
+      <details class="ftl-m-group">
+        <summary>Boutique</summary>
+        <div class="ftl-m-sub">
+          <p class="ftl-m-subhead">Par gamme</p>
+          <a href="boutique.html">Toute la boutique</a>
+          <a href="boutique.html">Bases A / B — Terra &amp; Aqua</a>
+          <a href="boutique.html">Boosters de floraison</a>
+          <a href="boutique.html">Suppléments &amp; correctifs</a>
+          <a href="boutique.html">Organiques</a>
+          <a href="kit.html">Kits &amp; combos</a>
+          <p class="ftl-m-subhead">Par plante</p>
+          <a href="boutique.html">Légumes</a>
+          <a href="boutique.html">Fleurs</a>
+          <a href="boutique.html">Plantes d'intérieur</a>
+          <a href="boutique.html">Pelouses &amp; haies</a>
+          <a href="boutique.html">Fines herbes</a>
+          <p class="ftl-m-subhead">Par médium &amp; stade</p>
+          <a href="boutique.html">Terre · Coco · Hydroponie</a>
+          <a href="boutique.html">Semis · Croissance · Floraison · Rinçage</a>
+        </div>
+      </details>
+      <details class="ftl-m-group">
+        <summary>Apprendre</summary>
+        <div class="ftl-m-sub">
+          <a href="calculateur.html">Calculateur de dosage</a>
+          <a href="../home/06-bold-conversion.html#feedcharts">Recettes &amp; feed charts</a>
+          <a href="../home/06-bold-conversion.html#guides">Guides de culture</a>
+          <a href="../home/06-bold-conversion.html#faq">FAQ</a>
+          <a href="comparatif.html">Sélecteur de produits</a>
+          <a href="../home/06-bold-conversion.html#sds">Fiches techniques (SDS)</a>
+          <a href="../home/06-bold-conversion.html#blogue">Blogue</a>
+        </div>
+      </details>
+      <a class="ftl-m-link" href="b2b-revendeurs.html">Revendeurs</a>
+      <a class="ftl-m-link" href="../home/06-bold-conversion.html#fondateur">À propos</a>
+      <a class="ftl-m-link" href="../home/06-bold-conversion.html#contact">Contact</a>
+    </nav>
+    <div class="ftl-m-actions">
+      <a href="compte.html" class="ftl-m-account">Mon compte</a>
+    </div>
+  </div>
+</div>
+<!-- ============ /HEADER FRED T. LIZER ============ -->
+
+<main id="main">
+
+<!-- ============ EN-TÊTE COMPTE ============ -->
+<section class="bg-ink text-white relative overflow-hidden">
+  <div class="absolute inset-0 grain" aria-hidden="true"></div>
+  <div class="absolute -top-24 -right-24 w-[26rem] h-[26rem] rounded-full bg-punch/20 blur-3xl" aria-hidden="true"></div>
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 py-8 lg:py-12">
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-5">
+      <div class="flex items-center gap-4">
+        <span class="grid place-items-center w-14 h-14 lg:w-16 lg:h-16 rounded-2xl bg-gradient-to-br from-punch to-punchdark text-ink font-display text-2xl lg:text-3xl shrink-0" aria-hidden="true">MP</span>
+        <div>
+          <p class="text-xs font-bold uppercase tracking-[0.2em] text-punch">Mon compte</p>
+          <h1 class="mt-1 font-display text-4xl sm:text-5xl uppercase leading-none">Bonjour, Marie-Pier</h1>
+          <p class="mt-2 text-sm text-white/60">Membre depuis mars 2024 · marie-pier@courriel.ca</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-3 sm:self-start">
+        <span class="inline-flex items-center gap-2 bg-white/10 border border-white/15 rounded-full px-3.5 py-2 text-xs font-bold tracking-wide uppercase">
+          <span class="w-2 h-2 rounded-full bg-acid" aria-hidden="true"></span>
+          Compte revendeur · Palier Argent
+        </span>
+        <button class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/15 text-white font-archivo font-bold text-sm px-4 py-2.5 rounded-lg transition focusable">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5M21 12H9"/></svg>
+          Déconnexion
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LAYOUT : NAV LATÉRALE + CONTENU ============ -->
+<div class="max-w-7xl mx-auto px-4 sm:px-6 py-8 lg:py-12">
+  <div class="grid lg:grid-cols-12 gap-6 lg:gap-10">
+
+    <!-- ===== NAV LATÉRALE ===== -->
+    <aside class="lg:col-span-3">
+      <nav id="acctNav" class="hidden lg:block bg-white border-2 border-line rounded-2xl p-2 lg:sticky lg:top-28" aria-label="Navigation du compte">
+        <a href="#dashboard" data-target="dashboard" class="acct-nav-link flex items-center gap-3 px-3.5 py-3 rounded-xl font-archivo font-bold text-sm hover:bg-smoke transition focusable" aria-current="page">
+          <span class="nav-ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg></span>
+          Tableau de bord
+        </a>
+        <a href="#commandes" data-target="commandes" class="acct-nav-link flex items-center gap-3 px-3.5 py-3 rounded-xl font-archivo font-bold text-sm hover:bg-smoke transition focusable">
+          <span class="nav-ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 4 6v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6l-2-4z"/><path d="M4 6h16M9 10a3 3 0 0 0 6 0"/></svg></span>
+          Mes commandes
+        </a>
+        <a href="#adresses" data-target="adresses" class="acct-nav-link flex items-center gap-3 px-3.5 py-3 rounded-xl font-archivo font-bold text-sm hover:bg-smoke transition focusable">
+          <span class="nav-ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.4-7-10a7 7 0 0 1 14 0c0 5.6-7 10-7 10z"/><circle cx="12" cy="11" r="2.5"/></svg></span>
+          Mes adresses
+        </a>
+        <a href="#programmes" data-target="programmes" class="acct-nav-link flex items-center gap-3 px-3.5 py-3 rounded-xl font-archivo font-bold text-sm hover:bg-smoke transition focusable">
+          <span class="nav-ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="10" y2="10"/><line x1="14" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="10" y2="14"/><line x1="14" y1="14" x2="16" y2="14"/></svg></span>
+          Programmes de dosage
+        </a>
+        <a href="#kits" data-target="kits" class="acct-nav-link flex items-center gap-3 px-3.5 py-3 rounded-xl font-archivo font-bold text-sm hover:bg-smoke transition focusable">
+          <span class="nav-ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M3 11h18M9 7V5a3 3 0 0 1 6 0v2"/></svg></span>
+          Mes kits
+        </a>
+        <a href="#fidelite" data-target="fidelite" class="acct-nav-link flex items-center gap-3 px-3.5 py-3 rounded-xl font-archivo font-bold text-sm hover:bg-smoke transition focusable">
+          <span class="nav-ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.5 5.2 5.7.8-4.1 4 1 5.6L12 16l-5.1 2.6 1-5.6-4.1-4 5.7-.8z"/></svg></span>
+          Fidélité &amp; crédits
+        </a>
+        <a href="#parametres" data-target="parametres" class="acct-nav-link flex items-center gap-3 px-3.5 py-3 rounded-xl font-archivo font-bold text-sm hover:bg-smoke transition focusable">
+          <span class="nav-ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></span>
+          Paramètres
+        </a>
+
+        <!-- Entrée B2B -->
+        <div class="my-2 border-t border-line"></div>
+        <a href="#revendeur" data-target="revendeur" class="acct-nav-link flex items-center gap-3 px-3.5 py-3 rounded-xl font-archivo font-bold text-sm hover:bg-smoke transition focusable">
+          <span class="nav-ico text-punchdark" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V8l6-4 6 4v13"/><path d="M15 21V11l6 4v6"/><path d="M3 21h18"/></svg></span>
+          Espace revendeur
+        </a>
+      </nav>
+
+      <!-- Carte aide -->
+      <div class="hidden lg:block mt-4 rounded-2xl bg-smoke border border-line p-5">
+        <p class="font-archivo font-800 text-sm">Besoin d'un coup de main&nbsp;?</p>
+        <p class="mt-1 text-xs text-ink/60 leading-relaxed">Nos cultivateurs répondent du lundi au vendredi, de 9 h à 17 h (HE).</p>
+        <a href="mailto:bonjour@fredtlizer.ca" class="mt-3 inline-flex items-center gap-1.5 text-sm font-bold text-punchdark hover:underline focusable rounded">
+          Nous joindre
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </aside>
+
+    <!-- ===== CONTENU ===== -->
+    <div class="lg:col-span-9">
+
+      <!-- ====================== TABLEAU DE BORD ====================== -->
+      <section id="panel-dashboard" class="acct-panel is-active" aria-labelledby="h-dashboard" tabindex="-1">
+        <h2 id="h-dashboard" class="font-display text-3xl sm:text-4xl uppercase leading-none mb-6">Tableau de bord</h2>
+
+        <!-- Cartes résumé -->
+        <div class="grid sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-5">
+
+          <!-- Dernière commande + suivi -->
+          <article class="sm:col-span-2 xl:col-span-1 bg-ink text-white rounded-2xl p-6 relative overflow-hidden">
+            <div class="absolute -top-16 -right-16 w-48 h-48 rounded-full bg-punch/20 blur-3xl" aria-hidden="true"></div>
+            <div class="relative flex items-center justify-between">
+              <p class="text-[11px] font-bold uppercase tracking-wider text-punch">Dernière commande</p>
+              <span class="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wide bg-punch/15 text-punch px-2 py-1 rounded-full">
+                <span class="w-1.5 h-1.5 rounded-full bg-punch" aria-hidden="true"></span> En transit
+              </span>
+            </div>
+            <p class="relative mt-2 font-display text-2xl">Commande&nbsp;#FTL-2031</p>
+            <p class="relative text-sm text-white/55 mt-0.5">Passée le 9 juin 2026 · 3 articles · 96,47&nbsp;$</p>
+            <!-- Mini barre de suivi -->
+            <div class="relative mt-5" aria-hidden="true">
+              <div class="flex items-center">
+                <span class="w-3 h-3 rounded-full bg-punch"></span><span class="flex-1 h-1 bg-punch"></span>
+                <span class="w-3 h-3 rounded-full bg-punch"></span><span class="flex-1 h-1 bg-punch"></span>
+                <span class="w-3 h-3 rounded-full bg-punch"></span><span class="flex-1 h-1 bg-white/15"></span>
+                <span class="w-3 h-3 rounded-full bg-white/20"></span>
+              </div>
+              <div class="flex justify-between mt-2 text-[10px] text-white/50 font-semibold">
+                <span>Confirmée</span><span>Préparée</span><span>Expédiée</span><span>Livrée</span>
+              </div>
+            </div>
+            <p class="relative mt-4 text-xs text-white/60">Livraison estimée&nbsp;: <strong class="text-white">19 juin 2026</strong></p>
+            <button class="acct-jump relative mt-4 inline-flex items-center gap-2 bg-punch text-ink font-archivo font-800 text-sm px-4 py-2.5 rounded-lg hover:bg-acid transition focusable w-full justify-center" data-target="commandes">
+              Suivre ma commande
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+          </article>
+
+          <!-- Fidélité / crédits -->
+          <article class="bg-white border-2 border-line rounded-2xl p-6 flex flex-col">
+            <div class="flex items-center justify-between">
+              <p class="text-[11px] font-bold uppercase tracking-wider text-punchdark">Points fidélité</p>
+              <span class="grid place-items-center w-9 h-9 bg-acid rounded-lg" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.5 5.2 5.7.8-4.1 4 1 5.6L12 16l-5.1 2.6 1-5.6-4.1-4 5.7-.8z"/></svg>
+              </span>
+            </div>
+            <p class="mt-2"><span class="font-display text-4xl">1 240</span><span class="text-sm font-bold text-ink/50 ml-1.5">points</span></p>
+            <p class="text-sm text-ink/55 mt-0.5">soit <strong class="text-ink">12,40&nbsp;$</strong> en crédits boutique</p>
+            <!-- Progression vers prochain palier -->
+            <div class="mt-4">
+              <div class="flex justify-between text-[11px] font-bold text-ink/60 mb-1.5">
+                <span>Vers 1 500 pts</span><span>83&nbsp;%</span>
+              </div>
+              <div class="h-2 rounded-full bg-smoke overflow-hidden" role="presentation">
+                <div class="h-full rounded-full bg-gradient-to-r from-punch to-punchdark" style="width:83%"></div>
+              </div>
+            </div>
+            <button class="acct-jump mt-auto pt-5 inline-flex items-center gap-1.5 text-sm font-bold text-punchdark hover:underline focusable rounded self-start" data-target="fidelite">
+              Utiliser mes crédits
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+          </article>
+
+          <!-- Programmes sauvegardés -->
+          <article class="bg-white border-2 border-line rounded-2xl p-6 flex flex-col">
+            <div class="flex items-center justify-between">
+              <p class="text-[11px] font-bold uppercase tracking-wider text-punchdark">Programmes de dosage</p>
+              <span class="grid place-items-center w-9 h-9 bg-punch rounded-lg" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="10" y2="10"/><line x1="14" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="10" y2="14"/></svg>
+              </span>
+            </div>
+            <p class="mt-2"><span class="font-display text-4xl">3</span><span class="text-sm font-bold text-ink/50 ml-1.5">sauvegardés</span></p>
+            <p class="text-sm text-ink/55 mt-0.5">Le dernier&nbsp;: <strong class="text-ink">Tomates serre — Coco</strong></p>
+            <button class="acct-jump mt-auto pt-5 inline-flex items-center gap-1.5 text-sm font-bold text-punchdark hover:underline focusable rounded self-start" data-target="programmes">
+              Voir mes programmes
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+          </article>
+        </div>
+
+        <!-- Rappel commandes récentes -->
+        <div class="mt-8 flex items-center justify-between mb-4">
+          <h3 class="font-archivo font-800 text-xl">Commandes récentes</h3>
+          <button class="acct-jump inline-flex items-center gap-1.5 font-archivo font-bold text-sm hover:text-punchdark transition focusable rounded" data-target="commandes">
+            Toutes mes commandes
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+        <div class="rounded-2xl border-2 border-line overflow-hidden">
+          <ul class="divide-y divide-line">
+            <li class="flex items-center justify-between gap-4 p-4 hover:bg-smoke transition">
+              <div class="min-w-0">
+                <p class="font-archivo font-bold text-sm">#FTL-2031</p>
+                <p class="text-xs text-ink/55">9 juin 2026 · 3 articles</p>
+              </div>
+              <span class="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wide bg-punch/12 text-punchdark px-2.5 py-1 rounded-full shrink-0"><span class="w-1.5 h-1.5 rounded-full bg-punch" aria-hidden="true"></span>En transit</span>
+              <span class="font-display text-lg shrink-0">96,47&nbsp;$</span>
+            </li>
+            <li class="flex items-center justify-between gap-4 p-4 hover:bg-smoke transition">
+              <div class="min-w-0">
+                <p class="font-archivo font-bold text-sm">#FTL-1987</p>
+                <p class="text-xs text-ink/55">21 mai 2026 · 5 articles</p>
+              </div>
+              <span class="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wide bg-ink/8 text-ink px-2.5 py-1 rounded-full shrink-0"><span class="w-1.5 h-1.5 rounded-full bg-ink" aria-hidden="true"></span>Livrée</span>
+              <span class="font-display text-lg shrink-0">154,20&nbsp;$</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ====================== MES COMMANDES ====================== -->
+      <section id="panel-commandes" class="acct-panel" aria-labelledby="h-commandes" tabindex="-1">
+        <h2 id="h-commandes" class="font-display text-3xl sm:text-4xl uppercase leading-none mb-6">Mes commandes</h2>
+
+        <!-- Tableau desktop -->
+        <div class="hidden md:block rounded-2xl border-2 border-line overflow-hidden">
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-sm">
+              <caption class="sr-only">Historique de vos commandes</caption>
+              <thead class="bg-smoke text-ink/55 text-xs uppercase tracking-wide">
+                <tr>
+                  <th scope="col" class="py-3 px-4 font-bold">N° commande</th>
+                  <th scope="col" class="py-3 px-4 font-bold">Date</th>
+                  <th scope="col" class="py-3 px-4 font-bold">Statut</th>
+                  <th scope="col" class="py-3 px-4 font-bold text-right">Total</th>
+                  <th scope="col" class="py-3 px-4 font-bold text-right">Actions</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-line">
+                <tr class="hover:bg-smoke transition">
+                  <th scope="row" class="py-4 px-4 font-archivo font-bold text-left">#FTL-2031</th>
+                  <td class="py-4 px-4 text-ink/70">9 juin 2026</td>
+                  <td class="py-4 px-4"><span class="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wide bg-punch/12 text-punchdark px-2.5 py-1 rounded-full"><span class="w-1.5 h-1.5 rounded-full bg-punch" aria-hidden="true"></span>En transit</span></td>
+                  <td class="py-4 px-4 text-right font-display text-lg">96,47&nbsp;$</td>
+                  <td class="py-4 px-4">
+                    <div class="flex items-center justify-end gap-2">
+                      <button class="inline-flex items-center gap-1.5 bg-ink text-white font-archivo font-bold text-xs px-3 py-2 rounded-lg hover:bg-punchdark transition focusable" aria-label="Suivre la commande FTL-2031"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7h11l3 4v6h-2"/><path d="M5 17H3V7M5 17a2 2 0 1 0 4 0M15 17a2 2 0 1 0 4 0"/></svg>Suivre</button>
+                      <button class="inline-flex items-center gap-1.5 bg-smoke text-ink font-archivo font-bold text-xs px-3 py-2 rounded-lg hover:bg-line transition focusable" aria-label="Facture de la commande FTL-2031"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg>Facture</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr class="hover:bg-smoke transition">
+                  <th scope="row" class="py-4 px-4 font-archivo font-bold text-left">#FTL-1987</th>
+                  <td class="py-4 px-4 text-ink/70">21 mai 2026</td>
+                  <td class="py-4 px-4"><span class="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wide bg-ink/8 text-ink px-2.5 py-1 rounded-full"><span class="w-1.5 h-1.5 rounded-full bg-ink" aria-hidden="true"></span>Livrée</span></td>
+                  <td class="py-4 px-4 text-right font-display text-lg">154,20&nbsp;$</td>
+                  <td class="py-4 px-4">
+                    <div class="flex items-center justify-end gap-2">
+                      <button class="inline-flex items-center gap-1.5 bg-ink text-white font-archivo font-bold text-xs px-3 py-2 rounded-lg hover:bg-punchdark transition focusable" aria-label="Racommander la commande FTL-1987"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>Racommander</button>
+                      <button class="inline-flex items-center gap-1.5 bg-smoke text-ink font-archivo font-bold text-xs px-3 py-2 rounded-lg hover:bg-line transition focusable" aria-label="Facture de la commande FTL-1987"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg>Facture</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr class="hover:bg-smoke transition">
+                  <th scope="row" class="py-4 px-4 font-archivo font-bold text-left">#FTL-1840</th>
+                  <td class="py-4 px-4 text-ink/70">14 avril 2026</td>
+                  <td class="py-4 px-4"><span class="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wide bg-ink/8 text-ink px-2.5 py-1 rounded-full"><span class="w-1.5 h-1.5 rounded-full bg-ink" aria-hidden="true"></span>Livrée</span></td>
+                  <td class="py-4 px-4 text-right font-display text-lg">312,75&nbsp;$</td>
+                  <td class="py-4 px-4">
+                    <div class="flex items-center justify-end gap-2">
+                      <button class="inline-flex items-center gap-1.5 bg-ink text-white font-archivo font-bold text-xs px-3 py-2 rounded-lg hover:bg-punchdark transition focusable" aria-label="Racommander la commande FTL-1840"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>Racommander</button>
+                      <button class="inline-flex items-center gap-1.5 bg-smoke text-ink font-archivo font-bold text-xs px-3 py-2 rounded-lg hover:bg-line transition focusable" aria-label="Facture de la commande FTL-1840"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg>Facture</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr class="hover:bg-smoke transition">
+                  <th scope="row" class="py-4 px-4 font-archivo font-bold text-left">#FTL-1702</th>
+                  <td class="py-4 px-4 text-ink/70">2 mars 2026</td>
+                  <td class="py-4 px-4"><span class="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wide bg-acid/40 text-ink px-2.5 py-1 rounded-full"><span class="w-1.5 h-1.5 rounded-full bg-ink" aria-hidden="true"></span>Remboursée</span></td>
+                  <td class="py-4 px-4 text-right font-display text-lg">42,99&nbsp;$</td>
+                  <td class="py-4 px-4">
+                    <div class="flex items-center justify-end gap-2">
+                      <button class="inline-flex items-center gap-1.5 bg-smoke text-ink font-archivo font-bold text-xs px-3 py-2 rounded-lg hover:bg-line transition focusable" aria-label="Facture de la commande FTL-1702"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg>Facture</button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Cartes mobile -->
+        <div class="md:hidden space-y-3">
+          <article class="rounded-2xl border-2 border-line p-4">
+            <div class="flex items-center justify-between">
+              <p class="font-archivo font-bold">#FTL-2031</p>
+              <span class="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wide bg-punch/12 text-punchdark px-2.5 py-1 rounded-full"><span class="w-1.5 h-1.5 rounded-full bg-punch" aria-hidden="true"></span>En transit</span>
+            </div>
+            <p class="text-xs text-ink/55 mt-1">9 juin 2026 · 3 articles</p>
+            <div class="flex items-center justify-between mt-3">
+              <span class="font-display text-xl">96,47&nbsp;$</span>
+              <div class="flex gap-2">
+                <button class="bg-ink text-white font-archivo font-bold text-xs px-3 py-2 rounded-lg focusable">Suivre</button>
+                <button class="bg-smoke text-ink font-archivo font-bold text-xs px-3 py-2 rounded-lg focusable">Facture</button>
+              </div>
+            </div>
+          </article>
+          <article class="rounded-2xl border-2 border-line p-4">
+            <div class="flex items-center justify-between">
+              <p class="font-archivo font-bold">#FTL-1987</p>
+              <span class="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wide bg-ink/8 text-ink px-2.5 py-1 rounded-full"><span class="w-1.5 h-1.5 rounded-full bg-ink" aria-hidden="true"></span>Livrée</span>
+            </div>
+            <p class="text-xs text-ink/55 mt-1">21 mai 2026 · 5 articles</p>
+            <div class="flex items-center justify-between mt-3">
+              <span class="font-display text-xl">154,20&nbsp;$</span>
+              <div class="flex gap-2">
+                <button class="bg-ink text-white font-archivo font-bold text-xs px-3 py-2 rounded-lg focusable">Racommander</button>
+                <button class="bg-smoke text-ink font-archivo font-bold text-xs px-3 py-2 rounded-lg focusable">Facture</button>
+              </div>
+            </div>
+          </article>
+          <article class="rounded-2xl border-2 border-line p-4">
+            <div class="flex items-center justify-between">
+              <p class="font-archivo font-bold">#FTL-1840</p>
+              <span class="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wide bg-ink/8 text-ink px-2.5 py-1 rounded-full"><span class="w-1.5 h-1.5 rounded-full bg-ink" aria-hidden="true"></span>Livrée</span>
+            </div>
+            <p class="text-xs text-ink/55 mt-1">14 avril 2026 · 8 articles</p>
+            <div class="flex items-center justify-between mt-3">
+              <span class="font-display text-xl">312,75&nbsp;$</span>
+              <div class="flex gap-2">
+                <button class="bg-ink text-white font-archivo font-bold text-xs px-3 py-2 rounded-lg focusable">Racommander</button>
+                <button class="bg-smoke text-ink font-archivo font-bold text-xs px-3 py-2 rounded-lg focusable">Facture</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ====================== MES ADRESSES ====================== -->
+      <section id="panel-adresses" class="acct-panel" aria-labelledby="h-adresses" tabindex="-1">
+        <div class="flex items-center justify-between mb-6">
+          <h2 id="h-adresses" class="font-display text-3xl sm:text-4xl uppercase leading-none">Mes adresses</h2>
+          <button class="inline-flex items-center gap-2 bg-punch text-ink font-archivo font-800 text-sm px-4 py-2.5 rounded-lg hover:bg-acid transition focusable">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            <span class="hidden sm:inline">Ajouter une adresse</span><span class="sm:hidden">Ajouter</span>
+          </button>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-5">
+          <!-- Livraison -->
+          <article class="rounded-2xl border-2 border-line p-6 relative">
+            <span class="inline-flex items-center gap-2 bg-punch text-ink text-[11px] font-bold uppercase tracking-wide px-2.5 py-1 rounded-full">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7h11l3 4v6h-2"/><path d="M5 17H3V7"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+              Livraison · par défaut
+            </span>
+            <p class="mt-4 font-archivo font-800 text-lg">Marie-Pier Tremblay</p>
+            <address class="not-italic mt-1 text-sm text-ink/65 leading-relaxed">
+              1240, rue des Cultivateurs<br>
+              Saint-Hyacinthe, QC&nbsp; J2S 7B2<br>
+              Québec, Canada<br>
+              <span class="text-ink/50">514 555-0182</span>
+            </address>
+            <div class="mt-5 flex gap-2">
+              <button class="inline-flex items-center gap-1.5 bg-smoke text-ink font-archivo font-bold text-xs px-3 py-2 rounded-lg hover:bg-line transition focusable">Modifier</button>
+              <button class="inline-flex items-center gap-1.5 text-ink/50 font-archivo font-bold text-xs px-3 py-2 rounded-lg hover:text-ink transition focusable">Supprimer</button>
+            </div>
+          </article>
+
+          <!-- Facturation -->
+          <article class="rounded-2xl border-2 border-line p-6 relative">
+            <span class="inline-flex items-center gap-2 bg-ink text-white text-[11px] font-bold uppercase tracking-wide px-2.5 py-1 rounded-full">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16C46A" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+              Facturation
+            </span>
+            <p class="mt-4 font-archivo font-800 text-lg">Jardins Tremblay enr.</p>
+            <address class="not-italic mt-1 text-sm text-ink/65 leading-relaxed">
+              88, boulevard Industriel, suite 4<br>
+              Drummondville, QC&nbsp; J2C 5M9<br>
+              Québec, Canada<br>
+              <span class="text-ink/50">TPS/TVQ au dossier</span>
+            </address>
+            <div class="mt-5 flex gap-2">
+              <button class="inline-flex items-center gap-1.5 bg-smoke text-ink font-archivo font-bold text-xs px-3 py-2 rounded-lg hover:bg-line transition focusable">Modifier</button>
+              <button class="inline-flex items-center gap-1.5 text-ink/50 font-archivo font-bold text-xs px-3 py-2 rounded-lg hover:text-ink transition focusable">Supprimer</button>
+            </div>
+          </article>
+
+          <!-- Adresse secondaire -->
+          <article class="rounded-2xl border-2 border-line p-6 relative">
+            <span class="inline-flex items-center gap-2 bg-smoke text-ink text-[11px] font-bold uppercase tracking-wide px-2.5 py-1 rounded-full">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-4.4-7-10a7 7 0 0 1 14 0c0 5.6-7 10-7 10z"/><circle cx="12" cy="11" r="2.5"/></svg>
+              Livraison · alternative
+            </span>
+            <p class="mt-4 font-archivo font-800 text-lg">Serre Coteau-Vert</p>
+            <address class="not-italic mt-1 text-sm text-ink/65 leading-relaxed">
+              510, rang du Coteau<br>
+              Granby, QC&nbsp; J2G 8W4<br>
+              Québec, Canada<br>
+              <span class="text-ink/50">Réception : 7 h à 15 h</span>
+            </address>
+            <div class="mt-5 flex gap-2">
+              <button class="inline-flex items-center gap-1.5 bg-smoke text-ink font-archivo font-bold text-xs px-3 py-2 rounded-lg hover:bg-line transition focusable">Modifier</button>
+              <button class="inline-flex items-center gap-1.5 text-ink/50 font-archivo font-bold text-xs px-3 py-2 rounded-lg hover:text-ink transition focusable">Supprimer</button>
+            </div>
+          </article>
+
+          <!-- Ajouter (placeholder) -->
+          <button class="rounded-2xl border-2 border-dashed border-line p-6 flex flex-col items-center justify-center gap-3 text-ink/50 hover:border-punch hover:text-punchdark transition focusable min-h-[180px]">
+            <span class="grid place-items-center w-12 h-12 rounded-full bg-smoke" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+            <span class="font-archivo font-bold text-sm">Ajouter une nouvelle adresse</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- ====================== PROGRAMMES DE DOSAGE ====================== -->
+      <section id="panel-programmes" class="acct-panel" aria-labelledby="h-programmes" tabindex="-1">
+        <div class="flex items-center justify-between mb-2">
+          <h2 id="h-programmes" class="font-display text-3xl sm:text-4xl uppercase leading-none">Programmes de dosage</h2>
+          <a href="../home/06-bold-conversion.html#calculateur" class="inline-flex items-center gap-2 bg-punch text-ink font-archivo font-800 text-sm px-4 py-2.5 rounded-lg hover:bg-acid transition focusable">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            <span class="hidden sm:inline">Nouveau programme</span><span class="sm:hidden">Nouveau</span>
+          </a>
+        </div>
+        <p class="text-sm text-ink/60 mb-6 max-w-xl">Vos programmes sauvegardés depuis le calculateur de dosage. Rouvrez-en un pour ajuster les volumes ou régénérer votre liste d'achat.</p>
+
+        <div class="grid sm:grid-cols-2 gap-5">
+          <!-- Programme 1 -->
+          <article class="rounded-2xl border-2 border-line overflow-hidden flex flex-col">
+            <div class="h-24 bg-gradient-to-br from-[#1f3d2b] to-[#0A0A0A] relative">
+              <span class="absolute top-3 left-3 text-[10px] font-900 uppercase tracking-wider bg-punch text-ink px-2.5 py-1 rounded">Coco</span>
+              <span class="absolute top-3 right-3 text-[10px] font-bold uppercase tracking-wider bg-white/15 text-white px-2 py-1 rounded">Légumes fruits</span>
+            </div>
+            <div class="p-5 flex flex-col flex-1">
+              <h3 class="font-archivo font-800 text-lg leading-tight">Tomates serre — Coco</h3>
+              <p class="text-sm text-ink/55 mt-0.5">Réservoir 50 L · cibles EC/pH incluses</p>
+              <dl class="mt-3 flex flex-wrap gap-x-5 gap-y-1 text-xs text-ink/60">
+                <div class="flex gap-1.5"><dt class="font-bold text-ink/80">Médium</dt><dd>Coco</dd></div>
+                <div class="flex gap-1.5"><dt class="font-bold text-ink/80">Stade</dt><dd>Floraison</dd></div>
+                <div class="flex gap-1.5"><dt class="font-bold text-ink/80">Modifié</dt><dd>10 juin 2026</dd></div>
+              </dl>
+              <div class="mt-auto pt-4 flex gap-2">
+                <button class="inline-flex items-center gap-1.5 bg-ink text-white font-archivo font-bold text-sm px-4 py-2.5 rounded-lg hover:bg-punchdark transition focusable">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M10 14 21 3M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"/></svg>
+                  Rouvrir
+                </button>
+                <button class="inline-flex items-center gap-1.5 bg-smoke text-ink font-archivo font-bold text-sm px-3 py-2.5 rounded-lg hover:bg-line transition focusable" aria-label="Ajouter au panier le programme Tomates serre Coco">Au panier</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Programme 2 -->
+          <article class="rounded-2xl border-2 border-line overflow-hidden flex flex-col">
+            <div class="h-24 bg-gradient-to-br from-[#4a1d3a] to-[#0A0A0A] relative">
+              <span class="absolute top-3 left-3 text-[10px] font-900 uppercase tracking-wider bg-acid text-ink px-2.5 py-1 rounded">Terre</span>
+              <span class="absolute top-3 right-3 text-[10px] font-bold uppercase tracking-wider bg-white/15 text-white px-2 py-1 rounded">Petits fruits</span>
+            </div>
+            <div class="p-5 flex flex-col flex-1">
+              <h3 class="font-archivo font-800 text-lg leading-tight">Fraises — Terre</h3>
+              <p class="text-sm text-ink/55 mt-0.5">Réservoir 20 L · programme complet</p>
+              <dl class="mt-3 flex flex-wrap gap-x-5 gap-y-1 text-xs text-ink/60">
+                <div class="flex gap-1.5"><dt class="font-bold text-ink/80">Médium</dt><dd>Terre</dd></div>
+                <div class="flex gap-1.5"><dt class="font-bold text-ink/80">Stade</dt><dd>Croissance</dd></div>
+                <div class="flex gap-1.5"><dt class="font-bold text-ink/80">Modifié</dt><dd>28 mai 2026</dd></div>
+              </dl>
+              <div class="mt-auto pt-4 flex gap-2">
+                <button class="inline-flex items-center gap-1.5 bg-ink text-white font-archivo font-bold text-sm px-4 py-2.5 rounded-lg hover:bg-punchdark transition focusable">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M10 14 21 3M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"/></svg>
+                  Rouvrir
+                </button>
+                <button class="inline-flex items-center gap-1.5 bg-smoke text-ink font-archivo font-bold text-sm px-3 py-2.5 rounded-lg hover:bg-line transition focusable" aria-label="Ajouter au panier le programme Fraises Terre">Au panier</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Programme 3 -->
+          <article class="rounded-2xl border-2 border-line overflow-hidden flex flex-col">
+            <div class="h-24 bg-gradient-to-br from-[#0d3a4a] to-[#0A0A0A] relative">
+              <span class="absolute top-3 left-3 text-[10px] font-900 uppercase tracking-wider bg-punch text-ink px-2.5 py-1 rounded">Hydro</span>
+              <span class="absolute top-3 right-3 text-[10px] font-bold uppercase tracking-wider bg-white/15 text-white px-2 py-1 rounded">Fines herbes</span>
+            </div>
+            <div class="p-5 flex flex-col flex-1">
+              <h3 class="font-archivo font-800 text-lg leading-tight">Basilic — Hydroponie</h3>
+              <p class="text-sm text-ink/55 mt-0.5">Réservoir 100 L · récolte continue</p>
+              <dl class="mt-3 flex flex-wrap gap-x-5 gap-y-1 text-xs text-ink/60">
+                <div class="flex gap-1.5"><dt class="font-bold text-ink/80">Médium</dt><dd>Hydro</dd></div>
+                <div class="flex gap-1.5"><dt class="font-bold text-ink/80">Stade</dt><dd>Croissance</dd></div>
+                <div class="flex gap-1.5"><dt class="font-bold text-ink/80">Modifié</dt><dd>3 mai 2026</dd></div>
+              </dl>
+              <div class="mt-auto pt-4 flex gap-2">
+                <button class="inline-flex items-center gap-1.5 bg-ink text-white font-archivo font-bold text-sm px-4 py-2.5 rounded-lg hover:bg-punchdark transition focusable">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M10 14 21 3M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"/></svg>
+                  Rouvrir
+                </button>
+                <button class="inline-flex items-center gap-1.5 bg-smoke text-ink font-archivo font-bold text-sm px-3 py-2.5 rounded-lg hover:bg-line transition focusable" aria-label="Ajouter au panier le programme Basilic Hydroponie">Au panier</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Nouveau programme (placeholder) -->
+          <a href="../home/06-bold-conversion.html#calculateur" class="rounded-2xl border-2 border-dashed border-line p-6 flex flex-col items-center justify-center gap-3 text-ink/50 hover:border-punch hover:text-punchdark transition focusable min-h-[180px]">
+            <span class="grid place-items-center w-12 h-12 rounded-full bg-smoke" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+            <span class="font-archivo font-bold text-sm text-center">Créer un programme dans le calculateur</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- ====================== MES KITS ====================== -->
+      <section id="panel-kits" class="acct-panel" aria-labelledby="h-kits" tabindex="-1">
+        <h2 id="h-kits" class="font-display text-3xl sm:text-4xl uppercase leading-none mb-6">Mes kits</h2>
+        <div class="grid sm:grid-cols-2 gap-5">
+          <article class="rounded-2xl border-2 border-line overflow-hidden flex flex-col">
+            <div class="h-32 bg-gradient-to-br from-acid to-punch relative">
+              <span class="absolute top-3 left-3 text-[10px] font-900 uppercase tracking-wider bg-ink text-white px-2.5 py-1 rounded">Kit acheté</span>
+              <svg class="absolute -right-2 -bottom-2 opacity-25 w-24 h-24" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="1.4" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M3 11h18M9 7V5a3 3 0 0 1 6 0v2"/></svg>
+            </div>
+            <div class="p-5 flex flex-col flex-1">
+              <h3 class="font-archivo font-800 text-lg leading-tight">Kit Démarrage Terre</h3>
+              <p class="text-sm text-ink/55 mt-0.5">Terra A/B · CalMag · Roots &amp; Rhizo</p>
+              <p class="text-xs text-ink/50 mt-2">Acheté le 14 avril 2026 · 3 produits</p>
+              <div class="mt-auto pt-4 flex gap-2">
+                <button class="inline-flex items-center gap-1.5 bg-ink text-white font-archivo font-bold text-sm px-4 py-2.5 rounded-lg hover:bg-punchdark transition focusable">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>
+                  Racommander
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="rounded-2xl border-2 border-line overflow-hidden flex flex-col">
+            <div class="h-32 bg-gradient-to-br from-[#4a1d3a] to-ink relative">
+              <span class="absolute top-3 left-3 text-[10px] font-900 uppercase tracking-wider bg-punch text-ink px-2.5 py-1 rounded">Suggéré</span>
+              <svg class="absolute -right-2 -bottom-2 opacity-20 w-24 h-24" viewBox="0 0 24 24" fill="none" stroke="#16C46A" stroke-width="1.4" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M3 11h18M9 7V5a3 3 0 0 1 6 0v2"/></svg>
+            </div>
+            <div class="p-5 flex flex-col flex-1">
+              <h3 class="font-archivo font-800 text-lg leading-tight">Kit Floraison Plus</h3>
+              <p class="text-sm text-ink/55 mt-0.5">PK Bloom · Aqua A/B · Algue marine</p>
+              <p class="text-xs text-ink/50 mt-2">Recommandé d'après vos achats</p>
+              <div class="mt-auto pt-4 flex items-center justify-between gap-2">
+                <span class="font-display text-2xl">74,99&nbsp;$</span>
+                <button class="inline-flex items-center gap-1.5 bg-punch text-ink font-archivo font-800 text-sm px-4 py-2.5 rounded-lg hover:bg-acid transition focusable">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                  Ajouter
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ====================== FIDÉLITÉ & CRÉDITS ====================== -->
+      <section id="panel-fidelite" class="acct-panel" aria-labelledby="h-fidelite" tabindex="-1">
+        <h2 id="h-fidelite" class="font-display text-3xl sm:text-4xl uppercase leading-none mb-6">Fidélité &amp; crédits</h2>
+
+        <div class="grid md:grid-cols-2 gap-5">
+          <!-- Solde -->
+          <article class="bg-ink text-white rounded-2xl p-7 relative overflow-hidden">
+            <div class="absolute -bottom-16 -right-16 w-48 h-48 rounded-full bg-acid/15 blur-3xl" aria-hidden="true"></div>
+            <p class="relative text-[11px] font-bold uppercase tracking-wider text-acid">Solde de points</p>
+            <p class="relative mt-2"><span class="font-display text-5xl">1 240</span><span class="text-base font-bold text-white/55 ml-2">points</span></p>
+            <p class="relative text-sm text-white/55 mt-1">Équivaut à <strong class="text-white">12,40&nbsp;$</strong> de crédits applicables au panier.</p>
+            <button class="relative mt-5 inline-flex items-center gap-2 bg-acid text-ink font-archivo font-800 text-sm px-5 py-3 rounded-lg hover:bg-punch transition focusable">
+              Appliquer au prochain achat
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+          </article>
+
+          <!-- Palier -->
+          <article class="bg-white border-2 border-line rounded-2xl p-7">
+            <p class="text-[11px] font-bold uppercase tracking-wider text-punchdark">Votre palier</p>
+            <p class="mt-2 font-display text-3xl uppercase">Cultivateur Argent</p>
+            <p class="text-sm text-ink/55 mt-1">Plus que <strong class="text-ink">260 points</strong> avant le palier Or (5&nbsp;% en crédits).</p>
+            <div class="mt-4">
+              <div class="h-2.5 rounded-full bg-smoke overflow-hidden" role="presentation">
+                <div class="h-full rounded-full bg-gradient-to-r from-punch to-punchdark" style="width:83%"></div>
+              </div>
+              <div class="flex justify-between mt-2 text-[11px] font-bold text-ink/55">
+                <span>Argent · 1 240</span><span>Or · 1 500</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Historique de points -->
+        <h3 class="font-archivo font-800 text-xl mt-8 mb-4">Historique des points</h3>
+        <div class="rounded-2xl border-2 border-line overflow-hidden">
+          <ul class="divide-y divide-line text-sm">
+            <li class="flex items-center justify-between gap-4 p-4">
+              <div><p class="font-semibold">Commande #FTL-2031</p><p class="text-xs text-ink/55">9 juin 2026</p></div>
+              <span class="font-archivo font-bold text-punchdark">+96 pts</span>
+            </li>
+            <li class="flex items-center justify-between gap-4 p-4">
+              <div><p class="font-semibold">Bonus parrainage</p><p class="text-xs text-ink/55">1er juin 2026</p></div>
+              <span class="font-archivo font-bold text-punchdark">+150 pts</span>
+            </li>
+            <li class="flex items-center justify-between gap-4 p-4">
+              <div><p class="font-semibold">Crédit appliqué · #FTL-1987</p><p class="text-xs text-ink/55">21 mai 2026</p></div>
+              <span class="font-archivo font-bold text-ink/50">−200 pts</span>
+            </li>
+            <li class="flex items-center justify-between gap-4 p-4">
+              <div><p class="font-semibold">Commande #FTL-1840</p><p class="text-xs text-ink/55">14 avril 2026</p></div>
+              <span class="font-archivo font-bold text-punchdark">+312 pts</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ====================== PARAMÈTRES ====================== -->
+      <section id="panel-parametres" class="acct-panel" aria-labelledby="h-parametres" tabindex="-1">
+        <h2 id="h-parametres" class="font-display text-3xl sm:text-4xl uppercase leading-none mb-6">Paramètres</h2>
+
+        <!-- Profil -->
+        <div class="rounded-2xl border-2 border-line p-6 mb-5">
+          <h3 class="font-archivo font-800 text-lg mb-4">Informations du profil</h3>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label for="set-prenom" class="block text-xs font-bold uppercase tracking-wide text-ink/60 mb-1.5">Prénom</label>
+              <input id="set-prenom" type="text" value="Marie-Pier" class="w-full bg-white border-2 border-line rounded-lg px-3 py-2.5 text-sm font-semibold focusable">
+            </div>
+            <div>
+              <label for="set-nom" class="block text-xs font-bold uppercase tracking-wide text-ink/60 mb-1.5">Nom</label>
+              <input id="set-nom" type="text" value="Tremblay" class="w-full bg-white border-2 border-line rounded-lg px-3 py-2.5 text-sm font-semibold focusable">
+            </div>
+            <div>
+              <label for="set-courriel" class="block text-xs font-bold uppercase tracking-wide text-ink/60 mb-1.5">Courriel</label>
+              <input id="set-courriel" type="email" value="marie-pier@courriel.ca" class="w-full bg-white border-2 border-line rounded-lg px-3 py-2.5 text-sm font-semibold focusable">
+            </div>
+            <div>
+              <label for="set-tel" class="block text-xs font-bold uppercase tracking-wide text-ink/60 mb-1.5">Téléphone</label>
+              <input id="set-tel" type="tel" value="514 555-0182" class="w-full bg-white border-2 border-line rounded-lg px-3 py-2.5 text-sm font-semibold focusable">
+            </div>
+            <div>
+              <label for="set-unite" class="block text-xs font-bold uppercase tracking-wide text-ink/60 mb-1.5">Unité de dosage préférée</label>
+              <select id="set-unite" class="w-full bg-white border-2 border-line rounded-lg px-3 py-2.5 text-sm font-semibold focusable">
+                <option>ml / litre</option>
+                <option>ml / gallon</option>
+              </select>
+            </div>
+            <div>
+              <label for="set-langue" class="block text-xs font-bold uppercase tracking-wide text-ink/60 mb-1.5">Langue</label>
+              <select id="set-langue" class="w-full bg-white border-2 border-line rounded-lg px-3 py-2.5 text-sm font-semibold focusable">
+                <option>Français (Canada)</option>
+                <option>English</option>
+                <option>Español</option>
+              </select>
+            </div>
+          </div>
+          <button class="mt-5 inline-flex items-center gap-2 bg-punch text-ink font-archivo font-800 text-sm px-5 py-3 rounded-lg hover:bg-acid transition focusable">Enregistrer les modifications</button>
+        </div>
+
+        <!-- Préférences -->
+        <div class="rounded-2xl border-2 border-line p-6 mb-5">
+          <h3 class="font-archivo font-800 text-lg mb-4">Communications</h3>
+          <ul class="space-y-3">
+            <li class="flex items-center justify-between gap-4">
+              <div><p class="font-semibold text-sm">Infolettre &amp; feed charts</p><p class="text-xs text-ink/55">Programmes, conseils de saison et rabais.</p></div>
+              <button class="acct-switch relative w-12 h-7 rounded-full bg-punch transition focusable" role="switch" aria-checked="true" aria-label="Infolettre"><span class="absolute top-0.5 left-0.5 w-6 h-6 bg-white rounded-full shadow transition-transform translate-x-5"></span></button>
+            </li>
+            <li class="flex items-center justify-between gap-4">
+              <div><p class="font-semibold text-sm">Alertes de suivi de commande</p><p class="text-xs text-ink/55">Notifications par courriel à chaque étape.</p></div>
+              <button class="acct-switch relative w-12 h-7 rounded-full bg-punch transition focusable" role="switch" aria-checked="true" aria-label="Alertes de suivi"><span class="absolute top-0.5 left-0.5 w-6 h-6 bg-white rounded-full shadow transition-transform translate-x-5"></span></button>
+            </li>
+            <li class="flex items-center justify-between gap-4">
+              <div><p class="font-semibold text-sm">Offres SMS</p><p class="text-xs text-ink/55">Rabais éclair par texto.</p></div>
+              <button class="acct-switch relative w-12 h-7 rounded-full bg-line transition focusable" role="switch" aria-checked="false" aria-label="Offres SMS"><span class="absolute top-0.5 left-0.5 w-6 h-6 bg-white rounded-full shadow transition-transform"></span></button>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Sécurité -->
+        <div class="rounded-2xl border-2 border-line p-6">
+          <h3 class="font-archivo font-800 text-lg mb-2">Sécurité</h3>
+          <p class="text-sm text-ink/60">Modifiez votre mot de passe ou activez la double authentification.</p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <button class="inline-flex items-center gap-1.5 bg-smoke text-ink font-archivo font-bold text-sm px-4 py-2.5 rounded-lg hover:bg-line transition focusable">Changer le mot de passe</button>
+            <button class="inline-flex items-center gap-1.5 bg-smoke text-ink font-archivo font-bold text-sm px-4 py-2.5 rounded-lg hover:bg-line transition focusable">Double authentification</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================== ESPACE REVENDEUR ====================== -->
+      <section id="panel-revendeur" class="acct-panel" aria-labelledby="h-revendeur" tabindex="-1">
+        <h2 id="h-revendeur" class="font-display text-3xl sm:text-4xl uppercase leading-none mb-6">Espace revendeur</h2>
+
+        <!-- Statut de tier (déjà revendeur) -->
+        <article class="bg-ink text-white rounded-2xl p-7 lg:p-9 relative overflow-hidden mb-5">
+          <div class="absolute inset-0 grain" aria-hidden="true"></div>
+          <div class="absolute -top-20 -right-20 w-64 h-64 rounded-full bg-punch/20 blur-3xl" aria-hidden="true"></div>
+          <span class="relative inline-flex items-center gap-2 bg-white/10 border border-white/15 text-white text-xs font-bold uppercase tracking-wide px-3 py-1.5 rounded-full">
+            <span class="w-2 h-2 rounded-full bg-acid" aria-hidden="true"></span>
+            Compte revendeur actif
+          </span>
+          <h3 class="relative mt-4 font-display text-4xl uppercase">Palier Argent</h3>
+          <p class="relative mt-2 text-white/65 max-w-md">Vous bénéficiez de <strong class="text-white">15&nbsp;% de rabais</strong> sur les formats de gros et d'un représentant attitré. Atteignez 10 000&nbsp;$ d'achats annuels pour passer au palier Or (20&nbsp;%).</p>
+
+          <!-- Progression de volume annuel -->
+          <div class="relative mt-6 max-w-md">
+            <div class="flex justify-between text-[11px] font-bold text-white/60 mb-1.5">
+              <span>6 850 $ cette année</span><span>Objectif Or · 10 000 $</span>
+            </div>
+            <div class="h-2.5 rounded-full bg-white/10 overflow-hidden" role="presentation">
+              <div class="h-full rounded-full bg-gradient-to-r from-punch to-acid" style="width:68%"></div>
+            </div>
+          </div>
+
+          <dl class="relative mt-7 grid grid-cols-3 gap-4 max-w-md border-t border-white/10 pt-5">
+            <div><dt class="text-[11px] text-white/50 uppercase tracking-wide font-bold">Rabais actuel</dt><dd class="font-display text-2xl text-punch mt-1">15 %</dd></div>
+            <div><dt class="text-[11px] text-white/50 uppercase tracking-wide font-bold">Représentant</dt><dd class="font-archivo font-bold text-sm mt-1.5">Julie L.</dd></div>
+            <div><dt class="text-[11px] text-white/50 uppercase tracking-wide font-bold">Net</dt><dd class="font-archivo font-bold text-sm mt-1.5">30 jours</dd></div>
+          </dl>
+
+          <div class="relative mt-7 flex flex-wrap gap-3">
+            <a href="../home/06-bold-conversion.html#magasiner" class="inline-flex items-center gap-2 bg-punch text-ink font-archivo font-800 text-sm px-5 py-3 rounded-xl hover:bg-acid transition focusable">
+              Commander en volume
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a href="mailto:julie@fredtlizer.ca" class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/15 text-white font-archivo font-bold text-sm px-5 py-3 rounded-xl transition focusable">
+              Joindre mon représentant
+            </a>
+          </div>
+        </article>
+
+        <!-- Encart : passer revendeur (pour comptes B2C — informatif) -->
+        <article class="rounded-2xl border-2 border-line p-6 flex flex-col sm:flex-row sm:items-center gap-5">
+          <span class="grid place-items-center w-14 h-14 rounded-2xl bg-smoke shrink-0" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0E9E54" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V8l6-4 6 4v13"/><path d="M15 21V11l6 4v6"/><path d="M3 21h18"/></svg>
+          </span>
+          <div class="flex-1">
+            <h3 class="font-archivo font-800 text-lg">Pas encore revendeur&nbsp;?</h3>
+            <p class="text-sm text-ink/60 mt-1">Détaillants et professionnels : passez en compte revendeur pour débloquer la tarification par paliers de volume, les formats de caisse et un soutien dédié.</p>
+          </div>
+          <a href="../home/06-bold-conversion.html#revendeurs" class="inline-flex items-center justify-center gap-2 bg-ink text-white font-archivo font-bold text-sm px-5 py-3 rounded-xl hover:bg-punchdark transition focusable shrink-0">
+            Passer en compte revendeur
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </article>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="bg-ink text-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-14">
+    <div class="grid md:grid-cols-12 gap-x-6 gap-y-10">
+      <div class="md:col-span-4">
+        <div class="flex items-center gap-2.5">
+          <span class="grid place-items-center w-10 h-10 bg-white/10 rounded-lg" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#16C46A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5-3 7-7 7-12V4l-7-2-7 2v6c0 5 2 9 7 12z"/><path d="M12 8v9M9 11l3-3 3 3"/></svg>
+          </span>
+          <span class="font-archivo font-900 text-lg">FRED&nbsp;T.&nbsp;LIZER</span>
+        </div>
+        <p class="mt-4 text-white/55 text-sm max-w-xs">Nutriments et suppléments horticoles fabriqués au Québec. Simple, propre et puissant.</p>
+        <div class="mt-5 flex gap-2.5">
+          <a href="#" class="grid place-items-center w-10 h-10 bg-white/10 rounded-lg hover:bg-punch hover:text-ink transition focusable" aria-label="Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="#" class="grid place-items-center w-10 h-10 bg-white/10 rounded-lg hover:bg-punch hover:text-ink transition focusable" aria-label="Facebook">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h-2a4 4 0 0 0-4 4v3H6v4h3v7h4v-7h3l1-4h-4V7a1 1 0 0 1 1-1h2z"/></svg>
+          </a>
+          <a href="#" class="grid place-items-center w-10 h-10 bg-white/10 rounded-lg hover:bg-punch hover:text-ink transition focusable" aria-label="YouTube">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="M10 9l5 3-5 3z" fill="currentColor" stroke="none"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <nav class="md:col-span-2" aria-label="Boutique">
+        <h3 class="font-archivo font-bold text-sm uppercase tracking-wide text-white/50 mb-3">Boutique</h3>
+        <ul class="space-y-2 text-sm text-white/75">
+          <li><a href="#" class="hover:text-punch transition focusable">Bases A/B</a></li>
+          <li><a href="#" class="hover:text-punch transition focusable">Boosters floraison</a></li>
+          <li><a href="#" class="hover:text-punch transition focusable">Suppléments &amp; correctifs</a></li>
+          <li><a href="#" class="hover:text-punch transition focusable">Organiques</a></li>
+          <li><a href="#" class="hover:text-punch transition focusable">Kits complets</a></li>
+        </ul>
+      </nav>
+
+      <nav class="md:col-span-2" aria-label="Apprendre">
+        <h3 class="font-archivo font-bold text-sm uppercase tracking-wide text-white/50 mb-3">Apprendre</h3>
+        <ul class="space-y-2 text-sm text-white/75">
+          <li><a href="../home/06-bold-conversion.html#calculateur" class="hover:text-punch transition focusable">Calculateur de dosage</a></li>
+          <li><a href="../home/06-bold-conversion.html#feedcharts" class="hover:text-punch transition focusable">Feed charts</a></li>
+          <li><a href="../home/06-bold-conversion.html#guides" class="hover:text-punch transition focusable">Guides</a></li>
+          <li><a href="#" class="hover:text-punch transition focusable">Foire aux questions</a></li>
+        </ul>
+      </nav>
+
+      <nav class="md:col-span-2" aria-label="Entreprise">
+        <h3 class="font-archivo font-bold text-sm uppercase tracking-wide text-white/50 mb-3">Entreprise</h3>
+        <ul class="space-y-2 text-sm text-white/75">
+          <li><a href="../home/06-bold-conversion.html#revendeurs" class="hover:text-punch transition focusable">Devenir revendeur</a></li>
+          <li><a href="#" class="hover:text-punch transition focusable">Notre histoire</a></li>
+          <li><a href="#" class="hover:text-punch transition focusable">Nous joindre</a></li>
+          <li><a href="#" class="hover:text-punch transition focusable">Carrières</a></li>
+        </ul>
+      </nav>
+
+      <div class="md:col-span-2">
+        <h3 class="font-archivo font-bold text-sm uppercase tracking-wide text-white/50 mb-3">Joindre</h3>
+        <ul class="space-y-2 text-sm text-white/75">
+          <li><a href="mailto:bonjour@fredtlizer.ca" class="hover:text-punch transition focusable">bonjour@fredtlizer.ca</a></li>
+          <li><a href="tel:+15140000000" class="hover:text-punch transition focusable">514 000-0000</a></li>
+          <li class="text-white/55">Lun–Ven · 9 h à 17 h (HE)</li>
+          <li class="text-white/55">Montréal, Québec, Canada</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/45">
+      <p>© 2026 Fred T. Lizer inc. Tous droits réservés.</p>
+      <div class="flex items-center gap-5">
+        <a href="#" class="hover:text-white transition focusable">Confidentialité</a>
+        <a href="#" class="hover:text-white transition focusable">Conditions</a>
+        <a href="#" class="hover:text-white transition focusable">Expédition &amp; retours</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ JS — navigation entre sections ============ -->
+<script>
+(function () {
+  'use strict';
+
+  var links = Array.prototype.slice.call(document.querySelectorAll('.acct-nav-link'));
+  var panels = Array.prototype.slice.call(document.querySelectorAll('.acct-panel'));
+  var nav = document.getElementById('acctNav');
+  var mobileToggle = document.getElementById('acctMobileToggle');
+
+  function labelFor(target) {
+    var link = links.filter(function (l) { return l.getAttribute('data-target') === target; })[0];
+    return link ? link.textContent.trim() : 'Mon compte';
+  }
+
+  function activate(target, focusPanel) {
+    var found = false;
+    panels.forEach(function (p) {
+      var match = p.id === 'panel-' + target;
+      p.classList.toggle('is-active', match);
+      if (match) found = true;
+    });
+    if (!found) return;
+
+    links.forEach(function (l) {
+      if (l.getAttribute('data-target') === target) {
+        l.setAttribute('aria-current', 'page');
+      } else {
+        l.removeAttribute('aria-current');
+      }
+    });
+
+    // Met à jour le hash sans saut brutal
+    if (history.replaceState) {
+      history.replaceState(null, '', '#' + target);
+    }
+
+    if (focusPanel) {
+      var panel = document.getElementById('panel-' + target);
+      if (panel) {
+        panel.focus({ preventScroll: false });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+  }
+
+  // Liens de la nav latérale
+  links.forEach(function (link) {
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+      var target = link.getAttribute('data-target');
+      activate(target, true);
+      closeMobileNav();
+    });
+  });
+
+  // Boutons « jump » dans les cartes du tableau de bord
+  document.querySelectorAll('.acct-jump').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      activate(btn.getAttribute('data-target'), true);
+    });
+  });
+
+  // Bascule des interrupteurs (préférences)
+  document.querySelectorAll('.acct-switch').forEach(function (sw) {
+    sw.addEventListener('click', function () {
+      var on = sw.getAttribute('aria-checked') === 'true';
+      sw.setAttribute('aria-checked', String(!on));
+      sw.classList.toggle('bg-punch', !on);
+      sw.classList.toggle('bg-line', on);
+      var knob = sw.querySelector('span');
+      if (knob) knob.classList.toggle('translate-x-5', !on);
+    });
+  });
+
+  // Nav mobile : la barre latérale est cachée < lg, on la déploie via le menu
+  function openMobileNav() {
+    nav.classList.remove('hidden');
+    nav.classList.add('block');
+    mobileToggle.setAttribute('aria-expanded', 'true');
+  }
+  function closeMobileNav() {
+    if (window.matchMedia('(min-width: 1024px)').matches) return;
+    nav.classList.add('hidden');
+    nav.classList.remove('block');
+    mobileToggle.setAttribute('aria-expanded', 'false');
+  }
+  if (mobileToggle) {
+    mobileToggle.addEventListener('click', function () {
+      var expanded = mobileToggle.getAttribute('aria-expanded') === 'true';
+      if (expanded) { closeMobileNav(); } else { openMobileNav(); }
+    });
+  }
+
+  // Au chargement : applique le hash si présent
+  var initial = (location.hash || '').replace('#', '');
+  var valid = links.some(function (l) { return l.getAttribute('data-target') === initial; });
+  activate(valid ? initial : 'dashboard', false);
+})();
+</script>
+
+<script id="ftl-header-js">
+(function(){
+  var wrap=document.querySelector('.ftl-header-wrap');if(!wrap)return;
+  var items=wrap.querySelectorAll('.ftl-nav-item');
+  var closeTimer=null;
+  function clearTimer(){if(closeTimer){clearTimeout(closeTimer);closeTimer=null;}}
+  function closeAll(except){
+    clearTimer();
+    items.forEach(function(it){
+      var t=it.querySelector('.ftl-nav-trigger'),p=it.querySelector('.ftl-mega');
+      if(!t||!p||it===except)return;
+      t.setAttribute('aria-expanded','false');p.setAttribute('data-open','false');p.setAttribute('hidden','');
+    });
+  }
+  items.forEach(function(it){
+    var t=it.querySelector('.ftl-nav-trigger'),p=it.querySelector('.ftl-mega');
+    if(!t||!p)return;
+    function open(){clearTimer();closeAll(it);t.setAttribute('aria-expanded','true');p.removeAttribute('hidden');p.setAttribute('data-open','true');}
+    function close(){t.setAttribute('aria-expanded','false');p.setAttribute('data-open','false');p.setAttribute('hidden','');}
+    function deferClose(){clearTimer();closeTimer=setTimeout(close,140);}
+    it.addEventListener('mouseenter',open);
+    it.addEventListener('mouseleave',deferClose);
+    p.addEventListener('mouseenter',clearTimer);
+    p.addEventListener('mouseleave',deferClose);
+    t.addEventListener('click',function(e){e.preventDefault();(t.getAttribute('aria-expanded')==='true')?close():open();});
+    t.addEventListener('keydown',function(e){if(e.key==='Escape'){close();t.focus();}});
+    p.addEventListener('keydown',function(e){if(e.key==='Escape'){close();t.focus();}});
+  });
+  document.addEventListener('click',function(e){if(!wrap.contains(e.target))closeAll(null);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll(null);});
+  // Hamburger mobile
+  var burger=document.getElementById('ftlBurger'),mnav=document.getElementById('ftlMobileNav');
+  if(burger&&mnav){
+    burger.addEventListener('click',function(){
+      var open=mnav.hasAttribute('hidden');
+      if(open){mnav.removeAttribute('hidden');burger.setAttribute('aria-expanded','true');}
+      else{mnav.setAttribute('hidden','');burger.setAttribute('aria-expanded','false');}
+    });
+  }
+})();
+</script>
+</body>
+</html>
