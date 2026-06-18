@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Business Case — La technologie des grandes marques au service de Fred T. Lizer</title>
+<meta name="description" content="Pourquoi une plateforme e-commerce moderne, sécurisée et tout-inclus surclasse le piège WordPress / WooCommerce. La même classe d'architecture que les grandes marques, au service de Fred T. Lizer.">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          charcoal: '#0E120F',
+          forest: '#1E5B2E',
+          forestdk: '#14401F',
+          leaf: '#3FB44A',
+          leafdk: '#2E9239',
+          cream: '#F5F1E8',
+          soil: '#6B5235',
+          soildk: '#3E2F1E',
+          line: '#E3DCCB',
+        },
+        fontFamily: {
+          display: ['Anton', 'sans-serif'],
+          archivo: ['Archivo', 'sans-serif'],
+          sans: ['Inter', 'sans-serif'],
+        },
+      }
+    }
+  }
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; }
+  .font-display { letter-spacing: -0.01em; }
+  .grain {
+    background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,.06) 1px, transparent 0);
+    background-size: 22px 22px;
+  }
+  .soil-texture {
+    background-image:
+      radial-gradient(ellipse 60% 50% at 80% 0%, rgba(63,180,74,.18), transparent 60%),
+      radial-gradient(ellipse 70% 60% at 0% 100%, rgba(107,82,53,.35), transparent 60%),
+      linear-gradient(180deg, #0E120F 0%, #14401F 120%);
+  }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  .focusable:focus-visible { outline: 3px solid #3FB44A; outline-offset: 2px; }
+</style>
+
+<style id="ftl-header-css">
+/* ===== HEADER FRED T. LIZER ===== */
+.ftl-header-wrap{position:sticky;top:0;z-index:60;font-family:'Inter',sans-serif;}
+.ftl-header-wrap *{box-sizing:border-box;}
+.ftl-utility{background:#0c1a10;color:#e7efe7;font-size:12px;}
+.ftl-utility-inner{max-width:1280px;margin:0 auto;padding:0 16px;height:36px;display:flex;align-items:center;justify-content:space-between;gap:12px;}
+.ftl-util-left{display:flex;align-items:center;gap:8px;min-width:0;overflow:hidden;white-space:nowrap;}
+.ftl-util-left span{flex:0 0 auto;}
+.ftl-util-dot{color:#3FB44A;}
+.ftl-util-right{display:flex;align-items:center;gap:10px;flex:0 0 auto;}
+.ftl-lang{display:flex;align-items:center;gap:5px;font-weight:700;letter-spacing:.02em;color:#9fb3a0;}
+.ftl-lang button{background:none;border:0;color:#9fb3a0;font:inherit;font-weight:700;cursor:pointer;padding:0;}
+.ftl-lang button:hover{color:#fff;}
+.ftl-lang .ftl-lang-on{color:#3FB44A;}
+.ftl-util-ico{color:#cdd9cd;display:inline-flex;padding:2px;border-radius:6px;}
+.ftl-util-ico:hover{color:#fff;}
+.ftl-util-cart{position:relative;display:inline-flex;align-items:center;justify-content:center;padding:2px;border-radius:6px;}
+.ftl-util-cart-badge{position:absolute;top:-5px;right:-6px;min-width:15px;height:15px;padding:0 3px;display:grid;place-items:center;background:#3FB44A;color:#0c1a10;font-size:10px;font-weight:900;border-radius:999px;line-height:1;}
+
+.ftl-nav-bar{position:relative;background:#14401F;color:#f5f1e8;border-bottom:2px solid rgba(255,255,255,.08);}
+.ftl-nav-inner{max-width:1280px;margin:0 auto;padding:0 16px;height:68px;display:flex;align-items:center;gap:18px;}
+.ftl-logo{flex:0 0 auto;min-width:0;display:inline-flex;align-items:center;border-radius:6px;overflow:hidden;}
+.ftl-logo img{height:30px;width:auto;max-width:100%;display:block;}
+.ftl-nav-center{flex:1 1 auto;min-width:0;display:flex;align-items:center;justify-content:center;}
+.ftl-nav-list{list-style:none;display:flex;align-items:center;gap:6px;margin:0;padding:0;}
+.ftl-nav-item{position:static;}
+.ftl-nav-link,.ftl-nav-trigger{position:relative;display:inline-flex;align-items:center;gap:5px;font:inherit;font-size:15px;font-weight:600;color:#f5f1e8;background:none;border:0;cursor:pointer;padding:10px 18px;border-radius:8px;text-decoration:none;line-height:1;white-space:nowrap;}
+.ftl-nav-link:hover,.ftl-nav-trigger:hover{background:rgba(255,255,255,.08);color:#fff;}
+.ftl-nav-link-active,.ftl-nav-trigger.nav-link-active{color:#fff;}
+.ftl-nav-link-active::after,.ftl-nav-trigger.nav-link-active::after{content:"";position:absolute;left:14px;right:14px;bottom:3px;height:2px;background:#3FB44A;border-radius:2px;}
+.ftl-nav-trigger[aria-expanded="true"]{background:rgba(255,255,255,.08);color:#fff;}
+
+.ftl-mega{position:absolute;top:100%;left:0;right:0;z-index:55;background:#0c1a10;color:#e7efe7;border-top:1px solid rgba(63,180,74,.18);border-bottom-left-radius:18px;border-bottom-right-radius:18px;box-shadow:0 26px 60px -16px rgba(4,12,6,.65);opacity:0;visibility:hidden;transform:translateY(-10px);transition:opacity .22s ease,transform .22s ease,visibility .22s;pointer-events:none;}
+.ftl-mega[data-open="true"]{opacity:1;visibility:visible;transform:translateY(0);pointer-events:auto;}
+.ftl-mega-inner{max-width:1280px;margin:0 auto;padding:30px 16px 26px;}
+.ftl-mega-cols{display:grid;grid-template-columns:repeat(5,1fr);gap:26px;align-items:start;}
+.ftl-mega.ftl-mega-sm .ftl-mega-cols{grid-template-columns:1fr 1fr 1.35fr;gap:36px;}
+.ftl-mega-col-head{display:flex;align-items:center;gap:8px;margin:0 0 14px;padding:0 0 11px;border-bottom:1px solid rgba(255,255,255,.08);}
+.ftl-mega-col-head svg{flex:0 0 auto;color:#3FB44A;}
+.ftl-mega-col-head span{font-size:11.5px;font-weight:800;letter-spacing:.11em;text-transform:uppercase;color:#3FB44A;}
+.ftl-mega-list{display:flex;flex-direction:column;gap:1px;}
+.ftl-mega-link{display:flex;flex-direction:column;gap:2px;padding:8px 10px;margin:0 -10px;border-radius:9px;text-decoration:none;transition:background .15s ease;}
+.ftl-mega-link:hover{background:rgba(63,180,74,.12);}
+.ftl-mega-t{font-size:14px;font-weight:700;color:#f5f1e8;line-height:1.25;transition:color .15s ease;}
+.ftl-mega-link:hover .ftl-mega-t{color:#3FB44A;}
+.ftl-mega-d{font-size:12px;color:#9fb3a4;line-height:1.3;}
+.ftl-mega-intro{font-size:13px;color:#9fb3a4;line-height:1.5;margin:0 0 14px;}
+.ftl-mega-feature{display:block;border-radius:12px;overflow:hidden;text-decoration:none;border:1px solid rgba(255,255,255,.08);background:#14401F;}
+.ftl-mega-feature img{display:block;width:100%;height:120px;object-fit:cover;}
+.ftl-mega-feature-body{padding:12px 14px;}
+.ftl-mega-feature-k{font-size:10.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#3FB44A;}
+.ftl-mega-feature-t{display:block;margin-top:3px;font-size:14px;font-weight:700;color:#f5f1e8;}
+.ftl-mega-foot{background:#14401F;border-top:1px solid rgba(255,255,255,.07);border-bottom-left-radius:18px;border-bottom-right-radius:18px;}
+.ftl-mega-foot-inner{max-width:1280px;margin:0 auto;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;}
+.ftl-mega-perks{display:flex;align-items:center;gap:18px;flex-wrap:wrap;min-width:0;}
+.ftl-mega-perk{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:600;color:#cdd9cd;white-space:nowrap;}
+.ftl-mega-perk svg{flex:0 0 auto;color:#3FB44A;}
+.ftl-mega-shop{display:inline-flex;align-items:center;gap:7px;background:#3FB44A;color:#0c1a10;font-weight:800;font-size:14px;padding:10px 18px;border-radius:10px;text-decoration:none;white-space:nowrap;transition:background .15s ease,color .15s ease;}
+.ftl-mega-shop:hover{background:#2E9239;color:#fff;}
+
+.ftl-actions{flex:0 0 auto;display:flex;align-items:center;gap:8px;margin-left:auto;}
+.ftl-search{display:none;align-items:center;gap:7px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.16);border-radius:10px;padding:7px 11px;color:#d8e2d8;}
+.ftl-search svg{flex:0 0 auto;}
+.ftl-search input{background:none;border:0;outline:none;color:#f5f1e8;font:inherit;font-size:14px;width:170px;}
+.ftl-search input::placeholder{color:#9fb3a0;}
+.ftl-search:focus-within{border-color:#3FB44A;}
+.ftl-icon-btn{position:relative;display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;color:#f5f1e8;}
+.ftl-icon-btn:hover{background:rgba(255,255,255,.10);}
+.ftl-cart-badge{position:absolute;top:3px;right:3px;min-width:17px;height:17px;padding:0 4px;display:grid;place-items:center;background:#3FB44A;color:#0c1a10;font-size:11px;font-weight:900;border-radius:999px;line-height:1;}
+.ftl-cta{display:none;align-items:center;background:#3FB44A;color:#0c1a10;font-weight:800;font-size:14px;padding:10px 16px;border-radius:10px;text-decoration:none;white-space:nowrap;}
+.ftl-cta:hover{background:#2E9239;color:#fff;}
+
+.ftl-mobile-cart{display:inline-flex;}
+.ftl-burger{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:10px;background:none;border:0;color:#f5f1e8;cursor:pointer;}
+.ftl-burger:hover{background:rgba(255,255,255,.10);}
+.ftl-mobile-nav{background:#14401F;color:#f5f1e8;border-bottom:2px solid rgba(255,255,255,.08);padding:8px 16px 18px;}
+.ftl-mobile-nav nav{display:flex;flex-direction:column;}
+.ftl-m-group{border-bottom:1px solid rgba(255,255,255,.10);}
+.ftl-m-group summary{cursor:pointer;list-style:none;padding:13px 4px;font-weight:700;font-size:16px;display:flex;align-items:center;justify-content:space-between;}
+.ftl-m-group summary::-webkit-details-marker{display:none;}
+.ftl-m-group summary::after{content:"+";font-weight:400;font-size:20px;color:#3FB44A;}
+.ftl-m-group[open] summary::after{content:"–";}
+.ftl-m-sub{padding:2px 4px 8px;}
+.ftl-m-subhead{font-size:10.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#3FB44A;padding:8px 10px 4px;}
+.ftl-m-group a{display:block;padding:8px 14px;color:#cdd9cd;text-decoration:none;font-size:15px;}
+.ftl-m-group a:hover{color:#fff;}
+.ftl-m-link{padding:13px 4px;font-weight:700;font-size:16px;color:#f5f1e8;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.10);}
+.ftl-m-link.nav-link-active{color:#3FB44A;}
+.ftl-m-actions{margin-top:16px;display:flex;flex-direction:column;gap:10px;}
+.ftl-m-account{display:flex;justify-content:center;padding:11px;border:1px solid rgba(255,255,255,.20);border-radius:10px;color:#f5f1e8;text-decoration:none;font-weight:700;}
+
+.ftl-util-hide-sm,.ftl-util-hide-md{display:inline;}
+@media (max-width:1100px){.ftl-util-hide-md{display:none;}}
+@media (max-width:640px){
+  .ftl-util-hide-sm{display:none;}
+  .ftl-utility-inner{padding:0 12px;}
+  .ftl-nav-inner{padding:0 12px;gap:10px;height:60px;}
+  .ftl-logo img{height:22px;}
+  .ftl-actions{gap:2px;}
+  .ftl-icon-btn,.ftl-burger{width:38px;height:38px;}
+}
+@media (max-width:380px){.ftl-logo img{height:20px;}}
+@media (min-width:1024px){.ftl-search{display:flex;}.ftl-cta{display:inline-flex;}}
+@media (max-width:1023px){
+  .ftl-nav-center{display:none;}
+  .ftl-mega{display:none !important;}
+  .ftl-actions .ftl-search,.ftl-actions .ftl-icon-btn:not(.ftl-mobile-cart),.ftl-actions .ftl-cta{display:none;}
+}
+@media (min-width:1024px){
+  .ftl-mobile-cart,.ftl-burger{display:none;}
+  .ftl-mobile-nav{display:none !important;}
+}
+.ftl-header-wrap a:focus-visible,.ftl-header-wrap button:focus-visible,.ftl-header-wrap input:focus-visible{outline:3px solid #3FB44A;outline-offset:2px;}
+@media (prefers-reduced-motion:reduce){.ftl-mega{transition:none;}}
+</style>
+</head>
+<body class="bg-cream text-charcoal antialiased">
+
+<a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:top-3 focus:left-3 focus:bg-charcoal focus:text-cream focus:px-4 focus:py-2 focus:rounded-lg focusable">Aller au contenu principal</a>
+
+<!-- ============ HEADER FRED T. LIZER ============ -->
+<div class="ftl-header-wrap">
+  <div class="ftl-utility">
+    <div class="ftl-utility-inner">
+      <div class="ftl-util-left">
+        <span>Livraison gratuite dès 89&nbsp;$ au Canada</span>
+        <span class="ftl-util-dot" aria-hidden="true">·</span>
+        <span class="ftl-util-hide-sm">Fabriqué au Québec</span>
+        <span class="ftl-util-dot ftl-util-hide-sm" aria-hidden="true">·</span>
+        <span class="ftl-util-hide-md">Enraciné dans la science depuis 2002</span>
+      </div>
+      <div class="ftl-util-right">
+        <div class="ftl-lang" role="group" aria-label="Choix de la langue">
+          <button type="button" class="ftl-lang-on" aria-current="true">FR</button>
+          <span aria-hidden="true">·</span>
+          <button type="button">EN</button>
+          <span aria-hidden="true">·</span>
+          <button type="button">ES</button>
+        </div>
+        <a href="../sections/compte.html" class="ftl-util-ico" aria-label="Mon compte">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
+        </a>
+        <a href="../sections/panier.html" class="ftl-util-cart" aria-label="Panier, 2 articles">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7h15l-1.5 11a2 2 0 0 1-2 1.75H8.5a2 2 0 0 1-2-1.75L5 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+          <span class="ftl-util-cart-badge" aria-hidden="true">2</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  <header class="ftl-nav-bar">
+    <div class="ftl-nav-inner">
+      <a href="../home/07-hybride-rooted-science.html" class="ftl-logo" aria-label="Fred T. Lizer — accueil">
+        <img src="../assets/logo-blanc-3.png" alt="Fred T. Lizer" width="361" height="35">
+      </a>
+      <nav class="ftl-nav-center" aria-label="Navigation principale">
+        <ul class="ftl-nav-list" role="menubar">
+          <li class="ftl-nav-item" role="none">
+            <button type="button" class="ftl-nav-trigger" aria-expanded="false" aria-haspopup="true" data-menu="boutique">Boutique</button>
+            <div class="ftl-mega" data-panel="boutique" data-open="false" role="menu" aria-label="Boutique" hidden>
+              <div class="ftl-mega-inner">
+                <div class="ftl-mega-cols">
+        <div class="ftl-mega-col">
+          <p class="ftl-mega-col-head"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6"/><path d="M10 3v6.5L4.5 19a1.5 1.5 0 0 0 1.3 2.3h12.4a1.5 1.5 0 0 0 1.3-2.3L14 9.5V3"/><path d="M7.5 15h9"/></svg><span>Par gamme</span></p>
+          <div class="ftl-mega-list">
+            <a class="ftl-mega-link" href="../sections/boutique.html" role="menuitem"><span class="ftl-mega-t">Toute la boutique</span><span class="ftl-mega-d">Tous les produits Fred T. Lizer</span></a>
+            <a class="ftl-mega-link" href="../sections/boutique.html" role="menuitem"><span class="ftl-mega-t">Bases A / B</span><span class="ftl-mega-d">Terra &amp; Aqua, croissance &amp; floraison</span></a>
+            <a class="ftl-mega-link" href="../sections/boutique.html" role="menuitem"><span class="ftl-mega-t">Boosters de floraison</span><span class="ftl-mega-d">PK, sucres &amp; renforçateurs</span></a>
+            <a class="ftl-mega-link" href="../sections/boutique.html" role="menuitem"><span class="ftl-mega-t">Suppléments &amp; correctifs</span><span class="ftl-mega-d">CalMag, enzymes</span></a>
+            <a class="ftl-mega-link" href="../sections/boutique.html" role="menuitem"><span class="ftl-mega-t">Organiques</span><span class="ftl-mega-d">Algue, fumier de vers</span></a>
+            <a class="ftl-mega-link" href="../sections/kit.html" role="menuitem"><span class="ftl-mega-t">Kits &amp; combos</span><span class="ftl-mega-d">Prêts à cultiver</span></a>
+          </div>
+        </div>
+        <div class="ftl-mega-col">
+          <p class="ftl-mega-col-head"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20c8 1 16-4 16-14 0 0-9-1-13 3s-3 11-3 11Z"/><path d="M4 20c2-5 5-8 9-10"/></svg><span>Par plante</span></p>
+          <div class="ftl-mega-list">
+            <a class="ftl-mega-link" href="../sections/boutique.html" role="menuitem"><span class="ftl-mega-t">Légumes</span><span class="ftl-mega-d">Tomates, piments</span></a>
+            <a class="ftl-mega-link" href="../sections/boutique.html" role="menuitem"><span class="ftl-mega-t">Fleurs</span><span class="ftl-mega-d">Annuelles, vivaces</span></a>
+            <a class="ftl-mega-link" href="../sections/boutique.html" role="menuitem"><span class="ftl-mega-t">Plantes d'intérieur</span><span class="ftl-mega-d">Verdure de maison</span></a>
+            <a class="ftl-mega-link" href="../sections/boutique.html" role="menuitem"><span class="ftl-mega-t">Pelouses &amp; haies</span><span class="ftl-mega-d">Gazon, cèdres, arbustes</span></a>
+            <a class="ftl-mega-link" href="../sections/boutique.html" role="menuitem"><span class="ftl-mega-t">Fines herbes</span><span class="ftl-mega-d">Basilic, menthe &amp; cie</span></a>
+          </div>
+        </div>
+        <div class="ftl-mega-col">
+          <p class="ftl-mega-col-head"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11Z"/></svg><span>Par médium</span></p>
+          <div class="ftl-mega-list">
+            <a class="ftl-mega-link" href="../sections/boutique.html" role="menuitem"><span class="ftl-mega-t">Terre &amp; potager</span><span class="ftl-mega-d">Pleine terre &amp; pots</span></a>
+            <a class="ftl-mega-link" href="../sections/boutique.html" role="menuitem"><span class="ftl-mega-t">Coco</span><span class="ftl-mega-d">Substrat de coco</span></a>
+            <a class="ftl-mega-link" href="../sections/boutique.html" role="menuitem"><span class="ftl-mega-t">Hydroponie</span><span class="ftl-mega-d">Systèmes sans sol</span></a>
+          </div>
+        </div>
+        <div class="ftl-mega-col">
+          <p class="ftl-mega-col-head"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21v-7"/><path d="M12 14c0-3 2.5-5 6-5 0 3-2.5 5-6 5Z"/><path d="M12 14c0-3-2.5-5-6-5 0 3 2.5 5 6 5Z"/></svg><span>Par stade</span></p>
+          <div class="ftl-mega-list">
+            <a class="ftl-mega-link" href="../sections/boutique.html" role="menuitem"><span class="ftl-mega-t">Semis &amp; bouturage</span><span class="ftl-mega-d">Départ en douceur</span></a>
+            <a class="ftl-mega-link" href="../sections/boutique.html" role="menuitem"><span class="ftl-mega-t">Croissance</span><span class="ftl-mega-d">Développement végétatif</span></a>
+            <a class="ftl-mega-link" href="../sections/boutique.html" role="menuitem"><span class="ftl-mega-t">Floraison</span><span class="ftl-mega-d">Fleurs &amp; fruits</span></a>
+            <a class="ftl-mega-link" href="../sections/boutique.html" role="menuitem"><span class="ftl-mega-t">Rinçage</span><span class="ftl-mega-d">Avant la récolte</span></a>
+          </div>
+        </div>
+        <div class="ftl-mega-col">
+          <p class="ftl-mega-col-head"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.5-.6-.6-2.5 2.6-2.4Z"/></svg><span>Outils &amp; ressources</span></p>
+          <p class="ftl-mega-intro">Trouvez le bon produit et le bon dosage en quelques clics.</p>
+          <div class="ftl-mega-list">
+            <a class="ftl-mega-link" href="../sections/calculateur.html" role="menuitem"><span class="ftl-mega-t">Calculateur de dosage</span><span class="ftl-mega-d">ml/L et ml/gallon</span></a>
+            <a class="ftl-mega-link" href="../sections/comparatif.html" role="menuitem"><span class="ftl-mega-t">Sélecteur de produits</span><span class="ftl-mega-d">Comparez et choisissez</span></a>
+          </div>
+        </div>
+                </div>
+              </div>
+      <div class="ftl-mega-foot">
+        <div class="ftl-mega-foot-inner">
+          <div class="ftl-mega-perks">
+            <span class="ftl-mega-perk"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l1.6 3.4 3.4-.9-1.3 3.3 3.3 1.3-2.7 2.2 1.9 3-3.5-.6-.2 3.5L12 18l-2.2 2.7-.2-3.5-3.5.6 1.9-3-2.7-2.2 3.3-1.3-1.3-3.3 3.4.9z"/><path d="M12 18v4"/></svg>Fabriqué au Québec</span>
+            <span class="ftl-mega-perk"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v9H3z"/><path d="M14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.6"/><circle cx="17.5" cy="18" r="1.6"/></svg>Livraison gratuite dès 89&nbsp;$</span>
+            <span class="ftl-mega-perk"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3h4"/><path d="M11 3v5L6 18a1.4 1.4 0 0 0 1.2 2.1h9.6A1.4 1.4 0 0 0 18 18L13 8V3"/></svg>Appuyé par la science</span>
+          </div>
+          <a class="ftl-mega-shop" href="../sections/boutique.html">Magasiner maintenant <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+            </div>
+          </li>
+          <li class="ftl-nav-item" role="none">
+            <button type="button" class="ftl-nav-trigger" aria-expanded="false" aria-haspopup="true" data-menu="apprendre">Apprendre</button>
+            <div class="ftl-mega ftl-mega-sm" data-panel="apprendre" data-open="false" role="menu" aria-label="Apprendre" hidden>
+              <div class="ftl-mega-inner">
+                <div class="ftl-mega-cols">
+        <div class="ftl-mega-col">
+          <p class="ftl-mega-col-head"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h7v16H6a2 2 0 0 0-2 2V5Z"/><path d="M20 3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1h-7"/></svg><span>Apprendre</span></p>
+          <div class="ftl-mega-list">
+            <a class="ftl-mega-link" href="../sections/calculateur.html" role="menuitem"><span class="ftl-mega-t">Calculateur de dosage</span><span class="ftl-mega-d">ml/L et ml/gallon</span></a>
+            <a class="ftl-mega-link" href="../sections/comparatif.html" role="menuitem"><span class="ftl-mega-t">Sélecteur de produits</span><span class="ftl-mega-d">Trouvez la bonne formule</span></a>
+          </div>
+        </div>
+        <div class="ftl-mega-col">
+          <p class="ftl-mega-col-head"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"/></svg><span>Ressources</span></p>
+          <div class="ftl-mega-list">
+            <a class="ftl-mega-link" href="../sections/comparatif.html" role="menuitem"><span class="ftl-mega-t">Fiches techniques</span><span class="ftl-mega-d">Sécurité &amp; composition</span></a>
+            <a class="ftl-mega-link" href="#" role="menuitem"><span class="ftl-mega-t">Blogue</span><span class="ftl-mega-d">Actualités &amp; culture</span></a>
+          </div>
+        </div>
+        <div class="ftl-mega-col">
+          <p class="ftl-mega-col-head"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20c8 1 16-4 16-14 0 0-9-1-13 3s-3 11-3 11Z"/><path d="M4 20c2-5 5-8 9-10"/></svg><span>En vedette</span></p>
+          <a class="ftl-mega-feature" href="#" role="menuitem">
+            <img src="../assets/lifestyle/hero-serre.jpg" alt="Serre de culture luxuriante" loading="lazy">
+            <span class="ftl-mega-feature-body"><span class="ftl-mega-feature-k">Guide vedette</span><span class="ftl-mega-feature-t">Réussir sa floraison en serre</span></span>
+          </a>
+        </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="ftl-nav-item" role="none"><a href="../sections/b2b-revendeurs.html" class="ftl-nav-link nav-link">Revendeurs</a></li>
+          <li class="ftl-nav-item" role="none"><a href="../home/07-hybride-rooted-science.html#fondateur" class="ftl-nav-link nav-link nav-link-active ftl-nav-link-active" aria-current="page">À propos</a></li>
+          <li class="ftl-nav-item" role="none"><a href="#cta" class="ftl-nav-link nav-link">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="ftl-actions">
+        <form class="ftl-search" role="search" onsubmit="return false">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <input type="search" placeholder="Rechercher un produit…" aria-label="Rechercher sur le site">
+        </form>
+        <a href="../sections/panier.html" class="ftl-icon-btn ftl-cart ftl-mobile-cart" aria-label="Panier, 2 articles">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7h15l-1.5 11a2 2 0 0 1-2 1.75H8.5a2 2 0 0 1-2-1.75L5 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+          <span class="ftl-cart-badge" aria-hidden="true">2</span>
+        </a>
+        <button type="button" class="ftl-burger" id="ftlBurger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="ftlMobileNav">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+  <div class="ftl-mobile-nav" id="ftlMobileNav" hidden>
+    <nav aria-label="Navigation mobile">
+      <details class="ftl-m-group">
+        <summary>Boutique</summary>
+        <div class="ftl-m-sub">
+          <p class="ftl-m-subhead">Par gamme</p>
+          <a href="../sections/boutique.html">Toute la boutique</a>
+          <a href="../sections/boutique.html">Bases A / B — Terra &amp; Aqua</a>
+          <a href="../sections/boutique.html">Boosters de floraison</a>
+          <a href="../sections/kit.html">Kits &amp; combos</a>
+        </div>
+      </details>
+      <details class="ftl-m-group">
+        <summary>Apprendre</summary>
+        <div class="ftl-m-sub">
+          <a href="../sections/calculateur.html">Calculateur de dosage</a>
+          <a href="../sections/comparatif.html">Sélecteur de produits</a>
+        </div>
+      </details>
+      <a class="ftl-m-link" href="../sections/b2b-revendeurs.html">Revendeurs</a>
+      <a class="ftl-m-link nav-link-active" href="../home/07-hybride-rooted-science.html#fondateur" aria-current="page">À propos</a>
+      <a class="ftl-m-link" href="#cta">Contact</a>
+    </nav>
+    <div class="ftl-m-actions">
+      <a href="../sections/compte.html" class="ftl-m-account">Mon compte</a>
+    </div>
+  </div>
+</div>
+<!-- ============ /HEADER ============ -->
+
+<main id="main">
+
+<!-- ============ HERO ============ -->
+<section class="relative soil-texture text-cream overflow-hidden">
+  <img src="../assets/lifestyle/hero-serre.jpg" alt="Serre de culture luxuriante" loading="lazy" class="absolute inset-0 w-full h-full object-cover" aria-hidden="true">
+  <div class="absolute inset-0 bg-gradient-to-r from-[#0c0d0c]/96 via-[#14401F]/88 to-[#14401F]/55" aria-hidden="true"></div>
+  <div class="absolute inset-0 grain" aria-hidden="true"></div>
+  <div class="absolute -top-32 -right-32 w-[34rem] h-[34rem] rounded-full bg-leaf/15 blur-3xl" aria-hidden="true"></div>
+
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 py-14 lg:py-24">
+    <div class="max-w-3xl">
+      <span class="inline-flex items-center gap-2 bg-white/10 border border-white/15 rounded-full px-3 py-1.5 text-xs font-bold tracking-wide uppercase">
+        <span class="w-2 h-2 rounded-full bg-leaf" aria-hidden="true"></span>
+        Business case · Plateforme e-commerce
+      </span>
+
+      <h1 class="mt-5 font-display text-[clamp(2.3rem,6.5vw,4.6rem)] leading-[0.94] uppercase">
+        La technologie des<br>
+        <span class="text-leaf">grandes marques,</span><br>
+        au service de Fred&nbsp;T.&nbsp;Lizer.
+      </h1>
+
+      <p class="mt-6 text-lg text-cream/80 max-w-xl">
+        Une boutique en ligne <strong class="text-cream">ultra-rapide</strong>, <strong class="text-cream">sécurisée de niveau entreprise</strong> et <strong class="text-cream">tout inclus</strong> — bâtie sur la même classe d'infrastructure mondiale que les leaders du commerce moderne. Sans frais de plugins qui s'accumulent chaque année.
+      </p>
+
+      <p class="mt-6 text-xs font-bold uppercase tracking-[0.18em] text-cream/55">La même classe d'architecture que</p>
+      <div class="mt-3 flex flex-wrap gap-2.5">
+        <span class="inline-flex items-center gap-2 bg-white/8 border border-white/15 rounded-lg px-4 py-2 font-archivo font-900 text-sm tracking-wide">
+          <span class="w-1.5 h-1.5 rounded-full bg-leaf" aria-hidden="true"></span>NIKE
+        </span>
+        <span class="inline-flex items-center gap-2 bg-white/8 border border-white/15 rounded-lg px-4 py-2 font-archivo font-900 text-sm tracking-wide">
+          <span class="w-1.5 h-1.5 rounded-full bg-leaf" aria-hidden="true"></span>ADIDAS
+        </span>
+        <span class="inline-flex items-center gap-2 bg-white/8 border border-white/15 rounded-lg px-4 py-2 font-archivo font-900 text-sm tracking-wide">
+          <span class="w-1.5 h-1.5 rounded-full bg-leaf" aria-hidden="true"></span>BURTON
+        </span>
+      </div>
+      <p class="mt-3 text-xs text-cream/50 max-w-lg">Marques citées à titre d'exemple du calibre d'architecture (commerce moderne « composable / headless » sur infrastructure mondiale). Aucune affiliation.</p>
+
+      <div class="mt-8 flex flex-col sm:flex-row gap-3">
+        <a href="#cta" class="inline-flex items-center justify-center gap-2 bg-leaf text-charcoal font-archivo font-800 text-base px-7 py-4 rounded-xl hover:bg-leafdk transition focusable">
+          Discutons de votre projet
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#piege" class="inline-flex items-center justify-center gap-2 bg-transparent border-2 border-white/25 text-cream font-archivo font-bold text-base px-7 py-4 rounded-xl hover:border-white transition focusable">
+          Voir le comparatif des coûts
+        </a>
+      </div>
+
+      <dl class="mt-10 grid grid-cols-3 gap-4 max-w-lg border-t border-white/10 pt-6">
+        <div>
+          <dt class="sr-only">Frais de plugins récurrents</dt>
+          <dd class="font-display text-3xl text-leaf">0&nbsp;$</dd>
+          <p class="text-xs text-cream/55 mt-1">de plugins récurrents</p>
+        </div>
+        <div>
+          <dt class="sr-only">Tout inclus</dt>
+          <dd class="font-display text-3xl text-leaf">100%</dd>
+          <p class="text-xs text-cream/55 mt-1">tout inclus, sans extras</p>
+        </div>
+        <div>
+          <dt class="sr-only">Articles SEO inclus</dt>
+          <dd class="font-display text-3xl text-leaf">~50</dd>
+          <p class="text-xs text-cream/55 mt-1">articles SEO / IA</p>
+        </div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BASELINE ============ -->
+<section class="bg-forest text-cream">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-7 lg:py-8">
+    <p class="text-center font-display text-2xl sm:text-4xl uppercase leading-none">
+      Le même calibre que les leaders. <span class="text-leaf">Zéro frais caché.</span>
+    </p>
+  </div>
+</section>
+
+<!-- ============ LE PIÈGE WOOCOMMERCE ============ -->
+<section id="piege" class="max-w-7xl mx-auto px-4 sm:px-6 py-14 lg:py-20">
+  <div class="max-w-3xl">
+    <p class="text-xs font-bold uppercase tracking-[0.2em] text-forest">Ce qu'on ne vous dit pas</p>
+    <h2 class="mt-2 font-display text-4xl sm:text-5xl uppercase leading-none">Le piège WooCommerce</h2>
+    <p class="mt-5 text-lg text-charcoal/75">
+      Sur le papier, « WordPress + WooCommerce, c'est gratuit ». En réalité, pour atteindre le niveau d'une vraie boutique professionnelle, on empile des <strong>dizaines d'extensions payantes</strong> — chacune avec sa propre <strong>licence à renouveler chaque année</strong>. Les coûts s'accumulent, la maintenance ne s'arrête jamais, et chaque extension est une porte d'entrée de plus pour les failles de sécurité.
+    </p>
+  </div>
+
+  <!-- Tableau coûts plugins -->
+  <div class="mt-9 rounded-2xl border border-line bg-white overflow-hidden shadow-sm">
+    <div class="bg-soildk text-cream px-5 py-4 flex items-center gap-3">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3FB44A" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8v8M9 11l3-3 3 3"/><circle cx="12" cy="12" r="9"/></svg>
+      <div>
+        <p class="font-archivo font-800 text-sm leading-tight">La facture annuelle des extensions WooCommerce</p>
+        <p class="text-xs text-cream/65">Montants indicatifs de licences annuelles · marché 2026</p>
+      </div>
+    </div>
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm" style="min-width:520px">
+        <caption class="sr-only">Liste des fonctions e-commerce et leur coût annuel récurrent en extensions WooCommerce</caption>
+        <thead>
+          <tr class="bg-cream/70 text-left text-charcoal/60 text-xs uppercase tracking-wide">
+            <th scope="col" class="px-5 py-3 font-bold">Fonction nécessaire</th>
+            <th scope="col" class="px-5 py-3 font-bold">Extension type</th>
+            <th scope="col" class="px-5 py-3 font-bold text-right">Coût / an</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-line">
+          <tr><td class="px-5 py-3 font-semibold">SEO avancé</td><td class="px-5 py-3 text-charcoal/65">SEO premium</td><td class="px-5 py-3 text-right font-bold tabular-nums">99&nbsp;$</td></tr>
+          <tr><td class="px-5 py-3 font-semibold">Sécurité &amp; pare-feu (WAF)</td><td class="px-5 py-3 text-charcoal/65">Firewall / anti-malware</td><td class="px-5 py-3 text-right font-bold tabular-nums">299&nbsp;$</td></tr>
+          <tr><td class="px-5 py-3 font-semibold">Consentement / Loi 25</td><td class="px-5 py-3 text-charcoal/65">Cookie consent pro</td><td class="px-5 py-3 text-right font-bold tabular-nums">119&nbsp;$</td></tr>
+          <tr><td class="px-5 py-3 font-semibold">Sauvegardes automatiques</td><td class="px-5 py-3 text-charcoal/65">Backup premium</td><td class="px-5 py-3 text-right font-bold tabular-nums">99&nbsp;$</td></tr>
+          <tr><td class="px-5 py-3 font-semibold">Multilingue (FR / EN / ES)</td><td class="px-5 py-3 text-charcoal/65">Traduction pro</td><td class="px-5 py-3 text-right font-bold tabular-nums">199&nbsp;$</td></tr>
+          <tr><td class="px-5 py-3 font-semibold">Emails transactionnels</td><td class="px-5 py-3 text-charcoal/65">Email automation</td><td class="px-5 py-3 text-right font-bold tabular-nums">149&nbsp;$</td></tr>
+          <tr><td class="px-5 py-3 font-semibold">Avis clients</td><td class="px-5 py-3 text-charcoal/65">Reviews premium</td><td class="px-5 py-3 text-right font-bold tabular-nums">119&nbsp;$</td></tr>
+          <tr><td class="px-5 py-3 font-semibold">Cache / performance</td><td class="px-5 py-3 text-charcoal/65">Caching pro</td><td class="px-5 py-3 text-right font-bold tabular-nums">99&nbsp;$</td></tr>
+          <tr><td class="px-5 py-3 font-semibold">Intégration transporteur</td><td class="px-5 py-3 text-charcoal/65">Shipping pro</td><td class="px-5 py-3 text-right font-bold tabular-nums">149&nbsp;$</td></tr>
+          <tr><td class="px-5 py-3 font-semibold">Comptabilité / QuickBooks</td><td class="px-5 py-3 text-charcoal/65">Sync comptable</td><td class="px-5 py-3 text-right font-bold tabular-nums">199&nbsp;$</td></tr>
+          <tr><td class="px-5 py-3 font-semibold">Infolettre / publipostage</td><td class="px-5 py-3 text-charcoal/65">Marketing connector</td><td class="px-5 py-3 text-right font-bold tabular-nums">129&nbsp;$</td></tr>
+          <tr><td class="px-5 py-3 font-semibold">Billets de support client</td><td class="px-5 py-3 text-charcoal/65">Help desk</td><td class="px-5 py-3 text-right font-bold tabular-nums">149&nbsp;$</td></tr>
+        </tbody>
+        <tfoot>
+          <tr class="bg-forestdk text-cream">
+            <td class="px-5 py-4 font-archivo font-800" colspan="2">Total récurrent — extensions seules</td>
+            <td class="px-5 py-4 text-right font-display text-2xl text-leaf tabular-nums">1&nbsp;806&nbsp;$&nbsp;/&nbsp;an</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+    <div class="px-5 py-4 bg-cream/60 border-t border-line flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+      <p class="text-sm text-charcoal/70"><strong>Et ça recommence chaque année.</strong> Sans compter l'hébergement, la maintenance et les correctifs de sécurité.</p>
+    </div>
+  </div>
+
+  <!-- Vs notre solution -->
+  <div class="mt-6 rounded-2xl bg-forest text-cream p-6 sm:p-7 flex flex-col sm:flex-row sm:items-center gap-5">
+    <span class="grid place-items-center w-12 h-12 flex-none bg-leaf rounded-xl" aria-hidden="true">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0E120F" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+    </span>
+    <div>
+      <p class="font-archivo font-800 text-lg">Notre solution : tout est inclus, sans frais de plugins récurrents.</p>
+      <p class="mt-1 text-cream/80 text-sm">Toutes ces fonctions sont intégrées à même la plateforme. Pas de licences à renouveler, pas d'extensions à surveiller, pas de surprise sur la facture l'an prochain.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TOUT EST INCLUS ============ -->
+<section class="bg-charcoal text-cream">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-14 lg:py-20">
+    <div class="max-w-3xl">
+      <p class="text-xs font-bold uppercase tracking-[0.2em] text-leaf">Sans frais cachés</p>
+      <h2 class="mt-2 font-display text-4xl sm:text-5xl uppercase leading-none">Tout est inclus dans notre solution</h2>
+      <p class="mt-5 text-lg text-cream/75">Chaque carte ci-dessous remplace une — ou plusieurs — extensions payantes. Le tout intégré, maintenu et sécurisé.</p>
+    </div>
+
+    <div class="mt-9 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+
+      <!-- Sécurité entreprise -->
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+        <span class="grid place-items-center w-11 h-11 bg-leaf rounded-xl" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0E120F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3Z"/><path d="m9 12 2 2 4-4"/></svg></span>
+        <h3 class="mt-4 font-archivo font-800 text-lg">Sécurité de niveau entreprise</h3>
+        <p class="mt-2 text-sm text-cream/70">Pare-feu applicatif (WAF) et protection contre les attaques en continu — la même classe de protection que les grandes marques.</p>
+      </div>
+
+      <!-- Admin + SEO -->
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+        <span class="grid place-items-center w-11 h-11 bg-leaf rounded-xl" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0E120F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13h4l3 7 4-16 3 9h4"/></svg></span>
+        <h3 class="mt-4 font-archivo font-800 text-lg">Tableau de bord SEO intégré</h3>
+        <p class="mt-2 text-sm text-cream/70">Suivi de la vitesse (PageSpeed), des données Search Console et de l'analytique — plus la capture des sessions visiteurs pour voir comment vos clients naviguent vraiment.</p>
+      </div>
+
+      <!-- Loi 25 -->
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+        <span class="grid place-items-center w-11 h-11 bg-leaf rounded-xl" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0E120F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M21 12c0 5-3.5 8-9 9-5.5-1-9-4-9-9V5l9-3 9 3v7Z"/></svg></span>
+        <h3 class="mt-4 font-archivo font-800 text-lg">Conformité Loi 25 / PIPEDA</h3>
+        <p class="mt-2 text-sm text-cream/70">Module de consentement intégré, conforme aux lois canadiennes et québécoises sur la protection des renseignements personnels.</p>
+      </div>
+
+      <!-- Chiffrement -->
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+        <span class="grid place-items-center w-11 h-11 bg-leaf rounded-xl" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0E120F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></span>
+        <h3 class="mt-4 font-archivo font-800 text-lg">Chiffrement des données client</h3>
+        <p class="mt-2 text-sm text-cream/70">Données sensibles protégées par chiffrement (SHA-256). Les renseignements de vos clients restent confidentiels.</p>
+      </div>
+
+      <!-- Messagerie -->
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+        <span class="grid place-items-center w-11 h-11 bg-leaf rounded-xl" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0E120F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H8l-4 4V5a2 2 0 0 1 2-2h13a2 2 0 0 1 2 2v10Z"/></svg></span>
+        <h3 class="mt-4 font-archivo font-800 text-lg">Messagerie client ↔ admin</h3>
+        <p class="mt-2 text-sm text-cream/70">Vos clients vous écrivent directement depuis leur compte, et un système de billets de contact garde chaque demande organisée.</p>
+      </div>
+
+      <!-- Emails transactionnels -->
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+        <span class="grid place-items-center w-11 h-11 bg-leaf rounded-xl" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0E120F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
+        <h3 class="mt-4 font-archivo font-800 text-lg">Emails transactionnels</h3>
+        <p class="mt-2 text-sm text-cream/70">Confirmation de commande, avis d'expédition, suivi — reliés automatiquement au flux de commande, sans intervention manuelle.</p>
+      </div>
+
+      <!-- Publipostage -->
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+        <span class="grid place-items-center w-11 h-11 bg-leaf rounded-xl" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0E120F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11 22 2l-9 19-2-8-8-2Z"/></svg></span>
+        <h3 class="mt-4 font-archivo font-800 text-lg">Infolettre &amp; publipostage</h3>
+        <p class="mt-2 text-sm text-cream/70">Branchement à votre outil d'infolettre au choix. Vos listes et campagnes restent connectées à la boutique.</p>
+      </div>
+
+      <!-- Avis SMS -->
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+        <span class="grid place-items-center w-11 h-11 bg-leaf rounded-xl" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0E120F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg></span>
+        <h3 class="mt-4 font-archivo font-800 text-lg">Avis par SMS <span class="text-leaf text-xs font-bold align-middle">(optionnel)</span></h3>
+        <p class="mt-2 text-sm text-cream/70">Sollicitez les avis clients par message texte après la livraison — un canal à fort taux de réponse pour bâtir votre réputation.</p>
+      </div>
+
+      <!-- Transporteur -->
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+        <span class="grid place-items-center w-11 h-11 bg-leaf rounded-xl" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0E120F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h11v9H3z"/><path d="M14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.6"/><circle cx="17.5" cy="18" r="1.6"/></svg></span>
+        <h3 class="mt-4 font-archivo font-800 text-lg">Intégration transporteur</h3>
+        <p class="mt-2 text-sm text-cream/70">Connexion à un broker d'expédition (ex. Goorooship) pour comparer les tarifs et imprimer vos étiquettes au meilleur prix.</p>
+      </div>
+
+      <!-- Rapports + QuickBooks -->
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-6 sm:col-span-2 lg:col-span-3">
+        <div class="flex flex-col sm:flex-row sm:items-center gap-5">
+          <span class="grid place-items-center w-11 h-11 flex-none bg-leaf rounded-xl" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0E120F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><rect x="7" y="11" width="3" height="6"/><rect x="13" y="7" width="3" height="10"/></svg></span>
+          <div>
+            <h3 class="font-archivo font-800 text-lg">Rapports de ventes &amp; taxes + QuickBooks en ligne</h3>
+            <p class="mt-2 text-sm text-cream/70 max-w-3xl">Vos rapports de ventes et de taxes sont générés automatiquement et se branchent à QuickBooks en ligne — votre comptabilité reste à jour sans double saisie.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ VISIBILITÉ IA & SEO ============ -->
+<section class="relative soil-texture text-cream overflow-hidden">
+  <div class="absolute inset-0 grain" aria-hidden="true"></div>
+  <div class="absolute -bottom-32 -left-24 w-[30rem] h-[30rem] rounded-full bg-leaf/12 blur-3xl" aria-hidden="true"></div>
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 py-14 lg:py-20">
+    <div class="grid lg:grid-cols-12 gap-10 items-center">
+      <div class="lg:col-span-7">
+        <p class="text-xs font-bold uppercase tracking-[0.2em] text-leaf">Une longueur d'avance</p>
+        <h2 class="mt-2 font-display text-4xl sm:text-5xl uppercase leading-none">Visible dans la recherche par IA</h2>
+        <p class="mt-5 text-lg text-cream/80 max-w-xl">
+          On rédige une <strong class="text-cream">cinquantaine d'articles optimisés SEO / AEO / GEO</strong> pour que Fred T. Lizer sorte non seulement dans Google, mais aussi dans <strong class="text-cream">ChatGPT, Google AI Overview et Perplexity</strong>. Quand un client demande conseil à une IA, c'est votre marque qui répond.
+        </p>
+        <p class="mt-4 text-cream/70 max-w-xl">
+          C'est une demande que vos concurrents ignorent encore. On la capte avant eux.
+        </p>
+        <div class="mt-7 flex flex-wrap gap-2.5">
+          <span class="inline-flex items-center gap-2 bg-white/8 border border-white/15 rounded-lg px-4 py-2 font-archivo font-bold text-sm"><span class="w-1.5 h-1.5 rounded-full bg-leaf" aria-hidden="true"></span>ChatGPT</span>
+          <span class="inline-flex items-center gap-2 bg-white/8 border border-white/15 rounded-lg px-4 py-2 font-archivo font-bold text-sm"><span class="w-1.5 h-1.5 rounded-full bg-leaf" aria-hidden="true"></span>Google AI Overview</span>
+          <span class="inline-flex items-center gap-2 bg-white/8 border border-white/15 rounded-lg px-4 py-2 font-archivo font-bold text-sm"><span class="w-1.5 h-1.5 rounded-full bg-leaf" aria-hidden="true"></span>Perplexity</span>
+        </div>
+      </div>
+      <div class="lg:col-span-5">
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-6 space-y-4">
+          <div class="flex items-start gap-4">
+            <span class="font-display text-4xl text-leaf leading-none">~50</span>
+            <p class="text-sm text-cream/75 pt-1">articles optimisés, structurés pour être cités par les moteurs de recherche IA.</p>
+          </div>
+          <div class="border-t border-white/10 pt-4 grid grid-cols-3 gap-3 text-center">
+            <div><p class="font-display text-2xl text-leaf">SEO</p><p class="text-[11px] text-cream/55 mt-1 uppercase tracking-wide">Recherche</p></div>
+            <div><p class="font-display text-2xl text-leaf">AEO</p><p class="text-[11px] text-cream/55 mt-1 uppercase tracking-wide">Réponses</p></div>
+            <div><p class="font-display text-2xl text-leaf">GEO</p><p class="text-[11px] text-cream/55 mt-1 uppercase tracking-wide">Génératif</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BUSINESS CASE / ROI ============ -->
+<section class="max-w-7xl mx-auto px-4 sm:px-6 py-14 lg:py-20">
+  <div class="max-w-3xl">
+    <p class="text-xs font-bold uppercase tracking-[0.2em] text-forest">Le calcul</p>
+    <h2 class="mt-2 font-display text-4xl sm:text-5xl uppercase leading-none">Le business case</h2>
+    <p class="mt-5 text-lg text-charcoal/75">Côte à côte, l'écart est net : une accumulation de coûts récurrents et de dette technique d'un côté, une plateforme tout-inclus de calibre mondial de l'autre.</p>
+  </div>
+
+  <div class="mt-9 overflow-x-auto rounded-2xl border border-line shadow-sm">
+    <table class="w-full text-sm bg-white" style="min-width:560px">
+      <caption class="sr-only">Comparatif entre WordPress + WooCommerce et notre solution</caption>
+      <thead>
+        <tr class="text-left">
+          <th scope="col" class="px-5 py-4 bg-cream/70 text-charcoal/60 text-xs uppercase tracking-wide font-bold">Critère</th>
+          <th scope="col" class="px-5 py-4 bg-soildk text-cream font-archivo font-800">WordPress + WooCommerce</th>
+          <th scope="col" class="px-5 py-4 bg-forest text-cream font-archivo font-800">Notre solution</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-line">
+        <tr>
+          <th scope="row" class="px-5 py-3 text-left font-semibold">Coût des fonctions</th>
+          <td class="px-5 py-3 text-charcoal/75">Dizaines de plugins payants, licences annuelles</td>
+          <td class="px-5 py-3 text-forest font-semibold">Tout inclus, zéro plugin récurrent</td>
+        </tr>
+        <tr>
+          <th scope="row" class="px-5 py-3 text-left font-semibold">Vitesse</th>
+          <td class="px-5 py-3 text-charcoal/75">Alourdie par chaque extension</td>
+          <td class="px-5 py-3 text-forest font-semibold">Ultra-rapide, optimisée par défaut</td>
+        </tr>
+        <tr>
+          <th scope="row" class="px-5 py-3 text-left font-semibold">Sécurité</th>
+          <td class="px-5 py-3 text-charcoal/75">Surface d'attaque démultipliée, failles fréquentes</td>
+          <td class="px-5 py-3 text-forest font-semibold">WAF + chiffrement de niveau entreprise</td>
+        </tr>
+        <tr>
+          <th scope="row" class="px-5 py-3 text-left font-semibold">Maintenance</th>
+          <td class="px-5 py-3 text-charcoal/75">Mises à jour constantes, risques de bris</td>
+          <td class="px-5 py-3 text-forest font-semibold">Maintenue et infogérée pour vous</td>
+        </tr>
+        <tr>
+          <th scope="row" class="px-5 py-3 text-left font-semibold">Évolutivité</th>
+          <td class="px-5 py-3 text-charcoal/75">Dette technique qui s'accumule</td>
+          <td class="px-5 py-3 text-forest font-semibold">Architecture évolutive, prête à grandir</td>
+        </tr>
+        <tr>
+          <th scope="row" class="px-5 py-3 text-left font-semibold">Calibre</th>
+          <td class="px-5 py-3 text-charcoal/75">Standard, comme tout le monde</td>
+          <td class="px-5 py-3 text-forest font-semibold">Même classe que les grandes marques</td>
+        </tr>
+        <tr>
+          <th scope="row" class="px-5 py-3 text-left font-semibold">Visibilité IA</th>
+          <td class="px-5 py-3 text-charcoal/75">Absente, non optimisée</td>
+          <td class="px-5 py-3 text-forest font-semibold">~50 articles SEO / AEO / GEO inclus</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Estimation 3 ans -->
+  <div class="mt-8 grid md:grid-cols-3 gap-4">
+    <div class="rounded-2xl bg-soildk text-cream p-6">
+      <p class="text-xs font-bold uppercase tracking-[0.16em] text-cream/55">WooCommerce · sur 3 ans</p>
+      <p class="mt-3 font-display text-4xl text-leaf">~5 400&nbsp;$+</p>
+      <p class="mt-2 text-sm text-cream/70">en extensions récurrentes seules (1 806&nbsp;$/an × 3), avant maintenance et correctifs de sécurité.</p>
+    </div>
+    <div class="rounded-2xl bg-forest text-cream p-6">
+      <p class="text-xs font-bold uppercase tracking-[0.16em] text-cream/60">Notre solution · sur 3 ans</p>
+      <p class="mt-3 font-display text-4xl text-leaf">0&nbsp;$</p>
+      <p class="mt-2 text-sm text-cream/80">de frais de plugins récurrents. Les fonctions sont incluses — votre budget va à la croissance, pas aux licences.</p>
+    </div>
+    <div class="rounded-2xl bg-leaf text-charcoal p-6">
+      <p class="text-xs font-bold uppercase tracking-[0.16em] text-charcoal/65">L'écart</p>
+      <p class="mt-3 font-display text-4xl">≈ 5 400&nbsp;$</p>
+      <p class="mt-2 text-sm text-charcoal/75">économisés sur 3 ans en frais d'extensions — plus une boutique plus rapide, plus sûre et plus visible.</p>
+    </div>
+  </div>
+  <p class="mt-5 text-xs text-charcoal/55 max-w-3xl">Montants indicatifs basés sur des tarifs de licences couramment observés sur le marché en 2026. À titre illustratif pour la prise de décision.</p>
+</section>
+
+<!-- ============ CTA DE CLÔTURE ============ -->
+<section id="cta" class="relative soil-texture text-cream overflow-hidden">
+  <div class="absolute inset-0 grain" aria-hidden="true"></div>
+  <div class="absolute -top-24 right-0 w-[28rem] h-[28rem] rounded-full bg-leaf/12 blur-3xl" aria-hidden="true"></div>
+  <div class="relative max-w-4xl mx-auto px-4 sm:px-6 py-16 lg:py-24 text-center">
+    <span class="inline-flex items-center gap-2 bg-white/10 border border-white/15 rounded-full px-3 py-1.5 text-xs font-bold tracking-wide uppercase">
+      <span class="w-2 h-2 rounded-full bg-leaf" aria-hidden="true"></span>
+      Prochaine étape
+    </span>
+    <h2 class="mt-5 font-display text-[clamp(2.2rem,6vw,4rem)] uppercase leading-[0.95]">
+      Discutons de <span class="text-leaf">votre projet</span>
+    </h2>
+    <p class="mt-5 text-lg text-cream/80 max-w-xl mx-auto">
+      Une boutique de calibre mondial, tout-inclus, sans frais de plugins qui s'accumulent. On vous présente la démarche, l'échéancier et le budget en une rencontre.
+    </p>
+    <div class="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
+      <a href="mailto:bonjour@fredtlizer.ca" class="inline-flex items-center justify-center gap-2 bg-leaf text-charcoal font-archivo font-800 text-base px-7 py-4 rounded-xl hover:bg-leafdk transition focusable">
+        Planifier une rencontre
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a href="tel:+15140000000" class="inline-flex items-center justify-center gap-2 bg-transparent border-2 border-white/25 text-cream font-archivo font-bold text-base px-7 py-4 rounded-xl hover:border-white transition focusable">
+        514 000-0000
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="bg-charcoal text-cream">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-14">
+    <div class="grid md:grid-cols-12 gap-x-6 gap-y-10">
+      <div class="md:col-span-4">
+        <div class="flex items-center gap-2.5">
+          <span class="grid place-items-center w-10 h-10 bg-forest rounded-lg" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3FB44A" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 13c0-5 4-9 9-9 0 5-4 9-9 9z"/><path d="M12 22v-9M12 16c-2-1-4-1-6 0M12 19c-1.5-.8-3-.8-4.5 0"/></svg>
+          </span>
+          <span class="leading-none">
+            <span class="block font-archivo font-900 text-lg">FRED&nbsp;T.&nbsp;LIZER</span>
+            <span class="block text-[9px] font-semibold text-leaf tracking-[0.14em] uppercase">Nutrition végétale · Enracinée dans la science</span>
+          </span>
+        </div>
+        <p class="mt-4 text-cream/55 text-sm max-w-xs">Engrais et amendements organiques fabriqués au Québec depuis 2002. Bâti sur la science. Inspiré par la nature.</p>
+        <div class="mt-5 flex gap-2.5">
+          <a href="#" class="grid place-items-center w-10 h-10 bg-white/10 rounded-lg hover:bg-leaf hover:text-charcoal transition focusable" aria-label="Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="#" class="grid place-items-center w-10 h-10 bg-white/10 rounded-lg hover:bg-leaf hover:text-charcoal transition focusable" aria-label="Facebook">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h-2a4 4 0 0 0-4 4v3H6v4h3v7h4v-7h3l1-4h-4V7a1 1 0 0 1 1-1h2z"/></svg>
+          </a>
+          <a href="#" class="grid place-items-center w-10 h-10 bg-white/10 rounded-lg hover:bg-leaf hover:text-charcoal transition focusable" aria-label="YouTube">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="M10 9l5 3-5 3z" fill="currentColor" stroke="none"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <nav class="md:col-span-2" aria-label="Boutique">
+        <h3 class="font-archivo font-bold text-sm uppercase tracking-wide text-cream/50 mb-3">Magasiner par</h3>
+        <ul class="space-y-2 text-sm text-cream/75">
+          <li><a href="../sections/boutique.html" class="hover:text-leaf transition focusable">Légumes</a></li>
+          <li><a href="../sections/boutique.html" class="hover:text-leaf transition focusable">Fleurs</a></li>
+          <li><a href="../sections/boutique.html" class="hover:text-leaf transition focusable">Plantes d'intérieur</a></li>
+          <li><a href="../sections/boutique.html" class="hover:text-leaf transition focusable">Pelouses &amp; haies</a></li>
+          <li><a href="../sections/kit.html" class="hover:text-leaf transition focusable">Kits &amp; combos</a></li>
+        </ul>
+      </nav>
+
+      <nav class="md:col-span-2" aria-label="Apprendre">
+        <h3 class="font-archivo font-bold text-sm uppercase tracking-wide text-cream/50 mb-3">Apprendre</h3>
+        <ul class="space-y-2 text-sm text-cream/75">
+          <li><a href="../sections/calculateur.html" class="hover:text-leaf transition focusable">Calculateur de dosage</a></li>
+          <li><a href="../sections/comparatif.html" class="hover:text-leaf transition focusable">Sélecteur de produits</a></li>
+          <li><a href="#" class="hover:text-leaf transition focusable">Guides</a></li>
+          <li><a href="#" class="hover:text-leaf transition focusable">Foire aux questions</a></li>
+        </ul>
+      </nav>
+
+      <nav class="md:col-span-2" aria-label="Entreprise">
+        <h3 class="font-archivo font-bold text-sm uppercase tracking-wide text-cream/50 mb-3">Entreprise</h3>
+        <ul class="space-y-2 text-sm text-cream/75">
+          <li><a href="../home/07-hybride-rooted-science.html#fondateur" class="hover:text-leaf transition focusable">Notre histoire</a></li>
+          <li><a href="../sections/b2b-revendeurs.html" class="hover:text-leaf transition focusable">Devenir revendeur</a></li>
+          <li><a href="#" class="hover:text-leaf transition focusable">Programme d'affiliation</a></li>
+          <li><a href="#cta" class="hover:text-leaf transition focusable">Nous joindre</a></li>
+        </ul>
+      </nav>
+
+      <div class="md:col-span-2">
+        <h3 class="font-archivo font-bold text-sm uppercase tracking-wide text-cream/50 mb-3">Joindre</h3>
+        <ul class="space-y-2 text-sm text-cream/75">
+          <li><a href="mailto:bonjour@fredtlizer.ca" class="hover:text-leaf transition focusable">bonjour@fredtlizer.ca</a></li>
+          <li><a href="tel:+15140000000" class="hover:text-leaf transition focusable">514 000-0000</a></li>
+          <li class="text-cream/55">Lun–Ven · 9 h à 17 h (HE)</li>
+          <li class="text-cream/55">Québec, Canada</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-cream/45">
+      <p>© 2026 Fred T. Lizer inc. Enraciné dans la science depuis 2002.</p>
+      <div class="flex items-center gap-5">
+        <a href="#" class="hover:text-cream transition focusable">Confidentialité</a>
+        <a href="#" class="hover:text-cream transition focusable">Conditions</a>
+        <a href="#" class="hover:text-cream transition focusable">Expédition &amp; retours</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script id="ftl-header-js">
+(function(){
+  var wrap=document.querySelector('.ftl-header-wrap');if(!wrap)return;
+  var items=wrap.querySelectorAll('.ftl-nav-item');
+  var closeTimer=null;
+  function clearTimer(){if(closeTimer){clearTimeout(closeTimer);closeTimer=null;}}
+  function closeAll(except){
+    clearTimer();
+    items.forEach(function(it){
+      var t=it.querySelector('.ftl-nav-trigger'),p=it.querySelector('.ftl-mega');
+      if(!t||!p||it===except)return;
+      t.setAttribute('aria-expanded','false');p.setAttribute('data-open','false');p.setAttribute('hidden','');
+    });
+  }
+  items.forEach(function(it){
+    var t=it.querySelector('.ftl-nav-trigger'),p=it.querySelector('.ftl-mega');
+    if(!t||!p)return;
+    function open(){clearTimer();closeAll(it);t.setAttribute('aria-expanded','true');p.removeAttribute('hidden');p.setAttribute('data-open','true');}
+    function close(){t.setAttribute('aria-expanded','false');p.setAttribute('data-open','false');p.setAttribute('hidden','');}
+    function deferClose(){clearTimer();closeTimer=setTimeout(close,140);}
+    it.addEventListener('mouseenter',open);
+    it.addEventListener('mouseleave',deferClose);
+    p.addEventListener('mouseenter',clearTimer);
+    p.addEventListener('mouseleave',deferClose);
+    t.addEventListener('click',function(e){e.preventDefault();(t.getAttribute('aria-expanded')==='true')?close():open();});
+    t.addEventListener('keydown',function(e){if(e.key==='Escape'){close();t.focus();}});
+    p.addEventListener('keydown',function(e){if(e.key==='Escape'){close();t.focus();}});
+  });
+  document.addEventListener('click',function(e){if(!wrap.contains(e.target))closeAll(null);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll(null);});
+  var burger=document.getElementById('ftlBurger'),mnav=document.getElementById('ftlMobileNav');
+  if(burger&&mnav){
+    burger.addEventListener('click',function(){
+      var open=mnav.hasAttribute('hidden');
+      if(open){mnav.removeAttribute('hidden');burger.setAttribute('aria-expanded','true');}
+      else{mnav.setAttribute('hidden','');burger.setAttribute('aria-expanded','false');}
+    });
+  }
+})();
+</script>
+</body>
+</html>
