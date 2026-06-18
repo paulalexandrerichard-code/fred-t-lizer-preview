@@ -28,12 +28,6 @@
     </div>
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5" id="grid-main"></div>
 
-    <div class="flex items-center gap-3 mb-6 mt-16">
-      <span class="display text-2xl uppercase text-white/60">Explorations initiales · 6 concepts d'accueil</span>
-      <span class="h-px flex-1 bg-white/15"></span>
-    </div>
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4" id="grid-concepts"></div>
-
     
   <section class="mt-12 rounded-2xl bg-white/5 border border-white/10 p-6">
   <h2 class="display text-xl uppercase">Télécharger la présentation (PDF)</h2>
@@ -66,14 +60,7 @@ const main = [
   {f:'sections/comparatif.html', n:'Comparatif vs compétition', d:'Nos avantages (fonctionnalités + esthétique) vs Gaia, AN, GH, GreenPlanet.', t:'Vente'},
   {f:'sections/business-case.html', n:'Business case', d:'Techno des grandes marques vs WooCommerce : tout inclus, sécurité, SEO/IA, ROI.', t:'Vente'},
 ];
-const concepts = [
-  {f:'home/01-nordique-organique.html', n:'01 · Nordique Organique'},
-  {f:'home/02-premium-tech-grower.html', n:'02 · Premium Tech Grower'},
-  {f:'home/03-editorial-botanique.html', n:'03 · Éditorial Botanique'},
-  {f:'home/04-labo-scientifique.html', n:'04 · Labo Scientifique'},
-  {f:'home/05-boutique-chaleureux-qc.html', n:'05 · Boutique Chaleureux QC'},
-  {f:'home/06-bold-conversion.html', n:'06 · Bold Conversion ✓'},
-];
+
 const tagColor = {'Fusion':'#3FB44A','B2C':'#16C46A','B2B':'#3FA3FF','Différenciateur':'#F6C544','Plugin':'#C56BFF'};
 document.getElementById('grid-main').innerHTML = main.map(x=>`
   <a href="${x.f}" class="group block rounded-xl bg-white/5 border border-white/10 p-5 hover:border-[#16C46A]/60 hover:bg-white/[0.07] transition">
@@ -86,8 +73,7 @@ document.getElementById('grid-main').innerHTML = main.map(x=>`
       <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
     </span>
   </a>`).join('');
-document.getElementById('grid-concepts').innerHTML = concepts.map(x=>`
-  <a href="${x.f}" class="block rounded-lg bg-white/[0.03] border border-white/10 px-4 py-3 text-sm text-white/70 hover:text-white hover:border-white/30 transition">${x.n}</a>`).join('');
+
 </script>
 </body>
 </html>

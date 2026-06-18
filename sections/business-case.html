@@ -357,12 +357,12 @@
 <!-- ============ HERO ============ -->
 <section class="relative soil-texture text-cream overflow-hidden">
   <img src="../assets/lifestyle/hero-serre.jpg" alt="Serre de culture luxuriante" loading="lazy" class="absolute inset-0 w-full h-full object-cover" aria-hidden="true">
-  <div class="absolute inset-0 bg-gradient-to-r from-[#0c0d0c]/96 via-[#14401F]/88 to-[#14401F]/55" aria-hidden="true"></div>
+  <div class="absolute inset-0" style="background:linear-gradient(100deg,rgba(8,9,8,0.97) 0%,rgba(12,30,18,0.9) 48%,rgba(20,64,31,0.5) 100%)" aria-hidden="true"></div>
   <div class="absolute inset-0 grain" aria-hidden="true"></div>
   <div class="absolute -top-32 -right-32 w-[34rem] h-[34rem] rounded-full bg-leaf/15 blur-3xl" aria-hidden="true"></div>
 
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6 py-14 lg:py-24">
-    <div class="max-w-3xl">
+    <div class="max-w-3xl backdrop-blur-md rounded-2xl p-7 sm:p-9 border border-white/10 shadow-2xl" style="background-color:rgba(9,10,9,0.86)">
       <span class="inline-flex items-center gap-2 bg-white/10 border border-white/15 rounded-full px-3 py-1.5 text-xs font-bold tracking-wide uppercase">
         <span class="w-2 h-2 rounded-full bg-leaf" aria-hidden="true"></span>
         Business case · Plateforme e-commerce
@@ -474,11 +474,13 @@
           <tr><td class="px-5 py-3 font-semibold">Comptabilité / QuickBooks</td><td class="px-5 py-3 text-charcoal/65">Sync comptable</td><td class="px-5 py-3 text-right font-bold tabular-nums">199&nbsp;$</td></tr>
           <tr><td class="px-5 py-3 font-semibold">Infolettre / publipostage</td><td class="px-5 py-3 text-charcoal/65">Marketing connector</td><td class="px-5 py-3 text-right font-bold tabular-nums">129&nbsp;$</td></tr>
           <tr><td class="px-5 py-3 font-semibold">Billets de support client</td><td class="px-5 py-3 text-charcoal/65">Help desk</td><td class="px-5 py-3 text-right font-bold tabular-nums">149&nbsp;$</td></tr>
+          <tr><td class="px-5 py-3 font-semibold">B2B / revendeurs &amp; prix de gros</td><td class="px-5 py-3 text-charcoal/65">Wholesale / B2B pro</td><td class="px-5 py-3 text-right font-bold tabular-nums">349&nbsp;$</td></tr>
+          <tr><td class="px-5 py-3 font-semibold">Affiliés / influenceurs</td><td class="px-5 py-3 text-charcoal/65">Affiliation pro</td><td class="px-5 py-3 text-right font-bold tabular-nums">199&nbsp;$</td></tr>
         </tbody>
         <tfoot>
           <tr class="bg-forestdk text-cream">
             <td class="px-5 py-4 font-archivo font-800" colspan="2">Total récurrent — extensions seules</td>
-            <td class="px-5 py-4 text-right font-display text-2xl text-leaf tabular-nums">1&nbsp;806&nbsp;$&nbsp;/&nbsp;an</td>
+            <td class="px-5 py-4 text-right font-display text-2xl text-leaf tabular-nums">2&nbsp;354&nbsp;$&nbsp;/&nbsp;an</td>
           </tr>
         </tfoot>
       </table>
@@ -572,6 +574,20 @@
         <span class="grid place-items-center w-11 h-11 bg-leaf rounded-xl" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0E120F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h11v9H3z"/><path d="M14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.6"/><circle cx="17.5" cy="18" r="1.6"/></svg></span>
         <h3 class="mt-4 font-archivo font-800 text-lg">Intégration transporteur</h3>
         <p class="mt-2 text-sm text-cream/70">Connexion à un broker d'expédition (ex. Goorooship) pour comparer les tarifs et imprimer vos étiquettes au meilleur prix.</p>
+      </div>
+
+      <!-- Module B2B & prix par paliers -->
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+        <span class="grid place-items-center w-11 h-11 bg-leaf rounded-xl" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0E120F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V8l6-4 6 4v13"/><path d="M15 21V11l6 4v6"/><path d="M3 21h18"/></svg></span>
+        <h3 class="mt-4 font-archivo font-800 text-lg">Module B2B &amp; prix par paliers</h3>
+        <p class="mt-2 text-sm text-cream/70">Comptes revendeurs, catalogue B2B et ouverture de compte intégrés. Prix de gros dégressifs par paliers selon le volume — sans extension « Wholesale » à 250–400&nbsp;$/an à renouveler.</p>
+      </div>
+
+      <!-- Programme d'affiliés / influenceurs -->
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+        <span class="grid place-items-center w-11 h-11 bg-leaf rounded-xl" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0E120F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 7-7"/><path d="M14 8h6v6"/></svg></span>
+        <h3 class="mt-4 font-archivo font-800 text-lg">Programme d'affiliés / influenceurs</h3>
+        <p class="mt-2 text-sm text-cream/70">Commissions, liens et codes de suivi, tableau de bord affilié, bannières et vidéo partageable — le tout inclus. Pas d'extension d'affiliation à 150–250&nbsp;$/an qui s'ajoute à la facture.</p>
       </div>
 
       <!-- Rapports + QuickBooks -->
@@ -689,8 +705,8 @@
   <div class="mt-8 grid md:grid-cols-3 gap-4">
     <div class="rounded-2xl bg-soildk text-cream p-6">
       <p class="text-xs font-bold uppercase tracking-[0.16em] text-cream/55">WooCommerce · sur 3 ans</p>
-      <p class="mt-3 font-display text-4xl text-leaf">~5 400&nbsp;$+</p>
-      <p class="mt-2 text-sm text-cream/70">en extensions récurrentes seules (1 806&nbsp;$/an × 3), avant maintenance et correctifs de sécurité.</p>
+      <p class="mt-3 font-display text-4xl text-leaf">~7 050&nbsp;$+</p>
+      <p class="mt-2 text-sm text-cream/70">en extensions récurrentes seules (2 354&nbsp;$/an × 3), avant maintenance et correctifs de sécurité.</p>
     </div>
     <div class="rounded-2xl bg-forest text-cream p-6">
       <p class="text-xs font-bold uppercase tracking-[0.16em] text-cream/60">Notre solution · sur 3 ans</p>
@@ -699,7 +715,7 @@
     </div>
     <div class="rounded-2xl bg-leaf text-charcoal p-6">
       <p class="text-xs font-bold uppercase tracking-[0.16em] text-charcoal/65">L'écart</p>
-      <p class="mt-3 font-display text-4xl">≈ 5 400&nbsp;$</p>
+      <p class="mt-3 font-display text-4xl">≈ 7 050&nbsp;$</p>
       <p class="mt-2 text-sm text-charcoal/75">économisés sur 3 ans en frais d'extensions — plus une boutique plus rapide, plus sûre et plus visible.</p>
     </div>
   </div>
