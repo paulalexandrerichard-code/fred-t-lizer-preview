@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fred T. Lizer — Console d'administration</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          charcoal: '#0E120F',
+          forest: '#1E5B2E',
+          forestdk: '#14401F',
+          forestnav: '#0c1a10',
+          leaf: '#3FB44A',
+          leafdk: '#2E9239',
+          cream: '#F5F1E8',
+          soil: '#6B5235',
+          line: '#E3DCCB',
+        },
+        fontFamily: {
+          display: ['Anton', 'sans-serif'],
+          archivo: ['Archivo', 'sans-serif'],
+          sans: ['Inter', 'sans-serif'],
+        },
+      }
+    }
+  }
+</script>
+<style>
+  body { font-family: 'Inter', sans-serif; background: #f4f5f3; }
+  .font-display { font-family: 'Anton', sans-serif; letter-spacing: -0.01em; }
+  .font-archivo { font-family: 'Archivo', sans-serif; }
+  .nav-link.active { background: rgba(63,180,74,.16); color: #fff; }
+  .nav-link.active .nav-ico { color: #3FB44A; }
+  .nav-link.active::before { content:""; position:absolute; left:0; top:8px; bottom:8px; width:3px; border-radius:0 3px 3px 0; background:#3FB44A; }
+  .nav-link { position:relative; }
+  ::-webkit-scrollbar { height: 8px; width: 8px; }
+  ::-webkit-scrollbar-thumb { background: #c9cfc6; border-radius: 8px; }
+  .card { background:#fff; border:1px solid #e7e9e3; border-radius:16px; }
+  table { border-collapse: collapse; }
+  /* Sidebar mobile */
+  #sidebar { transition: transform .25s ease; }
+  @media (max-width: 1023px){
+    #sidebar { position: fixed; z-index: 70; transform: translateX(-100%); }
+    #sidebar.open { transform: translateX(0); }
+  }
+  #overlay { transition: opacity .2s ease; }
+</style>
+</head>
+<body class="text-charcoal">
+
+<div class="flex min-h-screen">
+
+  <!-- ===================== SIDEBAR ===================== -->
+  <aside id="sidebar" class="w-60 shrink-0 bg-forestnav text-cream flex flex-col h-screen lg:sticky top-0 overflow-y-auto">
+    <!-- Logo -->
+    <div class="px-5 h-16 flex items-center gap-2.5 border-b border-white/10 shrink-0">
+      <div class="w-9 h-9 rounded-lg bg-leaf grid place-items-center shrink-0">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0c1a10" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg>
+      </div>
+      <div class="leading-tight min-w-0">
+        <div class="font-archivo font-extrabold text-[13px] tracking-tight text-white truncate">FRED T. LIZER</div>
+        <div class="text-[10px] font-bold tracking-[.18em] text-leaf uppercase">Admin</div>
+      </div>
+    </div>
+
+    <!-- Nav -->
+    <nav class="flex-1 py-4 px-3 text-sm">
+      <p class="px-3 mb-2 text-[10px] font-bold tracking-[.16em] uppercase text-cream/40">Pilotage</p>
+      <a href="#" class="nav-link active flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium text-cream/80 hover:bg-white/5 mb-0.5">
+        <svg class="nav-ico shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>
+        Tableau de bord
+      </a>
+
+      <p class="px-3 mt-5 mb-2 text-[10px] font-bold tracking-[.16em] uppercase text-cream/40">Commerce</p>
+      <a href="#commandes" class="nav-link flex items-center justify-between gap-3 px-3 py-2.5 rounded-lg font-medium text-cream/80 hover:bg-white/5 mb-0.5">
+        <span class="flex items-center gap-3"><svg class="nav-ico shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>Commandes</span>
+        <span class="text-[10px] font-bold bg-leaf text-forestnav rounded-full px-1.5 py-0.5">14</span>
+      </a>
+      <a href="#produits" class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium text-cream/80 hover:bg-white/5 mb-0.5">
+        <svg class="nav-ico shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>
+        Produits &amp; inventaire
+      </a>
+      <a href="#clients" class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium text-cream/80 hover:bg-white/5 mb-0.5">
+        <svg class="nav-ico shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        Clients
+      </a>
+
+      <p class="px-3 mt-5 mb-2 text-[10px] font-bold tracking-[.16em] uppercase text-cream/40">Réseau</p>
+      <a href="#b2b" class="nav-link flex items-center justify-between gap-3 px-3 py-2.5 rounded-lg font-medium text-cream/80 hover:bg-white/5 mb-0.5">
+        <span class="flex items-center gap-3"><svg class="nav-ico shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/><path d="M9 9v.01M9 12v.01M9 15v.01M9 18v.01"/></svg>B2B / Revendeurs</span>
+        <span class="text-[10px] font-bold bg-amber-400 text-forestnav rounded-full px-1.5 py-0.5">3</span>
+      </a>
+      <a href="#affilies" class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium text-cream/80 hover:bg-white/5 mb-0.5">
+        <svg class="nav-ico shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+        Affiliés
+      </a>
+
+      <p class="px-3 mt-5 mb-2 text-[10px] font-bold tracking-[.16em] uppercase text-cream/40">Croissance</p>
+      <a href="#seo" class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium text-cream/80 hover:bg-white/5 mb-0.5">
+        <svg class="nav-ico shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+        SEO &amp; Analytics
+      </a>
+      <a href="#" class="nav-link flex items-center justify-between gap-3 px-3 py-2.5 rounded-lg font-medium text-cream/80 hover:bg-white/5 mb-0.5">
+        <span class="flex items-center gap-3"><svg class="nav-ico shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2Z"/><path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1"/></svg>Messagerie</span>
+        <span class="text-[10px] font-bold bg-leaf text-forestnav rounded-full px-1.5 py-0.5">5</span>
+      </a>
+      <a href="#" class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium text-cream/80 hover:bg-white/5 mb-0.5">
+        <svg class="nav-ico shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M8 13h2M8 17h2M14 13h2M14 17h2"/></svg>
+        Rapports &amp; taxes
+      </a>
+      <a href="#" class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium text-cream/80 hover:bg-white/5 mb-0.5">
+        <svg class="nav-ico shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v12H5.17L4 17.17Z"/><path d="m8 9 4 3 8-5"/></svg>
+        Infolettre
+      </a>
+      <a href="#" class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium text-cream/80 hover:bg-white/5 mb-0.5">
+        <svg class="nav-ico shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2Z"/><circle cx="12" cy="12" r="3"/></svg>
+        Paramètres
+      </a>
+    </nav>
+
+    <div class="p-3 border-t border-white/10 shrink-0">
+      <div class="flex items-center gap-2.5 px-2 py-2 rounded-lg bg-white/5">
+        <div class="w-8 h-8 rounded-full bg-leaf grid place-items-center text-forestnav font-bold text-xs shrink-0">FL</div>
+        <div class="min-w-0 leading-tight">
+          <div class="text-[12px] font-semibold text-white truncate">Frédéric Lizée</div>
+          <div class="text-[10px] text-cream/50">Propriétaire</div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <div id="overlay" class="hidden fixed inset-0 bg-black/50 z-[65] lg:hidden"></div>
+
+  <!-- ===================== MAIN ===================== -->
+  <div class="flex-1 min-w-0 flex flex-col">
+
+    <!-- TOPBAR -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-line/70 h-16 flex items-center gap-3 px-4 lg:px-6">
+      <button id="burger" class="lg:hidden -ml-1 p-2 rounded-lg hover:bg-cream text-charcoal shrink-0" aria-label="Menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+
+      <!-- Search -->
+      <div class="relative flex-1 max-w-md hidden sm:block">
+        <svg class="absolute left-3 top-1/2 -translate-y-1/2 text-charcoal/40" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <input type="text" placeholder="Rechercher commande, produit, client…" class="w-full pl-9 pr-3 py-2 text-sm rounded-lg bg-cream/60 border border-line focus:outline-none focus:ring-2 focus:ring-leaf/40 focus:bg-white">
+      </div>
+
+      <div class="flex-1 sm:hidden"></div>
+
+      <!-- Période -->
+      <div class="hidden md:flex items-center bg-cream/70 border border-line rounded-lg p-0.5 text-xs font-semibold shrink-0">
+        <button class="px-3 py-1.5 rounded-md text-charcoal/60 hover:text-charcoal">Aujourd'hui</button>
+        <button class="px-3 py-1.5 rounded-md text-charcoal/60 hover:text-charcoal">7&nbsp;j</button>
+        <button class="px-3 py-1.5 rounded-md bg-white shadow-sm text-forest">30&nbsp;j</button>
+      </div>
+
+      <!-- Notifications -->
+      <button class="relative p-2 rounded-lg hover:bg-cream text-charcoal/70 shrink-0" aria-label="Notifications">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+        <span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-leaf ring-2 ring-white"></span>
+      </button>
+
+      <!-- Avatar -->
+      <button class="flex items-center gap-2 pl-1 pr-2 py-1 rounded-lg hover:bg-cream shrink-0" aria-label="Compte">
+        <span class="w-8 h-8 rounded-full bg-forest grid place-items-center text-white font-bold text-xs">FL</span>
+        <svg class="hidden sm:block text-charcoal/40" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+    </header>
+
+    <!-- CONTENT -->
+    <main class="p-4 lg:p-6 max-w-[1400px] w-full mx-auto">
+
+      <!-- Page head -->
+      <div class="flex flex-wrap items-end justify-between gap-3 mb-5">
+        <div>
+          <h1 class="font-display text-3xl sm:text-4xl text-forestdk leading-none">Tableau de bord</h1>
+          <p class="text-sm text-charcoal/55 mt-1.5">Aperçu du 19 mai au 18 juin 2026 · comparé aux 30 jours précédents</p>
+        </div>
+        <button class="inline-flex items-center gap-2 bg-leaf hover:bg-leafdk text-forestnav hover:text-white font-bold text-sm px-4 py-2.5 rounded-lg transition">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Exporter le rapport
+        </button>
+      </div>
+
+      <!-- ===== KPI CARDS ===== -->
+      <section class="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-3 sm:gap-4 mb-6">
+        <!-- Ventes -->
+        <div class="card p-4">
+          <div class="flex items-center justify-between">
+            <span class="text-[11px] font-bold uppercase tracking-wide text-charcoal/45">Ventes du mois</span>
+            <svg class="text-leaf" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <div class="font-archivo font-extrabold text-2xl text-charcoal mt-1.5">84 230&nbsp;$</div>
+          <div class="flex items-center justify-between mt-2">
+            <span class="inline-flex items-center gap-1 text-[11px] font-bold text-leafdk"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 15 12 9 18 15"/></svg>12,4&nbsp;%</span>
+            <svg width="60" height="22" viewBox="0 0 60 22" fill="none"><polyline points="0,18 10,15 20,16 30,10 40,11 50,5 60,3" stroke="#3FB44A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </div>
+        <!-- Commandes -->
+        <div class="card p-4">
+          <div class="flex items-center justify-between">
+            <span class="text-[11px] font-bold uppercase tracking-wide text-charcoal/45">Commandes</span>
+            <svg class="text-forest" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+          </div>
+          <div class="font-archivo font-extrabold text-2xl text-charcoal mt-1.5">612</div>
+          <div class="flex items-center justify-between mt-2">
+            <span class="inline-flex items-center gap-1 text-[11px] font-bold text-leafdk"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 15 12 9 18 15"/></svg>8,1&nbsp;%</span>
+            <svg width="60" height="22" viewBox="0 0 60 22" fill="none"><polyline points="0,16 10,17 20,12 30,13 40,9 50,10 60,6" stroke="#1E5B2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </div>
+        <!-- Panier moyen -->
+        <div class="card p-4">
+          <div class="flex items-center justify-between">
+            <span class="text-[11px] font-bold uppercase tracking-wide text-charcoal/45">Panier moyen</span>
+            <svg class="text-soil" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+          </div>
+          <div class="font-archivo font-extrabold text-2xl text-charcoal mt-1.5">137,60&nbsp;$</div>
+          <div class="flex items-center justify-between mt-2">
+            <span class="inline-flex items-center gap-1 text-[11px] font-bold text-leafdk"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 15 12 9 18 15"/></svg>4,0&nbsp;%</span>
+            <svg width="60" height="22" viewBox="0 0 60 22" fill="none"><polyline points="0,14 10,12 20,13 30,11 40,12 50,9 60,8" stroke="#6B5235" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </div>
+        <!-- Conversion -->
+        <div class="card p-4">
+          <div class="flex items-center justify-between">
+            <span class="text-[11px] font-bold uppercase tracking-wide text-charcoal/45">Taux de conversion</span>
+            <svg class="text-leaf" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="9"/></svg>
+          </div>
+          <div class="font-archivo font-extrabold text-2xl text-charcoal mt-1.5">3,18&nbsp;%</div>
+          <div class="flex items-center justify-between mt-2">
+            <span class="inline-flex items-center gap-1 text-[11px] font-bold text-leafdk"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 15 12 9 18 15"/></svg>0,5&nbsp;pt</span>
+            <svg width="60" height="22" viewBox="0 0 60 22" fill="none"><polyline points="0,15 10,14 20,15 30,12 40,13 50,11 60,9" stroke="#3FB44A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </div>
+        <!-- Visiteurs -->
+        <div class="card p-4">
+          <div class="flex items-center justify-between">
+            <span class="text-[11px] font-bold uppercase tracking-wide text-charcoal/45">Visiteurs</span>
+            <svg class="text-forest" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
+          <div class="font-archivo font-extrabold text-2xl text-charcoal mt-1.5">19 240</div>
+          <div class="flex items-center justify-between mt-2">
+            <span class="inline-flex items-center gap-1 text-[11px] font-bold text-red-500"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>2,3&nbsp;%</span>
+            <svg width="60" height="22" viewBox="0 0 60 22" fill="none"><polyline points="0,6 10,8 20,7 30,10 40,9 50,12 60,11" stroke="#1E5B2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </div>
+        <!-- Revendeurs -->
+        <div class="card p-4">
+          <div class="flex items-center justify-between">
+            <span class="text-[11px] font-bold uppercase tracking-wide text-charcoal/45">Revendeurs actifs</span>
+            <svg class="text-soil" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/></svg>
+          </div>
+          <div class="font-archivo font-extrabold text-2xl text-charcoal mt-1.5">48</div>
+          <div class="flex items-center justify-between mt-2">
+            <span class="inline-flex items-center gap-1 text-[11px] font-bold text-leafdk"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 15 12 9 18 15"/></svg>+5</span>
+            <svg width="60" height="22" viewBox="0 0 60 22" fill="none"><polyline points="0,16 10,15 20,14 30,14 40,11 50,10 60,8" stroke="#6B5235" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== GRAPH VENTES + COMMANDES RÉCENTES ===== -->
+      <section class="grid grid-cols-1 xl:grid-cols-3 gap-4 sm:gap-5 mb-6">
+        <!-- Graph ventes -->
+        <div class="card p-5 xl:col-span-2">
+          <div class="flex items-center justify-between mb-4">
+            <div>
+              <h2 class="font-archivo font-extrabold text-lg text-charcoal">Ventes par semaine</h2>
+              <p class="text-xs text-charcoal/50">B2C vs B2B · 8 dernières semaines</p>
+            </div>
+            <div class="flex items-center gap-3 text-[11px] font-semibold">
+              <span class="inline-flex items-center gap-1.5 text-charcoal/70"><span class="w-2.5 h-2.5 rounded-sm bg-leaf"></span>B2C</span>
+              <span class="inline-flex items-center gap-1.5 text-charcoal/70"><span class="w-2.5 h-2.5 rounded-sm bg-forestdk"></span>B2B</span>
+            </div>
+          </div>
+          <!-- Bar chart SVG -->
+          <div class="overflow-x-auto">
+          <svg viewBox="0 0 640 240" width="100%" height="240" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Graphique des ventes hebdomadaires" style="min-width:520px">
+            <!-- grid -->
+            <g stroke="#e7e9e3" stroke-width="1">
+              <line x1="44" y1="20" x2="630" y2="20"/><line x1="44" y1="68" x2="630" y2="68"/>
+              <line x1="44" y1="116" x2="630" y2="116"/><line x1="44" y1="164" x2="630" y2="164"/>
+              <line x1="44" y1="208" x2="630" y2="208"/>
+            </g>
+            <g fill="#9aa295" font-size="10" font-family="Inter">
+              <text x="38" y="24" text-anchor="end">24k</text><text x="38" y="72" text-anchor="end">18k</text>
+              <text x="38" y="120" text-anchor="end">12k</text><text x="38" y="168" text-anchor="end">6k</text>
+              <text x="38" y="211" text-anchor="end">0</text>
+            </g>
+            <!-- bars: 8 groups -->
+            <g>
+              <!-- s1 -->
+              <rect x="62"  y="120" width="18" height="88"  rx="3" fill="#3FB44A"/><rect x="82"  y="160" width="18" height="48"  rx="3" fill="#14401F"/>
+              <rect x="134" y="108" width="18" height="100" rx="3" fill="#3FB44A"/><rect x="154" y="150" width="18" height="58"  rx="3" fill="#14401F"/>
+              <rect x="206" y="96"  width="18" height="112" rx="3" fill="#3FB44A"/><rect x="226" y="142" width="18" height="66"  rx="3" fill="#14401F"/>
+              <rect x="278" y="104" width="18" height="104" rx="3" fill="#3FB44A"/><rect x="298" y="134" width="18" height="74"  rx="3" fill="#14401F"/>
+              <rect x="350" y="84"  width="18" height="124" rx="3" fill="#3FB44A"/><rect x="370" y="128" width="18" height="80"  rx="3" fill="#14401F"/>
+              <rect x="422" y="72"  width="18" height="136" rx="3" fill="#3FB44A"/><rect x="442" y="118" width="18" height="90"  rx="3" fill="#14401F"/>
+              <rect x="494" y="60"  width="18" height="148" rx="3" fill="#3FB44A"/><rect x="514" y="110" width="18" height="98"  rx="3" fill="#14401F"/>
+              <rect x="566" y="44"  width="18" height="164" rx="3" fill="#3FB44A"/><rect x="586" y="96"  width="18" height="112" rx="3" fill="#14401F"/>
+            </g>
+            <g fill="#9aa295" font-size="10" font-family="Inter" text-anchor="middle">
+              <text x="80"  y="224">S1</text><text x="152" y="224">S2</text><text x="224" y="224">S3</text><text x="296" y="224">S4</text>
+              <text x="368" y="224">S5</text><text x="440" y="224">S6</text><text x="512" y="224">S7</text><text x="584" y="224">S8</text>
+            </g>
+          </svg>
+          </div>
+        </div>
+
+        <!-- Commandes récentes -->
+        <div class="card p-5">
+          <div class="flex items-center justify-between mb-3">
+            <h2 class="font-archivo font-extrabold text-lg text-charcoal">Commandes récentes</h2>
+            <a href="#commandes" class="text-xs font-bold text-forest hover:text-leafdk">Tout voir</a>
+          </div>
+          <ul class="divide-y divide-line/70 -my-1">
+            <li class="flex items-center justify-between py-3">
+              <div class="min-w-0"><p class="text-sm font-semibold text-charcoal truncate">Marie-Ève Tremblay</p><p class="text-xs text-charcoal/45">#FTL-10842 · il y a 6 min</p></div>
+              <div class="text-right shrink-0 ml-2"><p class="text-sm font-bold text-charcoal">214,90&nbsp;$</p><span class="text-[10px] font-bold text-leafdk bg-leaf/15 rounded-full px-2 py-0.5">Payée</span></div>
+            </li>
+            <li class="flex items-center justify-between py-3">
+              <div class="min-w-0"><p class="text-sm font-semibold text-charcoal truncate">Centre Jardin Boréal</p><p class="text-xs text-charcoal/45">#FTL-10841 · il y a 22 min</p></div>
+              <div class="text-right shrink-0 ml-2"><p class="text-sm font-bold text-charcoal">1 480,00&nbsp;$</p><span class="text-[10px] font-bold text-amber-700 bg-amber-100 rounded-full px-2 py-0.5">En traitement</span></div>
+            </li>
+            <li class="flex items-center justify-between py-3">
+              <div class="min-w-0"><p class="text-sm font-semibold text-charcoal truncate">Hugo Bélanger</p><p class="text-xs text-charcoal/45">#FTL-10840 · il y a 51 min</p></div>
+              <div class="text-right shrink-0 ml-2"><p class="text-sm font-bold text-charcoal">89,50&nbsp;$</p><span class="text-[10px] font-bold text-sky-700 bg-sky-100 rounded-full px-2 py-0.5">Expédiée</span></div>
+            </li>
+            <li class="flex items-center justify-between py-3">
+              <div class="min-w-0"><p class="text-sm font-semibold text-charcoal truncate">Grow Lab Saguenay</p><p class="text-xs text-charcoal/45">#FTL-10839 · il y a 1 h</p></div>
+              <div class="text-right shrink-0 ml-2"><p class="text-sm font-bold text-charcoal">642,30&nbsp;$</p><span class="text-[10px] font-bold text-leafdk bg-leaf/15 rounded-full px-2 py-0.5">Payée</span></div>
+            </li>
+            <li class="flex items-center justify-between py-3">
+              <div class="min-w-0"><p class="text-sm font-semibold text-charcoal truncate">Sophie Gagnon</p><p class="text-xs text-charcoal/45">#FTL-10838 · il y a 2 h</p></div>
+              <div class="text-right shrink-0 ml-2"><p class="text-sm font-bold text-charcoal">47,00&nbsp;$</p><span class="text-[10px] font-bold text-sky-700 bg-sky-100 rounded-full px-2 py-0.5">Expédiée</span></div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===== COMMANDES B2C ===== -->
+      <section id="commandes" class="card p-5 mb-6 scroll-mt-20">
+        <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+          <h2 class="font-archivo font-extrabold text-lg text-charcoal flex items-center gap-2">
+            <svg class="text-leaf" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+            Commandes (B2C)
+          </h2>
+          <div class="flex items-center gap-2 text-xs font-semibold">
+            <button class="px-3 py-1.5 rounded-lg bg-forestdk text-white">Toutes</button>
+            <button class="px-3 py-1.5 rounded-lg bg-cream text-charcoal/60 hover:bg-line">En traitement</button>
+            <button class="px-3 py-1.5 rounded-lg bg-cream text-charcoal/60 hover:bg-line">Expédiées</button>
+          </div>
+        </div>
+        <div class="overflow-x-auto -mx-5 px-5">
+          <table class="w-full text-sm" style="min-width:640px">
+            <thead>
+              <tr class="text-left text-[11px] uppercase tracking-wide text-charcoal/45 border-b border-line">
+                <th class="py-2.5 pr-4 font-bold">Commande</th><th class="py-2.5 pr-4 font-bold">Client</th><th class="py-2.5 pr-4 font-bold">Date</th><th class="py-2.5 pr-4 font-bold text-right">Total</th><th class="py-2.5 pr-4 font-bold">Statut</th><th class="py-2.5 font-bold text-right">Action</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-line/70">
+              <tr class="hover:bg-cream/50"><td class="py-3 pr-4 font-semibold text-forest">#FTL-10842</td><td class="py-3 pr-4">Marie-Ève Tremblay</td><td class="py-3 pr-4 text-charcoal/60">18 juin 2026</td><td class="py-3 pr-4 text-right font-bold">214,90&nbsp;$</td><td class="py-3 pr-4"><span class="text-[11px] font-bold text-leafdk bg-leaf/15 rounded-full px-2.5 py-1">Payée</span></td><td class="py-3 text-right"><button class="text-forest font-bold hover:text-leafdk">Détails</button></td></tr>
+              <tr class="hover:bg-cream/50"><td class="py-3 pr-4 font-semibold text-forest">#FTL-10840</td><td class="py-3 pr-4">Hugo Bélanger</td><td class="py-3 pr-4 text-charcoal/60">18 juin 2026</td><td class="py-3 pr-4 text-right font-bold">89,50&nbsp;$</td><td class="py-3 pr-4"><span class="text-[11px] font-bold text-sky-700 bg-sky-100 rounded-full px-2.5 py-1">Expédiée</span></td><td class="py-3 text-right"><button class="text-forest font-bold hover:text-leafdk">Détails</button></td></tr>
+              <tr class="hover:bg-cream/50"><td class="py-3 pr-4 font-semibold text-forest">#FTL-10837</td><td class="py-3 pr-4">Sophie Gagnon</td><td class="py-3 pr-4 text-charcoal/60">17 juin 2026</td><td class="py-3 pr-4 text-right font-bold">47,00&nbsp;$</td><td class="py-3 pr-4"><span class="text-[11px] font-bold text-amber-700 bg-amber-100 rounded-full px-2.5 py-1">En traitement</span></td><td class="py-3 text-right"><button class="text-forest font-bold hover:text-leafdk">Détails</button></td></tr>
+              <tr class="hover:bg-cream/50"><td class="py-3 pr-4 font-semibold text-forest">#FTL-10835</td><td class="py-3 pr-4">Olivier Dubé</td><td class="py-3 pr-4 text-charcoal/60">17 juin 2026</td><td class="py-3 pr-4 text-right font-bold">312,75&nbsp;$</td><td class="py-3 pr-4"><span class="text-[11px] font-bold text-leafdk bg-leaf/15 rounded-full px-2.5 py-1">Payée</span></td><td class="py-3 text-right"><button class="text-forest font-bold hover:text-leafdk">Détails</button></td></tr>
+              <tr class="hover:bg-cream/50"><td class="py-3 pr-4 font-semibold text-forest">#FTL-10833</td><td class="py-3 pr-4">Camille Roy</td><td class="py-3 pr-4 text-charcoal/60">16 juin 2026</td><td class="py-3 pr-4 text-right font-bold">128,40&nbsp;$</td><td class="py-3 pr-4"><span class="text-[11px] font-bold text-sky-700 bg-sky-100 rounded-full px-2.5 py-1">Expédiée</span></td><td class="py-3 text-right"><button class="text-forest font-bold hover:text-leafdk">Détails</button></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ===== PRODUITS & INVENTAIRE ===== -->
+      <section id="produits" class="card p-5 mb-6 scroll-mt-20">
+        <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+          <h2 class="font-archivo font-extrabold text-lg text-charcoal flex items-center gap-2">
+            <svg class="text-leaf" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>
+            Produits &amp; inventaire
+          </h2>
+          <button class="inline-flex items-center gap-1.5 bg-forestdk hover:bg-forest text-white font-bold text-xs px-3 py-2 rounded-lg">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>Ajouter
+          </button>
+        </div>
+        <div class="overflow-x-auto -mx-5 px-5">
+          <table class="w-full text-sm" style="min-width:640px">
+            <thead>
+              <tr class="text-left text-[11px] uppercase tracking-wide text-charcoal/45 border-b border-line">
+                <th class="py-2.5 pr-4 font-bold">Produit</th><th class="py-2.5 pr-4 font-bold">SKU</th><th class="py-2.5 pr-4 font-bold text-right">Prix</th><th class="py-2.5 pr-4 font-bold text-right">Stock</th><th class="py-2.5 pr-4 font-bold text-right">Seuil</th><th class="py-2.5 font-bold">État</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-line/70">
+              <tr class="hover:bg-cream/50">
+                <td class="py-2.5 pr-4"><div class="flex items-center gap-3"><img src="../assets/products/terra-a-30ml.png" alt="Terra A" class="w-9 h-9 object-contain rounded-md bg-cream/60 p-0.5" onerror="this.style.display='none'"><span class="font-semibold">Terra A · 30 ml</span></div></td>
+                <td class="py-2.5 pr-4 text-charcoal/60">FTL-TA-030</td><td class="py-2.5 pr-4 text-right font-bold">18,99&nbsp;$</td><td class="py-2.5 pr-4 text-right">142</td><td class="py-2.5 pr-4 text-right text-charcoal/50">40</td><td class="py-2.5"><span class="text-[11px] font-bold text-leafdk bg-leaf/15 rounded-full px-2.5 py-1">En stock</span></td>
+              </tr>
+              <tr class="hover:bg-cream/50">
+                <td class="py-2.5 pr-4"><div class="flex items-center gap-3"><img src="../assets/products/terra-b-30ml.png" alt="Terra B" class="w-9 h-9 object-contain rounded-md bg-cream/60 p-0.5" onerror="this.style.display='none'"><span class="font-semibold">Terra B · 30 ml</span></div></td>
+                <td class="py-2.5 pr-4 text-charcoal/60">FTL-TB-030</td><td class="py-2.5 pr-4 text-right font-bold">18,99&nbsp;$</td><td class="py-2.5 pr-4 text-right">31</td><td class="py-2.5 pr-4 text-right text-charcoal/50">40</td><td class="py-2.5"><span class="text-[11px] font-bold text-amber-700 bg-amber-100 rounded-full px-2.5 py-1">Stock faible</span></td>
+              </tr>
+              <tr class="hover:bg-cream/50">
+                <td class="py-2.5 pr-4"><div class="flex items-center gap-3"><img src="../assets/products/boostlizer-250ml.png" alt="BoostLizer" class="w-9 h-9 object-contain rounded-md bg-cream/60 p-0.5" onerror="this.style.display='none'"><span class="font-semibold">BoostLizer · 250 ml</span></div></td>
+                <td class="py-2.5 pr-4 text-charcoal/60">FTL-BL-250</td><td class="py-2.5 pr-4 text-right font-bold">34,50&nbsp;$</td><td class="py-2.5 pr-4 text-right">0</td><td class="py-2.5 pr-4 text-right text-charcoal/50">25</td><td class="py-2.5"><span class="text-[11px] font-bold text-red-700 bg-red-100 rounded-full px-2.5 py-1">Rupture</span></td>
+              </tr>
+              <tr class="hover:bg-cream/50">
+                <td class="py-2.5 pr-4"><div class="flex items-center gap-3"><img src="../assets/products/flush-sweet-250ml.png" alt="Flush Sweet" class="w-9 h-9 object-contain rounded-md bg-cream/60 p-0.5" onerror="this.style.display='none'"><span class="font-semibold">Flush Sweet · 250 ml</span></div></td>
+                <td class="py-2.5 pr-4 text-charcoal/60">FTL-FS-250</td><td class="py-2.5 pr-4 text-right font-bold">29,00&nbsp;$</td><td class="py-2.5 pr-4 text-right">98</td><td class="py-2.5 pr-4 text-right text-charcoal/50">30</td><td class="py-2.5"><span class="text-[11px] font-bold text-leafdk bg-leaf/15 rounded-full px-2.5 py-1">En stock</span></td>
+              </tr>
+              <tr class="hover:bg-cream/50">
+                <td class="py-2.5 pr-4"><div class="flex items-center gap-3"><img src="../assets/products/kit-potager-1litre.png" alt="Kit Potager" class="w-9 h-9 object-contain rounded-md bg-cream/60 p-0.5" onerror="this.style.display='none'"><span class="font-semibold">Kit Potager · 1 L</span></div></td>
+                <td class="py-2.5 pr-4 text-charcoal/60">FTL-KP-1L</td><td class="py-2.5 pr-4 text-right font-bold">59,99&nbsp;$</td><td class="py-2.5 pr-4 text-right">214</td><td class="py-2.5 pr-4 text-right text-charcoal/50">50</td><td class="py-2.5"><span class="text-[11px] font-bold text-leafdk bg-leaf/15 rounded-full px-2.5 py-1">En stock</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ===== CLIENTS ===== -->
+      <section id="clients" class="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-5 mb-6 scroll-mt-20">
+        <div class="card p-5">
+          <h2 class="font-archivo font-extrabold text-lg text-charcoal flex items-center gap-2 mb-4">
+            <svg class="text-leaf" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/></svg>
+            Clients
+          </h2>
+          <div class="font-display text-5xl text-forestdk leading-none">7 412</div>
+          <p class="text-sm text-charcoal/55 mt-1">clients actifs · <span class="text-leafdk font-bold">+186</span> ce mois</p>
+          <div class="mt-4 grid grid-cols-3 gap-2 text-center">
+            <div class="bg-cream/60 rounded-lg py-2"><div class="font-bold text-charcoal">61&nbsp;%</div><div class="text-[10px] text-charcoal/50 uppercase tracking-wide">Récurrents</div></div>
+            <div class="bg-cream/60 rounded-lg py-2"><div class="font-bold text-charcoal">28&nbsp;%</div><div class="text-[10px] text-charcoal/50 uppercase tracking-wide">Nouveaux</div></div>
+            <div class="bg-cream/60 rounded-lg py-2"><div class="font-bold text-charcoal">11&nbsp;%</div><div class="text-[10px] text-charcoal/50 uppercase tracking-wide">Dormants</div></div>
+          </div>
+        </div>
+        <div class="card p-5 lg:col-span-2">
+          <h3 class="font-archivo font-bold text-sm uppercase tracking-wide text-charcoal/60 mb-3">Segments</h3>
+          <ul class="space-y-3 text-sm">
+            <li><div class="flex justify-between mb-1"><span class="font-semibold">Jardiniers amateurs</span><span class="text-charcoal/60">4 980 · 67&nbsp;%</span></div><div class="h-2 rounded-full bg-cream"><div class="h-2 rounded-full bg-leaf" style="width:67%"></div></div></li>
+            <li><div class="flex justify-between mb-1"><span class="font-semibold">Growers avancés</span><span class="text-charcoal/60">1 890 · 25&nbsp;%</span></div><div class="h-2 rounded-full bg-cream"><div class="h-2 rounded-full bg-forest" style="width:25%"></div></div></li>
+            <li><div class="flex justify-between mb-1"><span class="font-semibold">Comptes B2B</span><span class="text-charcoal/60">542 · 8&nbsp;%</span></div><div class="h-2 rounded-full bg-cream"><div class="h-2 rounded-full bg-soil" style="width:8%"></div></div></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===== B2B / REVENDEURS ===== -->
+      <section id="b2b" class="mb-6 scroll-mt-20">
+        <h2 class="font-archivo font-extrabold text-xl text-charcoal flex items-center gap-2 mb-4">
+          <svg class="text-leaf" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/></svg>
+          B2B / Revendeurs
+        </h2>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-5">
+          <!-- Demandes à approuver -->
+          <div class="card p-5">
+            <div class="flex items-center justify-between mb-3">
+              <h3 class="font-archivo font-bold text-charcoal">Demandes d'ouverture de compte</h3>
+              <span class="text-[11px] font-bold text-amber-700 bg-amber-100 rounded-full px-2.5 py-1">3 en attente</span>
+            </div>
+            <ul class="divide-y divide-line/70 -my-1">
+              <li class="py-3 flex items-center justify-between gap-3">
+                <div class="min-w-0"><p class="text-sm font-semibold truncate">Pépinière Saint-Hyacinthe</p><p class="text-xs text-charcoal/45">Centre jardin · NEQ 1167823945 · 16 juin</p></div>
+                <div class="flex gap-1.5 shrink-0"><button class="text-[11px] font-bold text-white bg-leafdk hover:bg-forest rounded-lg px-2.5 py-1.5">Approuver</button><button class="text-[11px] font-bold text-red-600 bg-red-50 hover:bg-red-100 rounded-lg px-2.5 py-1.5">Refuser</button></div>
+              </li>
+              <li class="py-3 flex items-center justify-between gap-3">
+                <div class="min-w-0"><p class="text-sm font-semibold truncate">Hydro Culture Laval</p><p class="text-xs text-charcoal/45">Grow shop · NEQ 1148290017 · 15 juin</p></div>
+                <div class="flex gap-1.5 shrink-0"><button class="text-[11px] font-bold text-white bg-leafdk hover:bg-forest rounded-lg px-2.5 py-1.5">Approuver</button><button class="text-[11px] font-bold text-red-600 bg-red-50 hover:bg-red-100 rounded-lg px-2.5 py-1.5">Refuser</button></div>
+              </li>
+              <li class="py-3 flex items-center justify-between gap-3">
+                <div class="min-w-0"><p class="text-sm font-semibold truncate">Serres du Bas-Saint-Laurent</p><p class="text-xs text-charcoal/45">Distributeur · NEQ 1172650338 · 14 juin</p></div>
+                <div class="flex gap-1.5 shrink-0"><button class="text-[11px] font-bold text-white bg-leafdk hover:bg-forest rounded-lg px-2.5 py-1.5">Approuver</button><button class="text-[11px] font-bold text-red-600 bg-red-50 hover:bg-red-100 rounded-lg px-2.5 py-1.5">Refuser</button></div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Paliers de prix -->
+          <div class="card p-5">
+            <h3 class="font-archivo font-bold text-charcoal mb-3">Paliers de prix (selon volume)</h3>
+            <div class="overflow-x-auto -mx-5 px-5">
+              <table class="w-full text-sm" style="min-width:380px">
+                <thead><tr class="text-left text-[11px] uppercase tracking-wide text-charcoal/45 border-b border-line"><th class="py-2 pr-3 font-bold">Palier</th><th class="py-2 pr-3 font-bold text-right">Rabais</th><th class="py-2 pr-3 font-bold text-right">Seuil annuel</th><th class="py-2 font-bold text-right">Comptes</th></tr></thead>
+                <tbody class="divide-y divide-line/70">
+                  <tr><td class="py-3 pr-3"><span class="inline-flex items-center gap-2 font-semibold"><span class="w-2.5 h-2.5 rounded-full" style="background:#cd7f32"></span>Bronze</span></td><td class="py-3 pr-3 text-right font-bold">-15&nbsp;%</td><td class="py-3 pr-3 text-right text-charcoal/60">2 500&nbsp;$+</td><td class="py-3 text-right">29</td></tr>
+                  <tr><td class="py-3 pr-3"><span class="inline-flex items-center gap-2 font-semibold"><span class="w-2.5 h-2.5 rounded-full" style="background:#9ca3af"></span>Argent</span></td><td class="py-3 pr-3 text-right font-bold">-22&nbsp;%</td><td class="py-3 pr-3 text-right text-charcoal/60">10 000&nbsp;$+</td><td class="py-3 text-right">14</td></tr>
+                  <tr><td class="py-3 pr-3"><span class="inline-flex items-center gap-2 font-semibold"><span class="w-2.5 h-2.5 rounded-full" style="background:#d4af37"></span>Or</span></td><td class="py-3 pr-3 text-right font-bold">-30&nbsp;%</td><td class="py-3 pr-3 text-right text-charcoal/60">30 000&nbsp;$+</td><td class="py-3 text-right">5</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="mt-4 pt-4 border-t border-line/70 flex items-center justify-between">
+              <div><p class="text-xs text-charcoal/50 uppercase tracking-wide font-bold">Comptes revendeurs</p><p class="font-archivo font-extrabold text-2xl text-charcoal">48 actifs</p></div>
+              <button class="text-xs font-bold text-forest hover:text-leafdk">Gérer le catalogue B2B →</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== AFFILIÉS ===== -->
+      <section id="affilies" class="card p-5 mb-6 scroll-mt-20">
+        <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+          <h2 class="font-archivo font-extrabold text-lg text-charcoal flex items-center gap-2">
+            <svg class="text-leaf" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+            Affiliés
+          </h2>
+          <div class="flex items-center gap-3">
+            <div class="text-right"><p class="text-[11px] text-charcoal/50 uppercase tracking-wide font-bold">À payer ce cycle</p><p class="font-archivo font-extrabold text-xl text-forestdk">4 287,50&nbsp;$</p></div>
+            <button class="inline-flex items-center gap-1.5 bg-leaf hover:bg-leafdk text-forestnav hover:text-white font-bold text-sm px-4 py-2.5 rounded-lg transition">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+              Lancer les paiements
+            </button>
+          </div>
+        </div>
+        <div class="overflow-x-auto -mx-5 px-5">
+          <table class="w-full text-sm" style="min-width:680px">
+            <thead><tr class="text-left text-[11px] uppercase tracking-wide text-charcoal/45 border-b border-line"><th class="py-2.5 pr-4 font-bold">Affilié</th><th class="py-2.5 pr-4 font-bold">Code</th><th class="py-2.5 pr-4 font-bold text-right">Clics</th><th class="py-2.5 pr-4 font-bold text-right">Conversions</th><th class="py-2.5 pr-4 font-bold text-right">Commissions dues</th><th class="py-2.5 font-bold">Paiement</th></tr></thead>
+            <tbody class="divide-y divide-line/70">
+              <tr class="hover:bg-cream/50"><td class="py-3 pr-4 font-semibold">Jardin & Cie (blogue)</td><td class="py-3 pr-4"><code class="text-xs bg-cream rounded px-1.5 py-0.5 text-forest">JARDINCIE</code></td><td class="py-3 pr-4 text-right">3 420</td><td class="py-3 pr-4 text-right">187</td><td class="py-3 pr-4 text-right font-bold">1 642,00&nbsp;$</td><td class="py-3"><span class="text-[11px] font-bold text-amber-700 bg-amber-100 rounded-full px-2.5 py-1">En attente</span></td></tr>
+              <tr class="hover:bg-cream/50"><td class="py-3 pr-4 font-semibold">GrowTube QC</td><td class="py-3 pr-4"><code class="text-xs bg-cream rounded px-1.5 py-0.5 text-forest">GROWTUBE10</code></td><td class="py-3 pr-4 text-right">5 890</td><td class="py-3 pr-4 text-right">241</td><td class="py-3 pr-4 text-right font-bold">2 105,50&nbsp;$</td><td class="py-3"><span class="text-[11px] font-bold text-amber-700 bg-amber-100 rounded-full px-2.5 py-1">En attente</span></td></tr>
+              <tr class="hover:bg-cream/50"><td class="py-3 pr-4 font-semibold">Marc-André Potvin</td><td class="py-3 pr-4"><code class="text-xs bg-cream rounded px-1.5 py-0.5 text-forest">MAPOTVIN</code></td><td class="py-3 pr-4 text-right">1 240</td><td class="py-3 pr-4 text-right">54</td><td class="py-3 pr-4 text-right font-bold">540,00&nbsp;$</td><td class="py-3"><span class="text-[11px] font-bold text-amber-700 bg-amber-100 rounded-full px-2.5 py-1">En attente</span></td></tr>
+              <tr class="hover:bg-cream/50"><td class="py-3 pr-4 font-semibold">Hydro Passion</td><td class="py-3 pr-4"><code class="text-xs bg-cream rounded px-1.5 py-0.5 text-forest">HYDROPASS</code></td><td class="py-3 pr-4 text-right">2 010</td><td class="py-3 pr-4 text-right">96</td><td class="py-3 pr-4 text-right font-bold">0,00&nbsp;$</td><td class="py-3"><span class="text-[11px] font-bold text-leafdk bg-leaf/15 rounded-full px-2.5 py-1">Payé</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ===== SEO & ANALYTICS ===== -->
+      <section id="seo" class="mb-6 scroll-mt-20">
+        <h2 class="font-archivo font-extrabold text-xl text-charcoal flex items-center gap-2 mb-4">
+          <svg class="text-leaf" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+          SEO &amp; Analytics
+        </h2>
+
+        <!-- PSI / PageSpeed -->
+        <div class="card p-5 mb-4">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="font-archivo font-bold text-charcoal">PageSpeed Insights · mobile</h3>
+            <span class="text-[11px] font-semibold text-charcoal/50">Dernière analyse : aujourd'hui 08 h 14</span>
+          </div>
+          <div class="grid grid-cols-3 gap-4 sm:gap-6">
+            <!-- Performance gauge -->
+            <div class="flex flex-col items-center">
+              <svg width="96" height="96" viewBox="0 0 120 120">
+                <circle cx="60" cy="60" r="52" fill="none" stroke="#eef0eb" stroke-width="12"/>
+                <circle cx="60" cy="60" r="52" fill="none" stroke="#3FB44A" stroke-width="12" stroke-linecap="round" stroke-dasharray="326.7" stroke-dashoffset="42.5" transform="rotate(-90 60 60)"/>
+                <text x="60" y="68" text-anchor="middle" font-family="Archivo" font-weight="800" font-size="32" fill="#14401F">87</text>
+              </svg>
+              <span class="text-xs font-bold text-charcoal/60 mt-2 uppercase tracking-wide">Performance</span>
+            </div>
+            <!-- SEO gauge -->
+            <div class="flex flex-col items-center">
+              <svg width="96" height="96" viewBox="0 0 120 120">
+                <circle cx="60" cy="60" r="52" fill="none" stroke="#eef0eb" stroke-width="12"/>
+                <circle cx="60" cy="60" r="52" fill="none" stroke="#3FB44A" stroke-width="12" stroke-linecap="round" stroke-dasharray="326.7" stroke-dashoffset="9.8" transform="rotate(-90 60 60)"/>
+                <text x="60" y="68" text-anchor="middle" font-family="Archivo" font-weight="800" font-size="32" fill="#14401F">97</text>
+              </svg>
+              <span class="text-xs font-bold text-charcoal/60 mt-2 uppercase tracking-wide">SEO</span>
+            </div>
+            <!-- Accessibilité gauge -->
+            <div class="flex flex-col items-center">
+              <svg width="96" height="96" viewBox="0 0 120 120">
+                <circle cx="60" cy="60" r="52" fill="none" stroke="#eef0eb" stroke-width="12"/>
+                <circle cx="60" cy="60" r="52" fill="none" stroke="#f59e0b" stroke-width="12" stroke-linecap="round" stroke-dasharray="326.7" stroke-dashoffset="65.3" transform="rotate(-90 60 60)"/>
+                <text x="60" y="68" text-anchor="middle" font-family="Archivo" font-weight="800" font-size="32" fill="#14401F">80</text>
+              </svg>
+              <span class="text-xs font-bold text-charcoal/60 mt-2 uppercase tracking-wide">Accessibilité</span>
+            </div>
+          </div>
+          <!-- Core Web Vitals -->
+          <div class="mt-5 pt-4 border-t border-line/70">
+            <p class="text-[11px] font-bold uppercase tracking-wide text-charcoal/45 mb-3">Core Web Vitals (terrain · 28 j)</p>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <div class="flex items-center gap-3 bg-leaf/10 rounded-xl p-3"><span class="w-2.5 h-2.5 rounded-full bg-leaf shrink-0"></span><div><div class="text-[11px] font-bold text-charcoal/55">LCP</div><div class="font-archivo font-extrabold text-lg text-charcoal">1,9&nbsp;s</div></div><span class="ml-auto text-[10px] font-bold text-leafdk uppercase">Bon</span></div>
+              <div class="flex items-center gap-3 bg-leaf/10 rounded-xl p-3"><span class="w-2.5 h-2.5 rounded-full bg-leaf shrink-0"></span><div><div class="text-[11px] font-bold text-charcoal/55">INP</div><div class="font-archivo font-extrabold text-lg text-charcoal">142&nbsp;ms</div></div><span class="ml-auto text-[10px] font-bold text-leafdk uppercase">Bon</span></div>
+              <div class="flex items-center gap-3 bg-amber-50 rounded-xl p-3"><span class="w-2.5 h-2.5 rounded-full bg-amber-400 shrink-0"></span><div><div class="text-[11px] font-bold text-charcoal/55">CLS</div><div class="font-archivo font-extrabold text-lg text-charcoal">0,14</div></div><span class="ml-auto text-[10px] font-bold text-amber-600 uppercase">À améliorer</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- GSC + GA4 -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
+          <!-- GSC -->
+          <div class="card p-5">
+            <h3 class="font-archivo font-bold text-charcoal mb-4">Search Console · 28 derniers jours</h3>
+            <div class="grid grid-cols-2 gap-3 mb-4">
+              <div class="bg-cream/60 rounded-xl p-3"><div class="text-[11px] font-bold text-charcoal/45 uppercase">Clics</div><div class="font-archivo font-extrabold text-xl text-charcoal">18 940</div><div class="text-[11px] font-bold text-leafdk">+9,2 %</div></div>
+              <div class="bg-cream/60 rounded-xl p-3"><div class="text-[11px] font-bold text-charcoal/45 uppercase">Impressions</div><div class="font-archivo font-extrabold text-xl text-charcoal">421 k</div><div class="text-[11px] font-bold text-leafdk">+14 %</div></div>
+              <div class="bg-cream/60 rounded-xl p-3"><div class="text-[11px] font-bold text-charcoal/45 uppercase">CTR</div><div class="font-archivo font-extrabold text-xl text-charcoal">4,5 %</div><div class="text-[11px] font-bold text-red-500">-0,3 pt</div></div>
+              <div class="bg-cream/60 rounded-xl p-3"><div class="text-[11px] font-bold text-charcoal/45 uppercase">Position moy.</div><div class="font-archivo font-extrabold text-xl text-charcoal">12,4</div><div class="text-[11px] font-bold text-leafdk">▲ 1,8</div></div>
+            </div>
+            <!-- mini area graph -->
+            <svg viewBox="0 0 320 70" width="100%" height="60" preserveAspectRatio="none" class="mb-4">
+              <polyline points="0,55 40,48 80,50 120,40 160,42 200,30 240,33 280,22 320,18" fill="none" stroke="#1E5B2E" stroke-width="2"/>
+              <polygon points="0,55 40,48 80,50 120,40 160,42 200,30 240,33 280,22 320,18 320,70 0,70" fill="#1E5B2E" opacity="0.08"/>
+            </svg>
+            <div class="grid grid-cols-2 gap-4 text-xs">
+              <div><p class="font-bold text-charcoal/45 uppercase tracking-wide mb-2">Top requêtes</p><ul class="space-y-1.5 text-charcoal/75"><li class="flex justify-between"><span>engrais hydroponie québec</span><span class="font-bold">2 410</span></li><li class="flex justify-between"><span>nutriments tomates</span><span class="font-bold">1 880</span></li><li class="flex justify-between"><span>dosage engrais ml/L</span><span class="font-bold">1 320</span></li></ul></div>
+              <div><p class="font-bold text-charcoal/45 uppercase tracking-wide mb-2">Top pages</p><ul class="space-y-1.5 text-charcoal/75"><li class="flex justify-between"><span class="truncate">/boutique/terra</span><span class="font-bold">3 020</span></li><li class="flex justify-between"><span class="truncate">/calculateur</span><span class="font-bold">2 640</span></li><li class="flex justify-between"><span class="truncate">/apprendre/coco</span><span class="font-bold">1 410</span></li></ul></div>
+            </div>
+          </div>
+
+          <!-- GA4 -->
+          <div class="card p-5">
+            <h3 class="font-archivo font-bold text-charcoal mb-4">Google Analytics 4 · 30 j</h3>
+            <div class="grid grid-cols-2 gap-3 mb-4">
+              <div class="bg-cream/60 rounded-xl p-3"><div class="text-[11px] font-bold text-charcoal/45 uppercase">Utilisateurs</div><div class="font-archivo font-extrabold text-xl text-charcoal">16 720</div></div>
+              <div class="bg-cream/60 rounded-xl p-3"><div class="text-[11px] font-bold text-charcoal/45 uppercase">Sessions</div><div class="font-archivo font-extrabold text-xl text-charcoal">24 380</div></div>
+              <div class="bg-cream/60 rounded-xl p-3"><div class="text-[11px] font-bold text-charcoal/45 uppercase">Conversions</div><div class="font-archivo font-extrabold text-xl text-charcoal">774</div></div>
+              <div class="bg-cream/60 rounded-xl p-3"><div class="text-[11px] font-bold text-charcoal/45 uppercase">Taux de rebond</div><div class="font-archivo font-extrabold text-xl text-charcoal">38,6 %</div></div>
+            </div>
+            <p class="text-[11px] font-bold text-charcoal/45 uppercase tracking-wide mb-3">Sources de trafic</p>
+            <div class="flex items-center gap-5">
+              <!-- donut -->
+              <svg width="116" height="116" viewBox="0 0 42 42" class="shrink-0">
+                <circle cx="21" cy="21" r="15.915" fill="#fff"/>
+                <circle cx="21" cy="21" r="15.915" fill="none" stroke="#3FB44A" stroke-width="7" stroke-dasharray="44 56" stroke-dashoffset="25"/>
+                <circle cx="21" cy="21" r="15.915" fill="none" stroke="#1E5B2E" stroke-width="7" stroke-dasharray="27 73" stroke-dashoffset="-19"/>
+                <circle cx="21" cy="21" r="15.915" fill="none" stroke="#6B5235" stroke-width="7" stroke-dasharray="18 82" stroke-dashoffset="-46"/>
+                <circle cx="21" cy="21" r="15.915" fill="none" stroke="#cbd0c6" stroke-width="7" stroke-dasharray="11 89" stroke-dashoffset="-64"/>
+                <text x="21" y="20" text-anchor="middle" font-family="Archivo" font-weight="800" font-size="6" fill="#14401F">24,4k</text>
+                <text x="21" y="26" text-anchor="middle" font-family="Inter" font-size="3" fill="#9aa295">sessions</text>
+              </svg>
+              <ul class="text-xs space-y-1.5 flex-1">
+                <li class="flex items-center justify-between"><span class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-sm bg-leaf"></span>Recherche organique</span><span class="font-bold">44 %</span></li>
+                <li class="flex items-center justify-between"><span class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-sm bg-forest"></span>Direct</span><span class="font-bold">27 %</span></li>
+                <li class="flex items-center justify-between"><span class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-sm bg-soil"></span>Réseaux sociaux</span><span class="font-bold">18 %</span></li>
+                <li class="flex items-center justify-between"><span class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-sm" style="background:#cbd0c6"></span>Référents</span><span class="font-bold">11 %</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Clarity -->
+        <div class="card p-5">
+          <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+            <h3 class="font-archivo font-bold text-charcoal">Microsoft Clarity · comportement</h3>
+            <a href="#" class="text-xs font-bold text-forest hover:text-leafdk">Ouvrir Clarity →</a>
+          </div>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <div class="bg-cream/60 rounded-xl p-3"><div class="text-[11px] font-bold text-charcoal/45 uppercase">Sessions enreg.</div><div class="font-archivo font-extrabold text-xl text-charcoal">9 240</div></div>
+            <div class="bg-cream/60 rounded-xl p-3"><div class="text-[11px] font-bold text-charcoal/45 uppercase">Rage clicks</div><div class="font-archivo font-extrabold text-xl text-red-600">128</div></div>
+            <div class="bg-cream/60 rounded-xl p-3"><div class="text-[11px] font-bold text-charcoal/45 uppercase">Dead clicks</div><div class="font-archivo font-extrabold text-xl text-amber-600">312</div></div>
+            <div class="bg-cream/60 rounded-xl p-3"><div class="text-[11px] font-bold text-charcoal/45 uppercase">Score frustration</div><div class="font-archivo font-extrabold text-xl text-charcoal">Faible</div></div>
+          </div>
+          <div class="mt-4 flex items-center gap-3 bg-forestnav text-cream rounded-xl p-4">
+            <svg class="text-leaf shrink-0" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            <p class="text-xs leading-snug">Carte de chaleur disponible sur <strong class="text-white">/boutique</strong> et <strong class="text-white">/calculateur</strong>. Concentration de rage clicks détectée sur l'ancien sélecteur de format — à revoir.</p>
+          </div>
+        </div>
+      </section>
+
+      <footer class="text-center text-xs text-charcoal/40 py-6">
+        Fred T. Lizer · Console d'administration — maquette de présentation · données fictives
+      </footer>
+
+    </main>
+  </div>
+</div>
+
+<script>
+  // Sidebar mobile
+  const sidebar = document.getElementById('sidebar');
+  const overlay = document.getElementById('overlay');
+  const burger = document.getElementById('burger');
+  function openSidebar(){ sidebar.classList.add('open'); overlay.classList.remove('hidden'); }
+  function closeSidebar(){ sidebar.classList.remove('open'); overlay.classList.add('hidden'); }
+  burger.addEventListener('click', openSidebar);
+  overlay.addEventListener('click', closeSidebar);
+  // Active nav on click + close on mobile
+  document.querySelectorAll('#sidebar .nav-link').forEach(link => {
+    link.addEventListener('click', e => {
+      document.querySelectorAll('#sidebar .nav-link').forEach(l => l.classList.remove('active'));
+      link.classList.add('active');
+      if (window.innerWidth < 1024) closeSidebar();
+    });
+  });
+</script>
+</body>
+</html>

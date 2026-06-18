@@ -59,9 +59,11 @@ const main = [
   {f:'sections/portail-affilie.html', n:'Portail affilié (connecté)', d:'Dashboard : lien/code, stats, commissions, demande de paiement, assets.', t:'Plugin'},
   {f:'sections/comparatif.html', n:'Comparatif vs compétition', d:'Nos avantages (fonctionnalités + esthétique) vs Gaia, AN, GH, GreenPlanet.', t:'Vente'},
   {f:'sections/business-case.html', n:'Business case', d:'Techno des grandes marques vs WooCommerce : tout inclus, sécurité, SEO/IA, ROI.', t:'Vente'},
+  {f:'sections/subventions.html', n:'Programmes de subvention', d:'Aides QC + fédérales pour refonte e-commerce, SEO et automatisation (appui).', t:'Subvention'},
+  {f:'sections/admin.html', n:'Backend de gestion (admin)', d:'Tableau de bord: B2C, B2B/paliers, affiliés, SEO (PSI/GSC/GA4).', t:'Admin'},
 ];
 
-const tagColor = {'Fusion':'#3FB44A','B2C':'#16C46A','B2B':'#3FA3FF','Différenciateur':'#F6C544','Plugin':'#C56BFF'};
+const tagColor = {'Fusion':'#3FB44A','B2C':'#16C46A','B2B':'#3FA3FF','Différenciateur':'#F6C544','Plugin':'#C56BFF','Vente':'#F6C544','Subvention':'#37C2C2','Admin':'#FF8A3D'};
 document.getElementById('grid-main').innerHTML = main.map(x=>`
   <a href="${x.f}" class="group block rounded-xl bg-white/5 border border-white/10 p-5 hover:border-[#16C46A]/60 hover:bg-white/[0.07] transition">
     <div class="flex items-center justify-between">
